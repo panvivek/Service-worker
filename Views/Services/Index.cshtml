@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Service>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Include Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="~/css/Services.css">
+
+<div class="container">
+    <h1 class="text-center mb-4">Our Services</h1>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <!-- Image -->
+                    <img src="@Url.Content(item.ImageUrl)" class="card-img-top img-fluid rounded-circle mx-auto d-block mt-4" alt="@item.Name">
+
+                    <div class="card-body text-center">
+                        <!-- Service Details -->
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                        <!-- Action Buttons -->
+                        <div class="text-center">
+                            <a asp-action="#" asp-route-id="@item.Id" class="btn btn-primary btn-sm">View available Workers</a>
+                         <!--   <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary btn-sm">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                               -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Include Bootstrap JS (Optional) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
