@@ -10,5 +10,6 @@ namespace ServiceWorkerWebsite.Data
         }
 
         public DbSet<Service> Services_List { get; set; }
+        public DbSet<Worker> Worker_List { get; set; }
     }
 }

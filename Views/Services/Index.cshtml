@@ -27,7 +27,9 @@
                         <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
                         <!-- Action Buttons -->
                         <div class="text-center">
-                            <a asp-action="#" asp-route-id="@item.Id" class="btn btn-primary btn-sm">View available Workers</a>
+                            <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Workers" asp-route-speciality="@item.Name" asp-action="Index">View available Workers</a>
+
+                           <!-- <a asp-action="#" asp-route-id="@item.Id" class="btn btn-primary btn-sm">View available Workers</a> -->
                          <!--   <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
                             <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary btn-sm">Details</a>
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>

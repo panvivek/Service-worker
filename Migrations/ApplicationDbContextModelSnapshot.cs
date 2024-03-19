@@ -45,6 +45,38 @@ namespace ServiceWorkerWebsite.Migrations
 
                     b.ToTable("Services_List");
                 });
+
+            modelBuilder.Entity("Worker", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Availability_Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Ratings")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Reviews")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Speciality")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Worker_List");
+                });
 #pragma warning restore 612, 618
         }
     }
