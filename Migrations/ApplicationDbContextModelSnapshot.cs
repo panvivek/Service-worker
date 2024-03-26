@@ -23,7 +23,7 @@ namespace ServiceWorkerWebsite.Migrations
 
             modelBuilder.Entity("Service", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("Service_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -41,14 +41,14 @@ namespace ServiceWorkerWebsite.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Service_Id");
 
                     b.ToTable("Services_List");
                 });
 
             modelBuilder.Entity("Worker", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("Worke_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -73,7 +73,7 @@ namespace ServiceWorkerWebsite.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Worke_Id");
 
                     b.ToTable("Worker_List");
                 });

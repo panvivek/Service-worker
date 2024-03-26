@@ -29,10 +29,8 @@
                         <div class="text-center">
                             <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Workers" asp-route-speciality="@item.Name" asp-action="Index">View available Workers</a>
 
-                           <!-- <a asp-action="#" asp-route-id="@item.Id" class="btn btn-primary btn-sm">View available Workers</a> -->
-                         <!--   <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
-                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary btn-sm">Details</a>
-                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                         
+                            <a asp-action="Delete" asp-route-id="@item.Service_Id" class="btn btn-danger btn-sm">Delete</a>
                                -->
                         </div>
                     </div>
@@ -40,6 +38,8 @@
             </div>
         }
     </div>
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/279805d3-1648-4c00-becc-3fb8c04d195d/webchat/config.js" defer></script>
 </div>
 
 <!-- Include Bootstrap JS (Optional) -->

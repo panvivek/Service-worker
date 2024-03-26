@@ -35,7 +35,7 @@ namespace ServiceWorkerWebsite.Controllers
             }
 
             var service = await _context.Services_List
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Service_Id == id);
             if (service == null)
             {
                 return NotFound();
@@ -89,7 +89,7 @@ namespace ServiceWorkerWebsite.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ImageUrl,Description")] Service service)
         {
-            if (id != service.Id)
+            if (id != service.Service_Id)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace ServiceWorkerWebsite.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ServiceExists(service.Id))
+                    if (!ServiceExists(service.Service_Id))
                     {
                         return NotFound();
                     }
@@ -126,7 +126,7 @@ namespace ServiceWorkerWebsite.Controllers
             }
 
             var service = await _context.Services_List
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Service_Id == id);
             if (service == null)
             {
                 return NotFound();
@@ -156,7 +156,7 @@ namespace ServiceWorkerWebsite.Controllers
 
         private bool ServiceExists(int id)
         {
-          return (_context.Services_List?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Services_List?.Any(e => e.Service_Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -56,7 +56,7 @@ public async Task<IActionResult> Index(string speciality)
             }
 
             var worker = await _context.Worker_List
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Worke_Id == id);
             if (worker == null)
             {
                 return NotFound();
@@ -110,7 +110,7 @@ public async Task<IActionResult> Index(string speciality)
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Speciality,Availability_Status,Ratings,Reviews")] Worker worker)
         {
-            if (id != worker.Id)
+            if (id != worker.Worke_Id)
             {
                 return NotFound();
             }
@@ -124,7 +124,7 @@ public async Task<IActionResult> Index(string speciality)
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!WorkerExists(worker.Id))
+                    if (!WorkerExists(worker.Worke_Id))
                     {
                         return NotFound();
                     }
@@ -147,7 +147,7 @@ public async Task<IActionResult> Index(string speciality)
             }
 
             var worker = await _context.Worker_List
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Worke_Id == id);
             if (worker == null)
             {
                 return NotFound();
@@ -177,7 +177,7 @@ public async Task<IActionResult> Index(string speciality)
 
         private bool WorkerExists(int id)
         {
-          return (_context.Worker_List?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Worker_List?.Any(e => e.Worke_Id == id)).GetValueOrDefault();
         }
     }
 }
