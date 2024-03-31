@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Worker>
+
+@{
+    ViewData["Title"] = "Workers Available";
+}
+
+<h1>Workers Available</h1>
+
+<!--
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+-->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speciality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Availability_Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ratings)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reviews)
+            </th>
+
+
+            <th>Available Time Slots</th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Speciality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Availability_Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ratings)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reviews)
+            </td>
+                <td>
+                    @if (item.AvailableTimeSlots != null && item.AvailableTimeSlots.Any())
+                    {
+                        @foreach (var slot in item.AvailableTimeSlots.Where(ts => !ts.IsBooked))
+                        {
+                            <div>@slot.StartTime.ToString("HH:mm") - @slot.EndTime.ToString("HH:mm")</div>
+                        }
+                    }
+                    else
+                    {
+                        <text>No available slots</text>
+                    }
+            <td>
+                    <a class="btn btn-primary btn-sm" asp-controller="Bookings" asp-action="Create" asp-route-workerId="@item.Worke_Id">Book</a> 
+
+                <!--
+                <a asp-action="Edit" asp-route-id="@item.Worke_Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Worke_Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Worke_Id">Delete</a>
+                -->
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
