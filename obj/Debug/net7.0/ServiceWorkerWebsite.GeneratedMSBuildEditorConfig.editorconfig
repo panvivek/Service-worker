@@ -9,111 +9,39 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ServiceWorkerWebsite
 build_property.RootNamespace = ServiceWorkerWebsite
-build_property.ProjectDir = C:\Users\freya\OneDrive - Sheridan College\Desktop\Service-wor\
+build_property.ProjectDir = C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 5\ServiceWorkerWebsite\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\freya\OneDrive - Sheridan College\Desktop\Service-wor
+build_property.MSBuildProjectDirectory = C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 5\ServiceWorkerWebsite
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Bookings/create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ3NcY3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Home/Index.cshtml]
+[C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 5/ServiceWorkerWebsite/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Home/Privacy.cshtml]
+[C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 5/ServiceWorkerWebsite/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Paypal/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5cGFsXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Paypal/Success.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5cGFsXFN1Y2Nlc3MuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Services/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Services/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Services/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Services/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Services/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Shared/Error.cshtml]
+[C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 5/ServiceWorkerWebsite/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 5/ServiceWorkerWebsite/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/TimeSlots/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZVNsb3RzXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/TimeSlots/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZVNsb3RzXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/TimeSlots/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZVNsb3RzXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/TimeSlots/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZVNsb3RzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/TimeSlots/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZVNsb3RzXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Workers/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya2Vyc1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Workers/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya2Vyc1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Workers/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya2Vyc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Workers/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya2Vyc1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Workers/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya2Vyc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/_ViewImports.cshtml]
+[C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 5/ServiceWorkerWebsite/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/_ViewStart.cshtml]
+[C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 5/ServiceWorkerWebsite/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/freya/OneDrive - Sheridan College/Desktop/Service-wor/Views/Shared/_Layout.cshtml]
+[C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 5/ServiceWorkerWebsite/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-9jpqodmd63
