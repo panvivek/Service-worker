@@ -15,6 +15,6 @@
     <WebStackScaffolding_DbContextTypeFullName>ServiceWorkerWebsite.Data.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
-    <NameOfLastUsedPublishProfile>C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\Properties\PublishProfiles\ServiceWorkerInterface - Web Deploy2.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\.github\workflows\ServiceWorkerInterface.yml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
