@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BwszUsfTldHtJUyApTqn5q1w5GOTncvAw/rTWsiEoYE=",
+  "Hash": "YphmV0IbS6g7P971BM+cwOZbS/9k9eOc+dQHSjPNzwA=",
   "Source": "ServiceWorkerWebsite",
   "BasePath": "_content/ServiceWorkerWebsite",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\css\\Workers.css",
+      "SourceId": "ServiceWorkerWebsite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\",
+      "BasePath": "_content/ServiceWorkerWebsite",
+      "RelativePath": "css/Workers.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Workers.css"
     },
     {
       "Identity": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\favicon.ico",
