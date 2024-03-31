@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 5\\ServiceWorkerWebsite\\ServiceWorkerWebsite.csproj": {}
+    "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\ServiceWorkerWebsite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 5\\ServiceWorkerWebsite\\ServiceWorkerWebsite.csproj": {
+    "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\ServiceWorkerWebsite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 5\\ServiceWorkerWebsite\\ServiceWorkerWebsite.csproj",
+        "projectUniqueName": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\ServiceWorkerWebsite.csproj",
         "projectName": "ServiceWorkerWebsite",
-        "projectPath": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 5\\ServiceWorkerWebsite\\ServiceWorkerWebsite.csproj",
-        "packagesPath": "C:\\Users\\freya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 5\\ServiceWorkerWebsite\\obj\\",
+        "projectPath": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\ServiceWorkerWebsite.csproj",
+        "packagesPath": "C:\\Users\\ompat\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\freya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ompat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -38,16 +38,31 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.17, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -67,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
