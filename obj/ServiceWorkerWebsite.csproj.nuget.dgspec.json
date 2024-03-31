@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\freya\\OneDrive - Sheridan College\\Desktop\\Service-wor\\ServiceWorkerWebsite.csproj": {}
+    "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 5\\ServiceWorkerWebsite\\ServiceWorkerWebsite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\freya\\OneDrive - Sheridan College\\Desktop\\Service-wor\\ServiceWorkerWebsite.csproj": {
+    "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 5\\ServiceWorkerWebsite\\ServiceWorkerWebsite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\freya\\OneDrive - Sheridan College\\Desktop\\Service-wor\\ServiceWorkerWebsite.csproj",
+        "projectUniqueName": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 5\\ServiceWorkerWebsite\\ServiceWorkerWebsite.csproj",
         "projectName": "ServiceWorkerWebsite",
-        "projectPath": "C:\\Users\\freya\\OneDrive - Sheridan College\\Desktop\\Service-wor\\ServiceWorkerWebsite.csproj",
+        "projectPath": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 5\\ServiceWorkerWebsite\\ServiceWorkerWebsite.csproj",
         "packagesPath": "C:\\Users\\freya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\freya\\OneDrive - Sheridan College\\Desktop\\Service-wor\\obj\\",
+        "outputPath": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 5\\ServiceWorkerWebsite\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -48,26 +48,6 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[7.0.17, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[7.0.17, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.17, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[7.0.12, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
