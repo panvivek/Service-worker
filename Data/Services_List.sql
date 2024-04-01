@@ -1,8 +1,8 @@
-﻿-- Enable identity insert
-SET IDENTITY_INSERT Services_List ON;
+﻿
+
 
 -- Insert data into the Services_List table
-INSERT INTO Services_List (Id, Name, ImageUrl, Description) VALUES
+INSERT INTO Services_List (Service_Id, Name, ImageUrl, Description) VALUES
 (1, 'Plumbing', '/images/plumbing.jpg', 'We offer comprehensive plumbing services including installation, repair, and maintenance of pipes, fixtures, and fittings.'),
 (2, 'Electrician', '/images/electrician.jpg', 'Our electricians are skilled in electrical installation, repair, and troubleshooting for residential and commercial properties.'),
 (3, 'Beautician', '/images/beautician.jpg', 'Our beauticians provide a range of beauty services including skincare, haircare, and makeup application.'),
@@ -29,5 +29,3 @@ INSERT INTO Services_List (Id, Name, ImageUrl, Description) VALUES
 (24, 'Event Planning/Management', '/images/event-planning.jpg', 'Our event planning and management services cover all aspects of event coordination, ensuring successful and memorable occasions.'),
 (25, 'Mobile Phone Repair', '/images/mobile-phone-repair.jpg', 'We repair and service mobile phones and tablets, addressing issues such as screen damage, battery replacement, and software troubleshooting.');
 
--- Disable identity insert
-SET IDENTITY_INSERT Services_List OFF;
