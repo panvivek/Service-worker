@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4Khk6kFsZyyLFaU4Q3L22O2PcthAwQxHbARj+EAVmwBKmhfGjk87zF5wNHc/ZFYqWvnG92W6NwwaSFr/5hRlfw==",
+  "dgSpecHash": "QPmWEwNX5pUAyusX5J4KujeDzwdRZq3A7yz4TaIeA5W2gmm0uccfJeJp5BPJ8n/QqjRWGlzGmr9s3YQQNu/oMw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\ServiceWorkerWebsite.csproj",
   "expectedPackageFiles": [
@@ -80,6 +80,7 @@
     "C:\\Users\\ompat\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.17\\microsoft.entityframeworkcore.abstractions.7.0.17.nupkg.sha512",
     "C:\\Users\\ompat\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.17\\microsoft.entityframeworkcore.analyzers.7.0.17.nupkg.sha512",
     "C:\\Users\\ompat\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.17\\microsoft.entityframeworkcore.design.7.0.17.nupkg.sha512",
+    "C:\\Users\\ompat\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\7.0.17\\microsoft.entityframeworkcore.inmemory.7.0.17.nupkg.sha512",
     "C:\\Users\\ompat\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.17\\microsoft.entityframeworkcore.relational.7.0.17.nupkg.sha512",
     "C:\\Users\\ompat\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.17\\microsoft.entityframeworkcore.sqlserver.7.0.17.nupkg.sha512",
     "C:\\Users\\ompat\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.17\\microsoft.entityframeworkcore.tools.7.0.17.nupkg.sha512",
@@ -228,12 +229,5 @@
     "C:\\Users\\ompat\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\ompat\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

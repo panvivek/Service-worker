@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PaypalCheckoutExample.Clients;
 using ServiceWorkerWebsite.Data;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,7 @@ builder.Services.AddSingleton(x =>
 
 // Adding Database service coonection
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<ApplicationDbContext>(optionsBuilder => optionsBuilder.UseInMemoryDatabase("InMemoryDb"));
 
 var app = builder.Build();
 

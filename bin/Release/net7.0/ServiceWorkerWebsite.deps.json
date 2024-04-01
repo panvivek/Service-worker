@@ -9,6 +9,7 @@
       "ServiceWorkerWebsite/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.17",
+          "Microsoft.EntityFrameworkCore.InMemory": "7.0.17",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.17",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.17",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.12"
@@ -1181,6 +1182,17 @@
         },
         "runtime": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.Design.dll": {
+            "assemblyVersion": "7.0.17.0",
+            "fileVersion": "7.0.1724.11506"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.InMemory/7.0.17": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.17"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
             "assemblyVersion": "7.0.17.0",
             "fileVersion": "7.0.1724.11506"
           }
@@ -3041,6 +3053,13 @@
       "sha512": "sha512-tGUDMY1ghDKfrpO/xVsSUSnQv79bGJRYI9l1iyP8f5G56XXKpyc5Owy0tyvZl3XxZhs1YnkWqARICtsDiH98PQ==",
       "path": "microsoft.entityframeworkcore.design/7.0.17",
       "hashPath": "microsoft.entityframeworkcore.design.7.0.17.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/7.0.17": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7u73kzVsXl9ZsMQjCNVQ7CVxKpSPdsEr1eemI0g/acHTfDBIlEbW1zyf4VAMVsjJjgRdLEELkT45mUrjX3n82w==",
+      "path": "microsoft.entityframeworkcore.inmemory/7.0.17",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.7.0.17.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/7.0.17": {
       "type": "package",
