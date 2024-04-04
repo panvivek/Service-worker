@@ -6,6 +6,7 @@ namespace ServiceWorkerWebsite.Models
     {
         [Key]
         public int Id { get; set; }
+       
         public int Service_Id { get; set; }
         public int Worke_Id { get; set; }
         public DateTime BookingDate { get; set; }

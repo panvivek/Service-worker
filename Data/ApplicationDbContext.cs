@@ -12,8 +12,9 @@ namespace ServiceWorkerWebsite.Data
 
         public DbSet<Service> Services_List { get; set; }
         public DbSet<Worker> Worker_List { get; set; }
+        public DbSet<Booking> Booking { get; set; }
 
-        public DbSet<ServiceWorkerWebsite.Models.Booking> Booking { get; set; } = default!;
+    //    public DbSet<ServiceWorkerWebsite.Models.Booking> Booking { get; set; } = default!;
 
         public DbSet<TimeSlot> TimeSlot_List { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

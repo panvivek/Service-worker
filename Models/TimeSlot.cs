@@ -8,6 +8,7 @@ public class TimeSlot
 {
     [Key]
     public int TimeSlotId { get; set; }
+   
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
     public bool IsBooked { get; set; } = false; // To track if the slot is already booked
