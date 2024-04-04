@@ -5,6 +5,30 @@
       "PackagePath": "staticwebassets\\ServiceWorkerWebsite.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\WorkerProfilePic\\0.jpg",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\WorkerProfilePic\\1.jpg",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\WorkerProfilePic\\2.jpg",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\WorkerProfilePic\\3.jpg",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\WorkerProfilePic\\4.jpg",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\WorkerProfilePic\\5.jpg",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\5.jpg"
+    },
+    {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\css\\Services.css",
       "PackagePath": "staticwebassets\\css\\Services.css"
     },

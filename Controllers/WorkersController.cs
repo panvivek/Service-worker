@@ -17,72 +17,25 @@ namespace ServiceWorkerWebsite.Controllers
         {
             _context = context;
         }
-
+       
         // GET: Workers
-        /*public async Task<IActionResult> Index(string speciality)
+        public async Task<IActionResult> Index(int serviceId)
         {
-            if (!string.IsNullOrEmpty(speciality))
-            {
-                // Filter workers by speciality (assuming Name is the speciality)
-                var workers = await _context.Worker_List
-                    .Where(w => w.Speciality == speciality)
-                    .ToListAsync();
+            var serviceWithWorkers = await _context.Services_List
+              .Include(s => s.WorkerServices)
+              .ThenInclude(ws => ws.Worker)
+              .FirstOrDefaultAsync(s => s.Service_Id == serviceId);
 
-                return View(workers);
-            }
-            else
+            if (serviceWithWorkers == null)
             {
-                // If no speciality is provided, return all workers
-                return View(await _context.Worker_List.ToListAsync());
-            }
-        } */
-
-        public async Task<IActionResult> Index(string speciality)
-        {
-            // Query to fetch workers, optionally filtered by speciality
-            var workersQuery = _context.Worker_List.AsQueryable();
-
-            if (!string.IsNullOrEmpty(speciality))
-            {
-                // Filter by speciality
-                workersQuery = workersQuery.Where(w => w.Speciality == speciality);
+                return NotFound();
             }
 
-            // Include AvailableTimeSlots navigation property
-            var workersWithSlots = workersQuery.Select(worker => new
-            {
-                Worker = worker,
-                AvailableTimeSlots = _context.TimeSlot_List.Where(ts => ts.Worke_Id == worker.Worke_Id && !ts.IsBooked).ToList()
-            }).ToListAsync();
-
-            // Map the result to your ViewModel or directly to your view, if applicable
-            var workers = (await workersWithSlots).Select(ws => new Worker
-            {
-                Worke_Id = ws.Worker.Worke_Id,
-                Name = ws.Worker.Name,
-                Speciality = ws.Worker.Speciality,
-                Availability_Status = ws.Worker.Availability_Status,
-                Ratings = ws.Worker.Ratings,
-                Reviews = ws.Worker.Reviews,
-
-                // Other properties...
-                AvailableTimeSlots = ws.AvailableTimeSlots // Assuming your ViewModel has a property for AvailableTimeSlots
-            }).ToList();
+            // Extract the workers associated with the service
+            var workers = serviceWithWorkers.WorkerServices.Select(ws => ws.Worker);
 
             return View(workers);
         }
-
-
-
-
-        // GET: Workers
-        /* public async Task<IActionResult> Index()
-         {
-               return _context.Worker_List != null ? 
-                           View(await _context.Worker_List.ToListAsync()) :
-                           Problem("Entity set 'ApplicationDbContext.Worker_List'  is null.");
-         }
-        */
 
         // GET: Workers/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -93,7 +46,7 @@ namespace ServiceWorkerWebsite.Controllers
             }
 
             var worker = await _context.Worker_List
-                .FirstOrDefaultAsync(m => m.Worke_Id == id);
+                .FirstOrDefaultAsync(m => m.Worker_Id == id);
             if (worker == null)
             {
                 return NotFound();
@@ -113,7 +66,7 @@ namespace ServiceWorkerWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Worke_Id,Name,Speciality,Availability_Status,Ratings,Reviews")] Worker worker)
+        public async Task<IActionResult> Create([Bind("Worker_Id,ProfilePic_Id,Name,Availability_Status,Ratings,Reviews,Price")] Worker worker)
         {
             if (ModelState.IsValid)
             {
@@ -145,9 +98,9 @@ namespace ServiceWorkerWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Worke_Id,Name,Speciality,Availability_Status,Ratings,Reviews")] Worker worker)
+        public async Task<IActionResult> Edit(int id, [Bind("Worker_Id,ProfilePic_Id,Name,Availability_Status,Ratings,Reviews,Price")] Worker worker)
         {
-            if (id != worker.Worke_Id)
+            if (id != worker.Worker_Id)
             {
                 return NotFound();
             }
@@ -161,7 +114,7 @@ namespace ServiceWorkerWebsite.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!WorkerExists(worker.Worke_Id))
+                    if (!WorkerExists(worker.Worker_Id))
                     {
                         return NotFound();
                     }
@@ -184,7 +137,7 @@ namespace ServiceWorkerWebsite.Controllers
             }
 
             var worker = await _context.Worker_List
-                .FirstOrDefaultAsync(m => m.Worke_Id == id);
+                .FirstOrDefaultAsync(m => m.Worker_Id == id);
             if (worker == null)
             {
                 return NotFound();
@@ -214,7 +167,7 @@ namespace ServiceWorkerWebsite.Controllers
 
         private bool WorkerExists(int id)
         {
-          return (_context.Worker_List?.Any(e => e.Worke_Id == id)).GetValueOrDefault();
+          return _context.Worker_List.Any(e => e.Worker_Id == id);
         }
     }
 }

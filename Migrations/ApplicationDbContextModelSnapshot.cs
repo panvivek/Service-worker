@@ -109,11 +109,11 @@ namespace ServiceWorkerWebsite.Migrations
 
             modelBuilder.Entity("Worker", b =>
                 {
-                    b.Property<int>("Worke_Id")
+                    b.Property<int>("Worker_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Worke_Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Worker_Id"));
 
                     b.Property<string>("Availability_Status")
                         .HasColumnType("nvarchar(max)");
@@ -124,23 +124,36 @@ namespace ServiceWorkerWebsite.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<string>("ProfilePic_Id")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("Ratings")
                         .HasColumnType("float");
 
                     b.Property<string>("Reviews")
                         .HasColumnType("nvarchar(max)");
 
+                    b.HasKey("Worker_Id");
+
+                    b.ToTable("Worker_List");
+                });
+
+            modelBuilder.Entity("WorkerService", b =>
+                {
+                    b.Property<int>("Worker_Id")
+                        .HasColumnType("int");
+
                     b.Property<int>("Service_Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Speciality")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("WorkerServiceId")
+                        .HasColumnType("int");
 
-                    b.HasKey("Worke_Id");
+                    b.HasKey("Worker_Id", "Service_Id");
 
                     b.HasIndex("Service_Id");
 
-                    b.ToTable("Worker_List");
+                    b.ToTable("WorkerServices");
                 });
 
             modelBuilder.Entity("ServiceWorkerWebsite.Models.Booking", b =>
@@ -165,20 +178,35 @@ namespace ServiceWorkerWebsite.Migrations
                     b.Navigation("Worker");
                 });
 
-            modelBuilder.Entity("Worker", b =>
+            modelBuilder.Entity("WorkerService", b =>
                 {
                     b.HasOne("Service", "Service")
-                        .WithMany()
+                        .WithMany("WorkerServices")
                         .HasForeignKey("Service_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Worker", "Worker")
+                        .WithMany("WorkerServices")
+                        .HasForeignKey("Worker_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Service");
+
+                    b.Navigation("Worker");
+                });
+
+            modelBuilder.Entity("Service", b =>
+                {
+                    b.Navigation("WorkerServices");
                 });
 
             modelBuilder.Entity("Worker", b =>
                 {
                     b.Navigation("AvailableTimeSlots");
+
+                    b.Navigation("WorkerServices");
                 });
 #pragma warning restore 612, 618
         }
