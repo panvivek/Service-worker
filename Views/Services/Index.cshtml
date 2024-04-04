@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Service>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Our Services";
 }
 
 <!-- Include Bootstrap CSS -->
@@ -9,31 +9,26 @@
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="~/css/Services.css">
+<!--<link rel="stylesheet" href="~/css/TRANSGLASS.css"> -->
 
 <div class="container">
-    <h1 class="text-center mb-4">Our Services</h1>
+    <h1 class="text-center mb-5">@ViewData["Title"]</h1>
 
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow-sm">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-sm service-card" data-tilt data-tilt-max="20" data-tilt-speed="400">
                     <!-- Image -->
-                    <img src="@Url.Content(item.ImageUrl)" class="card-img-top img-fluid rounded-circle mx-auto d-block mt-4" alt="@item.Name">
+                    <img src="@Url.Content(item.ImageUrl)" class="card-img-top service-img" alt="@item.Name">
 
                     <div class="card-body text-center">
                         <!-- Service Details -->
-                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                        <h5 class="card-title service-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                        <p class="card-text service-description">@Html.DisplayFor(modelItem => item.Description)</p>
                         <!-- Action Buttons -->
                         <div class="text-center">
-                            <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Workers" asp-route-speciality="@item.Name" asp-action="Index">View available Workers</a>
-
-                           <!-- <a asp-action="#" asp-route-id="@item.Service_Id" class="btn btn-primary btn-sm">View available Workers</a> -->
-                         <!--   <a asp-action="Edit" asp-route-id="@item.Service_Id" class="btn btn-primary btn-sm">Edit</a>
-                            <a asp-action="Details" asp-route-id="@item.Service_Id" class="btn btn-secondary btn-sm">Details</a>
-                            <a asp-action="Delete" asp-route-id="@item.Service_Id" class="btn btn-danger btn-sm">Delete</a>
-                               -->
+                            <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Workers" asp-route-speciality="@item.Name" asp-action="Index">View Available Workers</a>
                         </div>
                     </div>
                 </div>
@@ -44,3 +39,12 @@
 
 <!-- Include Bootstrap JS (Optional) -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="~/js/vanilla-tilt.js"></script>
+<script>
+    VanillaTilt.init(document.querySelectorAll(".service-card"), {
+        max: 20,
+        speed: 400,
+        glare: true,
+        "max-glare": 1
+    });
+</script>

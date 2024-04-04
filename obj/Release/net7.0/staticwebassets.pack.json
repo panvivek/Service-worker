@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\Services.css"
     },
     {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\css\\TRANSGLASS.CSS",
+      "PackagePath": "staticwebassets\\css\\TRANSGLASS.CSS"
+    },
+    {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\css\\Workers.css",
       "PackagePath": "staticwebassets\\css\\Workers.css"
     },
@@ -127,6 +131,10 @@
     {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\js\\vanilla-tilt.js",
+      "PackagePath": "staticwebassets\\js\\vanilla-tilt.js"
     },
     {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\wwwroot\\lib\\bootstrap\\LICENSE",

@@ -505,3 +505,12 @@ C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\
 C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\bin\Release\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\bin\Release\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\bin\Release\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\bin\Release\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\bin\Release\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\bin\Release\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\bin\Release\net7.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\bin\Release\net7.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\bin\Release\net7.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\bin\Release\net7.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\bin\Release\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\ompat\OneDrive\Desktop\college\semesters\5th Semester\Capstone Project\Service_Worker_Interface\obj\Release\net7.0\ServiceWorkerWebsite.MvcApplicationPartsAssemblyInfo.cs
