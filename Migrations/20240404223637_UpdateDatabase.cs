@@ -51,7 +51,7 @@ namespace ServiceWorkerWebsite.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Service_Id = table.Column<int>(type: "int", nullable: false),
-                    Worke_Id = table.Column<int>(type: "int", nullable: false),
+                    Worker_Id = table.Column<int>(type: "int", nullable: false),
                     BookingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -78,14 +78,14 @@ namespace ServiceWorkerWebsite.Migrations
                     StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsBooked = table.Column<bool>(type: "bit", nullable: false),
-                    Worke_Id = table.Column<int>(type: "int", nullable: false)
+                    Worker_Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TimeSlot_List", x => x.TimeSlotId);
                     table.ForeignKey(
-                        name: "FK_TimeSlot_List_Worker_List_Worke_Id",
-                        column: x => x.Worke_Id,
+                        name: "FK_TimeSlot_List_Worker_List_Worker_Id",
+                        column: x => x.Worker_Id,
                         principalTable: "Worker_List",
                         principalColumn: "Worker_Id",
                         onDelete: ReferentialAction.Cascade);
@@ -122,9 +122,9 @@ namespace ServiceWorkerWebsite.Migrations
                 column: "Service_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TimeSlot_List_Worke_Id",
+                name: "IX_TimeSlot_List_Worker_Id",
                 table: "TimeSlot_List",
-                column: "Worke_Id");
+                column: "Worker_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_WorkerServices_Service_Id",

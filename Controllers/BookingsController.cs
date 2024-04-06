@@ -6,93 +6,100 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ServiceWorkerWebsite.Data;
+using ServiceWorkerWebsite.Models;
 
 namespace ServiceWorkerWebsite.Controllers
 {
-    public class TimeSlotsController : Controller
+    public class BookingsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public TimeSlotsController(ApplicationDbContext context)
+        public BookingsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: TimeSlots
+        // GET: Bookings
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.TimeSlot_List.Include(t => t.Worker);
+            var applicationDbContext = _context.Booking.Include(b => b.Service);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: TimeSlots/Details/5
+        // GET: Bookings/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.TimeSlot_List == null)
+            if (id == null || _context.Booking == null)
             {
                 return NotFound();
             }
 
-            var timeSlot = await _context.TimeSlot_List
-                .Include(t => t.Worker)
-                .FirstOrDefaultAsync(m => m.TimeSlotId == id);
-            if (timeSlot == null)
+            var booking = await _context.Booking
+                .Include(b => b.Service)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (booking == null)
             {
                 return NotFound();
             }
 
-            return View(timeSlot);
+            return View(booking);
         }
-
-        // GET: TimeSlots/Create
-        public IActionResult Create()
+        public IActionResult Create(int workerId, int serviceId)
         {
-            ViewData["Worker_Id"] = new SelectList(_context.Worker_List, "Worker_Id", "Worker_Id");
-            return View();
+            ViewData["Service_Id"] = serviceId;
+            ViewData["Worker_Id"] = workerId;
+
+            var booking = new Booking();
+
+            // Limit booking date to 7 days from now
+            booking.BookingDate = DateTime.Today.AddDays(7);
+
+            return View(booking);
         }
 
-        // POST: TimeSlots/Create
+        // POST: Bookings/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TimeSlotId,StartTime,EndTime,IsBooked,Worker_Id")] TimeSlot timeSlot)
+        public async Task<IActionResult> Create([Bind("Id,Service_Id,Worker_Id,BookingDate,CustomerName,CustomerPhoneNumber,AgreeToTerms,BookingTime")] Booking booking)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(timeSlot);
+                _context.Add(booking);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Worker_Id"] = new SelectList(_context.Worker_List, "Worker_Id", "Worker_Id", timeSlot.Worker_Id);
-            return View(timeSlot);
+            return View(booking);
         }
 
-        // GET: TimeSlots/Edit/5
+
+
+        // GET: Bookings/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.TimeSlot_List == null)
+            if (id == null || _context.Booking == null)
             {
                 return NotFound();
             }
 
-            var timeSlot = await _context.TimeSlot_List.FindAsync(id);
-            if (timeSlot == null)
+            var booking = await _context.Booking.FindAsync(id);
+            if (booking == null)
             {
                 return NotFound();
             }
-            ViewData["Worker_Id"] = new SelectList(_context.Worker_List, "Worker_Id", "Worker_Id", timeSlot.Worker_Id);
-            return View(timeSlot);
+            ViewData["Service_Id"] = new SelectList(_context.Services_List, "Service_Id", "Service_Id", booking.Service_Id);
+            return View(booking);
         }
 
-        // POST: TimeSlots/Edit/5
+        // POST: Bookings/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TimeSlotId,StartTime,EndTime,IsBooked,Worker_Id")] TimeSlot timeSlot)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Service_Id,Worker_Id,BookingDate,CustomerName,CustomerEmail,AgreeToTerms,BookingTime")] Booking booking)
         {
-            if (id != timeSlot.TimeSlotId)
+            if (id != booking.Id)
             {
                 return NotFound();
             }
@@ -101,12 +108,12 @@ namespace ServiceWorkerWebsite.Controllers
             {
                 try
                 {
-                    _context.Update(timeSlot);
+                    _context.Update(booking);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TimeSlotExists(timeSlot.TimeSlotId))
+                    if (!BookingExists(booking.Id))
                     {
                         return NotFound();
                     }
@@ -117,51 +124,51 @@ namespace ServiceWorkerWebsite.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Worker_Id"] = new SelectList(_context.Worker_List, "Worker_Id", "Worker_Id", timeSlot.Worker_Id);
-            return View(timeSlot);
+            ViewData["Service_Id"] = new SelectList(_context.Services_List, "Service_Id", "Service_Id", booking.Service_Id);
+            return View(booking);
         }
 
-        // GET: TimeSlots/Delete/5
+        // GET: Bookings/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.TimeSlot_List == null)
+            if (id == null || _context.Booking == null)
             {
                 return NotFound();
             }
 
-            var timeSlot = await _context.TimeSlot_List
-                .Include(t => t.Worker)
-                .FirstOrDefaultAsync(m => m.TimeSlotId == id);
-            if (timeSlot == null)
+            var booking = await _context.Booking
+                .Include(b => b.Service)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (booking == null)
             {
                 return NotFound();
             }
 
-            return View(timeSlot);
+            return View(booking);
         }
 
-        // POST: TimeSlots/Delete/5
+        // POST: Bookings/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.TimeSlot_List == null)
+            if (_context.Booking == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.TimeSlot_List'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Booking'  is null.");
             }
-            var timeSlot = await _context.TimeSlot_List.FindAsync(id);
-            if (timeSlot != null)
+            var booking = await _context.Booking.FindAsync(id);
+            if (booking != null)
             {
-                _context.TimeSlot_List.Remove(timeSlot);
+                _context.Booking.Remove(booking);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TimeSlotExists(int id)
+        private bool BookingExists(int id)
         {
-          return _context.TimeSlot_List.Any(e => e.TimeSlotId == id);
+          return _context.Booking.Any(e => e.Id == id);
         }
     }
 }

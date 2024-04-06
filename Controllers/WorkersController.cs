@@ -17,14 +17,16 @@ namespace ServiceWorkerWebsite.Controllers
         {
             _context = context;
         }
-       
+
         // GET: Workers
         public async Task<IActionResult> Index(int serviceId)
         {
+            ViewData["ServiceId"] = serviceId;
+
             var serviceWithWorkers = await _context.Services_List
-              .Include(s => s.WorkerServices)
-              .ThenInclude(ws => ws.Worker)
-              .FirstOrDefaultAsync(s => s.Service_Id == serviceId);
+                .Include(s => s.WorkerServices)
+                .ThenInclude(ws => ws.Worker)
+                .FirstOrDefaultAsync(s => s.Service_Id == serviceId);
 
             if (serviceWithWorkers == null)
             {
@@ -36,6 +38,7 @@ namespace ServiceWorkerWebsite.Controllers
 
             return View(workers);
         }
+
 
         // GET: Workers/Details/5
         public async Task<IActionResult> Details(int? id)

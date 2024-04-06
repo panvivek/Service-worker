@@ -26,7 +26,7 @@ namespace ServiceWorkerWebsite.Data
                 .ToTable("TimeSlot_List")
                 .HasOne(ts => ts.Worker)
                 .WithMany(w => w.AvailableTimeSlots)
-                .HasForeignKey(ts => ts.Worke_Id)
+                .HasForeignKey(ts => ts.Worker_Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // Configure many-to-many relationship between Worker and Service

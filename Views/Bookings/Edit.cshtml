@@ -1,33 +1,33 @@
 ﻿@model ServiceWorkerWebsite.Models.Booking
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Create</h1>
+<h1>Edit</h1>
 
 <h4>Booking</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form id="bookingForm" asp-action="Create">
-            <input type="hidden" asp-for="Worker_Id" value="@ViewData["Worker_Id"]" /> <!-- Hidden field for WorkerId -->
-            <input type="hidden" asp-for="Service_Id" value="@ViewData["Service_Id"]" /> <!-- Hidden field for ServiceId -->
-
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Service_Id" class="control-label"></label>
-                <input type="text" readonly class="form-control" value="@ViewData["Service_Id"]" /> <!-- Display the ServiceId as readonly -->
+                <select asp-for="Service_Id" class="form-control" asp-items="ViewBag.Service_Id"></select>
                 <span asp-validation-for="Service_Id" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Worker_Id" class="control-label"></label>
+                <input asp-for="Worker_Id" class="form-control" />
+                <span asp-validation-for="Worker_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="BookingDate" class="control-label"></label>
-                <input asp-for="BookingDate" class="form-control" max="@DateTime.Today.AddDays(7).ToString("yyyy-MM-dd")" />
+                <input asp-for="BookingDate" class="form-control" />
                 <span asp-validation-for="BookingDate" class="text-danger"></span>
             </div>
-
-
-
             <div class="form-group">
                 <label asp-for="CustomerName" class="control-label"></label>
                 <input asp-for="CustomerName" class="form-control" />
@@ -42,11 +42,10 @@
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="AgreeToTerms" /> @Html.DisplayNameFor(model => model.AgreeToTerms)
                 </label>
-                <span asp-validation-for="AgreeToTerms" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
           
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -55,3 +54,7 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

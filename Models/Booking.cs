@@ -8,8 +8,12 @@ namespace ServiceWorkerWebsite.Models
         public int Id { get; set; }
        
         public int Service_Id { get; set; }
-        public int Worke_Id { get; set; }
-        public DateTime BookingDate { get; set; }
+        public int Worker_Id { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        public DateTime BookingDate { get; set; } = DateTime.Today;
+   
         
         public string CustomerName { get; set; }
         public string CustomerEmail { get; set; }
@@ -18,16 +22,6 @@ namespace ServiceWorkerWebsite.Models
         public virtual Service Service { get; set; }
 
         
-        
-        public DateTime BookingTime { get; set; }
-
-        
-
-
-
-
-
-
 
     }
 }

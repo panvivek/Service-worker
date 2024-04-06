@@ -70,7 +70,7 @@ namespace ServiceWorkerWebsite.Migrations
                     b.Property<int>("Service_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("Worke_Id")
+                    b.Property<int>("Worker_Id")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -97,12 +97,12 @@ namespace ServiceWorkerWebsite.Migrations
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Worke_Id")
+                    b.Property<int>("Worker_Id")
                         .HasColumnType("int");
 
                     b.HasKey("TimeSlotId");
 
-                    b.HasIndex("Worke_Id");
+                    b.HasIndex("Worker_Id");
 
                     b.ToTable("TimeSlot_List", (string)null);
                 });
@@ -171,7 +171,7 @@ namespace ServiceWorkerWebsite.Migrations
                 {
                     b.HasOne("Worker", "Worker")
                         .WithMany("AvailableTimeSlots")
-                        .HasForeignKey("Worke_Id")
+                        .HasForeignKey("Worker_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
