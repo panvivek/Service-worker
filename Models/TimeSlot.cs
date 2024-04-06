@@ -14,7 +14,7 @@ public class TimeSlot
     public bool IsBooked { get; set; } = false; // To track if the slot is already booked
 
     // Foreign Key
-    public int Worke_Id { get; set; }
+    public int Worker_Id { get; set; }
 
     // Navigation Property
     public virtual Worker Worker { get; set; }

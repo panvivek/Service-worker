@@ -28,15 +28,21 @@
                             <!-- Worker Reviews -->
                             <li><strong>Reviews:</strong> @item.Reviews</li>
                             <!-- Worker Price -->
-                            <li><strong>Price:</strong> @item.Price</li>
+                            <li><strong>Base Price:</strong> @item.Price <strong>/ Hr</strong></li>
                         </ul>
                     </div>
                     <div class="card-footer">
                         <!-- Action Buttons -->
                         <div class="btn-group" role="group">
                             <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Worker_Id">Details</a>
-                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Worker_Id">Edit</a>
+
+                            <a class="btn btn-danger" asp-controller="Bookings" asp-action="Create" asp-route-workerId="@item.Worker_Id" asp-route-serviceId="@ViewData["ServiceId"]">Book</a>
+
+
+                         <!--   <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Worker_Id">Edit</a>
                             <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Worker_Id">Delete</a>
+
+                               -->
                         </div>
                     </div>
                 </div>
