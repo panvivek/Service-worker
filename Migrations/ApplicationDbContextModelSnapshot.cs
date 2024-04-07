@@ -41,7 +41,7 @@ namespace ServiceWorkerWebsite.Migrations
 
                     b.HasKey("Service_Id");
 
-                    b.ToTable("Services_List");
+                    b.ToTable("Services_List", (string)null);
                 });
 
             modelBuilder.Entity("ServiceWorkerWebsite.Models.Booking", b =>
@@ -77,7 +77,7 @@ namespace ServiceWorkerWebsite.Migrations
 
                     b.HasIndex("Service_Id");
 
-                    b.ToTable("Booking");
+                    b.ToTable("Booking", (string)null);
                 });
 
             modelBuilder.Entity("TimeSlot", b =>
@@ -135,7 +135,7 @@ namespace ServiceWorkerWebsite.Migrations
 
                     b.HasKey("Worker_Id");
 
-                    b.ToTable("Worker_List");
+                    b.ToTable("Worker_List", (string)null);
                 });
 
             modelBuilder.Entity("WorkerService", b =>
@@ -153,7 +153,7 @@ namespace ServiceWorkerWebsite.Migrations
 
                     b.HasIndex("Service_Id");
 
-                    b.ToTable("WorkerServices");
+                    b.ToTable("WorkerServices", (string)null);
                 });
 
             modelBuilder.Entity("ServiceWorkerWebsite.Models.Booking", b =>

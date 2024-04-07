@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 public class WorkerService
 {
@@ -10,5 +11,7 @@ public class WorkerService
     public Worker Worker { get; set; }
 
     public int Service_Id { get; set; }
+
+
     public Service Service { get; set; }
 }

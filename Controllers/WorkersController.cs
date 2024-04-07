@@ -61,24 +61,40 @@ namespace ServiceWorkerWebsite.Controllers
         // GET: Workers/Create
         public IActionResult Create()
         {
+            var services = _context.Services_List.ToList();
+            ViewBag.Services = new SelectList(services, "Service_Id", "Name");
             return View();
         }
 
+
+
+
         // POST: Workers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Worker_Id,ProfilePic_Id,Name,Availability_Status,Ratings,Reviews,Price")] Worker worker)
+        public async Task<IActionResult> Create(Worker worker, int[] Service_Id)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(worker);
+
+                if (Service_Id != null)
+                {
+                    foreach (var serviceId in Service_Id)
+                    {
+                        _context.Add(new WorkerService { Worker_Id = worker.Worker_Id, Service_Id = serviceId });
+                    }
+                }
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(worker);
         }
+
+
 
         // GET: Workers/Edit/5
         public async Task<IActionResult> Edit(int? id)

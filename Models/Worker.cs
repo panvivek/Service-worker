@@ -12,8 +12,10 @@ public class Worker
     public string Reviews { get; set; }
     public int Price { get; set; }
 
- 
+
     public virtual ICollection<WorkerService> WorkerServices { get; set; }
 
     public virtual ICollection<TimeSlot> AvailableTimeSlots { get; set; }
+
+   // public virtual Service Service { get; set; }
 }
