@@ -14,9 +14,14 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
-                <label asp-for="Service.Service_Id" class="control-label">Select Services:</label>
-                <select id="selectServices" asp-for="Service.Service_Id" class="form-control select2" asp-items="@ViewBag.Services" multiple size="4"></select>
-                <span asp-validation-for="Service.Service_Id" class="text-danger"></span>
+                <label>Select Services (Max 5):</label>
+                <select id="selectServices" class="form-control select2" multiple size="4" name="Service_Id">
+                    @foreach (var service in ViewBag.Services)
+                    {
+                        <option value="@service.Value">@service.Text</option>
+                    }
+                </select>
+                <span class="text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -49,29 +54,31 @@
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
+           
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary"  >Create</button>
+
             </div>
         </form>
-    </div>
-</div>
+    </div></div>
 
 <div>
     <a asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
     <!-- Include Select2 CSS and JavaScript -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
     <!-- Initialize Select2 -->
     <script>
-        $(document).ready(function () {
-            $('.select2').select2();
+        $(document).ready(function() {
+            $('.select2').select2({
+                maximumSelectionLength: 5
+            });
         });
     </script>
 }
+

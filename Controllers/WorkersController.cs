@@ -62,7 +62,17 @@ namespace ServiceWorkerWebsite.Controllers
         public IActionResult Create()
         {
             var services = _context.Services_List.ToList();
-            ViewBag.Services = new SelectList(services, "Service_Id", "Name");
+            var serviceItems = services.Select(s => new SelectListItem
+            {
+                Value = s.Service_Id.ToString(),
+                Text = s.Name
+            }).ToList();
+
+
+      
+
+            ViewBag.Services = serviceItems;
+
             return View();
         }
 
@@ -71,6 +81,7 @@ namespace ServiceWorkerWebsite.Controllers
 
         // POST: Workers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // POST: Workers/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Worker worker, int[] Service_Id)
@@ -78,21 +89,40 @@ namespace ServiceWorkerWebsite.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(worker);
+                await _context.SaveChangesAsync();
 
-                if (Service_Id != null)
+                // Insert selected services into WorkerService table
+                if (Service_Id != null && Service_Id.Length > 0)
                 {
                     foreach (var serviceId in Service_Id)
                     {
-                        _context.Add(new WorkerService { Worker_Id = worker.Worker_Id, Service_Id = serviceId });
+                        // Create a new WorkerService object and set its properties
+                        var workerService = new WorkerService
+                        {
+                            Worker_Id = worker.Worker_Id,
+                            Service_Id = serviceId
+                        };
+
+                        // Add the new WorkerService object to the context
+                        _context.Add(workerService);
                     }
+
+                    // Save changes to the database
+                    await _context.SaveChangesAsync();
+                    TempData["WorkerId"] = worker.Worker_Id;
+                    return RedirectToAction("Create", "TimeSlots");
+
+
                 }
 
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                // Redirect to the Index action
+                // return RedirectToAction(nameof(Index));
             }
 
+            // If ModelState is not valid, return the Create view with the worker model
             return View(worker);
         }
+
 
 
 
