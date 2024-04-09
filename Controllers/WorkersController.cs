@@ -19,9 +19,11 @@ namespace ServiceWorkerWebsite.Controllers
         }
 
         // GET: Workers
-        public async Task<IActionResult> Index(int serviceId)
+        public async Task<IActionResult> Index(int serviceId, string sortOrder)
         {
             ViewData["ServiceId"] = serviceId;
+            ViewData["PriceSortParam"] = string.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
+            ViewData["RatingSortParam"] = sortOrder == "ratings_asc" ? "ratings_desc" : "ratings_asc";
 
             var serviceWithWorkers = await _context.Services_List
                 .Include(s => s.WorkerServices)
@@ -36,9 +38,25 @@ namespace ServiceWorkerWebsite.Controllers
             // Extract the workers associated with the service
             var workers = serviceWithWorkers.WorkerServices.Select(ws => ws.Worker);
 
+            // Sorting logic
+            switch (sortOrder)
+            {
+                case "price_desc":
+                    workers = workers.OrderByDescending(w => w.Price);
+                    break;
+                case "ratings_asc":
+                    workers = workers.OrderBy(w => w.Ratings);
+                    break;
+                case "ratings_desc":
+                    workers = workers.OrderByDescending(w => w.Ratings);
+                    break;
+                default:
+                    workers = workers.OrderBy(w => w.Price);
+                    break;
+            }
+
             return View(workers);
         }
-
 
         // GET: Workers/Details/5
         public async Task<IActionResult> Details(int? id)
