@@ -5,15 +5,40 @@
 }
 
 <!-- Include Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="~/css/Services.css">
 
 <div class="container">
+
+    <div class="jumbotron d-flex align-items-center" style="position : absolute; height:100% ;">
+        <div class="container text-center">
+            <!--    <h1 class="display-1 mb-4"><br></h1>-->
+        </div>
+        <div class="rectangle-1"></div>
+        <div class="rectangle-2"></div>
+        <div class="rectangle-transparent-1"></div>
+        <div class="rectangle-transparent-2"></div>
+        <div class="circle-1"></div>
+        <div class="circle-2"></div>
+        <div class="circle-3"></div>
+        <div class="triangle triangle-1">
+            <img src="img/obj_triangle.png" alt="">
+        </div>
+        <div class="triangle triangle-2">
+            <img src="img/obj_triangle.png" alt="">
+        </div>
+        <div class="triangle triangle-3">
+            <img src="img/obj_triangle.png" alt="">
+        </div>
+        <div class="triangle triangle-4">
+            <img src="img/obj_triangle.png" alt="">
+        </div>
+    </div>
     <h1 class="text-center mb-5">@ViewData["Title"]</h1>
 
-    <div class="row">
+    <div style="padding-top:60px" class="row">
         @foreach (var item in Model)
         {
             <div class="col-lg-4 col-md-6 mb-4">
@@ -33,7 +58,8 @@
                 </div>
             </div>
         }
-
+        </div>
+        </div>
 
 <!-- Include Bootstrap JS (Optional) -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

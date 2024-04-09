@@ -14,9 +14,9 @@ namespace ServiceWorkerWebsite.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime BookingDate { get; set; } = DateTime.Today;
    
-        public int TimeSlotId { get; set; }  
+        public int? TimeSlotId { get; set; }  
         public string CustomerName { get; set; }
-        public string CustomerEmail { get; set; }
+        public string CustomerContact { get; set; }
         public bool AgreeToTerms { get; set; }
 
         public virtual Service Service { get; set; }

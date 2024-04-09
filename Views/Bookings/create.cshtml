@@ -1,10 +1,7 @@
-﻿[5:22 PM] Vivek Bhupenbhai Panchal
-@model ServiceWorkerWebsite.Models.Booking
+﻿@model ServiceWorkerWebsite.Models.Booking
 
 @{
-
     ViewData["Title"] = "Create";
-
 }
 
 <h1>Create</h1>
@@ -13,175 +10,89 @@
 
 <hr />
 
+
+
 <div class="row">
-
     <div class="col-md-4">
-
         <form id="bookingForm" asp-action="Create">
+            <input type="hidden" asp-for="Worker_Id" id="Worker_Id" /> <!-- Hidden field for WorkerId -->
 
-            <input type="hidden" asp-for="Worker_Id" value="@ViewData["Worker_Id"]" /> <!-- Hidden field for WorkerId -->
-
-            <input type="hidden" asp-for="Service_Id" value="@ViewData["Service_Id"]" /> <!-- Hidden field for ServiceId -->
-            <!--@{
-
-                // Cast ViewData["AvailableTimeSlots"] to the appropriate IEnumerable type
-
-                var timeSlots = ViewData["AvailableTimeSlots"] as SelectList;
-
-            }
-
-             <div class="form-group">
-
-                 <label asp-for="TimeSlotId" class="control-label">Time Slot</label>
-
-                 <select asp-for="TimeSlotId" class="form-control" asp-items="@timeSlots">
-
-                     <option value="">Please select a time slot</option>
-
-                 </select>
-
-                 <span asp-validation-for="TimeSlotId" class="text-danger"></span>
-
-             </div>
-
-              -->
-
-            <input asp-for="BookingDate" class="form-control" id="BookingDate" ... />
-
-            <select asp-for="TimeSlotId" class="form-control" id="TimeSlotId" ...>
-
-                <option value="">Please select a time slot</option>
-
-            </select>
-
-
-
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Service_Id" id="Service_Id" /> <!-- Hidden field for ServiceId -->
 
             <div class="form-group">
-
-                <label asp-for="Service_Id" class="control-label"></label>
-
-                <input type="text" readonly class="form-control" value="@ViewData["Service_Id"]" /> <!-- Display the ServiceId as readonly -->
-
-                <span asp-validation-for="Service_Id" class="text-danger"></span>
-
-            </div>
-
-            <div class="form-group">
-
-                <label asp-for="BookingDate" class="control-label"></label>
-
-                <input asp-for="BookingDate" class="form-control" max="@DateTime.Today.AddDays(7).ToString("yyyy-MM-dd")" />
-
+                <label asp-for="BookingDate" class="control-label">Booking Date</label>
+                <input asp-for="BookingDate" class="form-control" id="BookingDate" type="date" />
                 <span asp-validation-for="BookingDate" class="text-danger"></span>
-
             </div>
 
+            <div class="form-group">
+                <label asp-for="TimeSlotId" class="control-label">Time Slot</label>
+                <select asp-for="TimeSlotId" class="form-control" id="TimeSlotId">
+                    <option value="">Please select a time slot</option>
+                </select>
+                <span asp-validation-for="TimeSlotId" class="text-danger"></span>
+            </div>
 
             <div class="form-group">
+                <label asp-for="Service_Id" class="control-label">Service ID</label>
+                <input type="text" readonly class="form-control" value="@ViewData["Service_Id"]" />
+                <span asp-validation-for="Service_Id" class="text-danger"></span>
+            </div>
 
-                <label asp-for="CustomerName" class="control-label"></label>
-
+            <div class="form-group">
+                <label asp-for="CustomerName" class="control-label">Customer Name</label>
                 <input asp-for="CustomerName" class="form-control" />
-
                 <span asp-validation-for="CustomerName" class="text-danger"></span>
-
             </div>
 
             <div class="form-group">
-
-                <label asp-for="CustomerEmail" class="control-label"></label>
-
-                <input asp-for="CustomerEmail" class="form-control" />
-
-                <span asp-validation-for="CustomerEmail" class="text-danger"></span>
-
+                <label asp-for="CustomerContact" class="control-label">Customer Contact</label>
+                <input asp-for="CustomerContact" class="form-control" />
+                <span asp-validation-for="CustomerContact" class="text-danger"></span>
             </div>
 
             <div class="form-group form-check">
-
-                <label class="form-check-label">
-
-                    <input class="form-check-input" asp-for="AgreeToTerms" /> @Html.DisplayNameFor(model => model.AgreeToTerms)
-
-                </label>
-
+                <input class="form-check-input" asp-for="AgreeToTerms" />
+                <label class="form-check-label" for="AgreeToTerms"> @Html.DisplayNameFor(model => model.AgreeToTerms)</label>
                 <span asp-validation-for="AgreeToTerms" class="text-danger"></span>
-
             </div>
 
             <div class="form-group">
-
                 <input type="submit" value="Create" class="btn btn-primary" />
-
             </div>
-
         </form>
-
     </div>
-
 </div>
 
 <div>
-
     <a asp-action="Index">Back to List</a>
-
 </div>
 
-
-<script>
-
-    document.addEventListener("DOMContentLoaded", function () {
-
-        // Listen for changes to the BookingDate input
-
-        document.getElementById("BookingDate").addEventListener("change", function () {
-
-            var selectedDate = this.value; // Get the selected date
-
-            var workerId = document.getElementById("Worker_Id").value; // Assuming you have a worker ID to send
-
-            // Make an AJAX call to fetch time slots
-
-            fetch('/Bookings/GetTimeSlotsForDate', {
-
-                method: 'POST',
-
-                headers: {
-
-                    'Content-Type': 'application/json',
-
-                    'RequestVerificationToken': document.getElementsByName('__RequestVerificationToken')[0].value // Add anti-forgery token
-
-                },
-
-                body: JSON.stringify({ date: selectedDate, workerId: workerId })
-
-            })
-
-                .then(response => response.json())
-
-                .then(data => {
-
-                    var timeSlotSelect = document.getElementById("TimeSlotId"); // Your time slot select element
-
-                    timeSlotSelect.innerHTML = ''; // Clear current options
-
-                    data.forEach(function (timeSlot) {
-
-                        var option = new Option(timeSlot.text, timeSlot.value);
-
-                        timeSlotSelect.add(option);
-
-                    });
-
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("BookingDate").addEventListener("change", function () {
+                var selectedDate = this.value;
+                var workerId = document.getElementById("Worker_Id").value;
+                fetch('/Bookings/GetTimeSlotsForDate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'RequestVerificationToken': document.getElementsByName('__RequestVerificationToken')[0].value
+                    },
+                    body: JSON.stringify({ date: selectedDate, workerId: workerId })
                 })
-
-                .catch(error => console.error('Error fetching time slots:', error));
-
+                    .then(response => response.json())
+                    .then(data => {
+                        var timeSlotSelect = document.getElementById("TimeSlotId");
+                        timeSlotSelect.innerHTML = '';
+                        data.forEach(function (timeSlot) {
+                            var option = new Option(timeSlot.text, timeSlot.value);
+                            timeSlotSelect.add(option);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching time slots:', error));
+            });
         });
-
-    });
-
-</script>
+    </script>
+}

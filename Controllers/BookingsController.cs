@@ -54,6 +54,16 @@ namespace ServiceWorkerWebsite.Controllers
             // Limit booking date to 7 days from now
             booking.BookingDate = DateTime.Today.AddDays(7);
 
+
+            var availableTimeSlots = _context.TimeSlot_List
+                                     .Where(ts => ts.Worker_Id == workerId && !ts.IsBooked
+                                      && ts.StartTime.Date >= DateTime.Today
+                                      && ts.StartTime.Date <= DateTime.Today.AddDays(7))
+                                     .ToList();
+
+            // Pass the available time slots to the view
+            ViewData["AvailableTimeSlots"] = new SelectList(availableTimeSlots, "TimeSlotId", "StartTime");
+
             return View(booking);
         }
 
@@ -62,7 +72,7 @@ namespace ServiceWorkerWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Service_Id,Worker_Id,BookingDate,CustomerName,CustomerPhoneNumber,AgreeToTerms,BookingTime")] Booking booking)
+        public async Task<IActionResult> Create([Bind("Id,Service_Id,Worker_Id,BookingDate,CustomerName,CustomerContact,AgreeToTerms,TimeSlotId")] Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +107,7 @@ namespace ServiceWorkerWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Service_Id,Worker_Id,BookingDate,CustomerName,CustomerEmail,AgreeToTerms,BookingTime")] Booking booking)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Service_Id,Worker_Id,BookingDate,CustomerName,CustomerContact,AgreeToTerms,BookingTime")] Booking booking)
         {
             if (id != booking.Id)
             {

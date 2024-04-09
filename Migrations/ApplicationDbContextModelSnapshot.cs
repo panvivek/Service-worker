@@ -41,7 +41,7 @@ namespace ServiceWorkerWebsite.Migrations
 
                     b.HasKey("Service_Id");
 
-                    b.ToTable("Services_List", (string)null);
+                    b.ToTable("Services_List");
                 });
 
             modelBuilder.Entity("ServiceWorkerWebsite.Models.Booking", b =>
@@ -58,16 +58,16 @@ namespace ServiceWorkerWebsite.Migrations
                     b.Property<DateTime>("BookingDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("BookingTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CustomerEmail")
+                    b.Property<string>("CustomerContact")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Service_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TimeSlotId")
                         .HasColumnType("int");
 
                     b.Property<int>("Worker_Id")
@@ -77,7 +77,7 @@ namespace ServiceWorkerWebsite.Migrations
 
                     b.HasIndex("Service_Id");
 
-                    b.ToTable("Booking", (string)null);
+                    b.ToTable("Booking");
                 });
 
             modelBuilder.Entity("TimeSlot", b =>
@@ -135,7 +135,7 @@ namespace ServiceWorkerWebsite.Migrations
 
                     b.HasKey("Worker_Id");
 
-                    b.ToTable("Worker_List", (string)null);
+                    b.ToTable("Worker_List");
                 });
 
             modelBuilder.Entity("WorkerService", b =>
@@ -153,7 +153,7 @@ namespace ServiceWorkerWebsite.Migrations
 
                     b.HasIndex("Service_Id");
 
-                    b.ToTable("WorkerServices", (string)null);
+                    b.ToTable("WorkerServices");
                 });
 
             modelBuilder.Entity("ServiceWorkerWebsite.Models.Booking", b =>

@@ -188,3 +188,10 @@ VALUES
 (94, 4, 24), -- Worker ID 4 is a phone repair technician
 (95, 1, 24), -- Worker ID 1 is a phone repair technician
 (96, 2, 24); -- Worker ID 2 is a phone repair technician
+
+INSERT INTO WorkerServices (WorkerServiceId, Worker_Id, Service_Id)
+VALUES
+(97, 3, 25), -- Worker ID 3 is a phone repair technician
+(98, 4, 25), -- Worker ID 4 is a phone repair technician
+(99, 1, 25), -- Worker ID 1 is a phone repair technician
+(100, 2, 25); -- Worker ID 2 is a phone repair technician
