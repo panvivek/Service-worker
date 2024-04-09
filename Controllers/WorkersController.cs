@@ -18,10 +18,34 @@ namespace ServiceWorkerWebsite.Controllers
             _context = context;
         }
 
-        // GET: Workers
-        public async Task<IActionResult> Index(int serviceId)
+        /*
+          // GET: Workers
+          public async Task<IActionResult> Index(int serviceId)
+          {
+              ViewData["ServiceId"] = serviceId;
+
+              var serviceWithWorkers = await _context.Services_List
+                  .Include(s => s.WorkerServices)
+                  .ThenInclude(ws => ws.Worker)
+                  .FirstOrDefaultAsync(s => s.Service_Id == serviceId);
+
+              if (serviceWithWorkers == null)
+              {
+                  return NotFound();
+              }
+
+              // Extract the workers associated with the service
+              var workers = serviceWithWorkers.WorkerServices.Select(ws => ws.Worker);
+
+              return View(workers);
+          }
+          */
+
+        public async Task<IActionResult> Index(int serviceId, string sortOrder)
         {
             ViewData["ServiceId"] = serviceId;
+            ViewData["PriceSortParam"] = string.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
+            ViewData["RatingSortParam"] = sortOrder == "ratings_asc" ? "ratings_desc" : "ratings_asc";
 
             var serviceWithWorkers = await _context.Services_List
                 .Include(s => s.WorkerServices)
@@ -36,8 +60,27 @@ namespace ServiceWorkerWebsite.Controllers
             // Extract the workers associated with the service
             var workers = serviceWithWorkers.WorkerServices.Select(ws => ws.Worker);
 
+            // Sorting logic
+            switch (sortOrder)
+            {
+                case "price_desc":
+                    workers = workers.OrderByDescending(w => w.Price);
+                    break;
+                case "ratings_asc":
+                    workers = workers.OrderBy(w => w.Ratings);
+                    break;
+                case "ratings_desc":
+                    workers = workers.OrderByDescending(w => w.Ratings);
+                    break;
+                default:
+                    workers = workers.OrderBy(w => w.Price);
+                    break;
+            }
+
             return View(workers);
         }
+
+
 
 
         // GET: Workers/Details/5

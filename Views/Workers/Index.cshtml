@@ -6,6 +6,15 @@
 
 <h1>Index</h1>
 
+@* Sorting links *@
+<div>
+    <strong>Sort by:</strong>
+    <a asp-action="Index" asp-route-serviceId="@ViewData["ServiceId"]" asp-route-sortOrder="@ViewData["PriceSortParam"]">Price</a> |
+    <a asp-action="Index" asp-route-serviceId="@ViewData["ServiceId"]" asp-route-sortOrder="@ViewData["RatingSortParam"]">Ratings</a>
+</div>
+
+
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>

@@ -13,7 +13,14 @@
 <div class="container">
     <h1 class="text-center mb-5">@ViewData["Title"]</h1>
 
-    <div class="row">
+    <!-- Search Box -->
+    <div class="row mb-4">
+        <div class="col-lg-6 offset-lg-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search for a service...">
+        </div>
+    </div>
+
+    <div class="row" id="serviceList">
         @foreach (var item in Model)
         {
             <div class="col-lg-4 col-md-6 mb-4">
@@ -33,7 +40,8 @@
                 </div>
             </div>
         }
-
+    </div>
+</div>
 
 <!-- Include Bootstrap JS (Optional) -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -44,5 +52,23 @@
         speed: 400,
         glare: true,
         "max-glare": 1
+    });
+
+    // Function to filter services based on search query
+    document.getElementById("searchInput").addEventListener("keyup", function () {
+        var input, filter, cards, card, title, i;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        cards = document.getElementById("serviceList").getElementsByClassName("card");
+
+        for (i = 0; i < cards.length; i++) {
+            card = cards[i];
+            title = card.querySelector(".card-title");
+            if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        }
     });
 </script>

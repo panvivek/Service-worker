@@ -11735,23 +11735,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ompat\\.nuget\\packages\\": {},
+    "C:\\Users\\freya\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\ServiceWorkerWebsite.csproj",
+      "projectUniqueName": "C:\\Users\\freya\\OneDrive - Sheridan College\\Desktop\\ServiceWorker_april8\\ServiceWorkerWebsite.csproj",
       "projectName": "ServiceWorkerWebsite",
-      "projectPath": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\ServiceWorkerWebsite.csproj",
-      "packagesPath": "C:\\Users\\ompat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\obj\\",
+      "projectPath": "C:\\Users\\freya\\OneDrive - Sheridan College\\Desktop\\ServiceWorker_april8\\ServiceWorkerWebsite.csproj",
+      "packagesPath": "C:\\Users\\freya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\freya\\OneDrive - Sheridan College\\Desktop\\ServiceWorker_april8\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ompat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\freya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -11772,6 +11772,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -11828,7 +11833,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
