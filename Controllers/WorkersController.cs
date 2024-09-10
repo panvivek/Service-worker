@@ -19,70 +19,44 @@ namespace ServiceWorkerWebsite.Controllers
         }
 
         // GET: Workers
-        /*public async Task<IActionResult> Index(string speciality)
+        public async Task<IActionResult> Index(int serviceId, string sortOrder)
         {
-            if (!string.IsNullOrEmpty(speciality))
-            {
-                // Filter workers by speciality (assuming Name is the speciality)
-                var workers = await _context.Worker_List
-                    .Where(w => w.Speciality == speciality)
-                    .ToListAsync();
+            ViewData["ServiceId"] = serviceId;
+            ViewData["PriceSortParam"] = string.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
+            ViewData["RatingSortParam"] = sortOrder == "ratings_asc" ? "ratings_desc" : "ratings_asc";
 
-                return View(workers);
-            }
-            else
-            {
-                // If no speciality is provided, return all workers
-                return View(await _context.Worker_List.ToListAsync());
-            }
-        } */
+            var serviceWithWorkers = await _context.Services_List
+                .Include(s => s.WorkerServices)
+                .ThenInclude(ws => ws.Worker)
+                .FirstOrDefaultAsync(s => s.Service_Id == serviceId);
 
-        public async Task<IActionResult> Index(string speciality)
-        {
-            // Query to fetch workers, optionally filtered by speciality
-            var workersQuery = _context.Worker_List.AsQueryable();
-
-            if (!string.IsNullOrEmpty(speciality))
+            if (serviceWithWorkers == null)
             {
-                // Filter by speciality
-                workersQuery = workersQuery.Where(w => w.Speciality == speciality);
+                return NotFound();
             }
 
-            // Include AvailableTimeSlots navigation property
-            var workersWithSlots = workersQuery.Select(worker => new
-            {
-                Worker = worker,
-                AvailableTimeSlots = _context.TimeSlot_List.Where(ts => ts.Worke_Id == worker.Worke_Id && !ts.IsBooked).ToList()
-            }).ToListAsync();
+            // Extract the workers associated with the service
+            var workers = serviceWithWorkers.WorkerServices.Select(ws => ws.Worker);
 
-            // Map the result to your ViewModel or directly to your view, if applicable
-            var workers = (await workersWithSlots).Select(ws => new Worker
+            // Sorting logic
+            switch (sortOrder)
             {
-                Worke_Id = ws.Worker.Worke_Id,
-                Name = ws.Worker.Name,
-                Speciality = ws.Worker.Speciality,
-                Availability_Status = ws.Worker.Availability_Status,
-                Ratings = ws.Worker.Ratings,
-                Reviews = ws.Worker.Reviews,
-
-                // Other properties...
-                AvailableTimeSlots = ws.AvailableTimeSlots // Assuming your ViewModel has a property for AvailableTimeSlots
-            }).ToList();
+                case "price_desc":
+                    workers = workers.OrderByDescending(w => w.Price);
+                    break;
+                case "ratings_asc":
+                    workers = workers.OrderBy(w => w.Ratings);
+                    break;
+                case "ratings_desc":
+                    workers = workers.OrderByDescending(w => w.Ratings);
+                    break;
+                default:
+                    workers = workers.OrderBy(w => w.Price);
+                    break;
+            }
 
             return View(workers);
         }
-
-
-
-
-        // GET: Workers
-        /* public async Task<IActionResult> Index()
-         {
-               return _context.Worker_List != null ? 
-                           View(await _context.Worker_List.ToListAsync()) :
-                           Problem("Entity set 'ApplicationDbContext.Worker_List'  is null.");
-         }
-        */
 
         // GET: Workers/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -93,7 +67,7 @@ namespace ServiceWorkerWebsite.Controllers
             }
 
             var worker = await _context.Worker_List
-                .FirstOrDefaultAsync(m => m.Worke_Id == id);
+                .FirstOrDefaultAsync(m => m.Worker_Id == id);
             if (worker == null)
             {
                 return NotFound();
@@ -105,24 +79,70 @@ namespace ServiceWorkerWebsite.Controllers
         // GET: Workers/Create
         public IActionResult Create()
         {
+            var services = _context.Services_List.ToList();
+            var serviceItems = services.Select(s => new SelectListItem
+            {
+                Value = s.Service_Id.ToString(),
+                Text = s.Name
+            }).ToList();
+
+
+      
+
+            ViewBag.Services = serviceItems;
+
             return View();
         }
 
+
+
+
         // POST: Workers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Workers/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Worke_Id,Name,Speciality,Availability_Status,Ratings,Reviews")] Worker worker)
+        public async Task<IActionResult> Create(Worker worker, int[] Service_Id)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(worker);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                // Insert selected services into WorkerService table
+                if (Service_Id != null && Service_Id.Length > 0)
+                {
+                    foreach (var serviceId in Service_Id)
+                    {
+                        // Create a new WorkerService object and set its properties
+                        var workerService = new WorkerService
+                        {
+                            Worker_Id = worker.Worker_Id,
+                            Service_Id = serviceId
+                        };
+
+                        // Add the new WorkerService object to the context
+                        _context.Add(workerService);
+                    }
+
+                    // Save changes to the database
+                    await _context.SaveChangesAsync();
+                    TempData["WorkerId"] = worker.Worker_Id;
+                    return RedirectToAction("Create", "TimeSlots");
+
+
+                }
+
+                // Redirect to the Index action
+                // return RedirectToAction(nameof(Index));
             }
+
+            // If ModelState is not valid, return the Create view with the worker model
             return View(worker);
         }
+
+
+
 
         // GET: Workers/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -145,9 +165,9 @@ namespace ServiceWorkerWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Worke_Id,Name,Speciality,Availability_Status,Ratings,Reviews")] Worker worker)
+        public async Task<IActionResult> Edit(int id, [Bind("Worker_Id,ProfilePic_Id,Name,Availability_Status,Ratings,Reviews,Price")] Worker worker)
         {
-            if (id != worker.Worke_Id)
+            if (id != worker.Worker_Id)
             {
                 return NotFound();
             }
@@ -161,7 +181,7 @@ namespace ServiceWorkerWebsite.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!WorkerExists(worker.Worke_Id))
+                    if (!WorkerExists(worker.Worker_Id))
                     {
                         return NotFound();
                     }
@@ -184,7 +204,7 @@ namespace ServiceWorkerWebsite.Controllers
             }
 
             var worker = await _context.Worker_List
-                .FirstOrDefaultAsync(m => m.Worke_Id == id);
+                .FirstOrDefaultAsync(m => m.Worker_Id == id);
             if (worker == null)
             {
                 return NotFound();
@@ -214,7 +234,7 @@ namespace ServiceWorkerWebsite.Controllers
 
         private bool WorkerExists(int id)
         {
-          return (_context.Worker_List?.Any(e => e.Worke_Id == id)).GetValueOrDefault();
+          return _context.Worker_List.Any(e => e.Worker_Id == id);
         }
     }
 }

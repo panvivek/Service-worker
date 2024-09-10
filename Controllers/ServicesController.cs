@@ -21,9 +21,7 @@ namespace ServiceWorkerWebsite.Controllers
         // GET: Services
         public async Task<IActionResult> Index()
         {
-              return _context.Services_List != null ? 
-                          View(await _context.Services_List.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Services_List'  is null.");
+              return View(await _context.Services_List.ToListAsync());
         }
 
         // GET: Services/Details/5
@@ -156,7 +154,7 @@ namespace ServiceWorkerWebsite.Controllers
 
         private bool ServiceExists(int id)
         {
-          return (_context.Services_List?.Any(e => e.Service_Id == id)).GetValueOrDefault();
+          return _context.Services_List.Any(e => e.Service_Id == id);
         }
     }
 }

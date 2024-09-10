@@ -45,28 +45,63 @@ namespace ServiceWorkerWebsite.Controllers
         }
 
         // GET: TimeSlots/Create
+        // GET: TimeSlots/Create
         public IActionResult Create()
         {
-            ViewData["Worke_Id"] = new SelectList(_context.Worker_List, "Worke_Id", "Worke_Id");
+            // Retrieve the last worker's id from the database
+            var lastWorkerId = _context.Worker_List
+                                        .OrderByDescending(w => w.Worker_Id)
+                                        .Select(w => w.Worker_Id)
+                                        .FirstOrDefault();
+
+            var workers = _context.Worker_List
+                            .Select(w => new SelectListItem
+                            {
+                                Value = w.Worker_Id.ToString(),
+                                Text = w.Name
+                            })
+                            .ToList();
+
+            // Pass the list of workers to the view
+            ViewBag.Workers = workers;
+
+            // Pass the last worker's id to the view
+            ViewBag.LastWorkerId = lastWorkerId;
+
             return View();
         }
 
-        // POST: TimeSlots/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TimeSlotId,StartTime,EndTime,IsBooked,Worke_Id")] TimeSlot timeSlot)
+        public async Task<IActionResult> Create([Bind("TimeSlotId,StartTime,EndTime,IsBooked")] TimeSlot timeSlot)
         {
             if (ModelState.IsValid)
             {
+                // Retrieve the last worker's ID from the database
+                var lastWorkerId = _context.Worker_List
+                                          .OrderByDescending(w => w.Worker_Id)
+                                          .Select(w => w.Worker_Id)
+                                          .FirstOrDefault();
+
+                // Assign the last worker's ID to the TimeSlot object
+                timeSlot.Worker_Id = lastWorkerId;
+
+                // Add the TimeSlot object to the context and save changes
                 _context.Add(timeSlot);
                 await _context.SaveChangesAsync();
+
+                // Redirect to the Index action
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Worke_Id"] = new SelectList(_context.Worker_List, "Worke_Id", "Worke_Id", timeSlot.Worke_Id);
+
+            // If model state is invalid, return the view with the TimeSlot object
             return View(timeSlot);
         }
+
+
 
         // GET: TimeSlots/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -81,7 +116,7 @@ namespace ServiceWorkerWebsite.Controllers
             {
                 return NotFound();
             }
-            ViewData["Worke_Id"] = new SelectList(_context.Worker_List, "Worke_Id", "Worke_Id", timeSlot.Worke_Id);
+            ViewData["Worker_Id"] = new SelectList(_context.Worker_List, "Worker_Id", "Worker_Id", timeSlot.Worker_Id);
             return View(timeSlot);
         }
 
@@ -90,7 +125,7 @@ namespace ServiceWorkerWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TimeSlotId,StartTime,EndTime,IsBooked,Worke_Id")] TimeSlot timeSlot)
+        public async Task<IActionResult> Edit(int id, [Bind("TimeSlotId,StartTime,EndTime,IsBooked,Worker_Id")] TimeSlot timeSlot)
         {
             if (id != timeSlot.TimeSlotId)
             {
@@ -117,7 +152,7 @@ namespace ServiceWorkerWebsite.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Worke_Id"] = new SelectList(_context.Worker_List, "Worke_Id", "Worke_Id", timeSlot.Worke_Id);
+            ViewData["Worker_Id"] = new SelectList(_context.Worker_List, "Worker_Id", "Worker_Id", timeSlot.Worker_Id);
             return View(timeSlot);
         }
 
@@ -147,7 +182,7 @@ namespace ServiceWorkerWebsite.Controllers
         {
             if (_context.TimeSlot_List == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.TimeSlots'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.TimeSlot_List'  is null.");
             }
             var timeSlot = await _context.TimeSlot_List.FindAsync(id);
             if (timeSlot != null)
@@ -161,7 +196,7 @@ namespace ServiceWorkerWebsite.Controllers
 
         private bool TimeSlotExists(int id)
         {
-          return (_context.TimeSlot_List   ?.Any(e => e.TimeSlotId == id)).GetValueOrDefault();
+          return _context.TimeSlot_List.Any(e => e.TimeSlotId == id);
         }
     }
 }

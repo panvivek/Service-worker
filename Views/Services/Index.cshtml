@@ -5,16 +5,48 @@
 }
 
 <!-- Include Bootstrap CSS -->
+<!-- Include Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="~/css/Services.css">
-<!--<link rel="stylesheet" href="~/css/TRANSGLASS.css"> -->
 
 <div class="container">
-    <h1 class="text-center mb-5">@ViewData["Title"]</h1>
+    
+    <div style=" " class="container">
+        <div class="jumbotron d-flex align-items-center" style="position : absolute; height:100% ; ">
+            <div class="container text-center">
+                <!--    <h1 class="display-1 mb-4"><br></h1>-->
+            </div>
+            <div class="rectangle-1"></div>
+            <div class="rectangle-2"></div>
+            <div class="rectangle-transparent-1"></div>
+            <div class="rectangle-transparent-2"></div>
+            <div class="circle-1"></div>
+            <div class="circle-2"></div>
+            <div class="circle-3"></div>
+            <div class="triangle triangle-1">
+                <img src="img/obj_triangle.png" alt="">
+            </div>
+            <div class="triangle triangle-2">
+                <img src="img/obj_triangle.png" alt="">
+            </div>
+            <div class="triangle triangle-3">
+                <img src="img/obj_triangle.png" alt="">
+            </div>
+            <div class="triangle triangle-4">
+                <img src="img/obj_triangle.png" alt="">
+            </div>
+        </div>
+        <h1 class="text-center mb-5">@ViewData["Title"]</h1>
+    <!-- Search Box -->
+    <div style="padding-top:60px" class="row mb-4">
+        <div class="col-lg-6 offset-lg-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search for a service...">
+        </div>
+    </div>
 
-    <div class="row">
+    <div class="row" id="serviceList">
         @foreach (var item in Model)
         {
             <div class="col-lg-4 col-md-6 mb-4">
@@ -28,7 +60,7 @@
                         <p class="card-text service-description">@Html.DisplayFor(modelItem => item.Description)</p>
                         <!-- Action Buttons -->
                         <div class="text-center">
-                            <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Workers" asp-route-speciality="@item.Name" asp-action="Index">View Available Workers</a>
+                            <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Workers" asp-route-serviceId="@item.Service_Id" asp-action="Index">View Available Workers</a>
                         </div>
                     </div>
                 </div>
@@ -46,5 +78,23 @@
         speed: 400,
         glare: true,
         "max-glare": 1
+    });
+
+    // Function to filter services based on search query
+    document.getElementById("searchInput").addEventListener("keyup", function () {
+        var input, filter, cards, card, title, i;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        cards = document.getElementById("serviceList").getElementsByClassName("card");
+
+        for (i = 0; i < cards.length; i++) {
+            card = cards[i];
+            title = card.querySelector(".card-title");
+            if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        }
     });
 </script>
