@@ -1,9 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using ServiceWorkerWebsite.Models;
+using ServiceWorkerWebsite.Areas.Identity.Data; // Add this for your custom IdentityUser
 
 namespace ServiceWorkerWebsite.Data
 {
-    public class ApplicationDbContext : DbContext
+    // Specify the custom Identity user type
+    public class ApplicationDbContext : IdentityDbContext<ServiceWorkerWebsiteUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -17,6 +20,9 @@ namespace ServiceWorkerWebsite.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder); // Make sure to call the base method for Identity
+
+            // Configure relationships
             modelBuilder.Entity<Booking>()
                 .HasOne(b => b.Service)
                 .WithMany()
