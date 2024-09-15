@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\ServiceWorkerWebsite.csproj": {}
+    "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\ServiceWorkerWebsite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\ServiceWorkerWebsite.csproj": {
+    "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\ServiceWorkerWebsite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\ServiceWorkerWebsite.csproj",
+        "projectUniqueName": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\ServiceWorkerWebsite.csproj",
         "projectName": "ServiceWorkerWebsite",
-        "projectPath": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\ServiceWorkerWebsite.csproj",
+        "projectPath": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\ServiceWorkerWebsite.csproj",
         "packagesPath": "C:\\Users\\ompat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\5th Semester\\Capstone Project\\Service_Worker_Interface\\obj\\",
+        "outputPath": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -22,15 +22,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -38,41 +38,46 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.17, )"
+              "version": "[8.0.8, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[7.0.17, )"
+              "version": "[8.0.8, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.17, )"
+              "version": "[8.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
-              "version": "[7.0.17, )"
+              "version": "[8.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.17, )"
+              "version": "[8.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.17, )"
+              "version": "[8.0.8, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[8.0.5, )"
             }
           },
           "imports": [
@@ -94,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
