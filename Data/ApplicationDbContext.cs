@@ -17,6 +17,7 @@ namespace ServiceWorkerWebsite.Data
         public DbSet<Booking> Booking { get; set; }
         public DbSet<TimeSlot> TimeSlot_List { get; set; }
         public DbSet<WorkerService> WorkerServices { get; set; } // Add DbSet for the association table
+        public DbSet<Applicationuser> Applicationusers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
