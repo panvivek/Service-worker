@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,13 +13,14 @@ namespace ServiceWorkerWebsite.Controllers
 {
     public class TimeSlotsController : Controller
     {
+       
         private readonly ApplicationDbContext _context;
 
         public TimeSlotsController(ApplicationDbContext context)
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Customer")]
         // GET: TimeSlots
         public async Task<IActionResult> Index()
         {

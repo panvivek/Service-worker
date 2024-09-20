@@ -1,0 +1,553 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/obj/Debug/net8.0/scopedcss/projectbundle/ServiceWorkerWebsite.bundle.scp.css",
+      "PackagePath": "staticwebassets/ServiceWorkerWebsite.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/WorkerProfilePic/0.jpg",
+      "PackagePath": "staticwebassets/WorkerProfilePic/0.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/WorkerProfilePic/1.jpg",
+      "PackagePath": "staticwebassets/WorkerProfilePic/1.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/WorkerProfilePic/2.jpg",
+      "PackagePath": "staticwebassets/WorkerProfilePic/2.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/WorkerProfilePic/3.jpg",
+      "PackagePath": "staticwebassets/WorkerProfilePic/3.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/WorkerProfilePic/4.jpg",
+      "PackagePath": "staticwebassets/WorkerProfilePic/4.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/WorkerProfilePic/5.jpg",
+      "PackagePath": "staticwebassets/WorkerProfilePic/5.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/css/MainPage.style.min.css",
+      "PackagePath": "staticwebassets/css/MainPage.style.min.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/css/Services.css",
+      "PackagePath": "staticwebassets/css/Services.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/css/TRANSGLASS.CSS",
+      "PackagePath": "staticwebassets/css/TRANSGLASS.CSS"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/css/Workers.css",
+      "PackagePath": "staticwebassets/css/Workers.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/Plumbing.jpg",
+      "PackagePath": "staticwebassets/images/Plumbing.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/ac-repair.jpg",
+      "PackagePath": "staticwebassets/images/ac-repair.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/appliance-repair.jpg",
+      "PackagePath": "staticwebassets/images/appliance-repair.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/beautician.jpg",
+      "PackagePath": "staticwebassets/images/beautician.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/car-washing.jpg",
+      "PackagePath": "staticwebassets/images/car-washing.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/carpentry.jpg",
+      "PackagePath": "staticwebassets/images/carpentry.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/childcare.jpg",
+      "PackagePath": "staticwebassets/images/childcare.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/cleaning.jpg",
+      "PackagePath": "staticwebassets/images/cleaning.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/computer-repair.jpg",
+      "PackagePath": "staticwebassets/images/computer-repair.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/electrician.jpg",
+      "PackagePath": "staticwebassets/images/electrician.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/event-planning.jpg",
+      "PackagePath": "staticwebassets/images/event-planning.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/financial-services.jpg",
+      "PackagePath": "staticwebassets/images/financial-services.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/flooring.jpg",
+      "PackagePath": "staticwebassets/images/flooring.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/home-security.jpg",
+      "PackagePath": "staticwebassets/images/home-security.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/interior-design.jpg",
+      "PackagePath": "staticwebassets/images/interior-design.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/landscaping.jpg",
+      "PackagePath": "staticwebassets/images/landscaping.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/legal-services.jpg",
+      "PackagePath": "staticwebassets/images/legal-services.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/mobile-phone-repair.jpg",
+      "PackagePath": "staticwebassets/images/mobile-phone-repair.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/moving.jpg",
+      "PackagePath": "staticwebassets/images/moving.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/painting.jpg",
+      "PackagePath": "staticwebassets/images/painting.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/personal-training.jpg",
+      "PackagePath": "staticwebassets/images/personal-training.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/pest-control.jpg",
+      "PackagePath": "staticwebassets/images/pest-control.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/photography.jpg",
+      "PackagePath": "staticwebassets/images/photography.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/roofing.jpg",
+      "PackagePath": "staticwebassets/images/roofing.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/images/tutoring.jpg",
+      "PackagePath": "staticwebassets/images/tutoring.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/Logo.png",
+      "PackagePath": "staticwebassets/img/Logo.png"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/app-profile-mockup.png",
+      "PackagePath": "staticwebassets/img/app-profile-mockup.png"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/bg-white.jpg",
+      "PackagePath": "staticwebassets/img/bg-white.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/bg.jpg",
+      "PackagePath": "staticwebassets/img/bg.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/blog-1.jpg",
+      "PackagePath": "staticwebassets/img/blog-1.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/blog-2.jpg",
+      "PackagePath": "staticwebassets/img/blog-2.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/blog-3.jpg",
+      "PackagePath": "staticwebassets/img/blog-3.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/blog-4.jpg",
+      "PackagePath": "staticwebassets/img/blog-4.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/client.png",
+      "PackagePath": "staticwebassets/img/client.png"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/favicon-32x32.png",
+      "PackagePath": "staticwebassets/img/favicon-32x32.png"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/icons/animat-checkmark.gif",
+      "PackagePath": "staticwebassets/img/icons/animat-checkmark.gif"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/icons/animat-customize.gif",
+      "PackagePath": "staticwebassets/img/icons/animat-customize.gif"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/icons/animat-responsive.gif",
+      "PackagePath": "staticwebassets/img/icons/animat-responsive.gif"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/obj_triangle.png",
+      "PackagePath": "staticwebassets/img/obj_triangle.png"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/photo-1.jpg",
+      "PackagePath": "staticwebassets/img/photo-1.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/photo-2.jpg",
+      "PackagePath": "staticwebassets/img/photo-2.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/photo-4.jpg",
+      "PackagePath": "staticwebassets/img/photo-4.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/photo-6.jpg",
+      "PackagePath": "staticwebassets/img/photo-6.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/photo-7.jpg",
+      "PackagePath": "staticwebassets/img/photo-7.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/photo-9.jpg",
+      "PackagePath": "staticwebassets/img/photo-9.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/img/testi-1.jpg",
+      "PackagePath": "staticwebassets/img/testi-1.jpg"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/js/MainPage.app.min.js",
+      "PackagePath": "staticwebassets/js/MainPage.app.min.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/js/Services.js",
+      "PackagePath": "staticwebassets/js/Services.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/js/vanilla-tilt.js",
+      "PackagePath": "staticwebassets/js/vanilla-tilt.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/vendor/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/vendor/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/vendor/bootstrap/bootstrap.min.js",
+      "PackagePath": "staticwebassets/vendor/bootstrap/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/vendor/bootstrap/popper.min.js",
+      "PackagePath": "staticwebassets/vendor/bootstrap/popper.min.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/vendor/countTo/jquery.countTo.js",
+      "PackagePath": "staticwebassets/vendor/countTo/jquery.countTo.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/vendor/isotope/isotope.min.js",
+      "PackagePath": "staticwebassets/vendor/isotope/isotope.min.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/vendor/lightcase/lightcase.css",
+      "PackagePath": "staticwebassets/vendor/lightcase/lightcase.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/vendor/lightcase/lightcase.js",
+      "PackagePath": "staticwebassets/vendor/lightcase/lightcase.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/vendor/owlcarousel/owl.carousel.min.css",
+      "PackagePath": "staticwebassets/vendor/owlcarousel/owl.carousel.min.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/vendor/owlcarousel/owl.carousel.min.js",
+      "PackagePath": "staticwebassets/vendor/owlcarousel/owl.carousel.min.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/vendor/select2/select2.min.css",
+      "PackagePath": "staticwebassets/vendor/select2/select2.min.css"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/vendor/select2/select2.min.js",
+      "PackagePath": "staticwebassets/vendor/select2/select2.min.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/vendor/stellar/jquery.stellar.js",
+      "PackagePath": "staticwebassets/vendor/stellar/jquery.stellar.js"
+    },
+    {
+      "Id": "/Users/vivek/Projects/Service-worker/wwwroot/vendor/waypoints/waypoint.min.js",
+      "PackagePath": "staticwebassets/vendor/waypoints/waypoint.min.js"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.ServiceWorkerWebsite.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.ServiceWorkerWebsite.props",
+      "PackagePath": "build\\ServiceWorkerWebsite.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.ServiceWorkerWebsite.props",
+      "PackagePath": "buildMultiTargeting\\ServiceWorkerWebsite.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.ServiceWorkerWebsite.props",
+      "PackagePath": "buildTransitive\\ServiceWorkerWebsite.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

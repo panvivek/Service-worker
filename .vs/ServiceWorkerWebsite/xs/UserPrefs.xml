@@ -1,0 +1,57 @@
+﻿<Properties StartupConfiguration="{314341A6-9F72-4B38-A472-98B7834B96D1}|https">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="Data/Services_List.sql" />
+      <File FileName="Program.cs" Line="49" Column="17" />
+      <File FileName="Controllers/HomeController.cs" />
+      <File FileName="Views/Shared/_Layout.cshtml" />
+      <File FileName="Views/Home/Index.cshtml" />
+      <File FileName="Models/Applicationuser.cs" />
+      <File FileName="Controllers/TimeSlotsController.cs" />
+      <File FileName="Controllers/WorkersController.cs" />
+      <File FileName="Controllers/WorkerServicesController.cs" />
+      <File FileName="Controllers/BookingsController.cs" />
+      <File FileName="Data/ApplicationDbContext.cs" />
+      <File FileName="Areas/Identity/Pages/_ValidationScriptsPartial.cshtml" />
+      <File FileName="Areas/Identity/Pages/_ViewImports.cshtml" />
+      <File FileName="Areas/Identity/Pages/_ViewStart.cshtml" />
+      <File FileName="Areas/Identity/Pages/Error.cshtml" />
+      <File FileName="Controllers/AppRolesController.cs" />
+      <File FileName="Views/Approles/Create.cshtml" />
+      <File FileName="Views/Approles/Index.cshtml" />
+      <File FileName="Migrations/20240915193133_updatedDBrelation.cs" />
+      <File FileName="Migrations/ApplicationDbContextModelSnapshot.cs" />
+      <File FileName="Areas/Identity/Data/ServiceWorkerWebsiteContext.cs" />
+      <File FileName="Areas/Identity/Data/ServiceWorkerWebsiteUser.cs" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/_Layout.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Login.cshtml" />
+      <File FileName="Controllers/PaypalController.cs" />
+      <File FileName="Migrations/20240917035351_AddFirstNameAndLastNameToAspNetUsers.cs" />
+      <File FileName="Areas/Identity/Pages/Account/Register.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Register.cshtml.cs" />
+      <File FileName="Controllers/ServicesController.cs" />
+      <File FileName="Areas/Identity/Pages/Account/Register1.cshtml.cs" />
+      <File FileName="Areas/Identity/Pages/Account/Register1.cshtml" />
+      <File FileName="Views/Shared/_LoginPartial.cshtml" />
+      <File FileName="Models/ErrorViewModel.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ServiceWorkerWebsite">
+            <Node name="ServiceWorkerWebsite">
+              <Node name="Data" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.ServiceWorkerWebsite PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

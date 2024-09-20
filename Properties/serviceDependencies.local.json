@@ -9,6 +9,10 @@
       "type": "mssql.azure",
       "connectionId": "ConnectionStrings:DefaultConnection",
       "dynamicId": null
+    },
+    "mssql1": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:ServiceWorkerWebsiteContextConnection"
     }
   }
 }

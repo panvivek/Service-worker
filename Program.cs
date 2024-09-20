@@ -1,14 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using PaypalCheckoutExample.Clients;
 using ServiceWorkerWebsite.Data;
-using System;
+using Microsoft.AspNetCore.Identity;
+using ServiceWorkerWebsite.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// paypal client configuration
+// PayPal client configuration
 builder.Services.AddSingleton(x =>
     new PaypalClient(
         builder.Configuration["PayPalOptions:ClientId"],
@@ -17,9 +18,16 @@ builder.Services.AddSingleton(x =>
     )
 );
 
-// Adding Database service coonection
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddDbContext<ApplicationDbContext>(optionsBuilder => optionsBuilder.UseInMemoryDatabase("InMemoryDb"));
+// Add Identity services
+builder.Services.AddDefaultIdentity<ServiceWorkerWebsiteUser>().AddDefaultTokenProviders().AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+// Adding SQL Server database connection
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Uncomment the following line if you want to use an in-memory database instead of SQL Server for testing
+// builder.Services.AddDbContext<ApplicationDbContext>(optionsBuilder => optionsBuilder.UseInMemoryDatabase("InMemoryDb"));
 
 var app = builder.Build();
 
@@ -36,10 +44,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Make sure to add authentication and authorization middleware if you are using Identity
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
 
 app.Run();

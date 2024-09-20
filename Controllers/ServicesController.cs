@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using ServiceWorkerWebsite.Data;
 
 namespace ServiceWorkerWebsite.Controllers
 {
+    [Authorize(Roles ="Customer")]
     public class ServicesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -17,7 +19,7 @@ namespace ServiceWorkerWebsite.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Customer")]
         // GET: Services
         public async Task<IActionResult> Index()
         {
