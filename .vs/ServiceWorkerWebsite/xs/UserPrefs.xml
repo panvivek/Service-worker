@@ -1,8 +1,11 @@
 ﻿<Properties StartupConfiguration="{314341A6-9F72-4B38-A472-98B7834B96D1}|https">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
     <Files>
       <File FileName="Data/Services_List.sql" />
-      <File FileName="Program.cs" Line="57" Column="1" />
+      <File FileName="Program.cs" Line="49" Column="17" />
       <File FileName="Controllers/HomeController.cs" />
       <File FileName="Views/Shared/_Layout.cshtml" />
       <File FileName="Views/Home/Index.cshtml" />
@@ -31,7 +34,7 @@
       <File FileName="Areas/Identity/Pages/Account/Register.cshtml.cs" />
       <File FileName="Controllers/ServicesController.cs" />
       <File FileName="Areas/Identity/Pages/Account/Register1.cshtml.cs" />
-      <File FileName="Areas/Identity/Pages/Account/Register1.cshtml" Line="35" Column="66" />
+      <File FileName="Areas/Identity/Pages/Account/Register1.cshtml" />
       <File FileName="Views/Shared/_LoginPartial.cshtml" />
       <File FileName="Models/ErrorViewModel.cs" />
     </Files>
@@ -40,34 +43,15 @@
         <State name="__root__">
           <Node name="ServiceWorkerWebsite">
             <Node name="ServiceWorkerWebsite">
-              <Node name="Areas" expanded="True">
-                <Node name="Identity" expanded="True">
-                  <Node name="Pages" expanded="True">
-                    <Node name="Account" expanded="True">
-                      <Node name="Register1.cshtml" expanded="True" />
-                    </Node>
-                  </Node>
-                </Node>
-              </Node>
-              <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="AppRoles" expanded="True" />
-                <Node name="Approles" expanded="True" />
-                <Node name="Shared" expanded="True" />
-              </Node>
-              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.ServiceWorkerWebsite PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>
