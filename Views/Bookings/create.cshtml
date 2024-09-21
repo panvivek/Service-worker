@@ -163,7 +163,8 @@
 
                 </label>
 
-                <span asp-validation-for="AgreeToTerms" class="text-danger"></span>
+                <span asp-validation-for="AgreeToTerms" class="text-danger"></span> <br /> <br />
+               
 
             </div>
 
@@ -181,7 +182,12 @@
 
 <div>
 
-    <a asp-action="Index">Back to List</a>
+    <!--<a asp-action="Index">Back to List</a>-->
+    <!--<a asp-action="../Workers/Index">Back To List</a>-->
+    <div>
+        <a asp-controller="Workers" asp-action="Index" asp-route-serviceId="@ViewData["Service_Id"]">Back To List</a>
+    </div>
+
 
 </div>
 
