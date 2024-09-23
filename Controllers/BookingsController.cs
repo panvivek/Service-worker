@@ -184,6 +184,12 @@ namespace ServiceWorkerWebsite.Controllers
         {
             return _context.Booking.Any(e => e.Id == id);
         }
+
+        public IActionResult TermsNCond()
+        {
+            return View();
+        }
+
     }
 
     public class DateTimeRequest
@@ -191,4 +197,5 @@ namespace ServiceWorkerWebsite.Controllers
         public DateTime Date { get; set; }
         public int WorkerId { get; set; }
     }
+
 }
