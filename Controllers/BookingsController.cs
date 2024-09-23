@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ServiceWorkerWebsite.Areas.Identity.Data;
 using ServiceWorkerWebsite.Data;
 using ServiceWorkerWebsite.Models;
 using System;
@@ -14,14 +16,21 @@ namespace ServiceWorkerWebsite.Controllers
         private readonly ApplicationDbContext _context;
 
 
+        // public BookingsController(ApplicationDbContext context)
+        //    {
+        //      _context = context;
+        //}
 
-            public BookingsController(ApplicationDbContext context)
-            {
-                _context = context;
-            }
+        private readonly UserManager<ServiceWorkerWebsiteUser> _userManager; // Correct user type
 
-            // GET: Bookings
-            public async Task<IActionResult> Index()
+        public BookingsController(ApplicationDbContext context, UserManager<ServiceWorkerWebsiteUser> userManager)
+        {
+            _context = context;
+            _userManager = userManager; // Correct initialization
+        }
+
+        // GET: Bookings
+        public async Task<IActionResult> Index()
             {
                 var bookings = await _context.Booking
                     .Include(b => b.Service)
@@ -31,13 +40,21 @@ namespace ServiceWorkerWebsite.Controllers
             }
 
         // GET: Bookings/Create
-    
-        public IActionResult Create(int workerId, int serviceId)
+        public async Task<IActionResult> Create(int workerId, int serviceId)
         {
             ViewData["Worker_Id"] = workerId;
             ViewData["Service_Id"] = serviceId;
             Console.WriteLine($"Worker ID: {workerId}");
             Console.WriteLine($"Service ID: {serviceId}");
+
+            // Get the current logged-in user
+            var user = await _userManager.GetUserAsync(User);
+
+            // Pass user info (first name and last name) to the view using ViewData or ViewBag
+            if (user != null)
+            {
+                ViewData["CustomerName"] = $"{user.Firstname} {user.Lastname}";
+            }
 
             return View();
         }

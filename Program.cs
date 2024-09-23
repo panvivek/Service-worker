@@ -1,8 +1,8 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PaypalCheckoutExample.Clients;
-using ServiceWorkerWebsite.Data;
-using Microsoft.AspNetCore.Identity;
 using ServiceWorkerWebsite.Areas.Identity.Data;
+using ServiceWorkerWebsite.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +18,7 @@ builder.Services.AddSingleton(x =>
     )
 );
 
-// Add Identity services
+// Add Identity services (simplified without adding extra schemes)
 builder.Services.AddDefaultIdentity<ServiceWorkerWebsiteUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -26,16 +26,12 @@ builder.Services.AddDefaultIdentity<ServiceWorkerWebsiteUser>(options => options
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Uncomment the following line if you want to use an in-memory database instead of SQL Server for testing
-// builder.Services.AddDbContext<ApplicationDbContext>(optionsBuilder => optionsBuilder.UseInMemoryDatabase("InMemoryDb"));
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -44,7 +40,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// Make sure to add authentication and authorization middleware if you are using Identity
+// Make sure to add authentication and authorization middleware
 app.UseAuthentication();
 app.UseAuthorization();
 
