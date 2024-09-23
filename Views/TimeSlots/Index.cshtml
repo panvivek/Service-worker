@@ -12,12 +12,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.StartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndTime)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.IsBooked)
             </th>
@@ -30,12 +25,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndTime)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.IsBooked)
             </td>

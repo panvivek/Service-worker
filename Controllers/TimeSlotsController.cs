@@ -48,25 +48,11 @@ namespace ServiceWorkerWebsite.Controllers
         // GET: TimeSlots/Create
         public IActionResult Create()
         {
-            // Retrieve the last worker's id from the database
-            var lastWorkerId = _context.Worker_List
-                                        .OrderByDescending(w => w.Worker_Id)
-                                        .Select(w => w.Worker_Id)
-                                        .FirstOrDefault();
-
-            var workers = _context.Worker_List
-                            .Select(w => new SelectListItem
-                            {
-                                Value = w.Worker_Id.ToString(),
-                                Text = w.Name
-                            })
-                            .ToList();
-
-            // Pass the list of workers to the view
-            ViewBag.Workers = workers;
-
-            // Pass the last worker's id to the view
-            ViewBag.LastWorkerId = lastWorkerId;
+            ViewBag.Workers = new SelectList(
+                _context.Worker_List.Select(w => new { w.Worker_Id, w.Name }),
+                "Worker_Id",
+                "Name"
+            );
 
             return View();
         }
@@ -76,30 +62,47 @@ namespace ServiceWorkerWebsite.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TimeSlotId,StartTime,EndTime,IsBooked")] TimeSlot timeSlot)
+        public async Task<IActionResult> Create([Bind("Worker_Id,SelectedDates,TimePeriod,TimeSlots")] TimeSlot timeSlot)
         {
             if (ModelState.IsValid)
             {
-                // Retrieve the last worker's ID from the database
-                var lastWorkerId = _context.Worker_List
-                                          .OrderByDescending(w => w.Worker_Id)
-                                          .Select(w => w.Worker_Id)
-                                          .FirstOrDefault();
+                // Parse SelectedDates
+                var selectedDatesList = Request.Form["SelectedDates"]
+                    .ToString()
+                    .Split(',')
+                    .Select(d => DateTime.Parse(d.Trim()))
+                    .ToList();
 
-                // Assign the last worker's ID to the TimeSlot object
-                timeSlot.Worker_Id = lastWorkerId;
+                // Parse TimeSlots
+                var selectedTimeSlots = Request.Form["TimeSlots"].ToArray();
+                var timeSlotsString = string.Join(",", selectedTimeSlots); // Combine time slots into a single string
 
-                // Add the TimeSlot object to the context and save changes
-                _context.Add(timeSlot);
+                // Loop through each selected date
+                foreach (var date in selectedDatesList)
+                {
+                    // Create a new TimeSlot entry for this date with combined time slots
+                    var newTimeSlot = new TimeSlot
+                    {
+                        Worker_Id = timeSlot.Worker_Id,
+                        SelectedDates = date.ToString("yyyy-MM-dd"), // Store only the current date
+                        TimePeriod = timeSlot.TimePeriod, // If you want to keep this
+                        TimeSlots = timeSlotsString, // Store the combined time slots
+                        IsBooked = false // Default to not booked
+                    };
+
+                    // Save the new time slot to the context
+                    _context.TimeSlot_List.Add(newTimeSlot);
+                }
+
+                // Save all changes to the database
                 await _context.SaveChangesAsync();
 
-                // Redirect to the Index action
                 return RedirectToAction(nameof(Index));
             }
 
-            // If model state is invalid, return the view with the TimeSlot object
             return View(timeSlot);
         }
+
 
 
 

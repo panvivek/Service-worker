@@ -3,12 +3,68 @@
   "WorkspaceRootPath": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\views\\timeslots\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\timeslots\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\views\\bookings\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\bookings\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\controllers\\timeslotscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:controllers\\timeslotscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\views\\workers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\workers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\models\\timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:models\\timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\migrations\\20240922212742_timeslotdbmodify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:migrations\\20240922212742_timeslotdbmodify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\migrations\\20240915193133_updateddbrelation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:migrations\\20240915193133_updateddbrelation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\views\\timeslots\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\timeslots\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\views\\timeslots\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\timeslots\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\views\\timeslots\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\timeslots\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\views\\timeslots\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\timeslots\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\serviceworkerwebsite.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:serviceworkerwebsite.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -19,20 +75,8 @@
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:data\\services_list.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\migrations\\20240915193133_updateddbrelation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:migrations\\20240915193133_updateddbrelation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\main branch\\serviceworkerwebsite.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:serviceworkerwebsite.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Migrations\\20240915190551_IdentityTables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,7 +139,7 @@
         },
         {
           "DockedWidth": 317,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -118,33 +162,220 @@
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Models\\Booking.cs",
+              "RelativeDocumentMoniker": "Models\\Booking.cs",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Models\\Booking.cs",
+              "RelativeToolTip": "Models\\Booking.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T22:58:46.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ServiceWorkerWebsite.csproj",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\ServiceWorkerWebsite.csproj",
+              "RelativeDocumentMoniker": "ServiceWorkerWebsite.csproj",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\ServiceWorkerWebsite.csproj",
+              "RelativeToolTip": "ServiceWorkerWebsite.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-15T16:15:17.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "create.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\Bookings\\create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Bookings\\create.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\Bookings\\create.cshtml",
+              "RelativeToolTip": "Views\\Bookings\\create.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAiwDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-20T19:09:38.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\Workers\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Workers\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\Workers\\Index.cshtml",
+              "RelativeToolTip": "Views\\Workers\\Index.cshtml",
+              "ViewState": "AgIAACwAAAAAAAAAAAAiwEQAAAC1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-15T19:49:21.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TimeSlot.cs",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Models\\TimeSlot.cs",
+              "RelativeDocumentMoniker": "Models\\TimeSlot.cs",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Models\\TimeSlot.cs",
+              "RelativeToolTip": "Models\\TimeSlot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T19:05:29.779Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\TimeSlots\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\TimeSlots\\Create.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\TimeSlots\\Create.cshtml",
+              "RelativeToolTip": "Views\\TimeSlots\\Create.cshtml",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAiwJ0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-20T18:45:36.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TimeSlotsController.cs",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Controllers\\TimeSlotsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TimeSlotsController.cs",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Controllers\\TimeSlotsController.cs",
+              "RelativeToolTip": "Controllers\\TimeSlotsController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwMEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T19:00:54.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookingsController.cs",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Controllers\\BookingsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BookingsController.cs",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Controllers\\BookingsController.cs",
+              "RelativeToolTip": "Controllers\\BookingsController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAcwEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T21:18:25.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAcwDUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T18:21:10.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20240922212742_TimeslotDbModify.cs",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Migrations\\20240922212742_TimeslotDbModify.cs",
+              "RelativeDocumentMoniker": "Migrations\\20240922212742_TimeslotDbModify.cs",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Migrations\\20240922212742_TimeslotDbModify.cs",
+              "RelativeToolTip": "Migrations\\20240922212742_TimeslotDbModify.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAiwEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T21:27:42.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "20240915193133_updatedDBrelation.cs",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Migrations\\20240915193133_updatedDBrelation.cs",
+              "RelativeDocumentMoniker": "Migrations\\20240915193133_updatedDBrelation.cs",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Migrations\\20240915193133_updatedDBrelation.cs",
+              "RelativeToolTip": "Migrations\\20240915193133_updatedDBrelation.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T19:31:34.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\TimeSlots\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\TimeSlots\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\TimeSlots\\Edit.cshtml",
+              "RelativeToolTip": "Views\\TimeSlots\\Edit.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-20T18:39:58.319Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "ServicesController.cs",
               "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Controllers\\ServicesController.cs",
               "RelativeDocumentMoniker": "Controllers\\ServicesController.cs",
               "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Controllers\\ServicesController.cs",
               "RelativeToolTip": "Controllers\\ServicesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwAwAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-15T19:50:25.501Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\Workers\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Workers\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\Workers\\Index.cshtml",
-              "RelativeToolTip": "Views\\Workers\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\TimeSlots\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\TimeSlots\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\TimeSlots\\Delete.cshtml",
+              "RelativeToolTip": "Views\\TimeSlots\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-15T19:49:21.329Z"
+              "WhenOpened": "2024-09-22T21:21:41.426Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 14,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\TimeSlots\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\TimeSlots\\Details.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\TimeSlots\\Details.cshtml",
+              "RelativeToolTip": "Views\\TimeSlots\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-22T21:21:44.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\TimeSlots\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\TimeSlots\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\TimeSlots\\Index.cshtml",
+              "RelativeToolTip": "Views\\TimeSlots\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-22T21:22:00.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "Services_List.sql",
               "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Data\\Services_List.sql",
               "RelativeDocumentMoniker": "Data\\Services_List.sql",
@@ -155,19 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "20240915193133_updatedDBrelation.cs",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Migrations\\20240915193133_updatedDBrelation.cs",
-              "RelativeDocumentMoniker": "Migrations\\20240915193133_updatedDBrelation.cs",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Migrations\\20240915193133_updatedDBrelation.cs",
-              "RelativeToolTip": "Migrations\\20240915193133_updatedDBrelation.cs",
-              "ViewState": "AgIAAHkAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T19:31:34.03Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 18,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -179,19 +398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAmwDUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T18:21:10.535Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 16,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -203,7 +410,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 22,
               "Title": "ScaffoldingReadMe.txt",
               "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\ScaffoldingReadMe.txt",
               "RelativeDocumentMoniker": "ScaffoldingReadMe.txt",
@@ -215,19 +422,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ServiceWorkerWebsite.csproj",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\ServiceWorkerWebsite.csproj",
-              "RelativeDocumentMoniker": "ServiceWorkerWebsite.csproj",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\ServiceWorkerWebsite.csproj",
-              "RelativeToolTip": "ServiceWorkerWebsite.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-09-15T16:15:17.91Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 19,
               "Title": "20240915190551_IdentityTables.cs",
               "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Migrations\\20240915190551_IdentityTables.cs",
               "RelativeDocumentMoniker": "Migrations\\20240915190551_IdentityTables.cs",
@@ -239,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 21,
               "Title": "RazorPagesEndpointRouteBuilderExtensions.cs",
               "DocumentMoniker": "C:\\Users\\ompat\\AppData\\Local\\Temp\\.vsdbgsrc\\0f45846b3863b7528e374eb6b3f537c987cd82d1130a791a9d0b7313602e2cec\\RazorPagesEndpointRouteBuilderExtensions.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\0f45846b3863b7528e374eb6b3f537c987cd82d1130a791a9d0b7313602e2cec\\RazorPagesEndpointRouteBuilderExtensions.cs",
@@ -252,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 20,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -264,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 23,
               "Title": "PaypalClient.cs",
               "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\Clients\\PaypalClient.cs",
               "RelativeDocumentMoniker": "Clients\\PaypalClient.cs",
@@ -273,10 +468,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-29T04:32:14.194Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         },

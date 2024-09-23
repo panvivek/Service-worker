@@ -31,7 +31,7 @@ namespace ServiceWorkerWebsite.Data
             modelBuilder.Entity<TimeSlot>()
                 .ToTable("TimeSlot_List")
                 .HasOne(ts => ts.Worker)
-                .WithMany(w => w.AvailableTimeSlots)
+                .WithMany(w => w.AvailableTimeSlots) // Ensure the Worker model has AvailableTimeSlots
                 .HasForeignKey(ts => ts.Worker_Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
