@@ -49,13 +49,19 @@ namespace ServiceWorkerWebsite.Controllers
             Console.WriteLine($"Entered GetAvailableSlots Method");
             Console.WriteLine($"Worker ID in GetAvailableSlots: {workerId}");
 
-            var availableDates = await _context.TimeSlot_List
+            var availableSlots = await _context.TimeSlot_List
                 .Where(ts => ts.Worker_Id == workerId && !ts.IsBooked)
-                .Select(ts => new { date = ts.SelectedDates, timeSlots = ts.TimeSlots })
+                .GroupBy(ts => ts.SelectedDates) // Group by date
+                .Select(g => new
+                {
+                    date = g.Key, // The date
+                    timeSlots = g.Select(ts => ts.TimeSlots).ToList() // List of time slots for that date
+                })
                 .ToListAsync();
 
-            return Json(availableDates);
+            return Json(availableSlots);
         }
+
 
         // Define a class to deserialize the request
         public class WorkerRequest

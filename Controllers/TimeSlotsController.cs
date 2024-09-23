@@ -75,23 +75,25 @@ namespace ServiceWorkerWebsite.Controllers
 
                 // Parse TimeSlots
                 var selectedTimeSlots = Request.Form["TimeSlots"].ToArray();
-                var timeSlotsString = string.Join(",", selectedTimeSlots); // Combine time slots into a single string
 
                 // Loop through each selected date
                 foreach (var date in selectedDatesList)
                 {
-                    // Create a new TimeSlot entry for this date with combined time slots
-                    var newTimeSlot = new TimeSlot
+                    // Create a new TimeSlot entry for each time slot on this date
+                    foreach (var slot in selectedTimeSlots)
                     {
-                        Worker_Id = timeSlot.Worker_Id,
-                        SelectedDates = date.ToString("yyyy-MM-dd"), // Store only the current date
-                        TimePeriod = timeSlot.TimePeriod, // If you want to keep this
-                        TimeSlots = timeSlotsString, // Store the combined time slots
-                        IsBooked = false // Default to not booked
-                    };
+                        var newTimeSlot = new TimeSlot
+                        {
+                            Worker_Id = timeSlot.Worker_Id,
+                            SelectedDates = date.ToString("yyyy-MM-dd"), // Store only the current date
+                            TimePeriod = timeSlot.TimePeriod, // If you want to keep this
+                            TimeSlots = slot, // Store the specific time slot
+                            IsBooked = false // Default to not booked
+                        };
 
-                    // Save the new time slot to the context
-                    _context.TimeSlot_List.Add(newTimeSlot);
+                        // Save the new time slot to the context
+                        _context.TimeSlot_List.Add(newTimeSlot);
+                    }
                 }
 
                 // Save all changes to the database
@@ -102,6 +104,7 @@ namespace ServiceWorkerWebsite.Controllers
 
             return View(timeSlot);
         }
+
 
 
 
