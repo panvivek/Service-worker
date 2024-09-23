@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ServiceWorkerWebsite.Models
 {
@@ -18,7 +19,8 @@ namespace ServiceWorkerWebsite.Models
         public string CustomerName { get; set; }
         public string CustomerContact { get; set; }
         public bool AgreeToTerms { get; set; }
-
+        [ForeignKey("Worker_Id")]
+        public virtual Worker Worker { get; set; }
         public virtual Service Service { get; set; }
 
         

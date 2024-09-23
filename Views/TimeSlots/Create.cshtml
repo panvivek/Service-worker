@@ -4,48 +4,173 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Create Time Slot</h1>
 
-<h4>TimeSlot</h4>
+<h4>Set Worker Availability</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="StartTime" class="control-label"></label>
-                <input asp-for="StartTime" class="form-control" />
-                <span asp-validation-for="StartTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EndTime" class="control-label"></label>
-                <input asp-for="EndTime" class="form-control" />
-                <span asp-validation-for="EndTime" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsBooked" /> @Html.DisplayNameFor(model => model.IsBooked)
-                </label>
-            </div>
-
-            <select class="form-control" disabled>
-                <option value="@ViewBag.LastWorkerId">@ViewBag.LastWorkerId</option>
-            </select>
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            <div class="container mt-4">
+                <!-- Worker Selection Dropdown -->
+                <div class="form-group">
+                    <label asp-for="Worker_Id" class="control-label"></label>
+                    <select asp-for="Worker_Id" class="form-control" asp-items="ViewBag.Workers"></select>
+                    <span asp-validation-for="Worker_Id" class="text-danger"></span>
+                </div>
 
 
+                <!-- Multi-Date Calendar Selection -->
+                <div class="form-group">
+                    <label for="SelectedDates">Select Available Dates</label>
+                    <input type="text" id="SelectedDates" name="SelectedDates" class="form-control" placeholder="Select dates" />
+                    <span class="text-danger" asp-validation-for="SelectedDates"></span>
+                </div>
 
+                <!-- Time Period Selection (with "Select All" and Color Feedback) -->
+                <div class="form-group">
+                    <label class="font-weight-bold">Select Time Periods</label>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span>Available Time Periods:</span>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="selectAllPeriods">
+                            <label class="custom-control-label" for="selectAllPeriods">Select All</label>
+                        </div>
+                    </div>
+                    <div class="btn-group-toggle d-flex flex-wrap" data-toggle="buttons" id="periodSelection">
+                        <label class="btn btn-outline-primary m-1">
+                            <input type="checkbox" id="morning" autocomplete="off"> Morning (6 AM - 12 PM)
+                        </label>
+                        <label class="btn btn-outline-primary m-1">
+                            <input type="checkbox" id="afternoon" autocomplete="off"> Afternoon (12 PM - 6 PM)
+                        </label>
+                        <label class="btn btn-outline-primary m-1">
+                            <input type="checkbox" id="evening" autocomplete="off"> Evening (6 PM - 9 PM)
+                        </label>
+                        <label class="btn btn-outline-primary m-1">
+                            <input type="checkbox" id="night" autocomplete="off"> Night (9 PM - 6 AM)
+                        </label>
+                    </div>
+                </div>
 
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <!-- Time Slots (with "Select All") -->
+                <div class="form-group">
+                    <label class="font-weight-bold">Select 45-Minute Time Slots</label>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span>Available Time Slots:</span>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="selectAllSlots">
+                            <label class="custom-control-label" for="selectAllSlots">Select All</label>
+                        </div>
+                    </div>
+                    <div id="timeSlotsContainer" class="form-control" style="height: 150px; overflow-y: auto;">
+                        <!-- Time slots will be dynamically added here with checkboxes -->
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-success btn-block">Submit Availability</button>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary mt-3">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @Html.RenderPartialAsync("_ValidationScriptsPartial")
+
+    <!-- Flatpickr CSS and JS -->
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        // Initialize Flatpickr with multi-date selection
+        flatpickr("#SelectedDates", {
+            mode: "multiple", // Allow multiple date selections
+            dateFormat: "Y-m-d", // Format the date in a user-friendly way
+            onClose: function (selectedDates) {
+                // Update the hidden input with the selected dates as a comma-separated string
+                const datesString = selectedDates.map(date => date.toISOString().split('T')[0]).join(',');
+                document.getElementById('SelectedDates').value = datesString;
+            }
+        });
+
+        // Existing JavaScript for time period and time slots
+        document.addEventListener('DOMContentLoaded', function () {
+            const timeSlotsContainer = document.getElementById('timeSlotsContainer');
+            const selectAllPeriodsCheckbox = document.getElementById('selectAllPeriods');
+            const selectAllSlotsCheckbox = document.getElementById('selectAllSlots');
+            const periodSelection = document.getElementById('periodSelection');
+
+            const morningSlots = ['6:00-6:45 AM', '6:45-7:30 AM', '7:30-8:15 AM', '8:15-9:00 AM'];
+            const afternoonSlots = ['12:00-12:45 PM', '12:45-1:30 PM', '1:30-2:15 PM', '2:15-3:00 PM'];
+            const eveningSlots = ['6:00-6:45 PM', '6:45-7:30 PM', '7:30-8:15 PM', '8:15-9:00 PM'];
+            const nightSlots = ['9:00-9:45 PM', '9:45-10:30 PM', '10:30-11:15 PM', '11:15-12:00 AM'];
+
+            const periodSlotMap = {
+                'morning': morningSlots,
+                'afternoon': afternoonSlots,
+                'evening': eveningSlots,
+                'night': nightSlots
+            };
+
+            periodSelection.querySelectorAll('label').forEach(label => {
+                label.querySelector('input').addEventListener('change', function () {
+                    const period = this.id;
+                    const slots = periodSlotMap[period];
+
+                    if (this.checked) {
+                        label.classList.add('active', 'btn-primary');
+                        addTimeSlots(slots);
+                    } else {
+                        label.classList.remove('active', 'btn-primary');
+                        removeTimeSlots(slots);
+                    }
+                });
+            });
+
+            function addTimeSlots(slots) {
+                slots.forEach(slot => {
+                    const slotDiv = document.createElement('div');
+                    slotDiv.classList.add('custom-control', 'custom-checkbox', 'm-1');
+
+                    const input = document.createElement('input');
+                    input.type = 'checkbox';
+                    input.classList.add('custom-control-input', 'slot-checkbox');
+                    input.id = slot;
+                    input.value = slot;
+                    input.name = 'TimeSlots'; // Ensure this is set to a name that collects all selected values
+
+                    const label = document.createElement('label');
+                    label.classList.add('custom-control-label');
+                    label.htmlFor = slot;
+                    label.textContent = slot;
+
+                    slotDiv.appendChild(input);
+                    slotDiv.appendChild(label);
+
+                    timeSlotsContainer.appendChild(slotDiv);
+                });
+            }
+
+            function removeTimeSlots(slots) {
+                slots.forEach(slot => {
+                    const checkbox = document.getElementById(slot);
+                    if (checkbox) {
+                        timeSlotsContainer.removeChild(checkbox.parentElement);
+                    }
+                });
+            }
+
+            selectAllSlotsCheckbox.addEventListener('change', function () {
+                const slotCheckboxes = document.querySelectorAll('.slot-checkbox');
+                slotCheckboxes.forEach(checkbox => {
+                    checkbox.checked = selectAllSlotsCheckbox.checked;
+                });
+            });
+        });
+    </script>
 }
