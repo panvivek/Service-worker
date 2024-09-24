@@ -8,6 +8,10 @@ namespace ServiceWorkerWebsite.Data
     // Specify the custom Identity user type
     public class ApplicationDbContext : IdentityDbContext<ServiceWorkerWebsiteUser>
     {
+        public ApplicationDbContext()
+        {
+        }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
@@ -17,7 +21,10 @@ namespace ServiceWorkerWebsite.Data
         public DbSet<Booking> Booking { get; set; }
         public DbSet<TimeSlot> TimeSlot_List { get; set; }
         public DbSet<WorkerService> WorkerServices { get; set; } // Add DbSet for the association table
-        public DbSet<Applicationuser> Applicationusers { get; set; }
+        public DbSet<Reviews> Reviews
+        {
+            get; set;
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,7 +39,7 @@ namespace ServiceWorkerWebsite.Data
             modelBuilder.Entity<TimeSlot>()
                 .ToTable("TimeSlot_List")
                 .HasOne(ts => ts.Worker)
-                .WithMany(w => w.AvailableTimeSlots)
+                .WithMany(w => w.AvailableTimeSlots) // Ensure the Worker model has AvailableTimeSlots
                 .HasForeignKey(ts => ts.Worker_Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
@@ -49,6 +56,11 @@ namespace ServiceWorkerWebsite.Data
                 .HasOne(ws => ws.Service)
                 .WithMany(s => s.WorkerServices)
                 .HasForeignKey(ws => ws.Service_Id);
+
+            modelBuilder.Entity<Reviews>()
+                .HasOne(r => r.Worker)
+                .WithMany(w => w.Review)
+                .HasForeignKey(r => r.Worker_Id);
         }
     }
 }
