@@ -11,7 +11,8 @@ public class Worker
     public double Ratings { get; set; }
     public string Reviews { get; set; }
     public int Price { get; set; }
-
+    public double Latitude { get; set; }
+    public double Longitude { get; set; }
 
     public virtual ICollection<WorkerService> WorkerServices { get; set; }
   

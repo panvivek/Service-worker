@@ -22,11 +22,13 @@ namespace ServiceWorkerWebsite.Controllers
         }
         [Authorize]
         // GET: Workers
-        public async Task<IActionResult> Index(int serviceId, string sortOrder)
+        public async Task<IActionResult> Index(int serviceId, string sortOrder, double? latitude = 0.0, double? longitude = 0.0)
         {
+            //string message = Session[]
             ViewData["ServiceId"] = serviceId;
             ViewData["PriceSortParam"] = string.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
             ViewData["RatingSortParam"] = sortOrder == "ratings_asc" ? "ratings_desc" : "ratings_asc";
+            ViewData["LocationSortParam"] = "location";
 
             var serviceWithWorkers = await _context.Services_List
                 .Include(s => s.WorkerServices)
@@ -53,10 +55,40 @@ namespace ServiceWorkerWebsite.Controllers
                 case "ratings_desc":
                     workers = workers.OrderByDescending(w => w.Ratings);
                     break;
+                case "location":
+                    workers = workers.Where(w => (w.Latitude <= (latitude + 2) && w.Latitude >= (latitude - 2)) && (w.Longitude <= (longitude + 2) && w.Longitude >= (longitude - 2)));
+                    //workers = workers.
+                    break;
                 default:
                     workers = workers.OrderBy(w => w.Price);
                     break;
             }
+
+            return View(workers);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SaveLocation(int serviceId, double latitude, double longitude)
+        {
+            // Now you can work with the latitude and longitude values
+            // Example: Save them to a database, or use them in further logic.
+            ViewData["ServiceId"] = serviceId;
+            ViewData["LocationSortParam"] = "location";
+
+            var serviceWithWorkers = await _context.Services_List
+                .Include(s => s.WorkerServices)
+                .ThenInclude(ws => ws.Worker)
+                .FirstOrDefaultAsync(s => s.Service_Id == serviceId);
+
+            if (serviceWithWorkers == null)
+            {
+                return NotFound();
+            }
+
+            // Extract the workers associated with the service
+            var workers = serviceWithWorkers.WorkerServices.Select(ws => ws.Worker);
+
+            workers = workers.OrderBy(w => (w.Latitude >= (latitude + 2) && w.Latitude <= (latitude - 2)) && (w.Longitude >= (longitude + 2) && w.Longitude <= (longitude - 2)));
 
             return View(workers);
         }

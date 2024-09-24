@@ -5,6 +5,34 @@
 <html lang="en">
 
 <head>
+    <script>
+        const x = document.getElementById("demo");
+        window.onload = function () {
+            //alert("hello");
+            getLocation();  // Call getLocation here to start geolocation
+
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+
+            function showPosition(position) { 
+                latitude = position.coords.latitude;
+                longitude = position.coords.longitude;
+                // Store the values in sessionStorage
+                sessionStorage.setItem("latitude", latitude);
+                sessionStorage.setItem("longitude", longitude);
+                //alert("hello1");
+                //alert(latitude + " " + longitude);
+                // Optionally submit the form to send data to the server
+                //document.getElementById("locationForm").submit();
+            }
+
+        }
+    </script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

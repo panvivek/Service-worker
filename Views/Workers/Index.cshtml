@@ -2,21 +2,41 @@
 
 @{
     ViewData["Title"] = "Index";
+    var latitude = 43.683334;
+    var longitude = -79.766670;
 }
 
-
 <h1>Index</h1>
-
 
 <div class="container">
     @* Sorting links *@
     <div>
+        @* <script>
+             @latitude = sessionStorage.getItem("latitude");
+             longitude = sessionStorage.getItem("longitude");
+
+            alert("latitude: " + @latitude);
+            // Set values in the hidden input fields
+            document.getElementById("latitudeInput").value = latitude;
+            document.getElementById("longitudeInput").value = longitude;
+        </script> *@
         <strong>Sort by:</strong>
         <a asp-action="Index" asp-route-serviceId="@ViewData["ServiceId"]" asp-route-sortOrder="@ViewData["PriceSortParam"]">Price</a> |
-        <a asp-action="Index" asp-route-serviceId="@ViewData["ServiceId"]" asp-route-sortOrder="@ViewData["RatingSortParam"]">Ratings</a>
-    </div>
+        <a asp-action="Index" asp-route-serviceId="@ViewData["ServiceId"]" asp-route-sortOrder="@ViewData["RatingSortParam"]">Ratings</a> | 
+        <a id="locationTag" asp-action="Index" asp-route-serviceId="@ViewData["ServiceId"]" asp-route-sortOrder="@ViewData["LocationSortParam"]" asp-route-latitude="@latitude" asp-route-longitude="@longitude">Current Location</a>
 
-    <div class="jumbotron d-flex align-items-center" style="position : absolute; height:100% ; ">
+        @* <script>
+            latitude = sessionStorage.getItem("latitude");
+            longitude = sessionStorage.getItem("longitude");
+
+            document.getElementById("locationTag").setAttribute("asp-route-latitude", sessionStorage.getItem("latitude"));
+            alert(document.getElementById("locationTag"));
+            alert("latitude: " + latitude);
+            // Set values in the hidden input fields
+            document.getElementById("latitudeInput").value = latitude;
+            document.getElementById("longitudeInput").value = longitude;
+        </script> *@
+        <div class="jumbotron d-flex align-items-center" style="position : absolute; height:100% ; ">
         <div class="container text-center">
             <!--    <h1 class="display-1 mb-4"><br></h1>-->
         </div>
