@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ServiceWorkerWebsite.Models;
 
 public class Worker
 {
@@ -11,12 +12,16 @@ public class Worker
     public double Ratings { get; set; }
     public string Reviews { get; set; }
     public int Price { get; set; }
+    [NotMapped] // This property is not stored in the database
+   
 
 
     public virtual ICollection<WorkerService> WorkerServices { get; set; }
   
 
     public virtual ICollection<TimeSlot> AvailableTimeSlots { get; set; }
+
+    public ICollection<Reviews> Review { get; set; }
 
 
 }
