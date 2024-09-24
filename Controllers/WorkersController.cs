@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ServiceWorkerWebsite.Data;
+using ServiceWorkerWebsite.Models;
 
 namespace ServiceWorkerWebsite.Controllers
 {
@@ -38,6 +39,7 @@ namespace ServiceWorkerWebsite.Controllers
                 return NotFound();
             }
 
+
             // Extract the workers associated with the service
             var workers = serviceWithWorkers.WorkerServices.Select(ws => ws.Worker);
 
@@ -60,6 +62,16 @@ namespace ServiceWorkerWebsite.Controllers
 
             return View(workers);
         }
+        public IEnumerable<Reviews> GetReviewsForWorker(int Worker_Id)
+        {
+            
+                return _context.Reviews
+                    .Where(r => r.Worker_Id == Worker_Id)
+                    .ToList();
+
+
+           
+        }
 
         // GET: Workers/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -69,15 +81,65 @@ namespace ServiceWorkerWebsite.Controllers
                 return NotFound();
             }
 
-            var worker = await _context.Worker_List
-                .FirstOrDefaultAsync(m => m.Worker_Id == id);
+            var worker = await _context.Worker_List.FirstOrDefaultAsync(m => m.Worker_Id == id);
+
             if (worker == null)
             {
                 return NotFound();
             }
 
-            return View(worker);
+            var reviews = GetReviewsForWorker(id.Value).ToList();
+            var averageRatingResult = GetAverageRatingForWorker(id.Value) as OkObjectResult;
+
+            var model = new WorkerDetailsViewModel
+            {
+                Worker = worker,
+                AverageRating = averageRatingResult?.Value is double average ? average : 0,
+                Reviews = reviews
+            };
+
+            ViewBag.ReviewsCount = reviews.Count;
+
+            return View(model);
         }
+
+        public IActionResult GetAverageRatingForWorker(int Worker_Id)
+        {
+            var reviewsForWorker = _context.Reviews
+                .Where(r => r.Worker_Id == Worker_Id)
+                .ToList();
+
+            if (!reviewsForWorker.Any())
+            {
+                // If no reviews, return 0 as the average rating
+                return Ok(0);
+            }
+
+            double averageRating = reviewsForWorker.Average(r => (double)r.RatingValue); // Cast to double for accuracy
+
+            return Ok(averageRating);
+        }
+
+        [HttpGet]
+        public IActionResult GetNextReviewPartial(int index)
+        {
+            // Get all reviews with the associated Worker entity
+            var allReviews = _context.Reviews
+                .Include(r => r.Worker) // Assuming you have a navigation property for Worker in the Reviews model
+                .ToList();
+
+            if (index >= 0 && index < allReviews.Count)
+            {
+                var nextReview = allReviews[index];
+                return PartialView("_ReviewPartial", nextReview);
+            }
+            else
+            {
+                return BadRequest("Invalid review index.");
+            }
+        }
+
+
 
         // GET: Workers/Create
         public IActionResult Create()
