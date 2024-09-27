@@ -1,160 +1,31 @@
 ﻿@model ServiceWorkerWebsite.Models.Booking
 
 @{
-
     ViewData["Title"] = "Create";
-
 }
-<style>
-    body {
-        background-color: #f0f2f5; /* Soft background color */
-    }
 
-    .container {
-        padding-top: 20px;
-    }
-
-    h1, h4 {
-        color: mediumpurple; /* Dark grey color for headings */
-    }
-
-    .form-group {
-        margin-bottom: 1rem;
-    }
-
-    label {
-        font-weight: 600;
-        color: #555; /* Slightly darker grey for labels */
-    }
-
-    .form-control {
-        border-radius: 0.25rem; /* Rounded borders for form inputs */
-        border: 1px solid #ced4da; /* Light grey border */
-        padding: 0.375rem 0.75rem; /* Padding inside inputs */
-    }
-
-        .form-control:focus {
-            border-color: #80bdff; /* Highlight color when focused */
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(128, 189, 255, 0.6); /* Subtle shadow for depth */
-        }
-
-    .form-check-input {
-        width: 20px;
-        height: 20px; /* Larger checkbox */
-        margin-top: 0.3rem; /* Align checkbox vertically with label */
-        margin-right: 0.5rem; /* Space between checkbox and label */
-    }
-
-    .btn-primary {
-        background-color: #007bff; /* Primary button color */
-        border-color: #007bff; /* Border color to match */
-        color: #fff; /* White text */
-        padding: 0.5rem 1rem; /* Padding inside button */
-        border-radius: 0.25rem; /* Rounded borders for buttons */
-        font-size: 1rem; /* Button text size */
-        line-height: 1.5; /* Line height for button text */
-    }
-
-        .btn-primary:hover {
-            background-color: #0056b3; /* Darker shade for hover state */
-            border-color: #004085; /* Border color for hover state */
-        }
-
-    .text-danger {
-        color: #dc3545; /* Bootstrap default danger color */
-    }
-
-    /* Add more custom styles as needed */
-</style>
-
-
-<h1>Create</h1>
-
-<h4>Booking</h4>
-
-<hr />
+<!-- Calendar UI with Flatpickr -->
+<h1>Create Booking</h1>
 
 <div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <!-- Worker Selection -->
+            <input type="hidden" asp-for="Worker_Id" value="@ViewData["Worker_Id"]" />
 
-    <div class="col-md-4">
-
-        <form id="bookingForm" asp-action="Create">
-
-            <input type="hidden" asp-for="Worker_Id" value="@ViewData["Worker_Id"]" /> <!-- Hidden field for WorkerId -->
-
-            <input type="hidden" asp-for="Service_Id" value="@ViewData["Service_Id"]" /> <!-- Hidden field for ServiceId -->
-            <!--@{
-
-                // Cast ViewData["AvailableTimeSlots"] to the appropriate IEnumerable type
-
-                var timeSlots = ViewData["AvailableTimeSlots"] as SelectList;
-
-            }
-
-                         <div class="form-group">
-
-                             <label asp-for="TimeSlotId" class="control-label">Time Slot</label>
-
-                             <select asp-for="TimeSlotId" class="form-control" asp-items="@timeSlots">
-
-                                 <option value="">Please select a time slot</option>
-
-                             </select>
-
-                             <span asp-validation-for="TimeSlotId" class="text-danger"></span>
-
-                         </div>
-
-                          -->
-            @{
-                // Get today's date and the date 7 days from today, formatted as "yyyy-MM-dd"
-                string today = DateTime.Today.ToString("yyyy-MM-dd");
-                string maxDate = DateTime.Today.AddDays(7).ToString("yyyy-MM-dd");
-            }
-
-            <input asp-for="BookingDate" class="form-control" id="BookingDate" type="date" min="@today" max="@maxDate" />
-
-
-            <select asp-for="TimeSlotId" class="form-control" id="TimeSlotId" ...>
-
-                <option value="">Please select a time slot</option>
-
-            </select>
-
-
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+            <!-- Date Picker -->
             <div class="form-group">
-
-                <label asp-for="Service_Id" class="control-label"></label>
-
-                <input type="text" readonly class="form-control" value="@ViewData["Service_Id"]" /> <!-- Display the ServiceId as readonly -->
-
-                <span asp-validation-for="Service_Id" class="text-danger"></span>
-
+                <label for="BookingDate">Select Date</label>
+                <input type="text" class="form-control custom-datepicker" id="BookingDate" readonly />
             </div>
 
-
+            <!-- Time Slot Picker -->
             <div class="form-group">
-
-                <label asp-for="CustomerName" class="control-label"></label>
-
-                <input asp-for="CustomerName" class="form-control" />
-
-                <span asp-validation-for="CustomerName" class="text-danger"></span>
-
+                <label for="TimeSlotId">Select Time Slot</label>
+                <div class="time-slot-container" id="TimeSlotContainer">
+                    <div class="time-slot" data-value="">Please select a time slot</div>
+                </div>
             </div>
-
-            <div class="form-group">
-
-                <label asp-for="CustomerContact" class="control-label"></label>
-
-                <input asp-for="CustomerContact" class="form-control" />
-
-                <span asp-validation-for="CustomerContact" class="text-danger"></span>
-
-            </div>
-
             <div class="form-group form-check">
 
                 <label class="form-check-label">
@@ -163,74 +34,162 @@
 
                 </label>
 
-                <span asp-validation-for="AgreeToTerms" class="text-danger"></span>
+                <span asp-validation-for="AgreeToTerms" class="text-danger"></span> <br>
+                <a asp-controller="Bookings" asp-action="TermsNCond">Terms and Condition</a>
 
             </div>
-
+            <!-- Submit -->
             <div class="form-group">
-
                 <input type="submit" value="Create" class="btn btn-primary" />
-
             </div>
-
+        
+            <div>
+                <a asp-controller="Workers" asp-action="Index" asp-route-serviceId="@ViewData["Service_Id"]">Back To List</a>
+            </div>
         </form>
-
     </div>
-
 </div>
 
+<!-- Custom Styles and Script Section -->
+@section Scripts {
+    <!-- Flatpickr CSS and JS -->
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <div>
 
-    <a asp-action="Index">Back to List</a>
+    <!--<a asp-action="Index">Back to List</a>-->
+    <!--<a asp-action="../Workers/Index">Back To List</a>-->
+    <!--<div>
+        <a asp-controller="Workers" asp-action="Index" asp-route-serviceId="@ViewData["Service_Id"]">Back To List</a>
+        </div>-->
 
-</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var workerId = document.getElementById("Worker_Id").value;
 
-
-<script>
-
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("BookingDate").addEventListener("change", function () {
-            var selectedDate = this.value; // Get the selected date
-            var workerId = document.getElementById("Worker_Id").value; // Assuming you have a worker ID to send
-
-            // Make an AJAX call to fetch time slots
-            fetch('/Bookings/GetTimeSlotsForDate', {
+            // Fetch available slots and initialize calendar
+            fetch('/Bookings/GetAvailableSlots', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'RequestVerificationToken': document.getElementsByName('__RequestVerificationToken')[0].value // Add anti-forgery token
+                    'RequestVerificationToken': document.getElementsByName('__RequestVerificationToken')[0].value
                 },
-                body: JSON.stringify({ date: selectedDate, workerId: workerId })
+                body: JSON.stringify({ workerId: parseInt(workerId) })
             })
                 .then(response => response.json())
                 .then(data => {
-                    var timeSlotSelect = document.getElementById("TimeSlotId"); // Your time slot select element
-                    timeSlotSelect.innerHTML = '<option value="">Please select a timeslot</option>'; // Clear current options
-
-                    if (data.length === 1 && data[0].value === "-1") {
-                        // No time slots available, show a placeholder option
-                        var option = new Option(data[0].text, "Taken");
-                        option.disabled = true;
-                        timeSlotSelect.add(option);
-                    } else {
-                        // Populate the dropdown with available time slots
-                        data.forEach(function (timeSlot) {
-                            var option = new Option(timeSlot.text, timeSlot.value);
-                            timeSlotSelect.add(option);
-                        });
-                    }
+                    // Initialize Flatpickr
+                    flatpickr("#BookingDate", {
+                        enable: data.map(item => item.date),
+                        onChange: function (selectedDates) {
+                            var selectedDate = selectedDates[0];
+                            document.getElementById('BookingDate').value = selectedDate.toISOString().split('T')[0];
+                            loadTimeSlots(selectedDate.toISOString().split('T')[0], data);
+                        },
+                        defaultDate: new Date(),
+                        inline: true,
+                        dateFormat: "Y-m-d",
+                        showMonths: 1,
+                        disableMobile: true
+                    });
                 })
-                .catch(error => console.error('Error fetching time slots:', error));
+                .catch(error => console.error('Error fetching available slots:', error));
         });
-    });
 
+        function loadTimeSlots(selectedDate, data) {
+            var timeSlotContainer = document.getElementById("TimeSlotContainer");
+            timeSlotContainer.innerHTML = '<div class="time-slot" data-value="">Please select a time slot</div>'; // Reset the container
+            var selectedTimeSlots = data.find(d => d.date === selectedDate)?.timeSlots || [];
 
+            selectedTimeSlots.forEach(function (timeSlot) {
+                var timeSlotDiv = document.createElement('div');
+                timeSlotDiv.className = 'time-slot';
+                timeSlotDiv.innerText = timeSlot;
+                timeSlotDiv.dataset.value = timeSlot;
 
-    @section Scripts {
-        @{
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+                timeSlotDiv.addEventListener('click', function () {
+                    document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('selected'));
+                    timeSlotDiv.classList.add('selected');
+                    document.getElementById("TimeSlotId").value = timeSlotDiv.dataset.value; // Update hidden input
+                });
+
+                timeSlotContainer.appendChild(timeSlotDiv);
+            });
         }
+    </script>
+
+    <!-- Custom Calendar Styling -->
+    <style>
+        /* Change background and text colors */
+        .flatpickr-calendar {
+            background-color: #f3f3f3;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            color: #333;
         }
 
+        /* Time Slot Container Styles */
+        .time-slot-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
 
-</script>
+        .time-slot {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+            background-color: #f7f7f7;
+        }
+
+            .time-slot:hover {
+                background-color: #e2e2e2;
+                border-color: #1e90ff;
+            }
+
+            .time-slot.selected {
+                background-color: #1e90ff;
+                color: #fff;
+                border-color: #1e90ff;
+            }
+
+        /* Input field and general form styling */
+        .custom-datepicker {
+            cursor: pointer;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.075);
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #1e90ff;
+            border-color: #1e90ff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+        .flatpickr-month {
+            background-color: #1e90ff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* Apply a subtle shadow to the dropdown */
+        #TimeSlotId {
+            display: none; /* Hide the original dropdown */
+        }
+    </style>
+}

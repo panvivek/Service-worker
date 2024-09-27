@@ -1,21 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 
 [Table("TimeSlot_List")]
 public class TimeSlot
 {
     [Key]
     public int TimeSlotId { get; set; }
-   
-    public DateTime StartTime { get; set; }
-    public DateTime EndTime { get; set; }
-    public bool IsBooked { get; set; } = false; // To track if the slot is already booked
 
-    // Foreign Key
+    // Store as a comma-separated string
+    public string SelectedDates { get; set; }
+
+    public string TimePeriod { get; set; }
+
+    // Store as a comma-separated string
+    public string TimeSlots { get; set; }
+
     public int Worker_Id { get; set; }
 
-    // Navigation Property
     public virtual Worker Worker { get; set; }
+
+    public bool IsBooked { get; set; } = false;
 }
