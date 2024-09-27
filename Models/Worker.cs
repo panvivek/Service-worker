@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ServiceWorkerWebsite.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 public class Worker
@@ -18,6 +19,8 @@ public class Worker
   
 
     public virtual ICollection<TimeSlot> AvailableTimeSlots { get; set; }
+    public ICollection<Reviews> Review { get; set; }
+
 
 
 }
