@@ -8162,25 +8162,31 @@
     ]
   },
   "packageFolders": {
-    "/Users/vivek/.nuget/packages/": {}
+    "C:\\Users\\ompat\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/vivek/Projects/Service-worker/ServiceWorkerWebsite.csproj",
+      "projectUniqueName": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\ServiceWorkerWebsite.csproj",
       "projectName": "ServiceWorkerWebsite",
-      "projectPath": "/Users/vivek/Projects/Service-worker/ServiceWorkerWebsite.csproj",
-      "packagesPath": "/Users/vivek/.nuget/packages/",
-      "outputPath": "/Users/vivek/Projects/Service-worker/obj/",
+      "projectPath": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\ServiceWorkerWebsite.csproj",
+      "packagesPath": "C:\\Users\\ompat\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Main Branch\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/vivek/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\ompat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8254,7 +8260,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

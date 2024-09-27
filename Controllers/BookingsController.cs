@@ -3,12 +3,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ServiceWorkerWebsite.Data;
 using ServiceWorkerWebsite.Models;
-<<<<<<< HEAD
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-=======
->>>>>>> Vivek_Ana_Phase2_Week2
 
 namespace ServiceWorkerWebsite.Controllers
 {
@@ -18,23 +15,23 @@ namespace ServiceWorkerWebsite.Controllers
 
 
 
-            public BookingsController(ApplicationDbContext context)
-            {
-                _context = context;
-            }
+        public BookingsController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
-            // GET: Bookings
-            public async Task<IActionResult> Index()
-            {
-                var bookings = await _context.Booking
-                    .Include(b => b.Service)
-                    .Include(b => b.Worker)
-                    .ToListAsync();
-                return View(bookings);
-            }
+        // GET: Bookings
+        public async Task<IActionResult> Index()
+        {
+            var bookings = await _context.Booking
+                .Include(b => b.Service)
+                .Include(b => b.Worker)
+                .ToListAsync();
+            return View(bookings);
+        }
 
         // GET: Bookings/Create
-    
+
         public IActionResult Create(int workerId, int serviceId)
         {
             ViewData["Worker_Id"] = workerId;
@@ -74,28 +71,28 @@ namespace ServiceWorkerWebsite.Controllers
 
         // POST: Bookings/Create
         [HttpPost]
-            [ValidateAntiForgeryToken]
-            public async Task<IActionResult> Create([Bind("Worker_Id,BookingDate,CustomerName,CustomerContact,Service_Id,AgreeToTerms,TimeSlotId")] Booking booking)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Worker_Id,BookingDate,CustomerName,CustomerContact,Service_Id,AgreeToTerms,TimeSlotId")] Booking booking)
+        {
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                var timeSlot = await _context.TimeSlot_List.FindAsync(booking.TimeSlotId);
+                if (timeSlot != null)
                 {
-                    var timeSlot = await _context.TimeSlot_List.FindAsync(booking.TimeSlotId);
-                    if (timeSlot != null)
-                    {
-                        timeSlot.IsBooked = true;
-                        _context.Update(timeSlot);
-                    }
-
-                    _context.Add(booking);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
+                    timeSlot.IsBooked = true;
+                    _context.Update(timeSlot);
                 }
-                return View(booking);
-            }
 
-          
-            // GET: Bookings/Edit/5
-            public async Task<IActionResult> Edit(int? id)
+                _context.Add(booking);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(booking);
+        }
+
+
+        // GET: Bookings/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Booking == null)
             {
