@@ -28,7 +28,7 @@ namespace ServiceWorkerWebsite.Controllers
             ViewData["ServiceId"] = serviceId;
             ViewData["PriceSortParam"] = string.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
             ViewData["RatingSortParam"] = sortOrder == "ratings_asc" ? "ratings_desc" : "ratings_asc";
-            ViewData["LocationSortParam"] = "location";
+            //ViewData["LocationSortParam"] = "location";
 
             var serviceWithWorkers = await _context.Services_List
                 .Include(s => s.WorkerServices)
@@ -55,10 +55,10 @@ namespace ServiceWorkerWebsite.Controllers
                 case "ratings_desc":
                     workers = workers.OrderByDescending(w => w.Ratings);
                     break;
-                case "location":
-                    workers = workers.Where(w => (w.Latitude <= (latitude + 2) && w.Latitude >= (latitude - 2)) && (w.Longitude <= (longitude + 2) && w.Longitude >= (longitude - 2)));
-                    //workers = workers.
-                    break;
+                //case "location":
+                //    workers = workers.Where(w => (w.Latitude <= (latitude + 2) && w.Latitude >= (latitude - 2)) && (w.Longitude <= (longitude + 2) && w.Longitude >= (longitude - 2)));
+                //    //workers = workers.
+                //    break;
                 default:
                     workers = workers.OrderBy(w => w.Price);
                     break;
