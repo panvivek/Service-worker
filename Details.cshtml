@@ -1,0 +1,77 @@
+﻿@model WorkerDetailsViewModel
+
+@{
+    ViewData["Title"] = "Worker Details";
+}
+
+<h1>@Model.Worker.Name's Details</h1>
+
+<div class="worker-details">
+    <h4>Profile Information</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Profile Image</dt>
+        <dd class="col-sm-10">
+            <img src="@Model.Worker.ProfilePic_Id" alt="Profile Image" style="max-width: 200px;" />
+        </dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Worker.Name)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Worker.Name)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Worker.Availability_Status)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Worker.Availability_Status)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Worker.Price)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Worker.Price)</dd>
+
+        <dt class="col-sm-2">Reviews</dt>
+        <dd class="col-sm-10">
+            @if (Model.Reviews != null && Model.Reviews.Any())
+            {
+                <div id="reviewDisplay">
+                    @Html.Partial("_ReviewPartial", Model.Reviews.FirstOrDefault())
+                </div>
+
+                <button id="nextButton" class="btn btn-primary" onclick="showNextReview()">Next Review</button>
+
+                <script>
+                    var currentReviewIndex = 0;
+                    var totalReviews = @Model.Reviews.Count;
+
+                    function showNextReview() {
+                        if (currentReviewIndex < totalReviews - 1) {
+                            currentReviewIndex++;
+                            $.ajax({
+                                url: '@Url.Action("GetNextReviewPartial", "Workers")',
+                                data: { index: currentReviewIndex },
+                                success: function (data) {
+                                    $('#reviewDisplay').html(data);
+                                },
+                                error: function() {
+                                    alert("Error loading review.");
+                                }
+                            });
+                        } else {
+                            $('#nextButton').prop('disabled', true).text("No more reviews");
+                        }
+                    }
+                </script>
+            }
+            else
+            {
+                <p>No reviews yet.</p>
+            }
+        </dd>
+    </dl>
+</div>
+
+<!-- Display Average Rating prominently -->
+<div class="average-rating">
+    <strong>Average Rating:</strong> @Model.AverageRating.ToString("0.0")
+</div>
+
+<div class="action-buttons">
+    <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@Model.Worker.Worker_Id">Edit</a>
+    <a class="btn btn-light" asp-action="Index">Back to List</a>
+    <a class="btn btn-success" asp-controller="Bookings" asp-action="Create" asp-route-workerId="@Model.Worker.Worker_Id" asp-route-serviceId="@ViewData["ServiceId"]">Book Now</a>
+</div>
