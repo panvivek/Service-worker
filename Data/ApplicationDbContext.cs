@@ -17,7 +17,7 @@ namespace ServiceWorkerWebsite.Data
         public DbSet<Booking> Booking { get; set; }
         public DbSet<TimeSlot> TimeSlot_List { get; set; }
         public DbSet<WorkerService> WorkerServices { get; set; } // Add DbSet for the association table
-        public DbSet<Applicationuser> Applicationusers { get; set; }
+        public DbSet<Applicationuser> Applicationusers { get; set; } // Consider removing this if not used
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,13 @@ namespace ServiceWorkerWebsite.Data
                 .HasOne(ws => ws.Service)
                 .WithMany(s => s.WorkerServices)
                 .HasForeignKey(ws => ws.Service_Id);
+
+            // Configure the relationship for the User foreign key in Worker
+            modelBuilder.Entity<Worker>()
+                .HasOne(w => w.User) // Navigation property
+                .WithMany() // Assuming a user can have multiple workers
+                .HasForeignKey(w => w.UserId) // Foreign key
+                .OnDelete(DeleteBehavior.Cascade); // Configure delete behavior as needed
         }
     }
 }

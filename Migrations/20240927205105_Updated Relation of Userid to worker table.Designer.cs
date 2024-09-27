@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ServiceWorkerWebsite.Data;
 
@@ -11,9 +12,11 @@ using ServiceWorkerWebsite.Data;
 namespace ServiceWorkerWebsite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240927205105_Updated Relation of Userid to worker table")]
+    partial class UpdatedRelationofUseridtoworkertable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -386,10 +389,22 @@ namespace ServiceWorkerWebsite.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Worker_Id"));
 
+                    b.Property<string>("Availability_Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
                     b.Property<string>("ProfilePic_Id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Ratings")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Reviews")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")

@@ -52,9 +52,9 @@ namespace ServiceWorkerWebsite.Controllers
         public IActionResult Create()
         {
             ViewBag.Workers = new SelectList(
-                _context.Worker_List.Select(w => new { w.Worker_Id, w.Name }),
+                _context.Worker_List.Select(w => new { w.Worker_Id }),
                 "Worker_Id",
-                "Name"
+                "Worker_Id"  // Use Worker_Id as both the value and the display text
             );
 
             return View();

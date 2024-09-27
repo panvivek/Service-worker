@@ -47,12 +47,7 @@ namespace ServiceWorkerWebsite.Controllers
                 case "price_desc":
                     workers = workers.OrderByDescending(w => w.Price);
                     break;
-                case "ratings_asc":
-                    workers = workers.OrderBy(w => w.Ratings);
-                    break;
-                case "ratings_desc":
-                    workers = workers.OrderByDescending(w => w.Ratings);
-                    break;
+               
                 default:
                     workers = workers.OrderBy(w => w.Price);
                     break;
