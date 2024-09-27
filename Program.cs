@@ -19,7 +19,7 @@ builder.Services.AddSingleton(x =>
 );
 
 // Add Identity services
-builder.Services.AddDefaultIdentity<ServiceWorkerWebsiteUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<ServiceWorkerWebsiteUser>().AddDefaultTokenProviders().AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 // Adding SQL Server database connection

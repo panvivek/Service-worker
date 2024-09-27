@@ -3,9 +3,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ServiceWorkerWebsite.Data;
 using ServiceWorkerWebsite.Models;
+<<<<<<< HEAD
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+=======
+>>>>>>> Vivek_Ana_Phase2_Week2
 
 namespace ServiceWorkerWebsite.Controllers
 {
