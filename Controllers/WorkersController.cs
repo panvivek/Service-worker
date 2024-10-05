@@ -22,8 +22,7 @@ namespace ServiceWorkerWebsite.Controllers
         {
             _context = context;
         }
-        [Authorize(Roles = "Customer,Admin")]
-        // GET: Workers
+       
         public async Task<IActionResult> Index(int serviceId, string sortOrder)
         {
             ViewData["ServiceId"] = serviceId;
@@ -57,7 +56,7 @@ namespace ServiceWorkerWebsite.Controllers
 
             return View(workers);
         }
-        [Authorize(Roles = "Customer,Admin")]
+       
         // GET: Workers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -75,7 +74,7 @@ namespace ServiceWorkerWebsite.Controllers
 
             return View(worker);
         }
-        [Authorize(Roles = "Worker,Admin")]
+       
         // GET: Workers/Create
         // GET: Workers/Create
         public async Task<IActionResult> Create(string userId) // Make userId optional
