@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +22,7 @@ namespace ServiceWorkerWebsite.Controllers
         {
             _context = context;
         }
-        [Authorize]
+        [Authorize(Roles = "Customer,Admin")]
         // GET: Workers
         public async Task<IActionResult> Index(int serviceId, string sortOrder)
         {
@@ -55,7 +57,7 @@ namespace ServiceWorkerWebsite.Controllers
 
             return View(workers);
         }
-
+        [Authorize(Roles = "Customer,Admin")]
         // GET: Workers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -73,30 +75,30 @@ namespace ServiceWorkerWebsite.Controllers
 
             return View(worker);
         }
-
+        [Authorize(Roles = "Worker,Admin")]
         // GET: Workers/Create
-        public IActionResult Create()
+        // GET: Workers/Create
+        public async Task<IActionResult> Create(string userId) // Make userId optional
         {
-            var services = _context.Services_List.ToList();
+            // Prepare data for the view (e.g., service list) even if userId is null
+            var services = await _context.Services_List.ToListAsync();
             var serviceItems = services.Select(s => new SelectListItem
             {
                 Value = s.Service_Id.ToString(),
                 Text = s.Name
             }).ToList();
 
-
-      
-
             ViewBag.Services = serviceItems;
 
-            return View();
+            var worker = new Worker();
+
+            
+                worker.UserId = userId; // Pre-populate UserId if available
+            
+
+            return View(worker);
         }
 
-
-
-
-        // POST: Workers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
         // POST: Workers/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -104,41 +106,67 @@ namespace ServiceWorkerWebsite.Controllers
         {
             if (ModelState.IsValid)
             {
+                var roleId = await _context.Roles
+                    .Where(r => r.Name == "Worker")
+                    .Select(r => r.Id)
+                .FirstOrDefaultAsync();
+
+
+                
+
+                var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+
+
+
+
+                worker.RoleId = roleId;
+                worker.UserId = user;
+
+
+
+                if (string.IsNullOrEmpty(worker.UserId))
+                {
+                    return BadRequest("UserId is required."); // Or handle appropriately
+                }
+
                 _context.Add(worker);
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Save the worker first to get the generated Worker_Id
 
                 // Insert selected services into WorkerService table
                 if (Service_Id != null && Service_Id.Length > 0)
                 {
                     foreach (var serviceId in Service_Id)
                     {
-                        // Create a new WorkerService object and set its properties
                         var workerService = new WorkerService
                         {
-                            Worker_Id = worker.Worker_Id,
+                            Worker_Id = worker.Worker_Id, // Use the generated Worker_Id
                             Service_Id = serviceId
                         };
 
-                        // Add the new WorkerService object to the context
                         _context.Add(workerService);
                     }
 
-                    // Save changes to the database
                     await _context.SaveChangesAsync();
-                    TempData["WorkerId"] = worker.Worker_Id;
-                    return RedirectToAction("Create", "TimeSlots");
-
-
                 }
 
-                // Redirect to the Index action
-                // return RedirectToAction(nameof(Index));
+                TempData["WorkerId"] = worker.Worker_Id;
+                return RedirectToAction("Create", "TimeSlots");
             }
 
-            // If ModelState is not valid, return the Create view with the worker model
+            // If ModelState is not valid, repopulate the services list and return to the view
+            var services = await _context.Services_List.ToListAsync();
+            var serviceItems = services.Select(s => new SelectListItem
+            {
+                Value = s.Service_Id.ToString(),
+                Text = s.Name
+            }).ToList();
+
+            ViewBag.Services = serviceItems;
             return View(worker);
         }
 
+      
 
 
 

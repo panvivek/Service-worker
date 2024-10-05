@@ -1,4 +1,5 @@
-﻿using ServiceWorkerWebsite.Areas.Identity.Data;
+﻿using Microsoft.AspNetCore.Identity;
+using ServiceWorkerWebsite.Areas.Identity.Data;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,6 +19,11 @@ public class Worker
     // Foreign key property
     [ForeignKey("User")]
     public string UserId { get; set; }
+
+
+    [ForeignKey("RoleId")]
+    public IdentityRole Role { get; set; }
+    public string RoleId { get; set; }
 
     // Navigation property to the associated user
     public virtual ServiceWorkerWebsiteUser User { get; set; }

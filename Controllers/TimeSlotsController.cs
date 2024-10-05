@@ -20,7 +20,7 @@ namespace ServiceWorkerWebsite.Controllers
         {
             _context = context;
         }
-        [Authorize(Roles = "Customer")]
+        [Authorize(Roles = "Worker,Admin")]
         // GET: TimeSlots
         public async Task<IActionResult> Index()
         {
@@ -46,6 +46,7 @@ namespace ServiceWorkerWebsite.Controllers
 
             return View(timeSlot);
         }
+        [Authorize(Roles = "Worker,Admin")]
 
         // GET: TimeSlots/Create
         // GET: TimeSlots/Create

@@ -17,6 +17,7 @@ namespace ServiceWorkerWebsite
         {
             _roleManager = roleManager;
         }
+        [Authorize(Roles = "Customer,Admin")]
 
         // GET: /<controller>/
         public async Task<IActionResult> Index()
