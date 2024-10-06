@@ -12,6 +12,7 @@
         <form asp-action="Create">
             <!-- Worker Selection -->
             <input type="hidden" asp-for="Worker_Id" value="@ViewData["Worker_Id"]" />
+            <input type="hidden" id="TimeSlotId" name="TimeSlotId" />
 
             <!-- Date Picker -->
             <div class="form-group">
@@ -56,13 +57,20 @@
             })
                 .then(response => response.json())
                 .then(data => {
+                    console.log("Available Slots Data:", data); // Log the fetched data to inspect
+
+                    if (data.length === 0) {
+                        console.error('No data available for this worker.');
+                        return;
+                    }
+
                     // Initialize Flatpickr
                     flatpickr("#BookingDate", {
                         enable: data.map(item => item.date),
                         onChange: function (selectedDates) {
-                            var selectedDate = selectedDates[0];
-                            document.getElementById('BookingDate').value = selectedDate.toISOString().split('T')[0];
-                            loadTimeSlots(selectedDate.toISOString().split('T')[0], data);
+                            var selectedDate = selectedDates[0].toISOString().split('T')[0];
+                            console.log("Selected Date:", selectedDate); // Log the selected date
+                            loadTimeSlots(selectedDate, data);
                         },
                         defaultDate: new Date(),
                         inline: true,
@@ -77,35 +85,49 @@
         function loadTimeSlots(selectedDate, data) {
             var timeSlotContainer = document.getElementById("TimeSlotContainer");
             timeSlotContainer.innerHTML = '<div class="time-slot" data-value="">Please select a time slot</div>'; // Reset the container
-            var selectedTimeSlots = data.find(d => d.date === selectedDate)?.timeSlots || [];
 
-            selectedTimeSlots.forEach(function (timeSlot) {
+            // Find the selected date's time slots
+            var selectedData = data.find(d => d.date === selectedDate);
+
+            if (!selectedData) {
+                console.log("No time slots available for the selected date:", selectedDate);
+                timeSlotContainer.innerHTML = '<div class="time-slot">No available time slots for this date.</div>';
+                return;
+            }
+
+            var selectedTimeSlots = selectedData.timeSlots || [];
+            console.log("Time slots for selected date:", selectedTimeSlots); // Log time slots for selected date
+
+            // Sort time slots by their actual time
+            selectedTimeSlots.sort((a, b) => a.timeSlots.localeCompare(b.timeSlots));
+
+            selectedTimeSlots.forEach(function (slot) {
                 var timeSlotDiv = document.createElement('div');
                 timeSlotDiv.className = 'time-slot';
-                timeSlotDiv.innerText = timeSlot;
-                timeSlotDiv.dataset.value = timeSlot;
+                timeSlotDiv.innerText = slot.timeSlots; // Display the time slot
+                timeSlotDiv.dataset.value = slot.timeSlotId; // Set timeSlotId as value
 
                 timeSlotDiv.addEventListener('click', function () {
                     document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('selected'));
                     timeSlotDiv.classList.add('selected');
-                    document.getElementById("TimeSlotId").value = timeSlotDiv.dataset.value; // Update hidden input
+                    document.getElementById("TimeSlotId").value = timeSlotDiv.dataset.value; // Update hidden input with timeSlotId
                 });
 
                 timeSlotContainer.appendChild(timeSlotDiv);
             });
+
+            // Message for no available time slots
+            if (selectedTimeSlots.length === 0) {
+                var noSlotsDiv = document.createElement('div');
+                noSlotsDiv.className = 'time-slot';
+                noSlotsDiv.innerText = "No available time slots for this date.";
+                timeSlotContainer.appendChild(noSlotsDiv);
+            }
         }
     </script>
 
     <!-- Custom Calendar Styling -->
     <style>
-        /* Change background and text colors */
-        .flatpickr-calendar {
-            background-color: #f3f3f3;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            color: #333;
-        }
-
         /* Time Slot Container Styles */
         .time-slot-container {
             display: grid;
@@ -135,37 +157,6 @@
                 border-color: #1e90ff;
             }
 
-        /* Input field and general form styling */
-        .custom-datepicker {
-            cursor: pointer;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ced4da;
-            box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.075);
-        }
-
-        .form-control {
-            margin-bottom: 15px;
-        }
-
-        .btn-primary {
-            background-color: #1e90ff;
-            border-color: #1e90ff;
-        }
-
-            .btn-primary:hover {
-                background-color: #0056b3;
-                border-color: #0056b3;
-            }
-
-        .flatpickr-month {
-            background-color: #1e90ff;
-            color: white;
-            border-radius: 5px;
-        }
-
-        /* Apply a subtle shadow to the dropdown */
         #TimeSlotId {
             display: none; /* Hide the original dropdown */
         }

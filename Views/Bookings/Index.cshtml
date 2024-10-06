@@ -19,11 +19,9 @@
                 @Html.DisplayNameFor(model => model.BookingDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerName)
+                @Html.DisplayNameFor(model => model.TimeSlotId)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomerContact)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.AgreeToTerms)
             </th>
@@ -43,12 +41,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.BookingDate)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerContact)
-            </td>
+
+                <td>
+                    @Html.DisplayNameFor(model => model.TimeSlotId)
+                </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.AgreeToTerms)
             </td>

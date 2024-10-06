@@ -28,16 +28,7 @@
                 <input asp-for="BookingDate" class="form-control" />
                 <span asp-validation-for="BookingDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CustomerName" class="control-label"></label>
-                <input asp-for="CustomerName" class="form-control" />
-                <span asp-validation-for="CustomerName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustomerContact" class="control-label"></label>
-                <input asp-for="CustomerContact" class="form-control" />
-                <span asp-validation-for="CustomerContact" class="text-danger"></span>
-            </div>
+      
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="AgreeToTerms" /> @Html.DisplayNameFor(model => model.AgreeToTerms)

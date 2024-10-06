@@ -36,7 +36,7 @@ namespace ServiceWorkerWebsite.Controllers
         {
             ViewData["Worker_Id"] = workerId;
             ViewData["Service_Id"] = serviceId;
-            Console.WriteLine($"Worker ID: {workerId}");
+            Console.WriteLine($"Worker ID........................................................: {workerId}");
             Console.WriteLine($"Service ID: {serviceId}");
 
             return View();
@@ -49,18 +49,43 @@ namespace ServiceWorkerWebsite.Controllers
             Console.WriteLine($"Entered GetAvailableSlots Method");
             Console.WriteLine($"Worker ID in GetAvailableSlots: {workerId}");
 
+            // Fetch available slots and sort them
             var availableSlots = await _context.TimeSlot_List
                 .Where(ts => ts.Worker_Id == workerId && !ts.IsBooked)
-                .GroupBy(ts => ts.SelectedDates) // Group by date
+                .GroupBy(ts => ts.SelectedDates)
                 .Select(g => new
                 {
-                    date = g.Key, // The date
-                    timeSlots = g.Select(ts => ts.TimeSlots).ToList() // List of time slots for that date
+                    date = g.Key,
+                    timeSlots = g.OrderBy(ts => ts.TimeSlots).Select(ts => new
+                    {
+                        TimeSlotId = ts.TimeSlotId,
+                        TimeSlots = ts.TimeSlots
+                    }).ToList()
                 })
+                .OrderBy(group => group.date) // Sort groups by date
                 .ToListAsync();
+
+            // Debugging: Print available slots to the console
+            if (availableSlots.Count == 0)
+            {
+                Console.WriteLine("No available slots found.");
+            }
+            else
+            {
+                foreach (var group in availableSlots)
+                {
+                    Console.WriteLine($"Date: {group.date}");
+                    foreach (var slot in group.timeSlots)
+                    {
+                        Console.WriteLine($"TimeSlotId: {slot.TimeSlotId}, TimeSlots: {slot.TimeSlots}");
+                    }
+                }
+            }
 
             return Json(availableSlots);
         }
+
+
 
 
         // Define a class to deserialize the request
@@ -70,25 +95,43 @@ namespace ServiceWorkerWebsite.Controllers
         }
 
         // POST: Bookings/Create
+        // POST: Bookings/Create
+        // POST: Bookings/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Worker_Id,BookingDate,CustomerName,CustomerContact,Service_Id,AgreeToTerms,TimeSlotId")] Booking booking)
+        public async Task<IActionResult> Create([Bind("Worker_Id,BookingDate,Service_Id,AgreeToTerms,TimeSlotId")] Booking booking)
         {
             if (ModelState.IsValid)
             {
+                // Find the time slot in the database using the provided TimeSlotId
                 var timeSlot = await _context.TimeSlot_List.FindAsync(booking.TimeSlotId);
+                Console.WriteLine($"Timeslot ID in Create: {timeSlot?.TimeSlotId}"); // Log the TimeSlotId for debugging
+
                 if (timeSlot != null)
                 {
+                    // Mark the time slot as booked
                     timeSlot.IsBooked = true;
-                    _context.Update(timeSlot);
+                    _context.Update(timeSlot); // Update the time slot in the context
+                }
+                else
+                {
+                    // Handle the case where the time slot does not exist (optional)
+                    ModelState.AddModelError("TimeSlotId", "Selected time slot is not valid.");
+                    return View(booking);
                 }
 
+                // Add the booking to the database
                 _context.Add(booking);
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // Save changes to the database
+
+                // Redirect to the Index action after successful booking
                 return RedirectToAction(nameof(Index));
             }
+
+            // If model validation fails, return the same view with validation errors
             return View(booking);
         }
+
 
 
         // GET: Bookings/Edit/5
@@ -112,7 +155,7 @@ namespace ServiceWorkerWebsite.Controllers
         // POST: Bookings/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Service_Id,Worker_Id,BookingDate,CustomerName,CustomerContact,AgreeToTerms,TimeSlotId")] Booking booking)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Service_Id,Worker_Id,BookingDate,,AgreeToTerms,TimeSlotId")] Booking booking)
         {
             if (id != booking.Id)
             {
