@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@*@using Microsoft.AspNetCore.Identity
 @using ServiceWorkerWebsite.Areas.Identity.Data
 
 @inject SignInManager<ServiceWorkerWebsiteUser> SignInManager
@@ -26,3 +26,52 @@ else
     </li>
 }
 </ul>
+*@
+
+ @using Microsoft.AspNetCore.Identity
+@using ServiceWorkerWebsite.Areas.Identity.Data
+
+@inject SignInManager<ServiceWorkerWebsiteUser> SignInManager
+@inject UserManager<ServiceWorkerWebsiteUser> UserManager
+
+<body>
+
+
+    <ul class="navbar-nav">
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li class="nav-item dropdown">
+                <a id="manage" class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Hello @UserManager.GetUserName(User)!
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a>
+                    </li>
+                    <li>
+                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button id="logout" type="submit" class="dropdown-item">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Account
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                    </li>
+                </ul>
+            </li>
+        }
+    </ul>
+</body>
