@@ -56,7 +56,24 @@ namespace ServiceWorkerWebsite.Controllers
 
             return View(workers);
         }
-       
+
+        public async Task<IActionResult> Dashboard(int? id)
+        {
+            if (id == null || _context.Worker_List == null)
+            {
+                return NotFound();
+            }
+
+            var worker = await _context.Worker_List
+                .FirstOrDefaultAsync(m => m.Worker_Id == id);
+            if (worker == null)
+            {
+                return NotFound();
+            }
+
+            return View(worker.Price);
+        }
+
         // GET: Workers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
