@@ -64,6 +64,8 @@ else
                     <ul class="dropdown-menu">
                         <li>
                             <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a>
+                            <a class="dropdown-item" asp-controller="Bookings" asp-action="Index">Booking History</a>
+
                         </li>
                         <li>
                             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

@@ -1,68 +1,84 @@
 ﻿@model IEnumerable<ServiceWorkerWebsite.Models.Booking>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Booking History";
 }
 
-<!--If the menu dropdown doesn't work copy paste the lines below this to the html pages that doesnt work with dropdown-->
+<!-- Including Bootstrap for styling -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<h1>Index</h1>
+<h1 class="text-center my-4">Booking History</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<p class="text-end">
+    <a asp-action="Create" class="btn btn-primary mb-3">Create New Booking</a>
 </p>
-<table class="table">
-    <thead>
+
+<table class="table table-hover table-bordered text-center align-middle">
+    <thead class="table-dark">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Worker_Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BookingDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TimeSlotId)
-            </th>
-            
-            <th>
-                @Html.DisplayNameFor(model => model.AgreeToTerms)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Service)
-            </th>
-           
-            <th></th>
+            <th>Worker Name</th>
+            <th>Booking Date</th>
+            <th>Time Slot</th>
+            <th>Terms Agreed</th>
+            <th>Service</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Worker_Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BookingDate)
-            </td>
-
+        @foreach (var item in Model)
+        {
+            <tr>
                 <td>
-                    @Html.DisplayNameFor(model => model.TimeSlotId)
+                    @if (item.Worker != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.Worker.User.Firstname) @Html.DisplayFor(modelItem => item.Worker.User.Lastname)
+                    }
+                    else
+                    {
+                        <span class="text-muted">No Worker Assigned</span>
+                    }
                 </td>
-           
-            <td>
-                @Html.DisplayFor(modelItem => item.AgreeToTerms)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Service.Service_Id)
-            </td>
-           
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingDate)
+                </td>
+                <td>
+                    @if (item.TimeSlot != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.TimeSlot.SelectedDates) <br />
+                        @Html.DisplayFor(modelItem => item.TimeSlot.TimeSlots)
+                    }
+                    else
+                    {
+                        <span class="text-muted">No Time Slot</span>
+                    }
+                </td>
+                <td>
+                    @if (item.AgreeToTerms)
+                    {
+                        <span class="badge bg-success">Yes</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">No</span>
+                    }
+                </td>
+                <td>
+                    @if (item.Service != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.Service.Service_Id)
+                    }
+                    else
+                    {
+                        <span class="text-muted">No Service Assigned</span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

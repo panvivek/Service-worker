@@ -5,6 +5,7 @@ using ServiceWorkerWebsite.Data;
 using ServiceWorkerWebsite.Models;
 using System;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace ServiceWorkerWebsite.Controllers
@@ -23,12 +24,22 @@ namespace ServiceWorkerWebsite.Controllers
         // GET: Bookings
         public async Task<IActionResult> Index()
         {
+            // Get the current logged-in user's ID
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            // Include related entities for Worker, Service, and TimeSlot
             var bookings = await _context.Booking
                 .Include(b => b.Service)
                 .Include(b => b.Worker)
+                .Include(b => b.TimeSlot)  // Include TimeSlot to display appointment details
+                .Where(b => b.UserId == userId)
                 .ToListAsync();
+
             return View(bookings);
         }
+
+
+
 
         // GET: Bookings/Create
 
@@ -94,43 +105,41 @@ namespace ServiceWorkerWebsite.Controllers
             public int WorkerId { get; set; }
         }
 
-        // POST: Bookings/Create
-        // POST: Bookings/Create
-        // POST: Bookings/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Worker_Id,BookingDate,Service_Id,AgreeToTerms,TimeSlotId")] Booking booking)
         {
             if (ModelState.IsValid)
             {
+                // Get the current logged-in user's ID
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // This gets the logged-in user's ID
+
+                // Assign the UserId to the booking
+                booking.UserId = userId;
+
                 // Find the time slot in the database using the provided TimeSlotId
                 var timeSlot = await _context.TimeSlot_List.FindAsync(booking.TimeSlotId);
-                Console.WriteLine($"Timeslot ID in Create: {timeSlot?.TimeSlotId}"); // Log the TimeSlotId for debugging
 
                 if (timeSlot != null)
                 {
-                    // Mark the time slot as booked
                     timeSlot.IsBooked = true;
                     _context.Update(timeSlot); // Update the time slot in the context
                 }
                 else
                 {
-                    // Handle the case where the time slot does not exist (optional)
                     ModelState.AddModelError("TimeSlotId", "Selected time slot is not valid.");
                     return View(booking);
                 }
 
-                // Add the booking to the database
                 _context.Add(booking);
-                await _context.SaveChangesAsync(); // Save changes to the database
+                await _context.SaveChangesAsync();
 
-                // Redirect to the Index action after successful booking
                 return RedirectToAction(nameof(Index));
             }
 
-            // If model validation fails, return the same view with validation errors
             return View(booking);
         }
+
 
 
 

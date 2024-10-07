@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using ServiceWorkerWebsite.Areas.Identity.Data;
+using ServiceWorkerWebsite.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -27,7 +28,7 @@ public class Worker
 
     // Navigation property to the associated user
     public virtual ServiceWorkerWebsiteUser User { get; set; }
-
+    
     public virtual ICollection<WorkerService> WorkerServices { get; set; }
 
     public virtual ICollection<TimeSlot> AvailableTimeSlots { get; set; }
