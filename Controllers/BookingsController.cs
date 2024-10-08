@@ -109,6 +109,41 @@ namespace ServiceWorkerWebsite.Controllers
             public int WorkerId { get; set; }
         }
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("Worker_Id,BookingDate,Service_Id,AgreeToTerms,TimeSlotId")] Booking booking)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        // Get the current logged-in user's ID
+        //        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // This gets the logged-in user's ID
+
+        //        // Assign the UserId to the booking
+        //        booking.UserId = userId;
+
+        //        // Find the time slot in the database using the provided TimeSlotId
+        //        var timeSlot = await _context.TimeSlot_List.FindAsync(booking.TimeSlotId);
+
+        //        if (timeSlot != null)
+        //        {
+        //            timeSlot.IsBooked = true;
+        //            _context.Update(timeSlot); // Update the time slot in the context
+        //        }
+        //        else
+        //        {
+        //            ModelState.AddModelError("TimeSlotId", "Selected time slot is not valid.");
+        //            return View(booking);
+        //        }
+
+        //        _context.Add(booking);
+        //        await _context.SaveChangesAsync();
+
+        //        return RedirectToAction(nameof(Index));
+        //    }
+
+        //    return View(booking);
+        //}
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Worker_Id,BookingDate,Service_Id,AgreeToTerms,TimeSlotId")] Booking booking)
@@ -116,7 +151,7 @@ namespace ServiceWorkerWebsite.Controllers
             if (ModelState.IsValid)
             {
                 // Get the current logged-in user's ID
-                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // This gets the logged-in user's ID
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
                 // Assign the UserId to the booking
                 booking.UserId = userId;
@@ -127,7 +162,7 @@ namespace ServiceWorkerWebsite.Controllers
                 if (timeSlot != null)
                 {
                     timeSlot.IsBooked = true;
-                    _context.Update(timeSlot); // Update the time slot in the context
+                    _context.Update(timeSlot);
                 }
                 else
                 {
@@ -138,11 +173,13 @@ namespace ServiceWorkerWebsite.Controllers
                 _context.Add(booking);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                // Redirect to the PayPal Controller's Index action with the new booking ID
+                return RedirectToAction("Index", "Paypal", new { bookingId = booking.Id });
             }
 
             return View(booking);
         }
+
 
 
 
@@ -304,8 +341,10 @@ namespace ServiceWorkerWebsite.Controllers
                 invoiceDetailsCell.Border = PdfPCell.NO_BORDER;
                 invoiceDetailsCell.HorizontalAlignment = Element.ALIGN_RIGHT;
                 invoiceDetailsCell.VerticalAlignment = Element.ALIGN_TOP;
-                invoiceDetailsCell.AddElement(new Paragraph($"Invoice No: {invoiceNumber}", boldFont));
-                invoiceDetailsCell.AddElement(new Paragraph($"Date: {booking.BookingDate.ToString("dd-MM-yyyy")}", boldFont));
+                invoiceDetailsCell.AddElement(new Paragraph($"Invoice No: ", boldFont));
+                invoiceDetailsCell.AddElement(new Paragraph($" {invoiceNumber}", normalFont));
+                invoiceDetailsCell.AddElement(new Paragraph($"Invoice Generation Date: ", boldFont));
+                invoiceDetailsCell.AddElement(new Paragraph($" {booking.BookingDate.ToString("dd-MM-yyyy")}", normalFont));
                 headerTable.AddCell(invoiceDetailsCell);
 
                 // Add the table to the document
@@ -328,16 +367,16 @@ namespace ServiceWorkerWebsite.Controllers
                 // Add booking date information with label in bold
                 Paragraph bookingDateParagraph = new Paragraph();
 
-                pdfDoc.Add(new Paragraph("\n")); // Blank line for spacing
+                //pdfDoc.Add(new Paragraph("\n")); // Blank line for spacing
                 bookingDateParagraph.Add(new Chunk("Booking Date: ", boldFont));
                 bookingDateParagraph.Add(new Chunk(booking.BookingDate.ToString("dd-MM-yyyy"), normalFont));
-                pdfDoc.Add(bookingDateParagraph);
+                //pdfDoc.Add(bookingDateParagraph);
 
                 // Add time slot information with label in bold
                 Paragraph timeSlotParagraph = new Paragraph();
 
                 pdfDoc.Add(new Paragraph("\n")); // Blank line for spacing
-                timeSlotParagraph.Add(new Chunk("Time Slot: ", boldFont));
+                timeSlotParagraph.Add(new Chunk("Date and Time Slot: ", boldFont));
                 if (booking.TimeSlot != null)
                 {
                     timeSlotParagraph.Add(new Chunk($"{booking.TimeSlot.SelectedDates} {booking.TimeSlot.TimeSlots}", normalFont));
@@ -363,7 +402,7 @@ namespace ServiceWorkerWebsite.Controllers
                 pdfDoc.Add(new Paragraph("\n")); // Blank line for spacing
 
                 // Thank You Note and Footer
-                pdfDoc.Add(new Paragraph("\n\n\n\n\n\n\n\n")); // Blank line for spacing
+                pdfDoc.Add(new Paragraph("\n\n\n\n\n\n\n")); // Blank line for spacing
                 pdfDoc.Add(new Paragraph("Thank you for your business!", boldFont));
                 pdfDoc.Add(new Paragraph("For inquiries, contact us at: support@quickfix.com", normalFont));
 

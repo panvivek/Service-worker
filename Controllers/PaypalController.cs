@@ -12,11 +12,22 @@ namespace PaypalCheckoutExample.Controllers
             this._paypalClient = paypalClient;
         }
 
-        public IActionResult Index()
-        {
-            // ViewBag.ClientId is used to get the Paypal Checkout javascript SDK
-            ViewBag.ClientId = _paypalClient.ClientId;
+        //public IActionResult Index()
+        //{
+        //    // ViewBag.ClientId is used to get the Paypal Checkout javascript SDK
+        //    ViewBag.ClientId = _paypalClient.ClientId;
 
+        //    return View();
+        //}
+
+
+        public IActionResult Index(int bookingId)
+        {
+            // Save the booking ID in ViewBag or pass it to the view directly if needed
+            ViewBag.ClientId = _paypalClient.ClientId;
+            ViewBag.BookingId = bookingId;
+
+            // Display the PayPal button and checkout logic
             return View();
         }
 
