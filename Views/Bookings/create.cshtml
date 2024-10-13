@@ -9,9 +9,10 @@
 
 <div class="row">
     <div class="col-md-6">
-        <form asp-action="Create">
+        <form asp-action="Create" id="bookingForm">
             <!-- Worker Selection -->
             <input type="hidden" asp-for="Worker_Id" value="@ViewData["Worker_Id"]" />
+            <input type="hidden" asp-for="Service_Id" value="@ViewData["Service_Id"]" />
             <input type="hidden" id="TimeSlotId" name="TimeSlotId" />
 
             <!-- Date Picker -->
@@ -27,6 +28,14 @@
                     <div class="time-slot" data-value="">Please select a time slot</div>
                 </div>
             </div>
+
+            <!-- Terms and Conditions -->
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="agreeToTerms" asp-for="AgreeToTerms" />
+                <label class="form-check-label" for="agreeToTerms">I agree to the Terms and Conditions</label>
+                <span asp-validation-for="AgreeToTerms" class="text-danger"></span>
+            </div>
+
 
             <!-- Submit -->
             <div class="form-group">
@@ -45,6 +54,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var workerId = document.getElementById("Worker_Id").value;
+            var serviceId = document.getElementById("Service_Id").value;
 
             // Fetch available slots and initialize calendar
             fetch('/Bookings/GetAvailableSlots', {
@@ -53,7 +63,7 @@
                     'Content-Type': 'application/json',
                     'RequestVerificationToken': document.getElementsByName('__RequestVerificationToken')[0].value
                 },
-                body: JSON.stringify({ workerId: parseInt(workerId) })
+                body: JSON.stringify({ workerId: parseInt(workerId), serviceId: parseInt(serviceId) })
             })
                 .then(response => response.json())
                 .then(data => {
@@ -124,6 +134,15 @@
                 timeSlotContainer.appendChild(noSlotsDiv);
             }
         }
+
+        // Prevent form submission if the checkbox is not checked
+        document.getElementById("bookingForm").addEventListener("submit", function (event) {
+            var checkbox = document.getElementById("agreeToTerms");
+            if (!checkbox.checked) {
+                event.preventDefault(); // Prevent submission
+                alert("You must agree to the terms and conditions before submitting the form.");
+            }
+        });
     </script>
 
     <!-- Custom Calendar Styling -->

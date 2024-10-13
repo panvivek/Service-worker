@@ -8,12 +8,6 @@ namespace ServiceWorkerWebsite.Models
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey(nameof(Service))]
-        public int Service_Id { get; set; }
-
-        [ForeignKey(nameof(Worker))]
-        public int Worker_Id { get; set; }
-
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime BookingDate { get; set; } = DateTime.Today;
@@ -27,11 +21,16 @@ namespace ServiceWorkerWebsite.Models
         [ForeignKey("AspNetUsers")]
         public string UserId { get; set; } // Stores the logged-in user's ID
 
-        // Navigation properties
-        public virtual Worker Worker { get; set; } = new Worker();
-        public virtual Service Service { get; set; } = new Service();
+        // Foreign Key Relationships
+        public int Service_Id { get; set; }
+        [ForeignKey(nameof(Service_Id))]
+        public virtual Service Service { get; set; }
 
-      
-    public virtual TimeSlot TimeSlot { get; set; }  // Add TimeSlot navigation
+        public int Worker_Id { get; set; }
+        [ForeignKey(nameof(Worker_Id))]
+        public virtual Worker Worker { get; set; }
+
+        // Navigation property for TimeSlot
+        public virtual TimeSlot TimeSlot { get; set; }
     }
 }

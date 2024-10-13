@@ -32,4 +32,5 @@ public class Worker
     public virtual ICollection<WorkerService> WorkerServices { get; set; }
 
     public virtual ICollection<TimeSlot> AvailableTimeSlots { get; set; }
+   
 }
