@@ -19,6 +19,12 @@ namespace ServiceWorkerWebsite.Data
         public DbSet<WorkerService> WorkerServices { get; set; } // Add DbSet for the association table
         public DbSet<Applicationuser> Applicationusers { get; set; } // Consider removing this if not used
 
+
+
+ public DbSet<Reviews> Reviews
+ {
+     get; set;
+ }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder); // Make sure to call the base method for Identity
