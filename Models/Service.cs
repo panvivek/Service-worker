@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using ServiceWorkerWebsite.Models;
 
 public class Service
 {
@@ -11,4 +12,6 @@ public class Service
     public string Description { get; set; }
 
     public virtual ICollection<WorkerService> WorkerServices { get; set; }
+    public virtual ICollection<Reviews> Review { get; set; }
+
 }
