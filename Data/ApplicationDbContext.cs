@@ -56,6 +56,18 @@ namespace ServiceWorkerWebsite.Data
                 .WithMany(s => s.WorkerServices)
                 .HasForeignKey(ws => ws.Service_Id);
 
+
+
+                    modelBuilder.Entity<Reviews>()
+.HasOne(r => r.Service)
+.WithMany(s => s.Review)
+.HasForeignKey(r => r.Service_Id)
+.OnDelete(DeleteBehavior.Cascade);
+    modelBuilder.Entity<Reviews>()
+            .HasOne(r => r.Worker)
+            .WithMany(w => w.Reviews)
+            .HasForeignKey(r => r.Worker_Id);
+
             // Configure the relationship for the User foreign key in Worker
             modelBuilder.Entity<Worker>()
                 .HasOne(w => w.User) // Navigation property
