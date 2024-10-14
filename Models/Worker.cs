@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using ServiceWorkerWebsite.Areas.Identity.Data;
 using ServiceWorkerWebsite.Models;
 using System.ComponentModel.DataAnnotations;
@@ -31,6 +31,8 @@ public class Worker
     
     public virtual ICollection<WorkerService> WorkerServices { get; set; }
 
+
+    public virtual ICollection<Reviews> Reviews { get; set; }
     public virtual ICollection<TimeSlot> AvailableTimeSlots { get; set; }
    
 }
