@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ServiceWorkerWebsite.Models.Booking>
+@model IEnumerable<ServiceWorkerWebsite.Models.Booking>
 
 @{
     ViewData["Title"] = "Booking History";
@@ -76,8 +76,21 @@
                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
                     <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
                     <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                    <a asp-controller="Review" asp-action="Create"
+                       asp-route-workerId="@item.Worker_Id"
+                       asp-route-erviceId="@item.Service_Id"
+                       asp-route-userId="@item.UserId"
+                       class="btn btn-sm btn-primary mt-2">Write a Review</a>
+
+
                 </td>
             </tr>
         }
+
+        <!-- Add a button or link to create a review -->
+<div>
+    <a asp-controller="Review" asp-action="Create"  class="btn btn-primary">Write a Review</a>
+</div>
+
     </tbody>
 </table>
