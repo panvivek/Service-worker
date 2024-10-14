@@ -1,28 +1,68 @@
-@model Worker
-
-@{
-    ViewData["Title"] = "Details";
-}
-
-<h1>Details</h1>
+@model WorkerDetailsViewModel
 
 <div>
-    <h4>Worker</h4>
-    <hr />
+    <h4>Worker Details</h4>
     <dl class="row">
-        <!-- Profile Image -->
-        <dt class="col-sm-2">            Profile Image         </dt>
-        <dd class="col-sm-10"><img src="@Model.ProfilePic_Id" alt="Profile Image" style="max-width: 200px;" /></dd>
-       
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
+        <dt class="col-sm-2">Profile Image</dt>
+        <dd class="col-sm-10">
+            <img src="@Model.ProfilePicUrl" alt="Profile Image" style="max-width: 200px;" />
+        </dd>
+
+        <dt class="col-sm-2">Price</dt>
+        <dd class="col-sm-10">
+            @Model.Price
+        </dd>
+
+        <dt class="col-sm-2">Average Rating</dt>
+        <dd class="col-sm-10">
+            <span>@ViewBag.AverageRating.ToString("0.0") / 5</span>
         </dd>
     </dl>
 </div>
+
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Worker_Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <h4>Reviews</h4>
+    <hr />
+    @if (Model.Reviews != null && Model.Reviews.Count > 0)
+    {
+        @foreach (var review in Model.Reviews)
+        {
+            <div>
+                
+
+
+                <!-- Display Customer Name, or 'Anonymous' if not available -->
+                <strong>Customer Name:</strong> @(string.IsNullOrEmpty(review.CustomerName) ? "Anonymous" : review.CustomerName) <br />
+
+                <strong>Rating:</strong> @review.RatingValue / 5 <br />
+                <strong>Comment:</strong> @review.Comment <br />
+                <small><em>Reviewed on @review.ReviewDate.ToString("MMMM dd, yyyy")</em></small>
+                <hr />
+            </div>
+        }
+    }
+    else
+    {
+        <p>No reviews available for this worker.</p>
+    }
+</div>
+
+<!-- Pagination Controls -->
+<div>
+    <nav aria-label="Review navigation">
+        <ul class="pagination">
+            <li class="page-item @(ViewBag.CurrentPage <= 1 ? "disabled" : "")">
+                <a class="page-link" asp-action="Details" asp-route-workerId="@Model.WorkerId" asp-route-serviceId="@ViewBag.ServiceId" asp-route-page="@(ViewBag.CurrentPage - 1)">Previous</a>
+            </li>
+            <li class="page-item @(ViewBag.CurrentPage >= ViewBag.TotalPages ? "disabled" : "")">
+                <a class="page-link" asp-action="Details" asp-route-workerId="@Model.WorkerId" asp-route-serviceId="@ViewBag.ServiceId" asp-route-page="@(ViewBag.CurrentPage + 1)">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+<!-- Back to Workers List for the Selected Service -->
+<div>
+    <a asp-controller="Workers" asp-action="Index" asp-route-serviceId="@ViewBag.ServiceId">Back to List</a>
 </div>
