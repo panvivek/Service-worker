@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -50,13 +50,9 @@ namespace ServiceWorkerWebsite.Controllers
 
         // GET: TimeSlots/Create
         // GET: TimeSlots/Create
-        public IActionResult Create()
+        public IActionResult Create(int workerId)
         {
-            ViewBag.Workers = new SelectList(
-                _context.Worker_List.Select(w => new { w.Worker_Id }),
-                "Worker_Id",
-                "Worker_Id"  // Use Worker_Id as both the value and the display text
-            );
+            ViewBag.Worker_Id = workerId;
 
             return View();
         }
