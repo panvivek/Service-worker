@@ -1,0 +1,37 @@
+@model ServiceWorkerWebsite.Models.Reviews
+
+<h2>Write a Review</h2>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="RatingValue" class="control-label">Rating (1 to 5)</label>
+        <input asp-for="RatingValue" class="form-control" />
+        <span asp-validation-for="RatingValue" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Comment" class="control-label">Comment</label>
+        <textarea asp-for="Comment" class="form-control"></textarea>
+        <span asp-validation-for="Comment" class="text-danger"></span>
+    </div>
+
+    <!-- Automatically populate customer name (hidden field) -->
+    <div class="form-group">
+        <label class="control-label">Customer Name</label>
+        <input asp-for="CustomerName" class="form-control" value="@ViewBag.CustomerName" readonly />
+    </div>
+
+    <!-- Hidden field to store the Worker_Id -->
+    <input type="hidden" asp-for="Worker_Id" value="@ViewBag.WorkerId" />
+    <input type="hidden" name="Service_Id" value="@ViewBag.Service_Id" />
+
+    <div class="form-group">
+        <input type="submit" value="Submit Review" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-controller="Workers" asp-action="Details" asp-route-id="@ViewBag.WorkerId">Back to Worker Details</a>
+</div>
