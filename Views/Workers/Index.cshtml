@@ -56,7 +56,7 @@
                     <div class="card-footer">
                         <!-- Action Buttons -->
                         <div class="btn-group" role="group">
-                            <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Worker_Id">Details</a>
+                            <a class="btn btn-primary" asp-action="Details" asp-route-workerId="@item.Worker_Id" asp-route-serviceId="@ViewData["ServiceId"]">Details</a>
                             <a class="btn btn-danger" asp-controller="Bookings" asp-action="Create" asp-route-workerId="@item.Worker_Id" asp-route-serviceId="@ViewData["ServiceId"]">Book</a>
                         </div>
                     </div>
