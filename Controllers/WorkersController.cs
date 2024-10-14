@@ -1,28 +1,32 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Azure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ServiceWorkerWebsite.Data;
+using ServiceWorkerWebsite.Models;
+using X.PagedList.Extensions;
 
 namespace ServiceWorkerWebsite.Controllers
 {
     public class WorkersController : Controller
     {
-        
+
         private readonly ApplicationDbContext _context;
 
         public WorkersController(ApplicationDbContext context)
         {
             _context = context;
         }
-       
+
         public async Task<IActionResult> Index(int serviceId, string sortOrder)
         {
             ViewData["ServiceId"] = serviceId;
@@ -48,7 +52,7 @@ namespace ServiceWorkerWebsite.Controllers
                 case "price_desc":
                     workers = workers.OrderByDescending(w => w.Price);
                     break;
-               
+
                 default:
                     workers = workers.OrderBy(w => w.Price);
                     break;
@@ -75,27 +79,69 @@ namespace ServiceWorkerWebsite.Controllers
         }
 
         // GET: Workers/Details/5
-        public async Task<IActionResult> Details(int? id)
+       
+        public async Task<IActionResult> Details(int workerId, int serviceId, int page = 1)
         {
-            if (id == null || _context.Worker_List == null)
-            {
-                return NotFound();
-            }
+            int pageSize = 5; // Number of reviews per page
 
+            // Fetch the worker along with the reviews for the specific service
             var worker = await _context.Worker_List
-                .FirstOrDefaultAsync(m => m.Worker_Id == id);
+                .Include(w => w.Reviews.Where(r => r.Service_Id == serviceId)) // Filter reviews by service
+                .FirstOrDefaultAsync(w => w.Worker_Id == workerId);
+
             if (worker == null)
             {
                 return NotFound();
             }
 
-            return View(worker);
+            // Paginate the reviews
+            var totalReviews = worker.Reviews.Count();
+            var reviewsToShow = worker.Reviews
+                .OrderBy(r => r.ReviewDate)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(r => new ReviewViewModel
+                {
+                    RatingValue = r.RatingValue,
+                    Comment = r.Comment,
+                    ReviewDate = r.ReviewDate,
+                    CustomerName = string.IsNullOrEmpty(r.CustomerName) ? "Anonymous" : r.CustomerName
+                })
+                .ToList();
+
+            // Calculate average rating for the service
+            double averageRating = worker.Reviews.Any() ? worker.Reviews.Average(r => r.RatingValue) : 0;
+
+            // Pass data to the view
+            ViewBag.AverageRating = averageRating;
+            ViewBag.TotalReviews = totalReviews;
+            ViewBag.PageSize = pageSize;
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = (int)Math.Ceiling((double)totalReviews / pageSize);
+            ViewBag.ServiceId = serviceId; // To return back to the correct service
+
+            var workerDetailsViewModel = new WorkerDetailsViewModel
+            {
+                WorkerId = worker.Worker_Id,
+                ProfilePicUrl = worker.ProfilePic_Id,
+                Price = worker.Price,
+                Reviews = reviewsToShow // Paginated reviews
+            };
+
+            return View(workerDetailsViewModel);
         }
-       
+
+
+
+
+
+
         // GET: Workers/Create
         // GET: Workers/Create
         public async Task<IActionResult> Create(string userId) // Make userId optional
         {
+
+
             // Prepare data for the view (e.g., service list) even if userId is null
             var services = await _context.Services_List.ToListAsync();
             var serviceItems = services.Select(s => new SelectListItem
@@ -108,9 +154,9 @@ namespace ServiceWorkerWebsite.Controllers
 
             var worker = new Worker();
 
-            
-                worker.UserId = userId; // Pre-populate UserId if available
-            
+
+            worker.UserId = userId; // Pre-populate UserId if available
+
 
             return View(worker);
         }
@@ -128,7 +174,7 @@ namespace ServiceWorkerWebsite.Controllers
                 .FirstOrDefaultAsync();
 
 
-                
+
 
                 var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
@@ -167,7 +213,7 @@ namespace ServiceWorkerWebsite.Controllers
                 }
 
                 TempData["WorkerId"] = worker.Worker_Id;
-                return RedirectToAction("Create", "TimeSlots");
+                return RedirectToAction("Create", "TimeSlots", new { workerId = worker.Worker_Id });
             }
 
             // If ModelState is not valid, repopulate the services list and return to the view
@@ -182,7 +228,7 @@ namespace ServiceWorkerWebsite.Controllers
             return View(worker);
         }
 
-      
+
 
 
 
@@ -269,14 +315,14 @@ namespace ServiceWorkerWebsite.Controllers
             {
                 _context.Worker_List.Remove(worker);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool WorkerExists(int id)
         {
-          return _context.Worker_List.Any(e => e.Worker_Id == id);
+            return _context.Worker_List.Any(e => e.Worker_Id == id);
         }
     }
 }
