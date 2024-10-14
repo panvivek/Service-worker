@@ -1,4 +1,4 @@
-﻿@model TimeSlot
+@model TimeSlot
 
 @{
     ViewData["Title"] = "Create";
@@ -14,10 +14,9 @@
             <div class="container mt-4">
                 <!-- Worker Selection Dropdown -->
                 <div class="form-group">
-                    <label asp-for="Worker_Id" class="control-label"></label>
-                    <select asp-for="Worker_Id" class="form-control" asp-items="ViewBag.Workers"></select>
-                    <span asp-validation-for="Worker_Id" class="text-danger"></span>
-                </div>
+        <label for="Worker_Id">Worker ID</label>
+        <input type="text" name="Worker_Id" value="@ViewBag.Worker_Id" class="form-control" readonly />
+    </div>
 
 
                 <!-- Multi-Date Calendar Selection -->
