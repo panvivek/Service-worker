@@ -12,7 +12,7 @@ public class TimeSlot
     // Store as a comma-separated string
     public string SelectedDates { get; set; }
 
-    public string TimePeriod { get; set; }
+    
 
     // Store as a comma-separated string
     public string TimeSlots { get; set; }

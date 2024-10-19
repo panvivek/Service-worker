@@ -253,6 +253,9 @@ public async Task<JsonResult> GetAvailableSlots([FromBody] WorkerRequest request
         // GET: Bookings/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+
+            var currentUser = await _userManager.GetUserAsync(User);
+
             if (id == null || _context.Booking == null)
             {
                 return NotFound();

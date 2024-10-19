@@ -23,9 +23,9 @@
 <div>
     <h4>Reviews</h4>
     <hr />
-    @if (Model.Reviews != null && Model.Reviews.Count > 0)
+    @if (Model.Reviewss != null && Model.Reviewss.Count > 0)
     {
-        @foreach (var review in Model.Reviews)
+        @foreach (var review in Model.Reviewss)
         {
             <div>
                 
@@ -52,10 +52,10 @@
     <nav aria-label="Review navigation">
         <ul class="pagination">
             <li class="page-item @(ViewBag.CurrentPage <= 1 ? "disabled" : "")">
-                <a class="page-link" asp-action="Details" asp-route-workerId="@Model.WorkerId" asp-route-serviceId="@ViewBag.ServiceId" asp-route-page="@(ViewBag.CurrentPage - 1)">Previous</a>
+                <a class="page-link" asp-action="Details" asp-route-workerId="@Model.Worker_Id" asp-route-serviceId="@ViewBag.ServiceId" asp-route-page="@(ViewBag.CurrentPage - 1)">Previous</a>
             </li>
             <li class="page-item @(ViewBag.CurrentPage >= ViewBag.TotalPages ? "disabled" : "")">
-                <a class="page-link" asp-action="Details" asp-route-workerId="@Model.WorkerId" asp-route-serviceId="@ViewBag.ServiceId" asp-route-page="@(ViewBag.CurrentPage + 1)">Next</a>
+                <a class="page-link" asp-action="Details" asp-route-workerId="@Model.Worker_Id" asp-route-serviceId="@ViewBag.ServiceId" asp-route-page="@(ViewBag.CurrentPage + 1)">Next</a>
             </li>
         </ul>
     </nav>

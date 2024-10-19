@@ -86,7 +86,7 @@ namespace ServiceWorkerWebsite.Controllers
                         {
                             Worker_Id = timeSlot.Worker_Id,
                             SelectedDates = date.ToString("yyyy-MM-dd"), // Store only the current date
-                            TimePeriod = timeSlot.TimePeriod, // If you want to keep this
+                           // If you want to keep this
                             TimeSlots = slot, // Store the specific time slot
                             IsBooked = false // Default to not booked
                         };

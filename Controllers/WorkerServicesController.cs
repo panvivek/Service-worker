@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ServiceWorkerWebsite.Areas.Identity.Data;
 using ServiceWorkerWebsite.Data;
 
 namespace ServiceWorkerWebsite.Controllers
@@ -12,11 +14,14 @@ namespace ServiceWorkerWebsite.Controllers
     public class WorkerServicesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ServiceWorkerWebsiteUser> _userManager;
 
-        public WorkerServicesController(ApplicationDbContext context)
+        public WorkerServicesController(ApplicationDbContext context, UserManager<ServiceWorkerWebsiteUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
+
 
         // GET: WorkerServices
         public async Task<IActionResult> Index()
@@ -24,6 +29,7 @@ namespace ServiceWorkerWebsite.Controllers
             var applicationDbContext = _context.WorkerServices.Include(w => w.Service).Include(w => w.Worker);
             return View(await applicationDbContext.ToListAsync());
         }
+
 
         // GET: WorkerServices/Details/5
         public async Task<IActionResult> Details(int? id)

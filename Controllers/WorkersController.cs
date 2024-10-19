@@ -1,19 +1,14 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using ServiceWorkerWebsite.Areas.Identity.Data;
+using ServiceWorkerWebsite.Data;
+using ServiceWorkerWebsite.Models;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Azure;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using ServiceWorkerWebsite.Data;
-using ServiceWorkerWebsite.Models;
-using X.PagedList.Extensions;
 
 namespace ServiceWorkerWebsite.Controllers
 {
@@ -21,10 +16,12 @@ namespace ServiceWorkerWebsite.Controllers
     {
 
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ServiceWorkerWebsiteUser> _userManager;
 
-        public WorkersController(ApplicationDbContext context)
+        public WorkersController(ApplicationDbContext context, UserManager<ServiceWorkerWebsiteUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index(int serviceId, string sortOrder)
@@ -78,8 +75,34 @@ namespace ServiceWorkerWebsite.Controllers
             return View(worker.Price);
         }
 
+
+        public async Task<IActionResult> Manage()
+        {
+            // Get the currently logged-in user
+            var currentUser = await _userManager.GetUserAsync(User);
+
+            if (currentUser == null)
+            {
+                return RedirectToAction("Login", "Account"); // Redirect to login if not authenticated
+            }
+
+            // Fetch the worker associated with the logged-in user
+            var worker = await _context.Worker_List
+                .Include(w => w.WorkerServices)
+                    .ThenInclude(ws => ws.Service) // Include related services
+                .FirstOrDefaultAsync(w => w.UserId == currentUser.Id);
+
+            if (worker == null)
+            {
+                return NotFound("Worker not found.");
+            }
+
+            // Pass worker and their services to the view
+            return View(worker);
+        }
+
         // GET: Workers/Details/5
-       
+
         public async Task<IActionResult> Details(int workerId, int serviceId, int page = 1)
         {
             int pageSize = 5; // Number of reviews per page
@@ -122,7 +145,7 @@ namespace ServiceWorkerWebsite.Controllers
 
             var workerDetailsViewModel = new WorkerDetailsViewModel
             {
-                WorkerId = worker.Worker_Id,
+                Worker_Id = worker.Worker_Id,
                 ProfilePicUrl = worker.ProfilePic_Id,
                 Price = worker.Price,
                 Reviews = reviewsToShow // Paginated reviews
@@ -160,6 +183,8 @@ namespace ServiceWorkerWebsite.Controllers
 
             return View(worker);
         }
+
+
 
         // POST: Workers/Create
         [HttpPost]
@@ -233,20 +258,32 @@ namespace ServiceWorkerWebsite.Controllers
 
 
         // GET: Workers/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit()
         {
-            if (id == null || _context.Worker_List == null)
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null || _context.Worker_List == null)
             {
                 return NotFound();
             }
 
-            var worker = await _context.Worker_List.FindAsync(id);
-            if (worker == null)
+            // Fetch the selected worker by ID
+            var selectedWorker = await _context.Worker_List.FindAsync(currentUser);
+
+
+            if (selectedWorker == null)
             {
                 return NotFound();
             }
-            return View(worker);
+
+            // Fetch all workers to display in the view
+            var allWorkers = await _context.Worker_List.FirstOrDefaultAsync(w => w.UserId == currentUser.Id);
+
+            // Use ViewData or ViewBag to pass the list of workers
+            ViewBag.AllWorkers = allWorkers;
+
+            return View(allWorkers);
         }
+
 
         // POST: Workers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
