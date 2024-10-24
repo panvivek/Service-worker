@@ -189,10 +189,14 @@ namespace ServiceWorkerWebsite.Controllers
         // POST: Workers/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Worker worker, int[] Service_Id)
+        public async Task<IActionResult> Create(Worker worker, int[] Service_Id, IFormFile ProfilePicFile)
         {
             if (ModelState.IsValid)
             {
+
+
+
+               
                 var roleId = await _context.Roles
                     .Where(r => r.Name == "Worker")
                     .Select(r => r.Id)
@@ -216,6 +220,42 @@ namespace ServiceWorkerWebsite.Controllers
                 {
                     return BadRequest("UserId is required."); // Or handle appropriately
                 }
+
+
+
+                if (ProfilePicFile != null && ProfilePicFile.Length > 0)
+                {
+                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "WorkerProfilePic");
+
+                    // Ensure the directory exists
+                    if (!Directory.Exists(uploadsFolder))
+                    {
+                        Directory.CreateDirectory(uploadsFolder);
+                        Console.WriteLine($"Created directory: {uploadsFolder}");
+                    }
+
+                    // Generate a unique file name
+                    var uniqueFileName = $"{Guid.NewGuid()}_{ProfilePicFile.FileName}";
+                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    Console.WriteLine($"Saving file to: {filePath}");
+
+                    // Save the file to the specified path
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await ProfilePicFile.CopyToAsync(fileStream);
+                    }
+
+                    // Store the relative path in the database
+                    worker.ProfilePic_Id = $"/WorkerProfilePic/{uploadsFolder}";
+                }
+                else
+                {
+                    // Handle case where no file is uploaded (Optional)
+                    worker.ProfilePic_Id = "/images/default-profile.png";
+                    Console.WriteLine("No file uploaded. Using default profile picture.");
+                }
+
+
 
                 _context.Add(worker);
                 await _context.SaveChangesAsync(); // Save the worker first to get the generated Worker_Id
@@ -260,28 +300,35 @@ namespace ServiceWorkerWebsite.Controllers
         // GET: Workers/Edit/5
         public async Task<IActionResult> Edit()
         {
+            // Get the currently logged-in user
             var currentUser = await _userManager.GetUserAsync(User);
-            if (currentUser == null || _context.Worker_List == null)
+            if (currentUser == null)
             {
-                return NotFound();
+                return RedirectToAction("Login", "Account"); // Redirect to login if user is not authenticated
             }
 
-            // Fetch the selected worker by ID
-            var selectedWorker = await _context.Worker_List.FindAsync(currentUser);
+            // Fetch the worker associated with the logged-in user along with services
+            var worker = await _context.Worker_List
+                .Include(w => w.WorkerServices)
+                    .ThenInclude(ws => ws.Service) // Include related services
+                .FirstOrDefaultAsync(w => w.UserId == currentUser.Id);
 
-
-            if (selectedWorker == null)
+            if (worker == null)
             {
-                return NotFound();
+                return NotFound("Worker not found.");
             }
 
-            // Fetch all workers to display in the view
-            var allWorkers = await _context.Worker_List.FirstOrDefaultAsync(w => w.UserId == currentUser.Id);
+            // Fetch all available services for the dropdown
+            var workerServiceItems = worker.WorkerServices.Select(ws => new SelectListItem
+            {
+                Value = ws.Service.Service_Id.ToString(),
+                Text = ws.Service.Name,
+                Selected = true // Mark them as selected (if required for form display)
+            }).ToList();
 
-            // Use ViewData or ViewBag to pass the list of workers
-            ViewBag.AllWorkers = allWorkers;
+            ViewBag.Services = workerServiceItems; // Pass services to the view
 
-            return View(allWorkers);
+            return View(worker);
         }
 
 
@@ -290,34 +337,64 @@ namespace ServiceWorkerWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Worker_Id,ProfilePic_Id,Name,Availability_Status,Ratings,Reviews,Price")] Worker worker)
+        public async Task<IActionResult> Edit(int id, [Bind("Worker_Id,ProfilePic_Id,Name,Availability_Status,Ratings,Reviews,Price")] Worker worker, int[] ServiceIds)
         {
-            if (id != worker.Worker_Id)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                // Reload services for dropdown in case of validation failure
+                var allServices = await _context.Services_List.ToListAsync();
+                ViewBag.Services = allServices.Select(s => new SelectListItem
+                {
+                    Value = s.Service_Id.ToString(),
+                    Text = s.Name,
+                    Selected = ServiceIds.Contains(s.Service_Id)
+                }).ToList();
+                return View(worker);
             }
 
-            if (ModelState.IsValid)
+            // Fetch the existing worker record
+            var existingWorker = await _context.Worker_List
+                .Include(w => w.WorkerServices)
+                .FirstOrDefaultAsync(w => w.Worker_Id == worker.Worker_Id);
+
+            if (existingWorker == null)
             {
-                try
+                return NotFound("Worker not found.");
+            }
+
+            try
+            {
+                // Update worker properties
+                existingWorker.ProfilePic_Id = worker.ProfilePic_Id;
+                existingWorker.Price = worker.Price;
+
+                // Remove old services not in the new selection
+                _context.WorkerServices.RemoveRange(
+                    existingWorker.WorkerServices.Where(ws => !ServiceIds.Contains(ws.Service_Id))
+                );
+
+                // Add new services selected by the worker
+                foreach (var serviceId in ServiceIds)
                 {
-                    _context.Update(worker);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!WorkerExists(worker.Worker_Id))
+                    if (!existingWorker.WorkerServices.Any(ws => ws.Service_Id == serviceId))
                     {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
+                        _context.WorkerServices.Add(new WorkerService
+                        {
+                            Worker_Id = existingWorker.Worker_Id,
+                            Service_Id = serviceId
+                        });
                     }
                 }
+
+                await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Worker details updated successfully.";
                 return RedirectToAction(nameof(Index));
             }
-            return View(worker);
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Error updating worker: {ex.Message}";
+                return View(worker);
+            }
         }
 
         // GET: Workers/Delete/5

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SlhYQmbZRMX7nZB0DnpYCAKmUhiEDpXxk+czcu80xZo=",
+  "Hash": "3dwHr7rLwzvsYugsuh5MSTp4ryJE97bw5RcbA/Srq+U=",
   "Source": "ServiceWorkerWebsite",
   "BasePath": "_content/ServiceWorkerWebsite",
   "Mode": "Default",
@@ -1288,6 +1288,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Workers.css"
+    },
+    {
+      "Identity": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\desktop.ini",
+      "SourceId": "ServiceWorkerWebsite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\",
+      "BasePath": "_content/ServiceWorkerWebsite",
+      "RelativePath": "desktop.ini",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\desktop.ini"
     },
     {
       "Identity": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\favicon.ico",

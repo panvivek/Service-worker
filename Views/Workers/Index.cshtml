@@ -1,5 +1,6 @@
 @model IEnumerable<Worker>
 
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -45,7 +46,9 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <!-- Worker Profile Picture -->
-                    <img src="@item.ProfilePic_Id" class="card-img-top" alt="Worker Profile Picture">
+                    <img src="@item.ProfilePic_Id" class="card-img-top" alt="Worker Profile Picture"
+                         onerror="this.onerror=null; this.src='/images/default-profile.png';" />
+
                     <div class="card-body">
                         <!-- Worker Details List -->
                         <ul class="list-unstyled">

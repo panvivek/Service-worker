@@ -3,8 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 public class WorkerService
 {
-    [Key]
-    public int WorkerServiceId { get; set; }
+   
 
 
     public int Worker_Id { get; set; }

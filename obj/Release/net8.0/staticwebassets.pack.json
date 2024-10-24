@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\desktop.ini",
+      "PackagePath": "staticwebassets\\desktop.ini"
+    },
+    {
       "Id": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
