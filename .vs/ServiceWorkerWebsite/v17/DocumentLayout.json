@@ -11,20 +11,20 @@
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\workers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\vivek\\source\\repos\\service-worker\\views\\workers\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\workers\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\vivek\\source\\repos\\service-worker\\models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\vivek\\source\\repos\\service-worker\\views\\workers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\workers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\vivek\\source\\repos\\service-worker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\vivek\\source\\repos\\service-worker\\views\\workers\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\workers\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\vivek\\source\\repos\\service-worker\\views\\workers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\workers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\vivek\\source\\repos\\service-worker\\views\\timeslots\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -192,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\vivek\\source\\repos\\Service-worker\\Views\\Workers\\Delete.cshtml",
               "RelativeDocumentMoniker": "Views\\Workers\\Delete.cshtml",
@@ -234,7 +234,7 @@
               "RelativeDocumentMoniker": "Controllers\\WorkersController.cs",
               "ToolTip": "C:\\Users\\vivek\\source\\repos\\Service-worker\\Controllers\\WorkersController.cs*",
               "RelativeToolTip": "Controllers\\WorkersController.cs*",
-              "ViewState": "AgIAAOYAAABgZWZmZmYswPMAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAOEAAAAAOTMzM7MlwPMAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-27T15:46:07.013Z",
               "EditorCaption": ""
@@ -247,13 +247,14 @@
               "RelativeDocumentMoniker": "Views\\Workers\\Create.cshtml",
               "ToolTip": "C:\\Users\\vivek\\source\\repos\\Service-worker\\Views\\Workers\\Create.cshtml",
               "RelativeToolTip": "Views\\Workers\\Create.cshtml",
-              "ViewState": "AgIAAAMAAAAA8DIzMzPbvxMAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAABMAAACAmpmZmZkewCQAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-21T18:34:23.634Z"
+              "WhenOpened": "2024-10-21T18:34:23.634Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\vivek\\source\\repos\\Service-worker\\Views\\Workers\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Workers\\Index.cshtml",
@@ -265,15 +266,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\vivek\\source\\repos\\Service-worker\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\vivek\\source\\repos\\Service-worker\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAIwDkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAQAAAAAIAvwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T02:59:33.939Z"
+              "WhenOpened": "2024-10-23T02:59:33.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Worker.cs",
+              "DocumentMoniker": "C:\\Users\\vivek\\source\\repos\\Service-worker\\Models\\Worker.cs",
+              "RelativeDocumentMoniker": "Models\\Worker.cs",
+              "ToolTip": "C:\\Users\\vivek\\source\\repos\\Service-worker\\Models\\Worker.cs",
+              "RelativeToolTip": "Models\\Worker.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwBkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T23:39:06.978Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -286,18 +301,6 @@
               "ViewState": "AgIAACMAAABgMzMzMzMLwCQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-19T05:21:09.939Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Worker.cs",
-              "DocumentMoniker": "C:\\Users\\vivek\\source\\repos\\Service-worker\\Models\\Worker.cs",
-              "RelativeDocumentMoniker": "Models\\Worker.cs",
-              "ToolTip": "C:\\Users\\vivek\\source\\repos\\Service-worker\\Models\\Worker.cs",
-              "RelativeToolTip": "Models\\Worker.cs",
-              "ViewState": "AgIAAAYAAABwZmZmZsY4wBgAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T23:39:06.978Z"
             },
             {
               "$type": "Document",

@@ -3,6 +3,7 @@ using PaypalCheckoutExample.Clients;
 using ServiceWorkerWebsite.Data;
 using Microsoft.AspNetCore.Identity;
 using ServiceWorkerWebsite.Areas.Identity.Data;
+using Microsoft.AspNetCore.Http.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Uncomment the following line if you want to use an in-memory database instead of SQL Server for testing
 // builder.Services.AddDbContext<ApplicationDbContext>(optionsBuilder => optionsBuilder.UseInMemoryDatabase("InMemoryDb"));
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 50 * 1024 * 1024; // 50 MB
+});
 
 var app = builder.Build();
 

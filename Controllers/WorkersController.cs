@@ -225,6 +225,9 @@ namespace ServiceWorkerWebsite.Controllers
 
                 if (ProfilePicFile != null && ProfilePicFile.Length > 0)
                 {
+
+                    
+
                     var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "WorkerProfilePic");
 
                     // Ensure the directory exists
@@ -235,7 +238,9 @@ namespace ServiceWorkerWebsite.Controllers
                     }
 
                     // Generate a unique file name
-                    var uniqueFileName = $"{Guid.NewGuid()}_{ProfilePicFile.FileName}";
+                   
+
+                    var uniqueFileName = $"{ProfilePicFile.FileName}";
                     var filePath = Path.Combine(uploadsFolder, uniqueFileName);
                     Console.WriteLine($"Saving file to: {filePath}");
 
@@ -246,7 +251,7 @@ namespace ServiceWorkerWebsite.Controllers
                     }
 
                     // Store the relative path in the database
-                    worker.ProfilePic_Id = $"/WorkerProfilePic/{uploadsFolder}";
+                    worker.ProfilePic_Id = $"/WorkerProfilePic/{uniqueFileName}";
                 }
                 else
                 {
