@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3dwHr7rLwzvsYugsuh5MSTp4ryJE97bw5RcbA/Srq+U=",
+  "Hash": "JRe5Z4i8WC40p5fZeRgZ+btGtkmQ4C0LpltNtGBxjkA=",
   "Source": "ServiceWorkerWebsite",
   "BasePath": "_content/ServiceWorkerWebsite",
   "Mode": "Default",
@@ -3720,6 +3720,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\WorkerProfilePic\\5.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\WorkerProfilePic\\ce2e330c-c3c2-42ac-964f-541163926cf1.png",
+      "SourceId": "ServiceWorkerWebsite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\",
+      "BasePath": "_content/ServiceWorkerWebsite",
+      "RelativePath": "WorkerProfilePic/ce2e330c-c3c2-42ac-964f-541163926cf1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\WorkerProfilePic\\ce2e330c-c3c2-42ac-964f-541163926cf1.png"
+    },
+    {
+      "Identity": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\WorkerProfilePic\\Dall.jpg",
+      "SourceId": "ServiceWorkerWebsite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\",
+      "BasePath": "_content/ServiceWorkerWebsite",
+      "RelativePath": "WorkerProfilePic/Dall.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\WorkerProfilePic\\Dall.jpg"
     }
   ]
 }

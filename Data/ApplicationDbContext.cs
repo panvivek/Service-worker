@@ -35,6 +35,11 @@ namespace ServiceWorkerWebsite.Data
                 .WithMany()
                 .HasForeignKey(b => b.Service_Id);
 
+            modelBuilder.Entity<Booking>()
+                .HasOne(b => b.Worker)
+                .WithMany()
+                .HasForeignKey(b => b.Worker_Id);
+
             modelBuilder.Entity<TimeSlot>()
                 .ToTable("TimeSlot_List")
                 .HasOne(ts => ts.Worker)

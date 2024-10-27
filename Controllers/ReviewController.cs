@@ -68,7 +68,7 @@ namespace ServiceWorkerWebsite.Controllers
                 review.ReviewDate = DateTime.Now;
                 _context.Add(review);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Details",
+                return RedirectToAction("Index",
  "Workers", new { Id = review.Worker_Id, serviceId = review.Service_Id }); // Redirect to worker details
             }
             // Optionally, repopulate the worker list if needed

@@ -189,7 +189,7 @@ namespace ServiceWorkerWebsite.Controllers
         // POST: Workers/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Worker worker, int[] Service_Id, IFormFile ProfilePicFile)
+        public async Task<IActionResult> Create(Worker worker, int[] Service_Id, IFormFile ProfilePicFile, string CapturedImage)
         {
             if (ModelState.IsValid)
             {
@@ -215,7 +215,7 @@ namespace ServiceWorkerWebsite.Controllers
                 worker.UserId = user;
 
 
-
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "WorkerProfilePic");
                 if (string.IsNullOrEmpty(worker.UserId))
                 {
                     return BadRequest("UserId is required."); // Or handle appropriately
@@ -228,7 +228,7 @@ namespace ServiceWorkerWebsite.Controllers
 
                     
 
-                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "WorkerProfilePic");
+                   
 
                     // Ensure the directory exists
                     if (!Directory.Exists(uploadsFolder))
@@ -251,6 +251,19 @@ namespace ServiceWorkerWebsite.Controllers
                     }
 
                     // Store the relative path in the database
+                    worker.ProfilePic_Id = $"/WorkerProfilePic/{uniqueFileName}";
+                }
+                else if (!string.IsNullOrEmpty(CapturedImage))
+                {
+
+                    // Save the captured image from the webcam
+                    var base64Data = CapturedImage.Split(',')[1];
+                    var imageBytes = Convert.FromBase64String(base64Data);
+
+                    string uniqueFileName = $"{Guid.NewGuid()}.png";
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    await System.IO.File.WriteAllBytesAsync(filePath, imageBytes);
+
                     worker.ProfilePic_Id = $"/WorkerProfilePic/{uniqueFileName}";
                 }
                 else
@@ -342,7 +355,7 @@ namespace ServiceWorkerWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Worker_Id,ProfilePic_Id,Name,Availability_Status,Ratings,Reviews,Price")] Worker worker, int[] ServiceIds)
+        public async Task<IActionResult> Edit(int id, [Bind("Worker_Id,ProfilePic_Id,Name,Availability_Status,Ratings,Reviews,Price")] Worker worker, int[] ServiceIds, IFormFile ProfilePicFile, string CapturedImage)
         {
             if (!ModelState.IsValid)
             {
@@ -369,9 +382,43 @@ namespace ServiceWorkerWebsite.Controllers
 
             try
             {
-                // Update worker properties
-                existingWorker.ProfilePic_Id = worker.ProfilePic_Id;
-                existingWorker.Price = worker.Price;
+
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "WorkerProfilePic");
+
+                if (ProfilePicFile != null && ProfilePicFile.Length > 0)
+                {
+                    if (!Directory.Exists(uploadsFolder))
+                    {
+                        Directory.CreateDirectory(uploadsFolder);
+                    }
+
+                    string uniqueFileName = $"{Guid.NewGuid()}_{ProfilePicFile.FileName}";
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await ProfilePicFile.CopyToAsync(fileStream);
+                    }
+
+                    existingWorker.ProfilePic_Id = $"/WorkerProfilePic/{uniqueFileName}";
+                }
+                else if (!string.IsNullOrEmpty(CapturedImage))
+                {
+                    // Handle captured webcam image
+                    var base64Data = CapturedImage.Split(',')[1];
+                    var imageBytes = Convert.FromBase64String(base64Data);
+
+                    string uniqueFileName = $"{Guid.NewGuid()}.png";
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    await System.IO.File.WriteAllBytesAsync(filePath, imageBytes);
+
+                    existingWorker.ProfilePic_Id = $"/WorkerProfilePic/{uniqueFileName}";
+                }
+                
+                
+
+                    existingWorker.ProfilePic_Id = worker.ProfilePic_Id;
+                    existingWorker.Price = worker.Price;
 
                 // Remove old services not in the new selection
                 _context.WorkerServices.RemoveRange(
@@ -401,6 +448,22 @@ namespace ServiceWorkerWebsite.Controllers
                 return View(worker);
             }
         }
+        public async Task<IActionResult> Details(int id)
+        {
+            var booking = await _context.Booking
+                .Include(b => b.Service)
+                .Include(b => b.Worker)
+             
+                .FirstOrDefaultAsync(b => b.Id == id);
+
+            if (booking == null)
+            {
+                return NotFound();
+            }
+
+            return View(booking);
+        }
+
 
         // GET: Workers/Delete/5
         public async Task<IActionResult> Delete(int? id)

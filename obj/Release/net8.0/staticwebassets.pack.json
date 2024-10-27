@@ -29,6 +29,14 @@
       "PackagePath": "staticwebassets\\WorkerProfilePic\\5.jpg"
     },
     {
+      "Id": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\WorkerProfilePic\\Dall.jpg",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\Dall.jpg"
+    },
+    {
+      "Id": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\WorkerProfilePic\\ce2e330c-c3c2-42ac-964f-541163926cf1.png",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\ce2e330c-c3c2-42ac-964f-541163926cf1.png"
+    },
+    {
       "Id": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\css\\MainPage.style.min.css",
       "PackagePath": "staticwebassets\\css\\MainPage.style.min.css"
     },
