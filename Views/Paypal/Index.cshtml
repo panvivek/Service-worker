@@ -41,12 +41,12 @@
 </main>
 
 @section Scripts {
-    @*Use ViewBag.ClientId to load Paypal Javascript SDK*@
-    <!--<script src="@ViewBag.ClientId">https://www.paypal.com/sdk/js?client-id=@ViewBag.ClientId"></script> -->
     <script src="https://www.paypal.com/sdk/js?client-id=@ViewBag.ClientId"></script>
 
-
     <script>
+        // Use workerId from ViewBag or any other source
+        const workerId = @Json.Serialize(ViewBag.WorkerId);
+
         paypal.Buttons({
             style: {
                 layout: 'vertical',
@@ -54,26 +54,27 @@
                 tagline: 'false'
             },
             createOrder: (data, actions) => {
-                return fetch("@Url.Action("Order")", {
+                // Pass workerId to the Order endpoint
+                return fetch(`@Url.Action("Order", "Paypal")?workerId=${workerId}`, {
                     method: "post",
+                    headers: { "Content-Type": "application/json" }
                 }).then((response) => {
                     if (!response.ok) {
                         return response.json().then(error => { throw error; });
                     }
-
                     return response.json();
                 }).then((order) => order.id)
                     .catch(error => alert(error.message));
             },
             onApprove: (data, actions) => {
-                return fetch(`@Url.Action("Capture")?orderId=${data.orderID}`, {
+                return fetch(`@Url.Action("Capture", "Paypal")?orderId=${data.orderID}`, {
                     method: "post",
+                    headers: { "Content-Type": "application/json" }
                 }).then((response) => {
                     if (!response.ok) {
                         return response.json().then(error => { throw error; });
                     }
-
-                    window.location.href = "@Url.Action("Success")";
+                    window.location.href = "@Url.Action("Success", "Paypal")";
                 }).catch(error => alert(error.message));
             }
         }).render('#paypal-button-container');
