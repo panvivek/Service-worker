@@ -18,10 +18,11 @@ namespace ServiceWorkerWebsite.Data
         public DbSet<TimeSlot> TimeSlot_List { get; set; }
         public DbSet<WorkerService> WorkerServices { get; set; } // Add DbSet for the association table
         public DbSet<Applicationuser> Applicationusers { get; set; } // Consider removing this if not used
+        public DbSet<UserAddress> UserAddress { get; set; }
 
 
 
- public DbSet<Reviews> Reviews
+        public DbSet<Reviews> Reviews
  {
      get; set;
  }
@@ -63,15 +64,16 @@ namespace ServiceWorkerWebsite.Data
 
 
 
-                    modelBuilder.Entity<Reviews>()
-.HasOne(r => r.Service)
-.WithMany(s => s.Review)
-.HasForeignKey(r => r.Service_Id)
-.OnDelete(DeleteBehavior.Cascade);
-    modelBuilder.Entity<Reviews>()
-            .HasOne(r => r.Worker)
-            .WithMany(w => w.Reviews)
-            .HasForeignKey(r => r.Worker_Id);
+            modelBuilder.Entity<Reviews>()
+                .HasOne(r => r.Service)
+                .WithMany(s => s.Review)
+                .HasForeignKey(r => r.Service_Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Reviews>()
+                .HasOne(r => r.Worker)
+                .WithMany(w => w.Reviews)
+                .HasForeignKey(r => r.Worker_Id);
 
             // Configure the relationship for the User foreign key in Worker
             modelBuilder.Entity<Worker>()
@@ -79,6 +81,12 @@ namespace ServiceWorkerWebsite.Data
                 .WithMany() // Assuming a user can have multiple workers
                 .HasForeignKey(w => w.UserId) // Foreign key
                 .OnDelete(DeleteBehavior.Cascade); // Configure delete behavior as needed
+
+            // Configure CustomerAddress relationship
+            modelBuilder.Entity<UserAddress>()
+                .HasOne(ca => ca.User)
+                .WithMany()
+                .HasForeignKey(ca => ca.UserId);
         }
     }
 }

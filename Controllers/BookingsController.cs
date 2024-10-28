@@ -407,6 +407,12 @@ public async Task<JsonResult> GetAvailableSlots([FromBody] WorkerRequest request
         }
 
 
+        public IActionResult TermsNCond()
+        {
+            return View();
+        }
+
+
         public async Task<IActionResult> DownloadInvoice(int id)
         {
             // Fetch booking details from the database
