@@ -241,7 +241,8 @@ public async Task<JsonResult> GetAvailableSlots([FromBody] WorkerRequest request
                 _context.Add(booking);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Paypal", new { workerId = booking.Worker_Id });
+
             }
 
             return View(booking);
