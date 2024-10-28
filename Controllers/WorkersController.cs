@@ -29,6 +29,7 @@ namespace ServiceWorkerWebsite.Controllers
             ViewData["ServiceId"] = serviceId;
             ViewData["PriceSortParam"] = string.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
             ViewData["RatingSortParam"] = sortOrder == "ratings_asc" ? "ratings_desc" : "ratings_asc";
+            ViewData["LocationParam"] = sortOrder == "locationAsc" ? "locationdesc" : "locationAsc";
 
             var serviceWithWorkers = await _context.Services_List
                 .Include(s => s.WorkerServices)
@@ -40,8 +41,23 @@ namespace ServiceWorkerWebsite.Controllers
                 return NotFound();
             }
 
+            var loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Or however you retrieve the user ID
+            var userAddress = await _context.UserAddress
+                .FirstOrDefaultAsync(a => a.UserId == loggedInUserId);
+            //string userCity = userAddress.City;
+
             // Extract the workers associated with the service
             var workers = serviceWithWorkers.WorkerServices.Select(ws => ws.Worker);
+
+            // Join with UserAddress to get worker address details
+            var workersWithAddress = from worker in workers
+                                     join address in _context.UserAddress
+                                     on worker.UserId equals address.UserId
+                                     select new
+                                     {
+                                         Worker = worker,
+                                         Address = address,
+                                     };
 
             // Sorting logic
             switch (sortOrder)
@@ -49,6 +65,18 @@ namespace ServiceWorkerWebsite.Controllers
                 case "price_desc":
                     workers = workers.OrderByDescending(w => w.Price);
                     break;
+
+                case "locationAsc":
+                    var filteredWorkers = workersWithAddress
+                        .Where(w => w.Address.City.Equals(userAddress.City, StringComparison.OrdinalIgnoreCase));
+
+                    workers = filteredWorkers.Select(w => w.Worker);  // Extract only workers
+                    break;
+
+                //case "locationdesc":
+                //    var sortedWorker1 = workersWithAddress.OrderByDescending(w => w.Address.City);  // Sort by city
+                //    workers = sortedWorker1.Select(w => w.Worker);  // Extract only workers
+                //    break;
 
                 default:
                     workers = workers.OrderBy(w => w.Price);
