@@ -1582,3 +1582,18 @@ C:\Users\vivek\Source\Repos\Servic\obj\Release\net8.0\scopedcss\projectbundle\Se
 C:\Users\vivek\Source\Repos\Servic\obj\Release\net8.0\ServiceW.34FFF001.Up2Date
 C:\Users\vivek\Source\Repos\Servic\obj\Release\net8.0\ServiceWorkerWebsite.genruntimeconfig.cache
 C:\Users\vivek\Source\Repos\Servic\obj\Release\net8.0\ref\ServiceWorkerWebsite.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\itext.barcodes.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\itext.bouncy-castle-connector.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\itext.forms.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\itext.io.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\itext.kernel.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\itext.layout.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\itext.pdfa.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\itext.pdfua.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\itext.sign.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\itext.styledxmlparser.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\itext.svg.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\itext.commons.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\itextsharp.dll
+C:\Users\freya\OneDrive - Sheridan College\Laptop Transfer\Semester 6\Capstone\Service-worker\bin\Release\net8.0\Microsoft.DotNet.PlatformAbstractions.dll

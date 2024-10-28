@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ISfn9XTr6aMB62FR4h028ryu6jOzW+oAbWiclo7hfHg=",
+  "Hash": "QFjELNDFZDUwakTRcGUQl2ECY5f7jeXoSSSn9mkWdY0=",
   "Source": "ServiceWorkerWebsite",
   "BasePath": "_content/ServiceWorkerWebsite",
   "Mode": "Default",
@@ -2048,6 +2048,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\Logo_QuickFix_Black.png",
+      "SourceId": "ServiceWorkerWebsite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\",
+      "BasePath": "_content/ServiceWorkerWebsite",
+      "RelativePath": "img/Logo_QuickFix_Black.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Logo_QuickFix_Black.png"
     },
     {
       "Identity": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\obj_triangle.png",

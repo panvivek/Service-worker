@@ -173,6 +173,10 @@
       "PackagePath": "staticwebassets\\img\\Logo.png"
     },
     {
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\Logo_QuickFix_Black.png",
+      "PackagePath": "staticwebassets\\img\\Logo_QuickFix_Black.png"
+    },
+    {
       "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\app-profile-mockup.png",
       "PackagePath": "staticwebassets\\img\\app-profile-mockup.png"
     },

@@ -6,9 +6,15 @@ using ServiceWorkerWebsite.Areas.Identity.Data;
 using ServiceWorkerWebsite.Data;
 using ServiceWorkerWebsite.Models;
 using System;
+using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using iTextSharp.text;
+using iTextSharp.text.pdf; // Don't forget to add these namespaces
+using System.IO;
 
 namespace ServiceWorkerWebsite.Controllers
 {
@@ -399,6 +405,142 @@ public async Task<JsonResult> GetAvailableSlots([FromBody] WorkerRequest request
         {
             return _context.Booking.Any(e => e.Id == id);
         }
+
+
+        public async Task<IActionResult> DownloadInvoice(int id)
+        {
+            // Fetch booking details from the database
+            var booking = await _context.Booking
+            .Include(b => b.Worker)
+              .ThenInclude(w => w.User)
+            .Include(b => b.Service)
+            .Include(b => b.TimeSlot)
+            .FirstOrDefaultAsync(b => b.Id == id);
+
+            int? workerPrice = await _context.Worker_List
+              .Where(w => w.Worker_Id == booking.Worker.Worker_Id)
+              .Select(w => (int?)w.Price)
+              .FirstOrDefaultAsync();
+
+            if (booking == null)
+            {
+                return NotFound();
+            }
+
+            // Generate random invoice number
+            var invoiceNumber = $"INV-{Guid.NewGuid().ToString().Substring(0, 8).ToUpper()}";
+
+            using (var memoryStream = new MemoryStream())
+            {
+                Document pdfDoc = new Document(PageSize.A5, 20, 20, 30, 30);
+                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
+                pdfDoc.Open();
+
+                // Fonts
+                var titleFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
+                var boldFont = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
+                var normalFont = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL);
+                var headerFont = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD, BaseColor.WHITE);
+
+                // Add Logo
+                string logoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "Logo_QuickFix_Black.png");
+                if (System.IO.File.Exists(logoPath))
+                {
+                    Image logo = Image.GetInstance(logoPath);
+                    logo.ScaleAbsolute(120f, 60f);
+                    pdfDoc.Add(logo);
+                }
+
+                // Header Table
+                PdfPTable headerTable = new PdfPTable(2);
+                headerTable.WidthPercentage = 100;
+                headerTable.SetWidths(new float[] { 70, 30 });
+
+                // Company Info
+                PdfPCell companyCell = new PdfPCell();
+                companyCell.Border = PdfPCell.NO_BORDER;
+                companyCell.AddElement(new Paragraph("QuickFix", titleFont));
+                companyCell.AddElement(new Paragraph("7899 McLaughlin Rd\nBrampton, ON, L6Y 0P8\nCanada", normalFont));
+                headerTable.AddCell(companyCell);
+
+                // Invoice Info
+                PdfPCell invoiceCell = new PdfPCell();
+                invoiceCell.Border = PdfPCell.NO_BORDER;
+                invoiceCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                invoiceCell.AddElement(new Paragraph($"Invoice No: {invoiceNumber}", boldFont));
+                invoiceCell.AddElement(new Paragraph($"Date: {DateTime.Now.ToString("dd-MM-yyyy")}", normalFont));
+                headerTable.AddCell(invoiceCell);
+
+                pdfDoc.Add(headerTable);
+                pdfDoc.Add(new Paragraph("\n"));
+
+                // Booking Details Table
+                PdfPTable detailsTable = new PdfPTable(2);
+                detailsTable.WidthPercentage = 100;
+                detailsTable.SpacingBefore = 10;
+                detailsTable.SpacingAfter = 10;
+                detailsTable.SetWidths(new float[] { 30, 70 });
+
+                PdfPCell headerCell = new PdfPCell(new Phrase("Booking Details", headerFont))
+                {
+                    Colspan = 2,
+                    BackgroundColor = BaseColor.DARK_GRAY,
+                    Padding = 5,
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                };
+                detailsTable.AddCell(headerCell);
+
+                detailsTable.AddCell(new PdfPCell(new Phrase("Worker:", boldFont)));
+                detailsTable.AddCell(new PdfPCell(new Phrase(
+                  booking.Worker != null ? $"{booking.Worker.User.Firstname} {booking.Worker.User.Lastname}" : "No Worker Assigned", normalFont)));
+
+                detailsTable.AddCell(new PdfPCell(new Phrase("Service:", boldFont)));
+                detailsTable.AddCell(new PdfPCell(new Phrase(
+                  booking.Service != null ? booking.Service.Name : "Not Assigned", normalFont)));
+
+                detailsTable.AddCell(new PdfPCell(new Phrase("Booking Date:", boldFont)));
+                detailsTable.AddCell(new PdfPCell(new Phrase(booking.BookingDate.ToString("dd-MM-yyyy"), normalFont)));
+
+                detailsTable.AddCell(new PdfPCell(new Phrase("Time Slot:", boldFont)));
+                detailsTable.AddCell(new PdfPCell(new Phrase(
+                  booking.TimeSlot != null ? $"{booking.TimeSlot.SelectedDates} {booking.TimeSlot.TimeSlots}" : "Not Assigned", normalFont)));
+
+                pdfDoc.Add(detailsTable);
+
+                // Payment Section
+                PdfPTable paymentTable = new PdfPTable(2);
+                paymentTable.WidthPercentage = 100;
+                paymentTable.SpacingBefore = 10;
+                paymentTable.SetWidths(new float[] { 70, 30 });
+
+                PdfPCell paymentHeader = new PdfPCell(new Phrase("Payment Details", headerFont))
+                {
+                    Colspan = 2,
+                    BackgroundColor = BaseColor.DARK_GRAY,
+                    Padding = 5,
+                    HorizontalAlignment = Element.ALIGN_CENTER
+                };
+                paymentTable.AddCell(paymentHeader);
+
+                paymentTable.AddCell(new PdfPCell(new Phrase("Amount:", boldFont)));
+                PdfPCell amountCell = new PdfPCell(new Phrase(workerPrice.HasValue ? workerPrice.Value.ToString("C") : "Not Assigned", boldFont))
+                {
+                    HorizontalAlignment = Element.ALIGN_RIGHT
+                };
+                paymentTable.AddCell(amountCell);
+
+                pdfDoc.Add(paymentTable);
+
+                // Footer
+                pdfDoc.Add(new Paragraph("\nThank you for your business!", boldFont) { Alignment = Element.ALIGN_CENTER });
+                pdfDoc.Add(new Paragraph("For inquiries, contact support@quickfix.com", normalFont) { Alignment = Element.ALIGN_CENTER });
+
+                pdfDoc.Close();
+                return File(memoryStream.ToArray(), "application/pdf", $"Invoice_{invoiceNumber}.pdf");
+            }
+        }
+
+
     }
 
     public class DateTimeRequest
