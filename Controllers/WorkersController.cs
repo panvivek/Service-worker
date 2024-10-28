@@ -103,6 +103,7 @@ namespace ServiceWorkerWebsite.Controllers
 
         // GET: Workers/Details/5
 
+        [Route("workers/{workerId}/details/{serviceId}")]
         public async Task<IActionResult> Details(int workerId, int serviceId, int page = 1)
         {
             int pageSize = 5; // Number of reviews per page
@@ -448,6 +449,7 @@ namespace ServiceWorkerWebsite.Controllers
                 return View(worker);
             }
         }
+        [Route("workers/{workerId}/details")]
         public async Task<IActionResult> Details(int id)
         {
             var booking = await _context.Booking
