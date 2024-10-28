@@ -66,10 +66,10 @@ namespace ServiceWorkerWebsite.Controllers
                     workers = workers.OrderByDescending(w => w.Price);
                     break;
 
+                // Location Filter Added
                 case "locationAsc":
                     var filteredWorkers = workersWithAddress
                         .Where(w => w.Address.City.Equals(userAddress.City, StringComparison.OrdinalIgnoreCase));
-
                     workers = filteredWorkers.Select(w => w.Worker);  // Extract only workers
                     break;
 
