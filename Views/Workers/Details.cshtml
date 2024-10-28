@@ -23,17 +23,12 @@
 <div>
     <h4>Reviews</h4>
     <hr />
-    @if (Model.Reviewss != null && Model.Reviewss.Count > 0)
+    @if (Model.Review != null && Model.Review.Count > 0)
     {
-        @foreach (var review in Model.Reviewss)
+        @foreach (var review in Model.Review)
         {
             <div>
-                
-
-
-                <!-- Display Customer Name, or 'Anonymous' if not available -->
                 <strong>Customer Name:</strong> @(string.IsNullOrEmpty(review.CustomerName) ? "Anonymous" : review.CustomerName) <br />
-
                 <strong>Rating:</strong> @review.RatingValue / 5 <br />
                 <strong>Comment:</strong> @review.Comment <br />
                 <small><em>Reviewed on @review.ReviewDate.ToString("MMMM dd, yyyy")</em></small>
@@ -52,17 +47,27 @@
     <nav aria-label="Review navigation">
         <ul class="pagination">
             <li class="page-item @(ViewBag.CurrentPage <= 1 ? "disabled" : "")">
-                <a class="page-link" asp-action="Details" asp-route-workerId="@Model.Worker_Id" asp-route-serviceId="@ViewBag.ServiceId" asp-route-page="@(ViewBag.CurrentPage - 1)">Previous</a>
+                <a class="page-link" asp-action="Details"
+                   asp-route-workerId="@Model.Worker_Id"
+                   asp-route-serviceId="@ViewBag.ServiceId"
+                   asp-route-page="@(ViewBag.CurrentPage - 1)">
+                    Previous
+                </a>
             </li>
             <li class="page-item @(ViewBag.CurrentPage >= ViewBag.TotalPages ? "disabled" : "")">
-                <a class="page-link" asp-action="Details" asp-route-workerId="@Model.Worker_Id" asp-route-serviceId="@ViewBag.ServiceId" asp-route-page="@(ViewBag.CurrentPage + 1)">Next</a>
+                <a class="page-link" asp-action="Details"
+                   asp-route-workerId="@Model.Worker_Id"
+                   asp-route-serviceId="@ViewBag.ServiceId"
+                   asp-route-page="@(ViewBag.CurrentPage + 1)">
+                    Next
+                </a>
             </li>
         </ul>
     </nav>
+
 </div>
 
-
-<!-- Back to Workers List for the Selected Service -->
+<!-- Back to Workers List -->
 <div>
     <a asp-controller="Workers" asp-action="Index" asp-route-serviceId="@ViewBag.ServiceId">Back to List</a>
 </div>

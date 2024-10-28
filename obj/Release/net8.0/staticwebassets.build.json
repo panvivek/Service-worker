@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JRe5Z4i8WC40p5fZeRgZ+btGtkmQ4C0LpltNtGBxjkA=",
+  "Hash": "h/7oh9IZ9kzjje9qILor+v0aCLybFll58zudsmAMauE=",
   "Source": "ServiceWorkerWebsite",
   "BasePath": "_content/ServiceWorkerWebsite",
   "Mode": "Default",
@@ -3720,6 +3720,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\WorkerProfilePic\\5.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\WorkerProfilePic\\cd189c32-f79c-4e9b-ad4f-28b952ec72b4.png",
+      "SourceId": "ServiceWorkerWebsite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\",
+      "BasePath": "_content/ServiceWorkerWebsite",
+      "RelativePath": "WorkerProfilePic/cd189c32-f79c-4e9b-ad4f-28b952ec72b4.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\WorkerProfilePic\\cd189c32-f79c-4e9b-ad4f-28b952ec72b4.png"
     },
     {
       "Identity": "C:\\Users\\vivek\\Source\\Repos\\Service-worker\\wwwroot\\WorkerProfilePic\\ce2e330c-c3c2-42ac-964f-541163926cf1.png",

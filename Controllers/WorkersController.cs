@@ -102,7 +102,8 @@ namespace ServiceWorkerWebsite.Controllers
         }
 
         // GET: Workers/Details/5
-
+        [HttpGet]
+        [Route("Workers/Details/Worker/{workerId}/{serviceId}")]
         public async Task<IActionResult> Details(int workerId, int serviceId, int page = 1)
         {
             int pageSize = 5; // Number of reviews per page
@@ -148,7 +149,7 @@ namespace ServiceWorkerWebsite.Controllers
                 Worker_Id = worker.Worker_Id,
                 ProfilePicUrl = worker.ProfilePic_Id,
                 Price = worker.Price,
-                Reviews = reviewsToShow // Paginated reviews
+                Review = reviewsToShow // Paginated reviews
             };
 
             return View(workerDetailsViewModel);
