@@ -32,7 +32,8 @@
             <!-- Terms and Conditions -->
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="agreeToTerms" asp-for="AgreeToTerms" />
-                <label class="form-check-label" for="agreeToTerms">I agree to the Terms and Conditions</label>
+                <label class="form-check-label" for="agreeToTerms">I agree to the Terms and Conditions</label><br />
+                <a asp-controller="Bookings" asp-action="TermsNCond">Terms and Condition</a>
                 <span asp-validation-for="AgreeToTerms" class="text-danger"></span>
             </div>
 

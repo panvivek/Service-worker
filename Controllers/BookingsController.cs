@@ -398,6 +398,11 @@ public async Task<JsonResult> GetAvailableSlots([FromBody] WorkerRequest request
         {
             return _context.Booking.Any(e => e.Id == id);
         }
+
+        public IActionResult TermsNCond()
+        {
+            return View();
+        }
     }
 
     public class DateTimeRequest
