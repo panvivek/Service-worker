@@ -34,6 +34,7 @@ namespace ServiceWorkerWebsite.Controllers
             var serviceWithWorkers = await _context.Services_List
                 .Include(s => s.WorkerServices)
                 .ThenInclude(ws => ws.Worker)
+                .ThenInclude(w => w.User)
                 .FirstOrDefaultAsync(s => s.Service_Id == serviceId);
 
             if (serviceWithWorkers == null)
@@ -47,42 +48,58 @@ namespace ServiceWorkerWebsite.Controllers
             //string userCity = userAddress.City;
 
             // Extract the workers associated with the service
-            var workers = serviceWithWorkers.WorkerServices.Select(ws => ws.Worker);
+            //var workers = serviceWithWorkers.WorkerServices.Select(ws => ws.Worker);
 
             // Join with UserAddress to get worker address details
-            var workersWithAddress = from worker in workers
-                                     join address in _context.UserAddress
-                                     on worker.UserId equals address.UserId
-                                     select new
-                                     {
-                                         Worker = worker,
-                                         Address = address,
-                                     };
+            //var workersWithAddress = from worker in workers
+            //                         join address in _context.UserAddress
+            //                         on worker.UserId equals address.UserId
+            //                         select new
+            //                         {
+            //                             Worker = worker,
+            //                             Address = address,
+            //                         };
+
+            var workersQuery = serviceWithWorkers.WorkerServices
+                .Select(ws => new
+                {
+                    WorkerId = ws.Worker.Worker_Id,
+                    UserId = ws.Worker.UserId,
+                    Price = ws.Worker.Price,
+                    ProfilePic_Id = ws.Worker.ProfilePic_Id,
+                    FirstName = ws.Worker.User.Firstname,
+                    LastName = ws.Worker.User.Lastname
+                });
+
 
             // Sorting logic
             switch (sortOrder)
             {
                 case "price_desc":
-                    workers = workers.OrderByDescending(w => w.Price);
+                    workersQuery = workersQuery.OrderByDescending(w => w.Price);
                     break;
 
                 // Location Filter Added
                 case "locationAsc":
-                    var filteredWorkers = workersWithAddress
-                        .Where(w => w.Address.City.Equals(userAddress.City, StringComparison.OrdinalIgnoreCase));
-                    workers = filteredWorkers.Select(w => w.Worker);  // Extract only workers
+                    //    var filteredWorkers = workersWithAddress
+                    //        .Where(w => w.Address.City.Equals(userAddress.City, StringComparison.OrdinalIgnoreCase));
+                    //    workers = filteredWorkers.Select(w => w.Worker);  // Extract only workers
+                    //    break;
+                    var workersWithAddress = from w in workersQuery
+                                             join addr in _context.UserAddress
+                                             on w.UserId equals addr.UserId
+                                             where addr.City.Equals(userAddress.City,
+                                                   StringComparison.OrdinalIgnoreCase)
+                                             select w;
+                    workersQuery = workersWithAddress;
                     break;
 
-                //case "locationdesc":
-                //    var sortedWorker1 = workersWithAddress.OrderByDescending(w => w.Address.City);  // Sort by city
-                //    workers = sortedWorker1.Select(w => w.Worker);  // Extract only workers
-                //    break;
-
                 default:
-                    workers = workers.OrderBy(w => w.Price);
+                    workersQuery = workersQuery.OrderBy(w => w.Price);
                     break;
             }
 
+            var workers = workersQuery.ToList();
             return View(workers);
         }
 

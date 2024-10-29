@@ -82,7 +82,22 @@ namespace ServiceWorkerWebsite.Controllers
                 _context.Add(userAddress);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Index", "Home"); // Redirect to the index page or any other page you prefer
+                // Retrieve the user's role
+                var user = await _userManager.FindByIdAsync(userId);
+                var roles = await _userManager.GetRolesAsync(user);
+
+                // Check if the user is in the 'Worker' role
+                if (await _userManager.IsInRoleAsync(user, "Worker"))
+                {
+                    return RedirectToAction("Create", "Workers");
+                }
+                // Check if the user is in the 'Customer' role
+                else if (await _userManager.IsInRoleAsync(user, "Customer"))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                //return RedirectToAction("Create", "Workers"); // Redirect to the index page or any other page you prefer
             }
             return View(userAddress);
         }
@@ -134,7 +149,7 @@ namespace ServiceWorkerWebsite.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "UserAddress", new { id = userAddress.UserAdd_Id });
             }
             ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", userAddress.UserId);
             return View(userAddress);
