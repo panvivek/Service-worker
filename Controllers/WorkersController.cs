@@ -103,14 +103,14 @@ namespace ServiceWorkerWebsite.Controllers
 
         // GET: Workers/Details/5
         [HttpGet]
-        [Route("Workers/Details/Worker/{workerId}/{serviceId}")]
+        
         public async Task<IActionResult> Details(int workerId, int serviceId, int page = 1)
         {
             int pageSize = 5; // Number of reviews per page
 
-            // Fetch the worker along with the reviews for the specific service
+            // Fetch the worker and their reviews filtered by the specific service
             var worker = await _context.Worker_List
-                .Include(w => w.Reviews.Where(r => r.Service_Id == serviceId)) // Filter reviews by service
+                .Include(w => w.Reviews.Where(r => r.Service_Id == serviceId))
                 .FirstOrDefaultAsync(w => w.Worker_Id == workerId);
 
             if (worker == null)
@@ -118,8 +118,14 @@ namespace ServiceWorkerWebsite.Controllers
                 return NotFound();
             }
 
-            // Paginate the reviews
+            // Get the total number of reviews
             var totalReviews = worker.Reviews.Count();
+            var totalPages = (int)Math.Ceiling((double)totalReviews / pageSize);
+
+            // Ensure the requested page number is valid
+            page = Math.Max(1, Math.Min(page, totalPages));
+
+            // Fetch the reviews for the current page
             var reviewsToShow = worker.Reviews
                 .OrderBy(r => r.ReviewDate)
                 .Skip((page - 1) * pageSize)
@@ -133,27 +139,28 @@ namespace ServiceWorkerWebsite.Controllers
                 })
                 .ToList();
 
-            // Calculate average rating for the service
+            // Calculate the average rating for the worker
             double averageRating = worker.Reviews.Any() ? worker.Reviews.Average(r => r.RatingValue) : 0;
 
-            // Pass data to the view
+            // Pass the required data to the view
             ViewBag.AverageRating = averageRating;
             ViewBag.TotalReviews = totalReviews;
             ViewBag.PageSize = pageSize;
             ViewBag.CurrentPage = page;
-            ViewBag.TotalPages = (int)Math.Ceiling((double)totalReviews / pageSize);
-            ViewBag.ServiceId = serviceId; // To return back to the correct service
+            ViewBag.TotalPages = totalPages;
+            ViewBag.ServiceId = serviceId;
 
             var workerDetailsViewModel = new WorkerDetailsViewModel
             {
                 Worker_Id = worker.Worker_Id,
                 ProfilePicUrl = worker.ProfilePic_Id,
                 Price = worker.Price,
-                Review = reviewsToShow // Paginated reviews
+                Review = reviewsToShow
             };
 
             return View(workerDetailsViewModel);
         }
+
 
 
 
