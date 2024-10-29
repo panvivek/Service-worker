@@ -87,11 +87,11 @@ namespace ServiceWorkerWebsite.Controllers
                     //    workers = filteredWorkers.Select(w => w.Worker);  // Extract only workers
                     //    break;
                     var workersWithAddress = workersQuery
-                .Join(_context.UserAddress,
-                      worker => worker.UserId,
-                      address => address.UserId,
-                      (worker, address) => new { worker, address })
-                .Where(w => w.address.City.Equals(userAddress.City, StringComparison.OrdinalIgnoreCase));
+                        .Join(_context.UserAddress,
+                        worker => worker.UserId,
+                        address => address.UserId,
+                        (worker, address) => new { worker, address })
+                        .Where(w => w.address.City.Equals(userAddress.City, StringComparison.OrdinalIgnoreCase));
                     return View(workersWithAddress.Select(w => w.worker).ToList());
                     break;
 
@@ -148,7 +148,7 @@ namespace ServiceWorkerWebsite.Controllers
         }
 
         // GET: Workers/Details/5
-
+        [Route("workers/{workerId}/details/{serviceId}")]
         public async Task<IActionResult> Details(int workerId, int serviceId, int page = 1)
         {
             int pageSize = 5; // Number of reviews per page
@@ -156,6 +156,7 @@ namespace ServiceWorkerWebsite.Controllers
             // Fetch the worker along with the reviews for the specific service
             var worker = await _context.Worker_List
                 .Include(w => w.Reviews.Where(r => r.Service_Id == serviceId)) // Filter reviews by service
+                .Include(w => w.User)
                 .FirstOrDefaultAsync(w => w.Worker_Id == workerId);
 
             if (worker == null)
@@ -194,6 +195,8 @@ namespace ServiceWorkerWebsite.Controllers
                 Worker_Id = worker.Worker_Id,
                 ProfilePicUrl = worker.ProfilePic_Id,
                 Price = worker.Price,
+                FirstName = worker.User.Firstname,
+                LastName = worker.User.Lastname,
                 Reviews = reviewsToShow // Paginated reviews
             };
 
@@ -494,6 +497,7 @@ namespace ServiceWorkerWebsite.Controllers
                 return View(worker);
             }
         }
+        [Route("workers/{workerId}/details")]
         public async Task<IActionResult> Details(int id)
         {
             var booking = await _context.Booking

@@ -9,6 +9,8 @@
 
         public int ServiceId { get; set; } // To track the current service
         public List<ReviewViewModel> Reviewss { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
 
     }
