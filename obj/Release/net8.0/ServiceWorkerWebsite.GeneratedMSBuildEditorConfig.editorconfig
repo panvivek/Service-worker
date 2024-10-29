@@ -222,6 +222,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 6/Capstone/Service-worker/Views/Bookings/TermsNCond.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ3NcVGVybXNOQ29uZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 6/Capstone/Service-worker/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -292,6 +296,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 6/Capstone/Service-worker/Views/TimeSlots/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZVNsb3RzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 6/Capstone/Service-worker/Views/UserAddress/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckFkZHJlc3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 6/Capstone/Service-worker/Views/UserAddress/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckFkZHJlc3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 6/Capstone/Service-worker/Views/UserAddress/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckFkZHJlc3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 6/Capstone/Service-worker/Views/UserAddress/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckFkZHJlc3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 6/Capstone/Service-worker/Views/UserAddress/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckFkZHJlc3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/freya/OneDrive - Sheridan College/Laptop Transfer/Semester 6/Capstone/Service-worker/Views/WorkerServices/Create.cshtml]

@@ -34,6 +34,7 @@ namespace ServiceWorkerWebsite.Controllers
             var serviceWithWorkers = await _context.Services_List
                 .Include(s => s.WorkerServices)
                 .ThenInclude(ws => ws.Worker)
+                .ThenInclude(w => w.User)
                 .FirstOrDefaultAsync(s => s.Service_Id == serviceId);
 
             if (serviceWithWorkers == null)
@@ -47,42 +48,59 @@ namespace ServiceWorkerWebsite.Controllers
             //string userCity = userAddress.City;
 
             // Extract the workers associated with the service
-            var workers = serviceWithWorkers.WorkerServices.Select(ws => ws.Worker);
+            //var workers = serviceWithWorkers.WorkerServices.Select(ws => ws.Worker);
 
             // Join with UserAddress to get worker address details
-            var workersWithAddress = from worker in workers
-                                     join address in _context.UserAddress
-                                     on worker.UserId equals address.UserId
-                                     select new
-                                     {
-                                         Worker = worker,
-                                         Address = address,
-                                     };
+            //var workersWithAddress = from worker in workers
+            //                         join address in _context.UserAddress
+            //                         on worker.UserId equals address.UserId
+            //                         select new
+            //                         {
+            //                             Worker = worker,
+            //                             Address = address,
+            //                         };
+
+            // Query to display the name of the worker
+            var workersQuery = serviceWithWorkers.WorkerServices
+                .Select(ws => new
+                {
+                    WorkerId = ws.Worker.Worker_Id,
+                    UserId = ws.Worker.UserId,
+                    Price = ws.Worker.Price,
+                    ProfilePic_Id = ws.Worker.ProfilePic_Id,
+                    FirstName = ws.Worker.User.Firstname,
+                    LastName = ws.Worker.User.Lastname
+                });
+
 
             // Sorting logic
             switch (sortOrder)
             {
                 case "price_desc":
-                    workers = workers.OrderByDescending(w => w.Price);
+                    workersQuery = workersQuery.OrderByDescending(w => w.Price);
                     break;
 
                 // Location Filter Added
                 case "locationAsc":
-                    var filteredWorkers = workersWithAddress
-                        .Where(w => w.Address.City.Equals(userAddress.City, StringComparison.OrdinalIgnoreCase));
-                    workers = filteredWorkers.Select(w => w.Worker);  // Extract only workers
+                    //    var filteredWorkers = workersWithAddress
+                    //        .Where(w => w.Address.City.Equals(userAddress.City, StringComparison.OrdinalIgnoreCase));
+                    //    workers = filteredWorkers.Select(w => w.Worker);  // Extract only workers
+                    //    break;
+                    var workersWithAddress = workersQuery
+                .Join(_context.UserAddress,
+                      worker => worker.UserId,
+                      address => address.UserId,
+                      (worker, address) => new { worker, address })
+                .Where(w => w.address.City.Equals(userAddress.City, StringComparison.OrdinalIgnoreCase));
+                    return View(workersWithAddress.Select(w => w.worker).ToList());
                     break;
 
-                //case "locationdesc":
-                //    var sortedWorker1 = workersWithAddress.OrderByDescending(w => w.Address.City);  // Sort by city
-                //    workers = sortedWorker1.Select(w => w.Worker);  // Extract only workers
-                //    break;
-
                 default:
-                    workers = workers.OrderBy(w => w.Price);
+                    workersQuery = workersQuery.OrderBy(w => w.Price);
                     break;
             }
 
+            var workers = workersQuery.ToList();
             return View(workers);
         }
 
@@ -130,15 +148,15 @@ namespace ServiceWorkerWebsite.Controllers
         }
 
         // GET: Workers/Details/5
+        [HttpGet]
 
-        [Route("workers/{workerId}/details/{serviceId}")]
         public async Task<IActionResult> Details(int workerId, int serviceId, int page = 1)
         {
             int pageSize = 5; // Number of reviews per page
 
-            // Fetch the worker along with the reviews for the specific service
+            // Fetch the worker and their reviews filtered by the specific service
             var worker = await _context.Worker_List
-                .Include(w => w.Reviews.Where(r => r.Service_Id == serviceId)) // Filter reviews by service
+                .Include(w => w.Reviews.Where(r => r.Service_Id == serviceId))
                 .FirstOrDefaultAsync(w => w.Worker_Id == workerId);
 
             if (worker == null)
@@ -146,8 +164,14 @@ namespace ServiceWorkerWebsite.Controllers
                 return NotFound();
             }
 
-            // Paginate the reviews
+            // Get the total number of reviews
             var totalReviews = worker.Reviews.Count();
+            var totalPages = (int)Math.Ceiling((double)totalReviews / pageSize);
+
+            // Ensure the requested page number is valid
+            page = Math.Max(1, Math.Min(page, totalPages));
+
+            // Fetch the reviews for the current page
             var reviewsToShow = worker.Reviews
                 .OrderBy(r => r.ReviewDate)
                 .Skip((page - 1) * pageSize)
@@ -161,27 +185,28 @@ namespace ServiceWorkerWebsite.Controllers
                 })
                 .ToList();
 
-            // Calculate average rating for the service
+            // Calculate the average rating for the worker
             double averageRating = worker.Reviews.Any() ? worker.Reviews.Average(r => r.RatingValue) : 0;
 
-            // Pass data to the view
+            // Pass the required data to the view
             ViewBag.AverageRating = averageRating;
             ViewBag.TotalReviews = totalReviews;
             ViewBag.PageSize = pageSize;
             ViewBag.CurrentPage = page;
-            ViewBag.TotalPages = (int)Math.Ceiling((double)totalReviews / pageSize);
-            ViewBag.ServiceId = serviceId; // To return back to the correct service
+            ViewBag.TotalPages = totalPages;
+            ViewBag.ServiceId = serviceId;
 
             var workerDetailsViewModel = new WorkerDetailsViewModel
             {
                 Worker_Id = worker.Worker_Id,
                 ProfilePicUrl = worker.ProfilePic_Id,
                 Price = worker.Price,
-                Reviews = reviewsToShow // Paginated reviews
+                Review = reviewsToShow
             };
 
             return View(workerDetailsViewModel);
         }
+
 
 
 
@@ -225,7 +250,7 @@ namespace ServiceWorkerWebsite.Controllers
 
 
 
-               
+
                 var roleId = await _context.Roles
                     .Where(r => r.Name == "Worker")
                     .Select(r => r.Id)
@@ -255,9 +280,9 @@ namespace ServiceWorkerWebsite.Controllers
                 if (ProfilePicFile != null && ProfilePicFile.Length > 0)
                 {
 
-                    
 
-                   
+
+
 
                     // Ensure the directory exists
                     if (!Directory.Exists(uploadsFolder))
@@ -267,7 +292,7 @@ namespace ServiceWorkerWebsite.Controllers
                     }
 
                     // Generate a unique file name
-                   
+
 
                     var uniqueFileName = $"{ProfilePicFile.FileName}";
                     var filePath = Path.Combine(uploadsFolder, uniqueFileName);
@@ -443,11 +468,11 @@ namespace ServiceWorkerWebsite.Controllers
 
                     existingWorker.ProfilePic_Id = $"/WorkerProfilePic/{uniqueFileName}";
                 }
-                
-                
 
-                    existingWorker.ProfilePic_Id = worker.ProfilePic_Id;
-                    existingWorker.Price = worker.Price;
+
+
+                existingWorker.ProfilePic_Id = worker.ProfilePic_Id;
+                existingWorker.Price = worker.Price;
 
                 // Remove old services not in the new selection
                 _context.WorkerServices.RemoveRange(
@@ -477,13 +502,12 @@ namespace ServiceWorkerWebsite.Controllers
                 return View(worker);
             }
         }
-        [Route("workers/{workerId}/details")]
         public async Task<IActionResult> Details(int id)
         {
             var booking = await _context.Booking
                 .Include(b => b.Service)
                 .Include(b => b.Worker)
-             
+
                 .FirstOrDefaultAsync(b => b.Id == id);
 
             if (booking == null)

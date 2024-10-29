@@ -1,5 +1,4 @@
-@model IEnumerable<Worker>
-
+@model IEnumerable<dynamic>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,7 +15,7 @@
     <div>
         <strong>Sort by:</strong>
         <a asp-action="Index" asp-route-serviceId="@ViewData["ServiceId"]" asp-route-sortOrder="@ViewData["PriceSortParam"]">Price</a> |
-        <a asp-action="Index" asp-route-serviceId="@ViewData["ServiceId"]" asp-route-sortOrder="@ViewData["RatingSortParam"]">Ratings</a> | 
+        @* <a asp-action="Index" asp-route-serviceId="@ViewData["ServiceId"]" asp-route-sortOrder="@ViewData["RatingSortParam"]">Ratings</a> |  *@
         <a asp-controller="Workers" asp-action="Index" asp-route-serviceId="@ViewData["ServiceId"]" asp-route-sortOrder="@ViewData["LocationParam"]">Location</a>
     </div>
 
@@ -55,17 +54,20 @@
                          onerror="this.onerror=null; this.src='/images/default-profile.png';" />
 
                     <div class="card-body">
-                        <!-- Worker Details List -->
                         <ul class="list-unstyled">
-                            <!-- Worker Price -->
-                            <li><strong>Base Price:</strong> @item.Price <strong>/ Hr</strong></li>
+                            <li>
+                                <h4 style="font-size: 28px; font-weight: bold;" class="card-title">@item.FirstName @item.LastName</h4>
+                            </li>
+                            <li>
+                                <strong>Base Price:</strong> @item.Price <strong>/ Hr</strong>
+                            </li>
                         </ul>
                     </div>
                     <div class="card-footer">
                         <!-- Action Buttons -->
                         <div class="btn-group" role="group">
-                            <a class="btn btn-primary" asp-action="Details" asp-route-workerId="@item.Worker_Id" asp-route-serviceId="@ViewData["ServiceId"]">Details</a>
-                            <a class="btn btn-danger" asp-controller="Bookings" asp-action="Create" asp-route-workerId="@item.Worker_Id" asp-route-serviceId="@ViewData["ServiceId"]">Book</a>
+                            <a class="btn btn-primary" asp-action="Details" asp-route-workerId="@item.WorkerId" asp-route-serviceId="@ViewData["ServiceId"]">Details</a>
+                            <a class="btn btn-danger" asp-controller="Bookings" asp-action="Create" asp-route-workerId="@item.WorkerId" asp-route-serviceId="@ViewData["ServiceId"]">Book</a>
                         </div>
                     </div>
                 </div>

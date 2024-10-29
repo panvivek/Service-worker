@@ -8,7 +8,7 @@
         public object Reviews { get; set; }
 
         public int ServiceId { get; set; } // To track the current service
-        public List<ReviewViewModel> Reviewss { get; set; }
+        public List<ReviewViewModel> Review { get; set; }
 
 
     }
