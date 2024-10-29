@@ -60,6 +60,7 @@ namespace ServiceWorkerWebsite.Controllers
             //                             Address = address,
             //                         };
 
+            // Query to display the name of the worker
             var workersQuery = serviceWithWorkers.WorkerServices
                 .Select(ws => new
                 {
