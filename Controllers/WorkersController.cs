@@ -86,13 +86,13 @@ namespace ServiceWorkerWebsite.Controllers
                     //        .Where(w => w.Address.City.Equals(userAddress.City, StringComparison.OrdinalIgnoreCase));
                     //    workers = filteredWorkers.Select(w => w.Worker);  // Extract only workers
                     //    break;
-                    var workersWithAddress = from w in workersQuery
-                                             join addr in _context.UserAddress
-                                             on w.UserId equals addr.UserId
-                                             where addr.City.Equals(userAddress.City,
-                                                   StringComparison.OrdinalIgnoreCase)
-                                             select w;
-                    workersQuery = workersWithAddress;
+                    var workersWithAddress = workersQuery
+                .Join(_context.UserAddress,
+                      worker => worker.UserId,
+                      address => address.UserId,
+                      (worker, address) => new { worker, address })
+                .Where(w => w.address.City.Equals(userAddress.City, StringComparison.OrdinalIgnoreCase));
+                    return View(workersWithAddress.Select(w => w.worker).ToList());
                     break;
 
                 default:
