@@ -7,11 +7,11 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<h1 class="text-center my-4">Booking History</h1>
+ <h1 class="text-center my-4">Booking History</h1> 
 
-<p class="text-end">
+@* <p class="text-end">
     <a asp-action="Create" class="btn btn-primary mb-3">Create New Booking</a>
-</p>
+</p> *@
 
 <table class="table table-hover table-bordered text-center align-middle">
     <thead class="table-dark">
@@ -73,25 +73,25 @@
                     }
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
-                    <a asp-controller="Review" asp-action="Create"
-                       asp-route-workerId="@item.Worker_Id"
-                       asp-route-serviceId="@item.Service_Id"
-                       asp-route-userId="@item.UserId"
-                       class="btn btn-sm btn-primary mt-2">Write a Review</a>
-                    <a asp-action="DownloadInvoice" asp-route-id="@item.Id" class="btn btn-sm btn-primary mt-2">Invoice</a>
-
-
+                    <div class="d-flex flex-wrap justify-content-start px-2">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit  </a> &nbsp;
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details  </a> &nbsp;
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete  </a> &nbsp;
+                        <a asp-controller="Review" asp-action="Create"
+                           asp-route-workerId="@item.Id"
+                           asp-route-serviceId="@item.Service_Id"
+                           asp-route-userId="@item.UserId"
+                           class="btn btn-sm btn-primary">Write a Review  </a> &nbsp;
+                        <a asp-action="DownloadInvoice" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Invoice</a>
+                    </div>
                 </td>
             </tr>
         }
 
-        <!-- Add a button or link to create a review -->
+       @*  <!-- Add a button or link to create a review -->
 <div>
     <a asp-controller="Review" asp-action="Create"  class="btn btn-primary">Write a Review</a>
-</div>
+</div> *@
 
     </tbody>
 </table>
