@@ -4,78 +4,76 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create Time Slot</h1>
-
-<h4>Set Worker Availability</h4>
-<hr />
-<div class="row">
-    <div class="col-md-6">
-        <form asp-action="Create" method="post">
-            <div class="container mt-4">
-                <!-- Worker Selection Dropdown -->
-                <div class="form-group">
-        <label for="Worker_Id">Worker ID</label>
-        <input type="text" name="Worker_Id" value="@ViewBag.Worker_Id" class="form-control" readonly />
-    </div>
-
-
-                <!-- Multi-Date Calendar Selection -->
-                <div class="form-group">
-                    <label for="SelectedDates">Select Available Dates</label>
-                    <input type="text" id="SelectedDates" name="SelectedDates" class="form-control" placeholder="Select dates" />
-                    <span class="text-danger" asp-validation-for="SelectedDates"></span>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-purple text-white">
+                    <h3 class="fw-bold my-4">Set Worker Availability</h3>
                 </div>
-
-                <!-- Time Period Selection (with "Select All" and Color Feedback) -->
-                <div class="form-group">
-                    <label class="font-weight-bold">Select Time Periods</label>
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span>Available Time Periods:</span>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="selectAllPeriods">
-                            <label class="custom-control-label" for="selectAllPeriods">Select All</label>
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <div class="form-group mb-4">
+                            <label for="Worker_Id" class="text-muted">Worker ID</label>
+                            <input type="hidden" name="Worker_Id" value="@ViewBag.Worker_Id" class="form-control" readonly />
                         </div>
-                    </div>
-                    <div class="btn-group-toggle d-flex flex-wrap" data-toggle="buttons" id="periodSelection">
-                        <label class="btn btn-outline-primary m-1">
-                            <input type="checkbox" id="morning" autocomplete="off"> Morning (6 AM - 12 PM)
-                        </label>
-                        <label class="btn btn-outline-primary m-1">
-                            <input type="checkbox" id="afternoon" autocomplete="off"> Afternoon (12 PM - 6 PM)
-                        </label>
-                        <label class="btn btn-outline-primary m-1">
-                            <input type="checkbox" id="evening" autocomplete="off"> Evening (6 PM - 9 PM)
-                        </label>
-                        <label class="btn btn-outline-primary m-1">
-                            <input type="checkbox" id="night" autocomplete="off"> Night (9 PM - 6 AM)
-                        </label>
-                    </div>
-                </div>
 
-                <!-- Time Slots (with "Select All") -->
-                <div class="form-group">
-                    <label class="font-weight-bold">Select 45-Minute Time Slots</label>
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span>Available Time Slots:</span>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="selectAllSlots">
-                            <label class="custom-control-label" for="selectAllSlots">Select All</label>
+                        <div class="form-group mb-4">
+                            <label for="SelectedDates" class="text-muted">Select Available Dates</label>
+                            <input type="text" id="SelectedDates" name="SelectedDates" class="form-control custom-datepicker" placeholder="Select dates" />
+                            <span class="text-danger" asp-validation-for="SelectedDates"></span>
                         </div>
-                    </div>
-                    <div id="timeSlotsContainer" class="form-control" style="height: 150px; overflow-y: auto;">
-                        <!-- Time slots will be dynamically added here with checkboxes -->
-                    </div>
-                </div>
 
-                <!-- Submit Button -->
-                <button type="submit" class="btn btn-success btn-block">Submit Availability</button>
+                        <div class="form-group mb-4">
+                            <label class="text-muted fw-bold">Select Time Periods</label>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="text-muted">Available Time Periods:</span>
+                                <div class="form-check form-switch">
+                                    <input type="checkbox" class="form-check-input" id="selectAllPeriods">
+                                    <label class="form-check-label" for="selectAllPeriods">Select All</label>
+                                </div>
+                            </div>
+                            <div class="btn-group-toggle d-flex flex-wrap" data-toggle="buttons" id="periodSelection">
+                                <label class="btn btn-outline-purple m-1">
+                                    <input type="checkbox" id="morning" autocomplete="off"> Morning (6 AM - 12 PM)
+                                </label>
+                                <label class="btn btn-outline-purple m-1">
+                                    <input type="checkbox" id="afternoon" autocomplete="off"> Afternoon (12 PM - 6 PM)
+                                </label>
+                                <label class="btn btn-outline-purple m-1">
+                                    <input type="checkbox" id="evening" autocomplete="off"> Evening (6 PM - 9 PM)
+                                </label>
+                                <label class="btn btn-outline-purple m-1">
+                                    <input type="checkbox" id="night" autocomplete="off"> Night (9 PM - 6 AM)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label class="text-muted fw-bold">Select 45-Minute Time Slots</label>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="text-muted">Available Time Slots:</span>
+                                <div class="form-check form-switch">
+                                    <input type="checkbox" class="form-check-input" id="selectAllSlots">
+                                    <label class="form-check-label" for="selectAllSlots">Select All</label>
+                                </div>
+                            </div>
+                            <div id="timeSlotsContainer" class="form-control overflow-auto" style="height: 150px;">
+                                <!-- Time slots will be dynamically added here with checkboxes -->
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <button type="submit" class="btn btn-purple btn-block">Submit Availability</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-end">
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index" class="btn btn-secondary mt-3">Back to List</a>
 </div>
 
 @section Scripts {
@@ -86,12 +84,12 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <script>
-        // Initialize Flatpickr with multi-date selection
+        // Initialize Flatpickr
         flatpickr("#SelectedDates", {
-            mode: "multiple", // Allow multiple date selections
-            dateFormat: "Y-m-d", // Format the date in a user-friendly way
+            mode: "multiple",
+            dateFormat: "Y-m-d",
+            theme: "material_purple",
             onClose: function (selectedDates) {
-                // Update the hidden input with the selected dates as a comma-separated string
                 const datesString = selectedDates.map(date => date.toISOString().split('T')[0]).join(',');
                 document.getElementById('SelectedDates').value = datesString;
             }
@@ -122,29 +120,33 @@
                     const slots = periodSlotMap[period];
 
                     if (this.checked) {
-                        label.classList.add('active', 'btn-primary');
+                        label.classList.add('active', 'btn-purple');
                         addTimeSlots(slots);
                     } else {
-                        label.classList.remove('active', 'btn-primary');
+                        label.classList.remove('active', 'btn-purple');
                         removeTimeSlots(slots);
                     }
+
+                    // Check if all period checkboxes are checked, then check the "Select All" checkbox
+                    const allPeriodsChecked = periodSelection.querySelectorAll('input:checked').length === periodSelection.querySelectorAll('input').length;
+                    selectAllPeriodsCheckbox.checked = allPeriodsChecked;
                 });
             });
 
             function addTimeSlots(slots) {
                 slots.forEach(slot => {
                     const slotDiv = document.createElement('div');
-                    slotDiv.classList.add('custom-control', 'custom-checkbox', 'm-1');
+                    slotDiv.classList.add('form-check', 'form-check-inline', 'm-1');
 
                     const input = document.createElement('input');
                     input.type = 'checkbox';
-                    input.classList.add('custom-control-input', 'slot-checkbox');
+                    input.classList.add('form-check-input', 'slot-checkbox');
                     input.id = slot;
                     input.value = slot;
-                    input.name = 'TimeSlots'; // Ensure this is set to a name that collects all selected values
+                    input.name = 'TimeSlots';
 
                     const label = document.createElement('label');
-                    label.classList.add('custom-control-label');
+                    label.classList.add('form-check-label');
                     label.htmlFor = slot;
                     label.textContent = slot;
 
@@ -170,6 +172,72 @@
                     checkbox.checked = selectAllSlotsCheckbox.checked;
                 });
             });
+
+            // Select All Periods functionality
+            selectAllPeriodsCheckbox.addEventListener('change', function () {
+                const periodCheckboxes = periodSelection.querySelectorAll('input');
+                periodCheckboxes.forEach(checkbox => {
+                    checkbox.checked = selectAllPeriodsCheckbox.checked;
+                    const label = checkbox.parentElement;
+                    if (selectAllPeriodsCheckbox.checked) {
+                        label.classList.add('active', 'btn-purple');
+                        addTimeSlots(periodSlotMap[checkbox.id]);
+                    } else {
+                        label.classList.remove('active', 'btn-purple');
+                        removeTimeSlots(periodSlotMap[checkbox.id]);
+                    }
+                });
+            });
         });
     </script>
+
+    <style>
+        /* Purple Theme Colors */
+        .bg-purple {
+            background-color: #6a1b9a !important;
+        }
+
+        .btn-purple {
+            background-color: #8e24aa !important;
+            border-color: #8e24aa !important;
+            color: #fff !important;
+        }
+
+        .btn-purple:hover {
+            background-color: #7b1fa2 !important;
+            border-color: #7b1fa2 !important;
+        }
+
+        .btn-outline-purple {
+            color: #6a1b9a !important;
+            border-color: #6a1b9a !important;
+        }
+
+        .btn-outline-purple.active, .btn-outline-purple:hover {
+            background-color: #6a1b9a !important;
+            color: #fff !important;
+        }
+
+        /* Flatpickr Custom Styles */
+        .custom-datepicker .flatpickr-day.selected,
+        .custom-datepicker .flatpickr-day.startRange,
+        .custom-datepicker .flatpickr-day.endRange {
+            background: #8e24aa !important;
+            border-color: #8e24aa !important;
+        }
+
+        .form-check-input:checked {
+            background-color: #6a1b9a !important;
+            border-color: #6a1b9a !important;
+        }
+
+        .card {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .form-control {
+            border-radius: 8px;
+        }
+    </style>
 }

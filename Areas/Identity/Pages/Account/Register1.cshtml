@@ -4,77 +4,66 @@
     ViewData["Title"] = "Worker Register";
 }
 
-<h1>@ViewData["Title"]</h1>
-
-<div class="row">
-    <div class="col-md-4">
-        <form id="registerForm"  asp-route-returnUrl="/Workers/Create" method="post">
-            <h2>Create a new account.</h2>
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Firstname" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                <label asp-for="Input.Firstname">first name</label>
-                <span asp-validation-for="Input.Firstname" class="text-danger"></span>
-            </div>
-
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Lastname" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                <label asp-for="Input.Lastname">last name</label>
-                <span asp-validation-for="Input.Lastname" class="text-danger"></span>
-            </div>
-
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                <label asp-for="Input.Email">Email</label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.Password">Password</label>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
+<link rel="stylesheet" href="~/css/auth-styles.css" />
+<div class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card">
+            <img src="~/img/Logo.png" alt="QuickFix Logo" class="brand-logo">
+            <h1 class="auth-title">Create Worker Account</h1>
+            <p class="auth-subtitle">Join our platform as a service provider</p>
             
-            <div class="mb-3">
+            <form id="registerForm" asp-route-returnUrl="/Workers/Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                
+                <div class="form-group">
+                    <label asp-for="Input.Firstname" class="form-label">First Name</label>
+                    <input asp-for="Input.Firstname" class="form-control" placeholder="Enter your first name" />
+                    <span asp-validation-for="Input.Firstname" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Input.Lastname" class="form-label">Last Name</label>
+                    <input asp-for="Input.Lastname" class="form-control" placeholder="Enter your last name" />
+                    <span asp-validation-for="Input.Lastname" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Input.Email" class="form-label">Email</label>
+                    <input asp-for="Input.Email" class="form-control" placeholder="Enter your email" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Input.Password" class="form-label">Password</label>
+                    <input asp-for="Input.Password" class="form-control" placeholder="Create a password" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Input.ConfirmPassword" class="form-label">Confirm Password</label>
+                    <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm your password" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+
                 <input type="hidden" name="Input.Role" value="Worker" />
-            </div>
-            <button  id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
-        </form>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to register.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                        <div> 
-                            <p>
-                                
-                               
-                            </p>
-                        </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins!)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
+                
+                <button type="submit" class="btn-auth">Create Worker Account</button>
+                
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+                
+                <div class="text-center">
+                    <p class="mb-3">Looking to hire?</p>
+                    <a asp-page="./Register" class="auth-link">Register as Customer</a>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <span>Already have an account? </span>
+                    <a asp-page="./Login" class="auth-link">Sign In</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

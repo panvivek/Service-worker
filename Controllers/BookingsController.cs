@@ -449,7 +449,7 @@ public async Task<JsonResult> GetAvailableSlots([FromBody] WorkerRequest request
                 var headerFont = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD, BaseColor.WHITE);
 
                 // Add Logo
-                string logoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "Logo_QuickFix_Black.png");
+                string logoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "Logo_Black.png");
                 if (System.IO.File.Exists(logoPath))
                 {
                     Image logo = Image.GetInstance(logoPath);
