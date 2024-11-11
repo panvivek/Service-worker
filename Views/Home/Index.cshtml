@@ -31,13 +31,86 @@
 
 
 </head>
+
+<style>
+    .feature-item {
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+        border-radius: 16px;
+        margin-bottom: 1.5rem;
+    }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: #8B5CF6;
+            box-shadow: 0 12px 40px rgba(139, 92, 246, 0.2);
+        }
+
+    .feature-icon {
+        width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+        color: white;
+        margin: 0 auto;
+    }
+
+    .feature-item h4 {
+        color: #1F2937;
+        font-weight: 600;
+        margin: 1.5rem 0 1rem;
+    }
+
+    .feature-item p {
+        color: #6B7280;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .features-holder {
+        padding: 2rem 0;
+    }
+
+    .feature-item .lnr {
+        font-size: 28px;
+    }
+
+    /* Gradient background for the section */
+    #features {
+        background: linear-gradient(to bottom, #ffffff, #f7f7ff);
+        padding: 4rem 0;
+    }
+
+    .section-title {
+        background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+    }
+
+    .section-sub-title {
+        color: #6B7280;
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+</style>
+
+
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
 
 
     <div class="jumbotron d-flex align-items-center">
         <div class="container text-center">
            <!-- <h1 class="display-1 mb-4">QU<br>FX</h1> -->
-            <h1 style="border: none">   <img class="display-1 mb-4" src="img/Logo.png" alt=""> </h1>
+           <br />
+           <h1 style="border: none">   <img class="display-1 mb-4" src="img/Logo.png" alt=""> </h1>
         </div>
         <div class="rectangle-1"></div>
         <div class="rectangle-2"></div>
@@ -67,74 +140,71 @@
                 <!-- Section Title -->
                 <div class="title-wrap mb-5 fade-up " >
                     <h2 class="section-title">
+                        <br />
                        A website for all your work to be done
                     </h2>
-                    <p class="section-sub-title">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. <br> pharetra augue. Donec id elit non mi.</p>
+                    <p class="section-sub-title">QuickFix is here to make home repairs easy, reliable, and transparent. <br> Find trusted professionals for any job, with clear pricing and seamless booking.</p>
+
                 </div>
                 <!-- End of Section Title -->
-                <div class="row">
+                <div class="row d-flex align-items-stretch">
                     <!-- Features Holder-->
                     <div class="col-md-10 offset-md-1 features-holder">
-                        <div class="row">
-                            <!-- Features Item -->
-                            <div class="col-md-4 col-sm-12 text-center mt-4">
-                                <div class="shadow rounded feature-item p-4 mb-4 fade-up" >
-                                    <div class="my-4">
-                                        <i class="lnr lnr-cog fs-40"></i>
+                        <div class="row d-flex align-items-stretch">
+                            <!-- Features Column 1 -->
+                            <div class="col-md-4 col-sm-12 text-center">
+                                <div class="feature-item p-4 d-flex flex-column align-items-center justify-content-between">
+                                    <div class="feature-icon">
+                                        <i class="lnr lnr-cog"></i>
                                     </div>
                                     <h4>Easy to Use</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                                    <p>Our user-friendly platform allows you to quickly find and book skilled workers without hassle, streamlining the home repair process.</p>
                                 </div>
-                                <div class="shadow rounded feature-item p-4 mb-4 fade-up" >
-                                    <div class="my-4">
-                                        <i class="lnr lnr-frame-contract fs-40"></i>
+                                <div class="feature-item p-4 d-flex flex-column align-items-center justify-content-between">
+                                    <div class="feature-icon">
+                                        <i class="lnr lnr-frame-contract"></i>
                                     </div>
-                                    <h4>Prodessional Skilled Workers</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                                    <h4>Professional Skilled Workers</h4>
+                                    <p>Connect with certified professionals who are experienced in various repair and maintenance services to ensure high-quality results.</p>
                                 </div>
                             </div>
-                            <!-- End of Feature Item -->
-                            <!-- Features Item -->
+                            <!-- Features Column 2 -->
                             <div class="col-md-4 col-sm-12 text-center">
-                                <div class="shadow rounded feature-item p-4 mb-4 fade-up" >
-                                    <div class="my-4">
-                                        <i class="lnr lnr-bubble fs-40"></i>
+                                <div class="feature-item p-4 d-flex flex-column align-items-center justify-content-between">
+                                    <div class="feature-icon">
+                                        <i class="lnr lnr-bubble"></i>
                                     </div>
                                     <h4>Full Support</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                                    <p>Our dedicated support team is here to assist you with any questions or concerns throughout your service experience.</p>
                                 </div>
-                                <div class="shadow rounded feature-item p-4 mb-4 fade-up" >
-                                    <div class="my-4">
-                                        <i class="lnr lnr-magic-wand fs-40"></i>
+                                <div class="feature-item p-4 d-flex flex-column align-items-center justify-content-between">
+                                    <div class="feature-icon">
+                                        <i class="lnr lnr-magic-wand"></i>
                                     </div>
                                     <h4>25 Skilled Services</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                                    <p>Access a wide range of services, from plumbing and electrical work to general home maintenance, all in one place.</p>
                                 </div>
                             </div>
-                            <!-- End of Feature Item -->
-                            <!-- Features Item -->
-                            <div class="col-md-4 col-sm-12 text-center mt-4">
-                                <div class="shadow rounded feature-item p-4 mb-4 fade-up" >
-                                    <div class="my-4">
-                                        <i class="lnr lnr-clock fs-40"></i>
+                            <!-- Features Column 3 -->
+                            <div class="col-md-4 col-sm-12 text-center">
+                                <div class="feature-item p-4 d-flex flex-column align-items-center justify-content-between">
+                                    <div class="feature-icon">
+                                        <i class="lnr lnr-clock"></i>
                                     </div>
-                                    <h4>Ontime Appointments</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                                    <h4>On-Time Appointments</h4>
+                                    <p>Schedule with confidence knowing that our professionals are committed to punctuality and reliability.</p>
                                 </div>
-                                <div class="shadow rounded feature-item p-4 mb-4 fade-up">
-                                    <div class="my-4">
-                                        <i class="lnr lnr-thumbs-up fs-40"></i>
+                                <div class="feature-item p-4 d-flex flex-column align-items-center justify-content-between">
+                                    <div class="feature-icon">
+                                        <i class="lnr lnr-thumbs-up"></i>
                                     </div>
                                     <h4>Best Price</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                                    <p>Our transparent pricing model ensures that you receive quality service at competitive rates, with no hidden fees.</p>
                                 </div>
                             </div>
-                            <!-- End of Feature Item -->
                         </div>
                     </div>
-                    <!-- End of Features Holder-->
-
-                    </div>
+                </div>
             </div>
         </div>
     </div>
