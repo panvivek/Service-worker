@@ -1,232 +1,116 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- External CSS -->
-    <link rel="stylesheet" href="css/MainPage.style.min.css">
-    <link rel="stylesheet" href="vendor/select2/select2.min.css">
-    <link rel="stylesheet" href="vendor/owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="vendor/lightcase/lightcase.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Work+Sans:300,400,700" rel="stylesheet">
-
-    <!-- CSS -->
-
+@section Styles {
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/home.css" />
+}
 
-    <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<div class="hero">
+    <!-- Background Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
-
-</head>
-
-<style>
-    .feature-item {
-        border: 2px solid transparent;
-        transition: all 0.3s ease;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-        border-radius: 16px;
-        margin-bottom: 1.5rem;
-    }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            border-color: #8B5CF6;
-            box-shadow: 0 12px 40px rgba(139, 92, 246, 0.2);
-        }
-
-    .feature-icon {
-        width: 64px;
-        height: 64px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
-        color: white;
-        margin: 0 auto;
-    }
-
-    .feature-item h4 {
-        color: #1F2937;
-        font-weight: 600;
-        margin: 1.5rem 0 1rem;
-    }
-
-    .feature-item p {
-        color: #6B7280;
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-
-    .features-holder {
-        padding: 2rem 0;
-    }
-
-    .feature-item .lnr {
-        font-size: 28px;
-    }
-
-    /* Gradient background for the section */
-    #features {
-        background: linear-gradient(to bottom, #ffffff, #f7f7ff);
-        padding: 4rem 0;
-    }
-
-    .section-title {
-        background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 700;
-    }
-
-    .section-sub-title {
-        color: #6B7280;
-        font-size: 1.1rem;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-</style>
-
-
-<body data-spy="scroll" data-target="#navbar" class="static-layout">
-
-
-    <div class="jumbotron d-flex align-items-center">
-        <div class="container text-center">
-           <!-- <h1 class="display-1 mb-4">QU<br>FX</h1> -->
-           <br />
-           <h1 style="border: none">   <img class="display-1 mb-4" src="img/Logo.png" alt=""> </h1>
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo-wrapper">
+                <img src="~/img/Logo_QuickFix_Black.png" alt="QuickFix Logo" class="logo">
+            </div>
         </div>
-        <div class="rectangle-1"></div>
-        <div class="rectangle-2"></div>
-        <div class="rectangle-transparent-1"></div>
-        <div class="rectangle-transparent-2"></div>
-        <div class="circle-1"></div>
-        <div class="circle-2"></div>
-        <div class="circle-3"></div>
-        <div class="triangle triangle-1">
-            <img src="img/obj_triangle.png" alt="">
-        </div>
-        <div class="triangle triangle-2">
-            <img src="img/obj_triangle.png" alt="">
-        </div>
-        <div class="triangle triangle-3">
-            <img src="img/obj_triangle.png" alt="">
-        </div>
-        <div class="triangle triangle-4">
-            <img src="img/obj_triangle.png" alt="">
+
+        <div class="hero-content">
+            <h1 class="title">Your Home Services Solution</h1>
+            <p class="subtitle">
+                QuickFix makes home repairs easy, reliable, and transparent.
+                Find trusted professionals for any job, with clear pricing and seamless booking.
+            </p>
+            @* <a href="#" class="cta-button">Get Started</a> *@
+            <a class="cta-button" asp-area="" asp-controller="Services" asp-action="Index">Get Started</a>
         </div>
     </div>
+</div>
 
-    <!-- Move this section below the jumbotron -->
-    <div id="features" class="bg-white">
-        <div class="container">
-            <div class="section-content">
-                <!-- Section Title -->
-                <div class="title-wrap mb-5 fade-up " >
-                    <h2 class="section-title">
-                        <br />
-                       A website for all your work to be done
-                    </h2>
-                    <p class="section-sub-title">QuickFix is here to make home repairs easy, reliable, and transparent. <br> Find trusted professionals for any job, with clear pricing and seamless booking.</p>
+<section class="features">
+    <div class="container">
+        <div class="features-title">
+            <h2>Why Choose QuickFix?</h2>
+            <p>Experience the perfect blend of convenience and quality with our comprehensive home service solutions.</p>
+        </div>
 
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="lnr lnr-cog"></i>
                 </div>
-                <!-- End of Section Title -->
-                <div class="row d-flex align-items-stretch">
-                    <!-- Features Holder-->
-                    <div class="col-md-10 offset-md-1 features-holder">
-                        <div class="row d-flex align-items-stretch">
-                            <!-- Features Column 1 -->
-                            <div class="col-md-4 col-sm-12 text-center">
-                                <div class="feature-item p-4 d-flex flex-column align-items-center justify-content-between">
-                                    <div class="feature-icon">
-                                        <i class="lnr lnr-cog"></i>
-                                    </div>
-                                    <h4>Easy to Use</h4>
-                                    <p>Our user-friendly platform allows you to quickly find and book skilled workers without hassle, streamlining the home repair process.</p>
-                                </div>
-                                <div class="feature-item p-4 d-flex flex-column align-items-center justify-content-between">
-                                    <div class="feature-icon">
-                                        <i class="lnr lnr-frame-contract"></i>
-                                    </div>
-                                    <h4>Professional Skilled Workers</h4>
-                                    <p>Connect with certified professionals who are experienced in various repair and maintenance services to ensure high-quality results.</p>
-                                </div>
-                            </div>
-                            <!-- Features Column 2 -->
-                            <div class="col-md-4 col-sm-12 text-center">
-                                <div class="feature-item p-4 d-flex flex-column align-items-center justify-content-between">
-                                    <div class="feature-icon">
-                                        <i class="lnr lnr-bubble"></i>
-                                    </div>
-                                    <h4>Full Support</h4>
-                                    <p>Our dedicated support team is here to assist you with any questions or concerns throughout your service experience.</p>
-                                </div>
-                                <div class="feature-item p-4 d-flex flex-column align-items-center justify-content-between">
-                                    <div class="feature-icon">
-                                        <i class="lnr lnr-magic-wand"></i>
-                                    </div>
-                                    <h4>25 Skilled Services</h4>
-                                    <p>Access a wide range of services, from plumbing and electrical work to general home maintenance, all in one place.</p>
-                                </div>
-                            </div>
-                            <!-- Features Column 3 -->
-                            <div class="col-md-4 col-sm-12 text-center">
-                                <div class="feature-item p-4 d-flex flex-column align-items-center justify-content-between">
-                                    <div class="feature-icon">
-                                        <i class="lnr lnr-clock"></i>
-                                    </div>
-                                    <h4>On-Time Appointments</h4>
-                                    <p>Schedule with confidence knowing that our professionals are committed to punctuality and reliability.</p>
-                                </div>
-                                <div class="feature-item p-4 d-flex flex-column align-items-center justify-content-between">
-                                    <div class="feature-icon">
-                                        <i class="lnr lnr-thumbs-up"></i>
-                                    </div>
-                                    <h4>Best Price</h4>
-                                    <p>Our transparent pricing model ensures that you receive quality service at competitive rates, with no hidden fees.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <h3 class="feature-title">Easy to Use</h3>
+                <p class="feature-description">Our user-friendly platform allows you to quickly find and book skilled workers without hassle.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="lnr lnr-construction"></i>
                 </div>
+                <h3 class="feature-title">Professional Workers</h3>
+                <p class="feature-description">Connect with certified professionals who are experienced in various repair and maintenance services.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="lnr lnr-bubble"></i>
+                </div>
+                <h3 class="feature-title">Full Support</h3>
+                <p class="feature-description">Our dedicated support team is here to assist you throughout your service experience.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="lnr lnr-diamond"></i>
+                </div>
+                <h3 class="feature-title">25+ Services</h3>
+                <p class="feature-description">Access a wide range of services, from plumbing and electrical work to general home maintenance.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="lnr lnr-clock"></i>
+                </div>
+                <h3 class="feature-title">On-Time Service</h3>
+                <p class="feature-description">Schedule with confidence knowing our professionals are committed to punctuality.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="lnr lnr-thumbs-up"></i>
+                </div>
+                <h3 class="feature-title">Best Price</h3>
+                <p class="feature-description">Transparent pricing ensures quality service at competitive rates, with no hidden fees.</p>
             </div>
         </div>
     </div>
-    
+</section>
 
-    
+@section Scripts {
+    <script>
+        // Add intersection observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
 
-    <!-- External JS -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-    <script src="vendor/bootstrap/popper.min.js"></script>
-    <script src="vendor/bootstrap/bootstrap.min.js"></script>
-    <script src="vendor/select2/select2.min.js "></script>
-    <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
-    <script src="vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
-    <script src="vendor/isotope/isotope.min.js"></script>
-    <script src="vendor/lightcase/lightcase.js"></script>
-    <script src="vendor/waypoints/waypoint.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Main JS -->
-    <script src="js/MainPage.app.min.js "></script>
-    <script src="//localhost:35729/livereload.js"></script>
-</body>
-</html>
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+}
