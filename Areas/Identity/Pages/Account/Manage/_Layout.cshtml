@@ -1,5 +1,5 @@
 ﻿@{
-    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout !=  null)
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout != null)
     {
         Layout = parentLayout.ToString();
     }
@@ -9,21 +9,130 @@
     }
 }
 
-<h1>Manage your account</h1>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
 
-<div>
-    <h2>Change your account settings</h2>
-    <hr />
-    <div class="row">
-        <div class="col-md-3">
-            <partial name="_ManageNav" />
+<style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
+        color: #374151;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .manage-container {
+        padding: 2rem 1rem;
+    
+        min-height: calc(100vh - 60px);
+    }
+
+    .manage-card {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        opacity: 0;
+    }
+
+    .manage-header {
+        color: #fff;
+        margin-bottom: 2rem;
+        opacity: 0;
+    }
+
+    .nav-pills .nav-link {
+        color: #4B5563;
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+        .nav-pills .nav-link:hover {
+            background-color: rgba(139, 92, 246, 0.1);
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: #8B5CF6;
+            color: white;
+        }
+
+        .nav-pills .nav-link i {
+            margin-right: 0.5rem;
+        }
+
+    .divider {
+        border-color: rgba(156, 163, 175, 0.2);
+        margin: 1.5rem 0;
+    }
+
+    .content-area {
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 12px;
+        padding: 1.5rem;
+    }
+
+    .nav-section {
+        margin-bottom: 2rem;
+    }
+</style>
+
+<div class="manage-container">
+    <div class="container">
+        <div class="manage-header animate__animated animate__fadeInDown">
+            <h1><i class="ri-user-settings-line"></i> Manage your account</h1>
+            <p class="lead text-white">Change your account settings</p>
         </div>
-        <div class="col-md-9">
-            @RenderBody()
+
+        <div class="manage-card animate__animated animate__fadeInUp">
+            <div class="row">
+                <div class="col-md-3 nav-section">
+                    <partial name="_ManageNav" />
+                </div>
+                <div class="col-md-9">
+                    <div class="content-area">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const header = document.querySelector('.manage-header');
+        const card = document.querySelector('.manage-card');
+
+        // Set initial opacity
+        header.style.opacity = '1';
+        card.style.opacity = '1';
+
+        // Add active state styling to current nav item
+        const currentPath = window.location.pathname;
+        const navItems = document.querySelectorAll('.nav-link');
+        navItems.forEach(item => {
+            if (item.getAttribute('href') === currentPath) {
+                item.classList.add('active');
+            }
+        });
+    });
+</script>
+
 @section Scripts {
     @RenderSection("Scripts", required: false)
+
+      document.querySelectorAll('.dropdown-toggle').forEach(function (dropdown) {
+            dropdown.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                this.classList.toggle('show');
+                this.nextElementSibling.classList.toggle('show');
+            });
+        });
 }

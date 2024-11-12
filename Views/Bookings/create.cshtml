@@ -1,63 +1,184 @@
 ﻿@model ServiceWorkerWebsite.Models.Booking
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Booking";
 }
 
-<!-- Calendar UI with Flatpickr -->
-<h1>Create Booking</h1>
+<link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
 
-<div class="row">
-    <div class="col-md-6">
+<style>
+    body {
+        background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
+        min-height: 100vh;
+        color: #374151;
+    }
+
+    .booking-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+    }
+
+    .booking-card {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .booking-header {
+        text-align: center;
+        color: white;
+        margin-bottom: 2rem;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #4B5563;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-control {
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        border: 2px solid #E5E7EB;
+    }
+
+        .form-control:focus {
+            border-color: #8B5CF6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+    .time-slot-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    .time-slot {
+        background: #F3F4F6;
+        border: 2px solid #E5E7EB;
+        border-radius: 12px;
+        padding: 0.75rem;
+        text-align: center;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+        .time-slot:hover {
+            background: #EEF2FF;
+            border-color: #8B5CF6;
+        }
+
+        .time-slot.selected {
+            background: #8B5CF6;
+            color: white;
+            border-color: #7C3AED;
+        }
+
+    .terms-container {
+        background: #F9FAFB;
+        padding: 1rem;
+        border-radius: 12px;
+        margin: 1.5rem 0;
+    }
+
+    .custom-btn {
+        background: #8B5CF6;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        font-weight: 600;
+        color: white;
+        width: 100%;
+    }
+
+        .custom-btn:hover {
+            background: #7C3AED;
+        }
+
+    /* Flatpickr Customization */
+    .flatpickr-calendar {
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border: none;
+    }
+
+    .flatpickr-day.selected {
+        background: #8B5CF6 !important;
+        border-color: #8B5CF6 !important;
+    }
+
+    .flatpickr-day:hover {
+        background: #EEF2FF !important;
+    }
+</style>
+
+<div class="booking-container">
+    <div class="booking-header">
+        <h1 class="display-4 mb-3">Create Booking</h1>
+        <p class="lead">Select your preferred date and time</p>
+    </div>
+
+    <div class="booking-card">
         <form asp-action="Create" id="bookingForm">
-            <!-- Worker Selection -->
             <input type="hidden" asp-for="Worker_Id" value="@ViewData["Worker_Id"]" />
             <input type="hidden" asp-for="Service_Id" value="@ViewData["Service_Id"]" />
             <input type="hidden" id="TimeSlotId" name="TimeSlotId" />
 
-            <!-- Date Picker -->
-            <div class="form-group">
-                <label for="BookingDate">Select Date</label>
+            <div class="mb-4">
+                <label class="form-label" for="BookingDate">
+                    <i class="ri-calendar-line me-2"></i>Select Date
+                </label>
                 <input type="text" class="form-control custom-datepicker" id="BookingDate" readonly />
             </div>
 
-            <!-- Time Slot Picker -->
-            <div class="form-group">
-                <label for="TimeSlotId">Select Time Slot</label>
+            <div class="mb-4">
+                <label class="form-label" for="TimeSlotId">
+                    <i class="ri-time-line me-2"></i>Select Time Slot
+                </label>
                 <div class="time-slot-container" id="TimeSlotContainer">
-                    <div class="time-slot" data-value="">Please select a time slot</div>
+                    <div class="time-slot">Please select a date first</div>
                 </div>
             </div>
 
-            <!-- Terms and Conditions -->
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="agreeToTerms" asp-for="AgreeToTerms" />
-                <label class="form-check-label" for="agreeToTerms">I agree to the Terms and Conditions</label><br />
-                <a asp-controller="Bookings" asp-action="TermsNCond">Terms and Condition</a>
-                <span asp-validation-for="AgreeToTerms" class="text-danger"></span>
+            <div class="terms-container">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="agreeToTerms" asp-for="AgreeToTerms" />
+                    <label class="form-check-label" for="agreeToTerms">
+                        I agree to the <a asp-controller="Bookings" asp-action="TermsNCond" class="text-decoration-none">Terms and Conditions</a>
+                    </label>
+                    <span asp-validation-for="AgreeToTerms" class="text-danger d-block mt-1"></span>
+                </div>
             </div>
 
-
-            <!-- Submit -->
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            <button type="submit" class="custom-btn">
+                <i class="ri-calendar-check-line me-2"></i>Create Booking
+            </button>
         </form>
     </div>
 </div>
 
-<!-- Custom Styles and Script Section -->
 @section Scripts {
-    <!-- Flatpickr CSS and JS -->
-    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
     <script>
+
+        document.querySelectorAll('.dropdown-toggle').forEach(function (dropdown) {
+            dropdown.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                this.classList.toggle('show');
+                this.nextElementSibling.classList.toggle('show');
+            });
+        });
+
         document.addEventListener("DOMContentLoaded", function () {
             var workerId = document.getElementById("Worker_Id").value;
             var serviceId = document.getElementById("Service_Id").value;
 
-            // Fetch available slots and initialize calendar
             fetch('/Bookings/GetAvailableSlots', {
                 method: 'POST',
                 headers: {
@@ -68,19 +189,15 @@
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log("Available Slots Data:", data); // Log the fetched data to inspect
-
                     if (data.length === 0) {
                         console.error('No data available for this worker.');
                         return;
                     }
 
-                    // Initialize Flatpickr
                     flatpickr("#BookingDate", {
                         enable: data.map(item => item.date),
                         onChange: function (selectedDates) {
                             var selectedDate = selectedDates[0].toISOString().split('T')[0];
-                            console.log("Selected Date:", selectedDate); // Log the selected date
                             loadTimeSlots(selectedDate, data);
                         },
                         defaultDate: new Date(),
@@ -95,90 +212,44 @@
 
         function loadTimeSlots(selectedDate, data) {
             var timeSlotContainer = document.getElementById("TimeSlotContainer");
-            timeSlotContainer.innerHTML = '<div class="time-slot" data-value="">Please select a time slot</div>'; // Reset the container
+            timeSlotContainer.innerHTML = '';
 
-            // Find the selected date's time slots
             var selectedData = data.find(d => d.date === selectedDate);
 
             if (!selectedData) {
-                console.log("No time slots available for the selected date:", selectedDate);
                 timeSlotContainer.innerHTML = '<div class="time-slot">No available time slots for this date.</div>';
                 return;
             }
 
             var selectedTimeSlots = selectedData.timeSlots || [];
-            console.log("Time slots for selected date:", selectedTimeSlots); // Log time slots for selected date
-
-            // Sort time slots by their actual time
             selectedTimeSlots.sort((a, b) => a.timeSlots.localeCompare(b.timeSlots));
 
             selectedTimeSlots.forEach(function (slot) {
                 var timeSlotDiv = document.createElement('div');
                 timeSlotDiv.className = 'time-slot';
-                timeSlotDiv.innerText = slot.timeSlots; // Display the time slot
-                timeSlotDiv.dataset.value = slot.timeSlotId; // Set timeSlotId as value
+                timeSlotDiv.innerText = slot.timeSlots;
+                timeSlotDiv.dataset.value = slot.timeSlotId;
 
                 timeSlotDiv.addEventListener('click', function () {
                     document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('selected'));
                     timeSlotDiv.classList.add('selected');
-                    document.getElementById("TimeSlotId").value = timeSlotDiv.dataset.value; // Update hidden input with timeSlotId
+                    document.getElementById("TimeSlotId").value = timeSlotDiv.dataset.value;
                 });
 
                 timeSlotContainer.appendChild(timeSlotDiv);
             });
 
-            // Message for no available time slots
             if (selectedTimeSlots.length === 0) {
-                var noSlotsDiv = document.createElement('div');
-                noSlotsDiv.className = 'time-slot';
-                noSlotsDiv.innerText = "No available time slots for this date.";
-                timeSlotContainer.appendChild(noSlotsDiv);
+                timeSlotContainer.innerHTML = '<div class="time-slot">No available time slots for this date.</div>';
             }
         }
 
-        // Prevent form submission if the checkbox is not checked
         document.getElementById("bookingForm").addEventListener("submit", function (event) {
             var checkbox = document.getElementById("agreeToTerms");
             if (!checkbox.checked) {
-                event.preventDefault(); // Prevent submission
+                event.preventDefault();
                 alert("You must agree to the terms and conditions before submitting the form.");
             }
         });
     </script>
-
-    <!-- Custom Calendar Styling -->
-    <style>
-        /* Time Slot Container Styles */
-        .time-slot-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .time-slot {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s, border-color 0.3s;
-            background-color: #f7f7f7;
-        }
-
-            .time-slot:hover {
-                background-color: #e2e2e2;
-                border-color: #1e90ff;
-            }
-
-            .time-slot.selected {
-                background-color: #1e90ff;
-                color: #fff;
-                border-color: #1e90ff;
-            }
-
-        #TimeSlotId {
-            display: none; /* Hide the original dropdown */
-        }
-    </style>
 }

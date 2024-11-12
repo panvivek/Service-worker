@@ -4,67 +4,169 @@
     ViewData["Title"] = "Our Services";
 }
 
-<!-- Include Bootstrap CSS -->
-<!-- Include Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<!--If the menu dropdown doesn't work copy paste the lines below this to the html pages that doesnt work with dropdown-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 
-<!-- Custom CSS -->
-<link rel="stylesheet" href="~/css/Services.css">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
+        color: #374151;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    .services-header {
+        text-align: center;
+        color: #fff;
+        margin-bottom: 3.5rem;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .service-search {
+        margin-bottom: 3rem;
+        display: flex;
+        justify-content: center;
+    }
+
+        .service-search input {
+            max-width: 500px;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s ease;
+        }
+
+            .service-search input:focus {
+                border-color: #8B5CF6;
+                box-shadow: 0 4px 25px rgba(139, 92, 246, 0.15);
+                transform: translateY(-2px);
+            }
+
+    .service-card {
+        background: rgba(255, 255, 255, 0.98);
+        border: none;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+    .service-img {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        display: none; /* Initially hide the image */
+    }
+
+    .service-card:hover .service-img {
+        transform: scale(1.05);
+    }
+
+    .card-body {
+        padding: 2rem;
+    }
+
+    .service-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 1rem;
+    }
+
+    .service-description {
+        color: #6B7280;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.8rem;
+    }
+
+    .btn-primary {
+        background-color: #8B5CF6;
+        border: none;
+        padding: 0.875rem 1.5rem;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #7C3AED;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn-primary i {
+            transition: transform 0.3s ease;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 0.5rem;
+        }
+
+        .btn-primary:hover i {
+            transform: translateX(5px);
+        }
+
+    .animate-fade-up {
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+        .animate-fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+</style>
 
 <div class="container">
-    
-    <div style=" " class="container">
-        <div class="jumbotron d-flex align-items-center" style="position : absolute; height:100% ; ">
-            <div class="container text-center">
-                <!--    <h1 class="display-1 mb-4"><br></h1>-->
-            </div>
-            <div class="rectangle-1"></div>
-            <div class="rectangle-2"></div>
-            <div class="rectangle-transparent-1"></div>
-            <div class="rectangle-transparent-2"></div>
-            <div class="circle-1"></div>
-            <div class="circle-2"></div>
-            <div class="circle-3"></div>
-            <div class="triangle triangle-1">
-                <img src="img/obj_triangle.png" alt="">
-            </div>
-            <div class="triangle triangle-2">
-                <img src="img/obj_triangle.png" alt="">
-            </div>
-            <div class="triangle triangle-3">
-                <img src="img/obj_triangle.png" alt="">
-            </div>
-            <div class="triangle triangle-4">
-                <img src="img/obj_triangle.png" alt="">
-            </div>
-        </div>
-        <h1 class="text-center mb-5">@ViewData["Title"]</h1>
-    <!-- Search Box -->
-    <div style="padding-top:60px" class="row mb-4">
-        <div class="col-lg-6 offset-lg-3">
-            <input type="text" id="searchInput" class="form-control" placeholder="Search for a service...">
-        </div>
+    <div class="services-header animate-fade-up">
+        <h1 class="mb-3">@ViewData["Title"]</h1>
+        <p class="lead">Explore our range of services tailored just for you!</p>
+    </div>
+
+    <div class="service-search animate-fade-up">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search for a service..." autocomplete="off">
     </div>
 
     <div class="row" id="serviceList">
         @foreach (var item in Model)
         {
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card border-0 shadow-sm service-card" data-tilt data-tilt-max="20" data-tilt-speed="400">
-                    <!-- Image -->
-                    <img src="@Url.Content(item.ImageUrl)" class="card-img-top service-img" alt="@item.Name">
-
+                <div class="card service-card" data-delay="@(150 * (@Model.ToList().IndexOf(item) + 1))">
+                    <div class="skeleton-loader" style="height: 220px;"></div>
+                    <img src="@Url.Content(item.ImageUrl)" class="card-img-top service-img" alt="@item.Name" onload="this.style.display='block'; this.previousElementSibling.style.display='none';">
                     <div class="card-body text-center">
-                        <!-- Service Details -->
-                        <h5 class="card-title service-title">@Html.DisplayFor(modelItem => item.Name)</h5>
-                        <p class="card-text service-description">@Html.DisplayFor(modelItem => item.Description)</p>
-                        <!-- Action Buttons -->
-                        <div class="text-center">
-                            <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Workers" asp-route-serviceId="@item.Service_Id" asp-action="Index">View Available Workers</a>
-                        </div>
+                        <h5 class="service-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                        <p class="service-description">@Html.DisplayFor(modelItem => item.Description)</p>
+                        <a class="btn btn-primary" asp-area="" asp-controller="Workers" asp-route-serviceId="@item.Service_Id" asp-action="Index">
+                            View Available Workers <i class="ri-arrow-right-line"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -72,32 +174,70 @@
     </div>
 </div>
 
-<!-- Include Bootstrap JS (Optional) -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/vanilla-tilt.js"></script>
+
 <script>
-    VanillaTilt.init(document.querySelectorAll(".service-card"), {
-        max: 20,
-        speed: 400,
-        glare: true,
-        "max-glare": 1
+
+    document.querySelectorAll('.dropdown-toggle').forEach(function (dropdown) {
+        dropdown.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.classList.toggle('show');
+            this.nextElementSibling.classList.toggle('show');
+        });
     });
 
-    // Function to filter services based on search query
-    document.getElementById("searchInput").addEventListener("keyup", function () {
-        var input, filter, cards, card, title, i;
-        input = document.getElementById("searchInput");
-        filter = input.value.toUpperCase();
-        cards = document.getElementById("serviceList").getElementsByClassName("card");
+    // Throttle helper function to limit the frequency of calls
+    let isThrottled = false;
+    function throttle(func, delay) {
+        if (isThrottled) return;
+        func();
+        isThrottled = true;
+        setTimeout(() => {
+            isThrottled = false;
+        }, delay);
+    }
 
-        for (i = 0; i < cards.length; i++) {
-            card = cards[i];
-            title = card.querySelector(".card-title");
-            if (title.innerText.toUpperCase().indexOf(filter) > -1) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
+    // Check if an element is in the viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    // Handle element visibility based on scroll
+    function handleVisibility() {
+        document.querySelectorAll('.animate-fade-up, .service-card').forEach(element => {
+            if (isInViewport(element) && !element.classList.contains('visible')) {
+                const delay = element.dataset.delay || 0;
+                setTimeout(() => {
+                    element.classList.add('visible');
+                }, delay);
             }
-        }
+        });
+    }
+
+    // Attach scroll event with throttle
+    window.addEventListener('scroll', () => throttle(handleVisibility, 150)); // Throttle scroll every 150ms
+    window.addEventListener('load', handleVisibility); // Initial load visibility check
+    handleVisibility();
+
+    // Enhanced search with standard transitions
+    let searchTimeout;
+    document.getElementById("searchInput").addEventListener("keyup", function () {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            const input = this.value.toUpperCase();
+            document.querySelectorAll(".service-card").forEach(card => {
+                const title = card.querySelector(".service-title").innerText.toUpperCase();
+                const parentCol = card.closest('.col-lg-4');
+                parentCol.style.display = title.indexOf(input) > -1 ? "" : "none";
+            });
+        }, 300);
     });
 </script>

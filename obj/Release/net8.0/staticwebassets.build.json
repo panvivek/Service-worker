@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ISUy7vkOM1oyRly+ENlQF8FOGliKQDAAPK6erhLhhOM=",
+  "Hash": "8Jemq2IbAKBw8UA28otvS3YoDWjlcOTlxDqHuJ32EhM=",
   "Source": "ServiceWorkerWebsite",
   "BasePath": "_content/ServiceWorkerWebsite",
   "Mode": "Default",
@@ -3834,6 +3834,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\WorkerProfilePic\\Dall.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\SNLTTATTDN_page-0001 (1).jpg",
+      "SourceId": "ServiceWorkerWebsite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\",
+      "BasePath": "_content/ServiceWorkerWebsite",
+      "RelativePath": "WorkerProfilePic/SNLTTATTDN_page-0001 (1).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\WorkerProfilePic\\SNLTTATTDN_page-0001 (1).jpg"
     }
   ]
 }

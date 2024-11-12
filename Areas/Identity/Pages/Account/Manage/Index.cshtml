@@ -26,5 +26,16 @@
 </div>
 
 @section Scripts {
+
+      document.querySelectorAll('.dropdown-toggle').forEach(function (dropdown) {
+            dropdown.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                this.classList.toggle('show');
+                this.nextElementSibling.classList.toggle('show');
+            });
+        });
+
     <partial name="_ValidationScriptsPartial" />
+
 }

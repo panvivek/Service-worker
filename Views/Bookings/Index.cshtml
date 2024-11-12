@@ -1,97 +1,174 @@
 @model IEnumerable<ServiceWorkerWebsite.Models.Booking>
-
 @{
     ViewData["Title"] = "Booking History";
 }
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
 
-<h1 class="text-center my-4">Booking History</h1>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
+        color: #374151;
+        display: flex;
+        flex-direction: column;
+    }
+    .booking-container {
+       
+        min-height: calc(100vh - 60px);
+    }
 
-<p class="text-end">
-    <a asp-action="Create" class="btn btn-primary mb-3">Create New Booking</a>
-</p>
+    .booking-card {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
 
-<table class="table table-hover table-bordered text-center align-middle">
-    <thead class="table-dark">
-        <tr>
-            <th>Worker Name</th>
-            <th>Booking Date</th>
-            <th>Time Slot</th>
-            <th>Terms Agreed</th>
-            <th>Service</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @if (item.Worker != null && item.Worker.User != null)
-                    {
-                        <span>@item.Worker.User.Firstname @item.Worker.User.Lastname</span>
-                    }
-                    else
-                    {
-                        <span class="text-muted">No Worker Assigned</span>
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BookingDate)
-                </td>
-                <td>
-                    @if (item.TimeSlot != null)
-                    {
-                        @Html.DisplayFor(modelItem => item.TimeSlot.SelectedDates) <br />
-                        @Html.DisplayFor(modelItem => item.TimeSlot.TimeSlots)
-                    }
-                    else
-                    {
-                        <span class="text-muted">No Time Slot</span>
-                    }
-                </td>
-                <td>
-                    @if (item.AgreeToTerms)
-                    {
-                        <span class="badge bg-success">Yes</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-danger">No</span>
-                    }
-                </td>
-                <td>
-                    @if (item.Service != null)
-                    {
-                        @Html.DisplayFor(modelItem => item.Service.Name)
-                    }
-                    else
-                    {
-                        <span class="text-muted">No Service Assigned</span>
-                    }
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
-                    <a asp-controller="Review" asp-action="Create"
-                       asp-route-workerId="@item.Worker_Id"
-                       asp-route-serviceId="@item.Service_Id"
-                       asp-route-userId="@item.UserId"
-                       class="btn btn-sm btn-primary mt-2">Write a Review</a>
-                    <a asp-action="DownloadInvoice" asp-route-id="@item.Id" class="btn btn-sm btn-primary mt-2">Invoice</a>
+    .page-header {
+        color: #fff;
+    }
 
+    .table {
+        background: white;
+    }
 
-                </td>
-            </tr>
+        .table thead {
+            background-color: #8B5CF6;
+            color: white;
         }
 
-        <!-- Add a button or link to create a review -->
-<div>
-    <a asp-controller="Review" asp-action="Create"  class="btn btn-primary">Write a Review</a>
+    .btn-create {
+        background-color: #8B5CF6;
+        color: white;
+        transition: all 0.3s ease;
+    }
+
+        .btn-create:hover {
+            background-color: #7C3AED;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+        }
+
+    .badge {
+        padding: 0.5rem 1rem;
+    }
+</style>
+
+<div class="booking-container py-8">
+    <div class="container mx-auto">
+        <div class="page-header animate__animated animate__fadeInDown text-center mb-8">
+            <h1 class="text-3xl font-bold">@ViewData["Title"]</h1>
+        </div>
+
+        <div class="booking-card animate__animated animate__fadeInUp rounded-lg p-6 shadow-md">
+            <div class="mb-4 text-right">
+                <a asp-action="Create" class="btn-create rounded-lg px-4 py-2 font-semibold">
+                    <i class="ri-add-line mr-2"></i> Create New Booking
+                </a>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="table min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Worker Name</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Booking Date</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Time Slot</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Service</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    @if (item.Worker != null && item.Worker.User != null)
+                                    {
+                                        <div class="text-sm font-medium text-gray-900">@item.Worker.User.Firstname @item.Worker.User.Lastname</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="text-sm text-gray-500">No Worker Assigned</div>
+                                    }
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">@Html.DisplayFor(modelItem => item.BookingDate)</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    @if (item.TimeSlot != null)
+                                    {
+                                        <div class="text-sm text-gray-900">@Html.DisplayFor(modelItem => item.TimeSlot.SelectedDates)</div>
+                                        <div class="text-sm text-gray-500">@Html.DisplayFor(modelItem => item.TimeSlot.TimeSlots)</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="text-sm text-gray-500">No Time Slot</div>
+                                    }
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    @if (item.Service != null)
+                                    {
+                                        <div class="text-sm text-gray-900">@Html.DisplayFor(modelItem => item.Service.Name)</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="text-sm text-gray-500">No Service Assigned</div>
+                                    }
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex space-x-2">
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-lg bg-yellow-500 text-white hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+                                            <i class="ri-edit-line mr-2"></i>Edit
+                                        </a>
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-lg bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                            <i class="ri-file-list-line mr-2"></i>Details
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-lg bg-red-500 text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                            <i class="ri-delete-bin-line mr-2"></i>Delete
+                                        </a>
+                                        <a asp-controller="Review" asp-action="Create"
+                                           asp-route-workerId="@item.Worker_Id"
+                                           asp-route-serviceId="@item.Service_Id"
+                                           asp-route-userId="@item.UserId"
+                                           class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-lg bg-green-500 text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                            <i class="ri-star-line mr-2"></i>Review
+                                        </a>
+                                        <a asp-action="DownloadInvoice" asp-route-id="@item.Id" class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-lg bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                                            <i class="ri-file-download-line mr-2"></i>Invoice
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
-    </tbody>
-</table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js"></script>
+<script>
+
+    document.querySelectorAll('.dropdown-toggle').forEach(function (dropdown) {
+        dropdown.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.classList.toggle('show');
+            this.nextElementSibling.classList.toggle('show');
+        });
+    });
+    
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const header = document.querySelector('.page-header');
+        const card = document.querySelector('.booking-card');
+
+        header.style.opacity = '1';
+        card.style.opacity = '1';
+    });
+</script>

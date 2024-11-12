@@ -4,53 +4,201 @@
     ViewData["Title"] = "Log in";
 }
 
-<link rel="stylesheet" href="~/css/auth-styles.css" />
-<div class="auth-page">
-    <div class="auth-container">
-        <div class="auth-card">
-            <img src="~/img/Logo.png" alt="QuickFix Logo" class="brand-logo">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
+    }
+
+    .auth-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .auth-card {
+        background: rgba(255, 255, 255, 0.98);
+        width: 100%;
+        max-width: 600px;
+        border-radius: 16px;
+        padding: 2.5rem;
+        margin: 2rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-container {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+        .logo-container img {
+            width: 60px;
+            height: auto;
+        }
+
+    .auth-title {
+        color: #111827;
+        font-size: 1.75rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-group {
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.875rem 1rem 0.875rem 2.5rem;
+        border: 1px solid #E5E7EB;
+        border-radius: 8px;
+        background-color: white;
+        color: #374151;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+    }
+
+        .form-control:focus {
+            border-color: #8B5CF6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+            outline: none;
+        }
+
+    .form-icon {
+        position: absolute;
+        left: 0.875rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #8B5CF6;
+        font-size: 1.1rem;
+    }
+
+    .btn-auth {
+        width: 100%;
+        padding: 0.875rem;
+        background-color: #8B5CF6;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+        .btn-auth:hover {
+            background-color: #7C3AED;
+        }
+
+    .auth-divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 1.5rem 0;
+        color: #6B7280;
+        font-size: 0.95rem;
+    }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .auth-divider span {
+            padding: 0 1rem;
+        }
+
+    .validation-message {
+        color: #EF4444;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .link-purple {
+        color: #8B5CF6;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        transition: all 0.2s ease;
+    }
+
+        .link-purple:hover {
+            color: #7C3AED;
+        }
+
+
+</style>
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="logo-container">
+            <img src="~/img/Logo.png" alt="QuickFix Logo" />
             <h1 class="auth-title">Welcome Back</h1>
-            
-            <form id="account" method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                
-                <div class="form-group">
-                    <label asp-for="Input.Email" class="form-label">Email</label>
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" 
-                           placeholder="Enter your email" aria-required="true" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                
-                <div class="form-group">
-                    <label asp-for="Input.Password" class="form-label">Password</label>
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" 
-                           placeholder="Enter your password" aria-required="true" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                
-                <div class="form-group d-flex justify-content-between align-items-center">
-                    <div class="form-check">
-                        <input asp-for="Input.RememberMe" class="form-check-input">
-                        <label asp-for="Input.RememberMe" class="form-check-label">Remember me</label>
-                    </div>
-                    <a asp-page="./ForgotPassword" class="auth-link">Forgot password?</a>
-                </div>
-                
-                <button type="submit" class="btn-auth">Sign In</button>
-            </form>
-            
-            <div class="auth-divider">
-                <span>Don't have an account?</span>
+        </div>
+
+        <form id="account" method="post">
+            <div asp-validation-summary="ModelOnly" class="validation-message">
+                <i class="ri-error-warning-line"></i>
             </div>
-            
-            <div class="text-center">
-                <a asp-page="./Register" class="auth-link">Create Account</a>
+
+            <div class="form-group">
+                <i class="ri-mail-line form-icon"></i>
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" placeholder="Email Address" aria-required="true" />
+                <span asp-validation-for="Input.Email" class="validation-message"></span>
             </div>
+
+            <div class="form-group">
+                <i class="ri-lock-password-line form-icon"></i>
+                <input asp-for="Input.Password" class="form-control" autocomplete="current-password" placeholder="Password" aria-required="true" />
+                <span asp-validation-for="Input.Password" class="validation-message"></span>
+            </div>
+
+            <div class="form-group d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                    <input asp-for="Input.RememberMe" class="form-check-input">
+                    <label asp-for="Input.RememberMe" class="form-check-label">Remember me</label>
+                </div>
+                <a asp-page="./ForgotPassword" class="link-purple">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn-auth">
+                <i class="ri-login-circle-line"></i> Sign In
+            </button>
+        </form>
+
+        <div class="auth-divider">
+            <span>Don't have an account?</span>
+        </div>
+
+        <div class="text-center">
+            <a asp-page="./Register" class="link-purple">
+                <i class="ri-user-add-line"></i> Create Account
+            </a>
         </div>
     </div>
-    
-  
 </div>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

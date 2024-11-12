@@ -1,81 +1,164 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Payment";
+}
+
 <style>
-    .footer[b-9jpqodmd63] {
+    .payment-page {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .payment-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .payment-card {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-top: 4rem;
+    }
+
+    .payment-header {
+        margin-bottom: 2rem;
+    }
+
+    .payment-title {
+        color: #fff;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .payment-subtitle {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.1rem;
+    }
+
+    /* Background Elements */
+    .background-shape {
         position: absolute;
-       
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+    }
+
+    .shape-1 {
+        width: 300px;
+        height: 300px;
+        top: -150px;
+        left: -150px;
+    }
+
+    .shape-2 {
+        width: 200px;
+        height: 200px;
+        bottom: -100px;
+        right: -100px;
+    }
+
+    .shape-3 {
+        width: 150px;
+        height: 150px;
+        top: 50%;
+        right: 10%;
+    }
+
+    #paypal-button-container {
+        max-width: 400px;
+        margin: 2rem auto;
+    }
+
+    .footer {
+        position: relative;
         width: 100%;
-        white-space: nowrap;
         line-height: 60px;
-        bottom: revert;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 2rem;
+        text-align: center;
     }
 </style>
 
-<main>
-    <div style=" " class="container">
-      <div class="jumbotron d-flex align-items-center" style="position : absolute; height:100% ; ">
-        <div class="container text-center">
-            <!--    <h1 class="display-1 mb-4"><br></h1>-->
+<div class="payment-page">
+    <!-- Background Shapes -->
+    <div class="background-shape shape-1"></div>
+    <div class="background-shape shape-2"></div>
+    <div class="background-shape shape-3"></div>
+
+    <div class="payment-container">
+        <div class="payment-header">
+            <h1 class="payment-title">Complete Your Payment</h1>
+            <p class="payment-subtitle">Secure payment processing with PayPal</p>
         </div>
-        <div class="rectangle-1"></div>
-        <div class="rectangle-2"></div>
-        <div class="rectangle-transparent-1"></div>
-        <div class="rectangle-transparent-2"></div>
-        <div class="circle-1"></div>
-        <div class="circle-2"></div>
-        <div class="circle-3"></div>
-        <div class="triangle triangle-1">
-            <img src="img/obj_triangle.png" alt="">
-        </div>
-        <div class="triangle triangle-2">
-            <img src="img/obj_triangle.png" alt="">
-        </div>
-        <div class="triangle triangle-3">
-            <img src="img/obj_triangle.png" alt="">
-        </div>
-        <div class="triangle triangle-4">
-            <img src="img/obj_triangle.png" alt="">
+
+        <div class="payment-card">
+            <div id="paypal-button-container"></div>
         </div>
     </div>
-        <div style=" padding-top: 30%; padding-left: 15%;" id="paypal-button-container"></div>
 </div>
-</main>
 
 @section Scripts {
     <script src="https://www.paypal.com/sdk/js?client-id=@ViewBag.ClientId"></script>
-
     <script>
-        // Use workerId from ViewBag or any other source
         const workerId = @Json.Serialize(ViewBag.WorkerId);
-
+        document.querySelectorAll('.dropdown-toggle').forEach(function (dropdown) {
+            dropdown.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                this.classList.toggle('show');
+                this.nextElementSibling.classList.toggle('show');
+            });
+        });
         paypal.Buttons({
             style: {
                 layout: 'vertical',
-                color: 'silver',
-                tagline: 'false'
+                color: 'blue',
+                shape: 'pill',
+                label: 'pay'
             },
             createOrder: (data, actions) => {
-                // Pass workerId to the Order endpoint
                 return fetch(`@Url.Action("Order", "Paypal")?workerId=${workerId}`, {
                     method: "post",
                     headers: { "Content-Type": "application/json" }
-                }).then((response) => {
-                    if (!response.ok) {
-                        return response.json().then(error => { throw error; });
-                    }
-                    return response.json();
-                }).then((order) => order.id)
-                    .catch(error => alert(error.message));
+                })
+                    .then((response) => {
+                        if (!response.ok) {
+                            return response.json().then(error => { throw error; });
+                        }
+                        return response.json();
+                    })
+                    .then((order) => order.id)
+                    .catch(error => {
+                        console.error('Error creating order:', error);
+                        alert('There was an error processing your payment. Please try again.');
+                    });
             },
             onApprove: (data, actions) => {
                 return fetch(`@Url.Action("Capture", "Paypal")?orderId=${data.orderID}`, {
                     method: "post",
                     headers: { "Content-Type": "application/json" }
-                }).then((response) => {
-                    if (!response.ok) {
-                        return response.json().then(error => { throw error; });
-                    }
-                    window.location.href = "@Url.Action("Success", "Paypal")";
-                }).catch(error => alert(error.message));
+                })
+                    .then((response) => {
+                        if (!response.ok) {
+                            return response.json().then(error => { throw error; });
+                        }
+                        window.location.href = "@Url.Action("Success", "Paypal")";
+                    })
+                    .catch(error => {
+                        console.error('Error capturing payment:', error);
+                        alert('There was an error completing your payment. Please try again.');
+                    });
+            },
+            onError: (err) => {
+                console.error('PayPal Error:', err);
+                alert('There was an error with PayPal. Please try again later.');
             }
         }).render('#paypal-button-container');
     </script>
