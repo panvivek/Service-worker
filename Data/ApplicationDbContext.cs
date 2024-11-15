@@ -19,6 +19,7 @@ namespace ServiceWorkerWebsite.Data
         public DbSet<WorkerService> WorkerServices { get; set; } // Add DbSet for the association table
         public DbSet<Applicationuser> Applicationusers { get; set; } // Consider removing this if not used
         public DbSet<UserAddress> UserAddress { get; set; }
+        //public DbSet<WorkerEarnings> WorkerEarnings { get; set; }
 
 
 

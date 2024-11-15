@@ -15,6 +15,7 @@
     <li class="nav-item"><a asp-controller="UserAddress" asp action="Edit" asp-route-id="@ViewData["UserId"]">Edit Address</a></li>
     @*<li class="nav-item"><a id="history" asp-page="/Bookings/Index">History</a></li> *@
     <li class="nav-item"><a asp-controller="Bookings" asp action="Index">Booking History</a></li>
+    <li class="nav-item"><a asp-controller="WorkerEarnings" asp action="Index" asp-route-id="@ViewData["Worker_Id"]">Total Earnings</a></li>
     @* <li class="nav-item"><a asp-controller="Invoice" asp-action="Index">Invoices</a></li> *@
 </ul>
 @* class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" *@

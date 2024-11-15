@@ -1,0 +1,18 @@
+﻿@model Worker
+
+<h2>Welcome, @Model.User.UserName</h2>
+
+<h3>Your Offered Services:</h3>
+<ul>
+    @if (Model.WorkerServices != null && Model.WorkerServices.Count > 0)
+    {
+        @foreach (var service in Model.WorkerServices)
+        {
+            <li>@service.Service.Name - Price: @Model.Price</li>
+        }
+    }
+    else
+    {
+        <li>You have not added any services yet.</li>
+    }
+</ul>

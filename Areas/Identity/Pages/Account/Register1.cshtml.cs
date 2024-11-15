@@ -165,7 +165,7 @@ namespace ServiceWorkerWebsite.Areas.Identity.Pages.Account
                     await _userManager.AddToRoleAsync(user, Input.Role);
                     if (Input.Role == "Worker")
                     {
-                        return RedirectToAction("Create", "Workers", new { userId = user.Id });
+                        return RedirectToAction("Create", "UserAddress", new { userId = user.Id });
                     }
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
