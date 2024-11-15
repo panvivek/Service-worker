@@ -1,243 +1,537 @@
 @model TimeSlot
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Set Availability";
 }
 
-<div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow-lg border-0 rounded-lg">
-                <div class="card-header bg-purple text-white">
-                    <h3 class="fw-bold my-4">Set Worker Availability</h3>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+<link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
+        color: #374151;
+    }
+
+    .create-container {
+        padding: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .create-card {
+        background: white;
+        border-radius: 16px;
+        padding: 2.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-pattern {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 150px;
+        height: 150px;
+        opacity: 0.05;
+        background: repeating-linear-gradient( 45deg, #8B5CF6, #8B5CF6 10px, transparent 10px, transparent 20px );
+        border-radius: 0 16px 0 100%;
+    }
+
+    .page-title {
+        font-size: 28px;
+        color: #111827;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+        .page-title i {
+            font-size: 32px;
+            color: #8B5CF6;
+        }
+
+    .page-subtitle {
+        color: #6B7280;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+    }
+
+    .form-section {
+        background: #F9FAFB;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid #E5E7EB;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .section-title i {
+            color: #8B5CF6;
+            font-size: 1.25rem;
+        }
+
+    .time-periods {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    .period-option {
+        background: #F3F4F6;
+        border: 2px solid #E5E7EB;
+        border-radius: 8px;
+        padding: 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+        .period-option:hover {
+            border-color: #8B5CF6;
+            background: #F5F3FF;
+        }
+
+        .period-option.active {
+            background: #8B5CF6;
+            border-color: #8B5CF6;
+            color: white;
+        }
+
+        .period-option i {
+            font-size: 1.25rem;
+        }
+
+    .time-slots {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.75rem;
+        margin-top: 1rem;
+        max-height: 300px;
+        overflow-y: auto;
+        padding: 0.5rem;
+        background: white;
+        border: 1px solid #E5E7EB;
+        border-radius: 8px;
+    }
+
+    .time-slot {
+        background: #F3F4F6;
+        border: 1px solid #E5E7EB;
+        border-radius: 6px;
+        padding: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .time-slot:hover {
+            border-color: #8B5CF6;
+            background: #F5F3FF;
+        }
+
+        .time-slot.selected {
+            background: #8B5CF6;
+            border-color: #8B5CF6;
+            color: white;
+        }
+
+    .toggle-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .toggle-switch {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 1rem;
+        background: #8B5CF6;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        margin-top: 2rem;
+    }
+
+        .submit-btn:hover {
+            background: #7C3AED;
+            transform: translateY(-1px);
+        }
+
+    .back-btn {
+        background: #6B7280;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.2s ease;
+    }
+
+        .back-btn:hover {
+            background: #4B5563;
+            color: white;
+        }
+
+    /* Flatpickr customization */
+    .flatpickr-calendar {
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: none;
+    }
+
+    .flatpickr-day.selected {
+        background: #8B5CF6 !important;
+        border-color: #8B5CF6 !important;
+    }
+
+    .flatpickr-day:hover {
+        background: #F5F3FF !important;
+    }
+</style>
+
+<div class="create-container">
+    <div class="create-card">
+        <div class="card-pattern"></div>
+
+        <h1 class="page-title">
+            <i class="ri-calendar-line"></i>
+            Set Your Availability
+        </h1>
+        <p class="page-subtitle">Choose your working dates and hours</p>
+
+        <form asp-action="Create" method="post">
+            <input type="hidden" name="Worker_Id" value="@ViewBag.Worker_Id" />
+
+            <div class="form-section">
+                <h2 class="section-title">
+                    <i class="ri-calendar-check-line"></i>
+                    Available Dates
+                </h2>
+                <input type="text" id="SelectedDates" name="SelectedDates"
+                       class="form-control" placeholder="Select available dates" />
+                <span asp-validation-for="SelectedDates" class="text-danger"></span>
+            </div>
+
+            <div class="form-section">
+                <div class="toggle-section">
+                    <h2 class="section-title">
+                        <i class="ri-time-line"></i>
+                        Time Periods
+                    </h2>
+                    <div class="toggle-switch">
+                        <span>Select All</span>
+                        <input type="checkbox" id="selectAllPeriods" class="hidden-checkbox" />
+                        <label for="selectAllPeriods" class="toggle-label"></label>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <form asp-action="Create" method="post">
-                        <div class="form-group mb-4">
-                            <label for="Worker_Id" class="text-muted">Worker ID</label>
-                            <input type="hidden" name="Worker_Id" value="@ViewBag.Worker_Id" class="form-control" readonly />
-                        </div>
 
-                        <div class="form-group mb-4">
-                            <label for="SelectedDates" class="text-muted">Select Available Dates</label>
-                            <input type="text" id="SelectedDates" name="SelectedDates" class="form-control custom-datepicker" placeholder="Select dates" />
-                            <span class="text-danger" asp-validation-for="SelectedDates"></span>
-                        </div>
-
-                        <div class="form-group mb-4">
-                            <label class="text-muted fw-bold">Select Time Periods</label>
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="text-muted">Available Time Periods:</span>
-                                <div class="form-check form-switch">
-                                    <input type="checkbox" class="form-check-input" id="selectAllPeriods">
-                                    <label class="form-check-label" for="selectAllPeriods">Select All</label>
-                                </div>
-                            </div>
-                            <div class="btn-group-toggle d-flex flex-wrap" data-toggle="buttons" id="periodSelection">
-                                <label class="btn btn-outline-purple m-1">
-                                    <input type="checkbox" id="morning" autocomplete="off"> Morning (6 AM - 12 PM)
-                                </label>
-                                <label class="btn btn-outline-purple m-1">
-                                    <input type="checkbox" id="afternoon" autocomplete="off"> Afternoon (12 PM - 6 PM)
-                                </label>
-                                <label class="btn btn-outline-purple m-1">
-                                    <input type="checkbox" id="evening" autocomplete="off"> Evening (6 PM - 9 PM)
-                                </label>
-                                <label class="btn btn-outline-purple m-1">
-                                    <input type="checkbox" id="night" autocomplete="off"> Night (9 PM - 6 AM)
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group mb-4">
-                            <label class="text-muted fw-bold">Select 45-Minute Time Slots</label>
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="text-muted">Available Time Slots:</span>
-                                <div class="form-check form-switch">
-                                    <input type="checkbox" class="form-check-input" id="selectAllSlots">
-                                    <label class="form-check-label" for="selectAllSlots">Select All</label>
-                                </div>
-                            </div>
-                            <div id="timeSlotsContainer" class="form-control overflow-auto" style="height: 150px;">
-                                <!-- Time slots will be dynamically added here with checkboxes -->
-                            </div>
-                        </div>
-
-                        <div class="form-group mb-4">
-                            <button type="submit" class="btn btn-purple btn-block">Submit Availability</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="card-footer text-end">
-                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                <div class="time-periods" id="periodSelection">
+                    <div class="period-option" data-period="morning">
+                        <i class="ri-sun-line"></i>
+                        <span>Morning</span>
+                        <input type="checkbox" id="morning" class="hidden-checkbox" />
+                    </div>
+                    <div class="period-option" data-period="afternoon">
+                        <i class="ri-sun-foggy-line"></i>
+                        <span>Afternoon</span>
+                        <input type="checkbox" id="afternoon" class="hidden-checkbox" />
+                    </div>
+                    <div class="period-option" data-period="evening">
+                        <i class="ri-moon-foggy-line"></i>
+                        <span>Evening</span>
+                        <input type="checkbox" id="evening" class="hidden-checkbox" />
+                    </div>
+                    <div class="period-option" data-period="night">
+                        <i class="ri-moon-line"></i>
+                        <span>Night</span>
+                        <input type="checkbox" id="night" class="hidden-checkbox" />
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <div class="form-section">
+                <div class="toggle-section">
+                    <h2 class="section-title">
+                        <i class="ri-time-fill"></i>
+                        Time Slots
+                    </h2>
+                    <div class="toggle-switch">
+                        <span>Select All</span>
+                        <input type="checkbox" id="selectAllSlots" class="hidden-checkbox" />
+                        <label for="selectAllSlots" class="toggle-label"></label>
+                    </div>
+                </div>
+
+                <div class="time-slots" id="timeSlotsContainer">
+                    <!-- Time slots will be added here dynamically -->
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="ri-save-line"></i>
+                Save Availability
+            </button>
+        </form>
     </div>
 </div>
-
 @section Scripts {
-    @Html.RenderPartialAsync("_ValidationScriptsPartial")
-
-    <!-- Flatpickr CSS and JS -->
-    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
     <script>
-        // Initialize Flatpickr
-        flatpickr("#SelectedDates", {
-            mode: "multiple",
-            dateFormat: "Y-m-d",
-            theme: "material_purple",
-            onClose: function (selectedDates) {
-                const datesString = selectedDates.map(date => date.toISOString().split('T')[0]).join(',');
-                document.getElementById('SelectedDates').value = datesString;
-            }
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Flatpickr
+            flatpickr("#SelectedDates", {
+                mode: "multiple",
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                showMonths: 2,
+                inline: true,
+                onClose: function(selectedDates) {
+                    const datesString = selectedDates.map(date => 
+                        date.toISOString().split('T')[0]).join(',');
+                    document.getElementById('SelectedDates').value = datesString;
+                }
+            });
 
-        // Existing JavaScript for time period and time slots
-        document.addEventListener('DOMContentLoaded', function () {
-            const timeSlotsContainer = document.getElementById('timeSlotsContainer');
-            const selectAllPeriodsCheckbox = document.getElementById('selectAllPeriods');
-            const selectAllSlotsCheckbox = document.getElementById('selectAllSlots');
-            const periodSelection = document.getElementById('periodSelection');
-
-            const morningSlots = ['6:00-6:45 AM', '6:45-7:30 AM', '7:30-8:15 AM', '8:15-9:00 AM'];
-            const afternoonSlots = ['12:00-12:45 PM', '12:45-1:30 PM', '1:30-2:15 PM', '2:15-3:00 PM'];
-            const eveningSlots = ['6:00-6:45 PM', '6:45-7:30 PM', '7:30-8:15 PM', '8:15-9:00 PM'];
-            const nightSlots = ['9:00-9:45 PM', '9:45-10:30 PM', '10:30-11:15 PM', '11:15-12:00 AM'];
-
-            const periodSlotMap = {
-                'morning': morningSlots,
-                'afternoon': afternoonSlots,
-                'evening': eveningSlots,
-                'night': nightSlots
+            // Time slots configuration
+            const timeSlotConfig = {
+                morning: {
+                    icon: 'ri-sun-line',
+                    slots: [
+                        '6:00-6:45 AM', '6:45-7:30 AM', '7:30-8:15 AM', 
+                        '8:15-9:00 AM', '9:00-9:45 AM', '9:45-10:30 AM', 
+                        '10:30-11:15 AM', '11:15-12:00 PM'
+                    ]
+                },
+                afternoon: {
+                    icon: 'ri-sun-foggy-line',
+                    slots: [
+                        '12:00-12:45 PM', '12:45-1:30 PM', '1:30-2:15 PM',
+                        '2:15-3:00 PM', '3:00-3:45 PM', '3:45-4:30 PM',
+                        '4:30-5:15 PM', '5:15-6:00 PM'
+                    ]
+                },
+                evening: {
+                    icon: 'ri-moon-foggy-line',
+                    slots: [
+                        '6:00-6:45 PM', '6:45-7:30 PM', '7:30-8:15 PM',
+                        '8:15-9:00 PM'
+                    ]
+                },
+                night: {
+                    icon: 'ri-moon-line',
+                    slots: [
+                        '9:00-9:45 PM', '9:45-10:30 PM', '10:30-11:15 PM',
+                        '11:15-12:00 AM'
+                    ]
+                }
             };
 
-            periodSelection.querySelectorAll('label').forEach(label => {
-                label.querySelector('input').addEventListener('change', function () {
-                    const period = this.id;
-                    const slots = periodSlotMap[period];
+            const timeSlotsContainer = document.getElementById('timeSlotsContainer');
+            const periodOptions = document.querySelectorAll('.period-option');
+            const selectAllPeriodsCheckbox = document.getElementById('selectAllPeriods');
+            const selectAllSlotsCheckbox = document.getElementById('selectAllSlots');
 
-                    if (this.checked) {
-                        label.classList.add('active', 'btn-purple');
-                        addTimeSlots(slots);
-                    } else {
-                        label.classList.remove('active', 'btn-purple');
-                        removeTimeSlots(slots);
+            // Store active time slots
+            let activeTimeSlots = new Set();
+
+            function createTimeSlotElement(slot, period) {
+                const slotId = `${period}-${slot.replace(/[:\s]/g, '')}`;
+                const timeSlotDiv = document.createElement('div');
+                timeSlotDiv.className = 'time-slot';
+                timeSlotDiv.dataset.period = period;
+                timeSlotDiv.dataset.slotId = slotId;
+                timeSlotDiv.innerHTML = `
+                    <i class="${timeSlotConfig[period].icon}"></i>
+                    <span>${slot}</span>
+                    <input type="checkbox" name="TimeSlots" value="${slot}" 
+                           class="hidden-checkbox" id="${slotId}">
+                `;
+                return timeSlotDiv;
+            }
+
+            function updateTimeSlots() {
+                // Clear existing time slots
+                timeSlotsContainer.innerHTML = '';
+                activeTimeSlots.clear();
+
+                // Add time slots for selected periods
+                periodOptions.forEach(option => {
+                    if (option.classList.contains('active')) {
+                        const period = option.dataset.period;
+                        timeSlotConfig[period].slots.forEach(slot => {
+                            const timeSlotElement = createTimeSlotElement(slot, period);
+                            timeSlotsContainer.appendChild(timeSlotElement);
+                            activeTimeSlots.add(timeSlotElement.dataset.slotId);
+                        });
                     }
-
-                    // Check if all period checkboxes are checked, then check the "Select All" checkbox
-                    const allPeriodsChecked = periodSelection.querySelectorAll('input:checked').length === periodSelection.querySelectorAll('input').length;
-                    selectAllPeriodsCheckbox.checked = allPeriodsChecked;
                 });
-            });
 
-            function addTimeSlots(slots) {
-                slots.forEach(slot => {
-                    const slotDiv = document.createElement('div');
-                    slotDiv.classList.add('form-check', 'form-check-inline', 'm-1');
-
-                    const input = document.createElement('input');
-                    input.type = 'checkbox';
-                    input.classList.add('form-check-input', 'slot-checkbox');
-                    input.id = slot;
-                    input.value = slot;
-                    input.name = 'TimeSlots';
-
-                    const label = document.createElement('label');
-                    label.classList.add('form-check-label');
-                    label.htmlFor = slot;
-                    label.textContent = slot;
-
-                    slotDiv.appendChild(input);
-                    slotDiv.appendChild(label);
-
-                    timeSlotsContainer.appendChild(slotDiv);
+                // Add click handlers to time slots
+                document.querySelectorAll('.time-slot').forEach(slot => {
+                    slot.addEventListener('click', function() {
+                        const checkbox = this.querySelector('input[type="checkbox"]');
+                        checkbox.checked = !checkbox.checked;
+                        this.classList.toggle('selected', checkbox.checked);
+                        updateSelectAllSlotsState();
+                    });
                 });
             }
 
-            function removeTimeSlots(slots) {
-                slots.forEach(slot => {
-                    const checkbox = document.getElementById(slot);
-                    if (checkbox) {
-                        timeSlotsContainer.removeChild(checkbox.parentElement);
-                    }
-                });
-            }
-
-            selectAllSlotsCheckbox.addEventListener('change', function () {
-                const slotCheckboxes = document.querySelectorAll('.slot-checkbox');
-                slotCheckboxes.forEach(checkbox => {
-                    checkbox.checked = selectAllSlotsCheckbox.checked;
+            // Period selection handling
+            periodOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const checkbox = this.querySelector('input[type="checkbox"]');
+                    checkbox.checked = !checkbox.checked;
+                    this.classList.toggle('active', checkbox.checked);
+                    updateTimeSlots();
+                    updateSelectAllPeriodsState();
                 });
             });
 
-            // Select All Periods functionality
-            selectAllPeriodsCheckbox.addEventListener('change', function () {
-                const periodCheckboxes = periodSelection.querySelectorAll('input');
-                periodCheckboxes.forEach(checkbox => {
-                    checkbox.checked = selectAllPeriodsCheckbox.checked;
-                    const label = checkbox.parentElement;
-                    if (selectAllPeriodsCheckbox.checked) {
-                        label.classList.add('active', 'btn-purple');
-                        addTimeSlots(periodSlotMap[checkbox.id]);
-                    } else {
-                        label.classList.remove('active', 'btn-purple');
-                        removeTimeSlots(periodSlotMap[checkbox.id]);
-                    }
+            // Select All Periods handling
+            selectAllPeriodsCheckbox.addEventListener('change', function() {
+                periodOptions.forEach(option => {
+                    option.classList.toggle('active', this.checked);
+                    option.querySelector('input[type="checkbox"]').checked = this.checked;
                 });
+                updateTimeSlots();
+            });
+
+            // Select All Slots handling
+            selectAllSlotsCheckbox.addEventListener('change', function() {
+                const timeSlots = document.querySelectorAll('.time-slot');
+                timeSlots.forEach(slot => {
+                    const checkbox = slot.querySelector('input[type="checkbox"]');
+                    checkbox.checked = this.checked;
+                    slot.classList.toggle('selected', this.checked);
+                });
+            });
+
+            function updateSelectAllPeriodsState() {
+                const totalPeriods = periodOptions.length;
+                const selectedPeriods = document.querySelectorAll('.period-option.active').length;
+                selectAllPeriodsCheckbox.checked = totalPeriods === selectedPeriods;
+            }
+
+            function updateSelectAllSlotsState() {
+                const visibleSlots = document.querySelectorAll('.time-slot');
+                const selectedSlots = document.querySelectorAll('.time-slot.selected');
+                selectAllSlotsCheckbox.checked = visibleSlots.length > 0 && 
+                    visibleSlots.length === selectedSlots.length;
+            }
+
+            // Form validation
+            document.querySelector('form').addEventListener('submit', function(e) {
+                const selectedDates = document.getElementById('SelectedDates').value;
+                const selectedSlots = document.querySelectorAll('input[name="TimeSlots"]:checked');
+
+                if (!selectedDates) {
+                    e.preventDefault();
+                    alert('Please select at least one date');
+                    return;
+                }
+
+                if (selectedSlots.length === 0) {
+                    e.preventDefault();
+                    alert('Please select at least one time slot');
+                    return;
+                }
+
+                // Add loading state to submit button
+                const submitBtn = this.querySelector('.submit-btn');
+                submitBtn.innerHTML = '<i class="ri-loader-4-line"></i> Saving...';
+                submitBtn.style.opacity = '0.7';
+                submitBtn.disabled = true;
             });
         });
     </script>
 
     <style>
-        /* Purple Theme Colors */
-        .bg-purple {
-            background-color: #6a1b9a !important;
+        .hidden-checkbox {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
         }
 
-        .btn-purple {
-            background-color: #8e24aa !important;
-            border-color: #8e24aa !important;
-            color: #fff !important;
+        /* Custom toggle switch styling */
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
-        .btn-purple:hover {
-            background-color: #7b1fa2 !important;
-            border-color: #7b1fa2 !important;
+        .toggle-label {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+            background-color: #E5E7EB;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
 
-        .btn-outline-purple {
-            color: #6a1b9a !important;
-            border-color: #6a1b9a !important;
+        .toggle-label:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+            top: 2px;
+            left: 2px;
+            transition: all 0.2s ease;
         }
 
-        .btn-outline-purple.active, .btn-outline-purple:hover {
-            background-color: #6a1b9a !important;
-            color: #fff !important;
+        .hidden-checkbox:checked + .toggle-label {
+            background-color: #8B5CF6;
         }
 
-        /* Flatpickr Custom Styles */
-        .custom-datepicker .flatpickr-day.selected,
-        .custom-datepicker .flatpickr-day.startRange,
-        .custom-datepicker .flatpickr-day.endRange {
-            background: #8e24aa !important;
-            border-color: #8e24aa !important;
+        .hidden-checkbox:checked + .toggle-label:after {
+            transform: translateX(24px);
         }
 
-        .form-check-input:checked {
-            background-color: #6a1b9a !important;
-            border-color: #6a1b9a !important;
-        }
+       
 
-        .card {
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .form-control {
-            border-radius: 8px;
+        .ri-loader-4-line {
+            animation: spin 1s linear infinite;
         }
     </style>
 }

@@ -1,44 +1,49 @@
-﻿@model ServiceWorkerWebsite.Models.Booking
+﻿@model Booking
 
-@{
-    ViewData["Title"] = "Details";
-}
-
-<h1>Details</h1>
-
-<div>
-    <h4>Booking</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Worker_Id)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Worker_Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BookingDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BookingDate)
-        </dd>
-       
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AgreeToTerms)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AgreeToTerms)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Service)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Service.Service_Id)
-        </dd>
-    
-    </dl>
+<div class="booking-details-modal">
+    <div class="booking-details-content">
+        <h2>Booking Details</h2>
+        <p><strong>Customer:</strong> @Model.Worker.User.Firstname @Model.Worker.User.Lastname</p>
+        <p><strong>Contact:</strong> @Model.Worker.User.PhoneNumber</p>
+        <p><strong>Service:</strong> @Model.Service.Name</p>
+        <p><strong>Booking Date:</strong> @Model.BookingDate.ToString("yyyy-MM-dd")</p>
+        <p><strong>Time Slot:</strong> @Model.TimeSlot.TimeSlots</p>
+        <button class="close-btn" onclick="closeBookingDetails()">Close</button>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+<style>
+    .booking-details-modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .booking-details-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 30%;
+    }
+
+    .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+</style>

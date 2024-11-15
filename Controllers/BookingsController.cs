@@ -376,11 +376,57 @@ public async Task<JsonResult> GetAvailableSlots([FromBody] WorkerRequest request
             var booking = await _context.Booking
                 .Include(b => b.Service)
                 .Include(b => b.Worker)
+                    .ThenInclude(w => w.User)
+                .Include(b => b.TimeSlot)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            if (booking == null)
+            if (booking == null || booking.TimeSlot == null)
             {
                 return NotFound();
+            }
+
+            try
+            {
+                // Parse the selected date from TimeSlot (format: yyyy-MM-dd)
+                if (DateTime.TryParseExact(booking.TimeSlot.SelectedDates, "yyyy-MM-dd", null,
+                    System.Globalization.DateTimeStyles.None, out DateTime selectedDate))
+                {
+                    // Parse time from TimeSlots (format: "10:30-11:15 PM")
+                    var startTime = booking.TimeSlot.TimeSlots.Split('-')[0].Trim();
+
+                    // Combine date and time
+                    if (DateTime.TryParse($"{selectedDate.ToString("yyyy-MM-dd")} {startTime}", out DateTime appointmentDateTime))
+                    {
+                        var is24HoursBefore = appointmentDateTime > DateTime.Now.AddHours(24);
+
+                        ViewData["CanCancel"] = is24HoursBefore;
+                        ViewData["AppointmentDateTime"] = selectedDate;
+
+                        // Debug logging
+                        Console.WriteLine($"Selected Date: {selectedDate}");
+                        Console.WriteLine($"Time Slot: {startTime}");
+                        Console.WriteLine($"Appointment Time: {appointmentDateTime}");
+                        Console.WriteLine($"Current Time: {DateTime.Now}");
+                        Console.WriteLine($"24h from now: {DateTime.Now.AddHours(24)}");
+                        Console.WriteLine($"Can Cancel: {is24HoursBefore}");
+                    }
+                    else
+                    {
+                        ViewData["CanCancel"] = false;
+                        ViewData["AppointmentDateTime"] = selectedDate;
+                    }
+                }
+                else
+                {
+                    ViewData["CanCancel"] = false;
+                    ViewData["AppointmentDateTime"] = DateTime.Now;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in date parsing: {ex.Message}");
+                ViewData["CanCancel"] = false;
+                ViewData["AppointmentDateTime"] = DateTime.Now;
             }
 
             return View(booking);
@@ -391,14 +437,61 @@ public async Task<JsonResult> GetAvailableSlots([FromBody] WorkerRequest request
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var booking = await _context.Booking.FindAsync(id);
-            if (booking != null)
+            var booking = await _context.Booking
+                .Include(b => b.TimeSlot)
+                .FirstOrDefaultAsync(b => b.Id == id);
+
+            if (booking == null || booking.TimeSlot == null)
             {
-                _context.Booking.Remove(booking);
+                return NotFound();
             }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                // Parse the selected date from TimeSlot
+                if (!DateTime.TryParseExact(booking.TimeSlot.SelectedDates, "yyyy-MM-dd", null,
+                    System.Globalization.DateTimeStyles.None, out DateTime selectedDate))
+                {
+                    TempData["ErrorMessage"] = "Invalid appointment date format.";
+                    return RedirectToAction(nameof(Index));
+                }
+
+                // Parse time from TimeSlots
+                var startTime = booking.TimeSlot.TimeSlots.Split('-')[0].Trim();
+                if (!DateTime.TryParse($"{selectedDate.ToString("yyyy-MM-dd")} {startTime}", out DateTime appointmentDateTime))
+                {
+                    TempData["ErrorMessage"] = "Invalid appointment time format.";
+                    return RedirectToAction(nameof(Index));
+                }
+
+                var is24HoursBefore = appointmentDateTime > DateTime.Now.AddHours(24);
+
+                if (!is24HoursBefore)
+                {
+                    TempData["ErrorMessage"] = "Cannot cancel appointments within 24 hours of the scheduled time.";
+                    return RedirectToAction(nameof(Index));
+                }
+
+                // Free up the time slot
+                var timeSlotToUpdate = await _context.TimeSlot_List.FindAsync(booking.TimeSlotId);
+                if (timeSlotToUpdate != null)
+                {
+                    timeSlotToUpdate.IsBooked = false;
+                    _context.TimeSlot_List.Update(timeSlotToUpdate);
+                }
+
+                _context.Booking.Remove(booking);
+                await _context.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = "Booking cancelled successfully.";
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in delete confirmation: {ex.Message}");
+                TempData["ErrorMessage"] = "An error occurred while cancelling the booking.";
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         private bool BookingExists(int id)

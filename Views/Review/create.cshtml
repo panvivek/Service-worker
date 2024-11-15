@@ -1,36 +1,304 @@
 @model ServiceWorkerWebsite.Models.Reviews
 
-<h2>Write a Review</h2>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
 
-<form asp-action="Create" method="post">
-    @Html.AntiForgeryToken()
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
+        color: #374151;
+    }
 
-    <div class="form-group">
-        <label asp-for="RatingValue" class="control-label">Rating (1 to 5)</label>
-        <input asp-for="RatingValue" class="form-control" />
-        <span asp-validation-for="RatingValue" class="text-danger"></span>
+    .review-container {
+        padding: 2rem;
+    }
+
+    .review-card {
+        background: white;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .page-title {
+        font-size: 28px;
+        color: #111827;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+        .page-title i {
+            font-size: 32px;
+            color: #10B981;
+        }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        display: block;
+        font-weight: 500;
+        color: #6B7280;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .form-label i {
+            font-size: 1.25rem;
+            color: #8B5CF6;
+        }
+
+    .rating {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+        .rating i {
+            font-size: 2rem;
+            color: #D1D5DB;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+            .rating i:hover,
+            .rating i.ri-star-fill {
+                color: #FBBF24;
+                transform: scale(1.1);
+            }
+
+    .form-control {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid #E5E7EB;
+        border-radius: 8px;
+        font-size: 1rem;
+        color: #111827;
+        transition: border-color 0.2s ease;
+        background-color: #F9FAFB;
+    }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #8B5CF6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .form-control:read-only {
+            background-color: #F3F4F6;
+            cursor: not-allowed;
+        }
+
+    textarea.form-control {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .text-danger {
+        color: #EF4444;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        display: block;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .action-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        gap: 0.5rem;
+        transition: all 0.2s ease;
+        min-width: 160px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-submit {
+        background-color: #10B981;
+        color: white !important;
+    }
+
+        .btn-submit:hover {
+            background-color: #059669;
+            transform: translateY(-1px);
+        }
+
+    .btn-back {
+        background-color: #6B7280;
+        color: white !important;
+    }
+
+        .btn-back:hover {
+            background-color: #4B5563;
+            transform: translateY(-1px);
+        }
+
+    .card-pattern {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 150px;
+        height: 150px;
+        opacity: 0.05;
+        background: repeating-linear-gradient( 45deg, #10B981, #10B981 10px, transparent 10px, transparent 20px );
+        border-radius: 0 16px 0 100%;
+    }
+
+    .review-info {
+        background-color: #F9FAFB;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid #E5E7EB;
+    }
+
+    .info-row {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #E5E7EB;
+    }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+    .info-label {
+        font-weight: 500;
+        color: #6B7280;
+        width: 140px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .info-label i {
+            font-size: 1.25rem;
+            color: #8B5CF6;
+        }
+
+    .info-value {
+        color: #111827;
+        font-weight: 500;
+    }
+</style>
+
+<div class="review-container">
+    <div class="review-card">
+        <div class="card-pattern"></div>
+
+        <h1 class="page-title">
+            <i class="ri-star-smile-line"></i>
+            Write a Review
+        </h1>
+
+        <div class="review-info">
+            <div class="info-row">
+                <span class="info-label">
+                    <i class="ri-user-star-line"></i>
+                    Customer
+                </span>
+                <span class="info-value">@ViewBag.CustomerName</span>
+            </div>
+        </div>
+
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label class="form-label">
+                    <i class="ri-star-line"></i>
+                    Rating
+                </label>
+                <div class="rating" id="rating">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        <i class="ri-star-line" data-value="@i"></i>
+                    }
+                </div>
+                <input type="hidden" asp-for="RatingValue" id="ratingValue" />
+                <span asp-validation-for="RatingValue" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Comment" class="form-label">
+                    <i class="ri-message-3-line"></i>
+                    Your Review
+                </label>
+                <textarea asp-for="Comment" class="form-control" rows="4"
+                          placeholder="Share your experience with this service..."></textarea>
+                <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+
+            <input type="hidden" asp-for="CustomerName" value="@ViewBag.CustomerName" />
+            <input type="hidden" asp-for="Worker_Id" value="@ViewBag.WorkerId" />
+            <input type="hidden" asp-for="Service_Id" value="@ViewBag.ServiceId" />
+
+            <div class="actions">
+                <button type="submit" class="action-btn btn-submit">
+                    <i class="ri-send-plane-line"></i>
+                    Submit Review
+                </button>
+                <a asp-controller="Bookings" asp-action="Index" class="action-btn btn-back">
+                    <i class="ri-arrow-left-line"></i>
+                    Back to Bookings
+                </a>
+            </div>
+        </form>
     </div>
-
-    <div class="form-group">
-        <label asp-for="Comment" class="control-label">Comment</label>
-        <textarea asp-for="Comment" class="form-control"></textarea>
-        <span asp-validation-for="Comment" class="text-danger"></span>
-    </div>
-
-    <!-- Automatically populate customer name (hidden field) -->
-    <div class="form-group">
-        <label class="control-label">Customer Name</label>
-        <input asp-for="CustomerName" class="form-control" value="@ViewBag.CustomerName" readonly />
-    </div>
-
-    <!-- Hidden field to store the Worker_Id -->
-    <input type="hidden" asp-for="Worker_Id" value="@ViewBag.WorkerId" />
-    <input type="hidden" asp-for="Service_Id" value="@ViewBag.ServiceId" />
-    <div class="form-group">
-        <input type="submit" value="Submit Review" class="btn btn-primary" />
-    </div>
-</form>
-
-<div>
-    <a asp-controller="Workers" asp-action="Details" asp-route-id="@ViewBag.WorkerId">Back to Worker Details</a>
 </div>
+
+<script>
+    const stars = document.querySelectorAll('.rating i');
+    stars.forEach(star => {
+        star.addEventListener('click', function () {
+            const ratingValue = this.getAttribute('data-value');
+            document.getElementById('ratingValue').value = ratingValue;
+
+            stars.forEach(s => {
+                s.classList.remove('ri-star-fill');
+                s.classList.add('ri-star-line');
+            });
+            for (let i = 0; i < ratingValue; i++) {
+                stars[i].classList.remove('ri-star-line');
+                stars[i].classList.add('ri-star-fill');
+            }
+        });
+
+        // Add hover effect
+        star.addEventListener('mouseover', function () {
+            const value = this.getAttribute('data-value');
+            for (let i = 0; i < value; i++) {
+                stars[i].classList.add('hover');
+            }
+        });
+
+        star.addEventListener('mouseout', function () {
+            stars.forEach(s => s.classList.remove('hover'));
+        });
+    });
+</script>

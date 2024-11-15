@@ -1,215 +1,345 @@
 ﻿@model ServiceWorkerWebsite.Models.Booking
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Booking";
 }
 
-<h1>Edit</h1>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
 
-<h4>Booking</h4>
-<hr />
-<div class="row">
-    <div class="col-md-6">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
+        color: #374151;
+    }
+
+    .edit-container {
+        padding: 2rem;
+    }
+
+    .edit-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .page-title {
+        font-size: 28px;
+        color: #111827;
+        margin-bottom: 1rem;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    .calendar-section {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+    }
+
+    /* Hide the date input */
+    .flatpickr-input {
+        display: none;
+    }
+
+    /* Time Slot Styles */
+    .time-slot-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 12px;
+        margin-top: 1rem;
+    }
+
+    .time-slot {
+        padding: 12px;
+        border: 2px solid #E5E7EB;
+        border-radius: 8px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        color: #374151;
+        font-size: 14px;
+    }
+
+        .time-slot:hover {
+            border-color: #8B5CF6;
+        }
+
+        .time-slot.selected {
+            background-color: #8B5CF6;
+            color: white;
+            border-color: #8B5CF6;
+        }
+
+    /* Current Booking Section */
+    .current-booking {
+        background-color: #F3F4F6;
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1.5rem 0;
+        text-align: center;
+    }
+
+        .current-booking p {
+            color: #6B7280;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .current-booking strong {
+            color: #111827;
+        }
+
+    /* Form Elements */
+    .form-check {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1.5rem 0;
+    }
+
+    .form-check-input {
+        margin-right: 0.5rem;
+    }
+
+    .form-check-label {
+        color: #374151;
+        font-size: 14px;
+    }
+
+    /* Submit Button */
+    .submit-btn-container {
+        text-align: center;
+    }
+
+    .submit-btn {
+        background-color: #8B5CF6;
+        color: white !important;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* Flatpickr Customization */
+    .flatpickr-calendar {
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: none;
+        margin: 0 auto;
+    }
+
+    .flatpickr-day.selected {
+        background: #8B5CF6 !important;
+        border-color: #8B5CF6 !important;
+    }
+
+    .text-danger {
+        color: #EF4444;
+        font-size: 14px;
+        margin-top: 0.25rem;
+        text-align: center;
+    }
+
+    .section-title {
+        color: #111827;
+        font-size: 16px;
+        margin: 1.5rem 0 1rem;
+        text-align: center;
+    }
+</style>
+
+<div class="edit-container">
+    <div class="edit-card">
+        <h1 class="page-title">Edit Booking</h1>
+
         <form asp-action="Edit" id="bookingForm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="Worker_Id" value="@Model.Worker_Id" />
             <input type="hidden" asp-for="Service_Id" value="@Model.Service_Id" />
-        <input type="hidden" asp-for="TimeSlotId" value="@ViewData["TimeSlotId"]" />
+            <input type="hidden" asp-for="TimeSlotId" value="@ViewData["TimeSlotId"]" />
 
-
-            <!-- Calendar Date Picker -->
-            <div class="form-group">
-                <label for="BookingDate">Select Date</label>
-                <input type="text" class="form-control custom-datepicker" id="BookingDate" readonly />
+            <!-- Calendar Section -->
+            <div class="calendar-section">
+                <input type="text" id="BookingDate" readonly />
             </div>
 
-            <!-- Time Slot Picker -->
-            <div class="form-group">
-                <label for="TimeSlotId">Select Time Slot</label>
-                <div class="time-slot-container" id="TimeSlotContainer">
-                    <div class="time-slot" data-value="">Please select a time slot</div>
-                </div>
+            <!-- Current Booking Section - Simplified -->
+            <div id="CurrentTimeSlot" class="current-booking" style="display: none;">
+                <p>Currently Selected Time: <strong><span id="CurrentTimeSlotValue"></span></strong></p>
             </div>
 
-            <!-- Current Booking Section -->
-            <div id="CurrentTimeSlot" style="display: none; margin-top: 20px;">
-                <h4>Current Booking</h4>
-                <p>Date: <span id="CurrentTimeSlotDate"></span></p>
-                <p>Time Slot: <span id="CurrentTimeSlotValue"></span></p>
+            <!-- Time Slots Section -->
+            <h3 class="section-title">Available Time Slots</h3>
+            <div class="time-slot-container" id="TimeSlotContainer">
+                <div class="time-slot" data-value="">Please select a time slot</div>
             </div>
 
-            <!-- Terms and Conditions -->
-            <div class="form-group form-check">
+            <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="agreeToTerms" asp-for="AgreeToTerms" />
-                <label class="form-check-label" for="agreeToTerms">I agree to the Terms and Conditions</label>
-                <span asp-validation-for="AgreeToTerms" class="text-danger"></span>
+                <label class="form-check-label" for="agreeToTerms">
+                    I agree to the Terms and Conditions
+                </label>
             </div>
+            <span asp-validation-for="AgreeToTerms" class="text-danger"></span>
 
-            <!-- Submit -->
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="submit-btn-container">
+                <button type="submit" class="submit-btn">
+                    <i class="ri-save-line"></i> Save Changes
+                </button>
             </div>
         </form>
     </div>
 </div>
 
-<!-- Custom Styles and Script Section -->
-@section Scripts {
-    <!-- Flatpickr CSS and JS -->
-    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+@* Keep all the previous HTML and CSS the same *@
 
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var workerId = document.getElementById("Worker_Id").value;
             var serviceId = document.getElementById("Service_Id").value;
             var TimeSlotId = document.getElementById("TimeSlotId").value;
+            let flatpickrInstance;
 
-           
-
-            // Fetch available slots and initialize calendar
             fetch('/Bookings/EditAvailableSlots', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'RequestVerificationToken': document.getElementsByName('__RequestVerificationToken')[0].value
                 },
-                body: JSON.stringify({ workerId: parseInt(workerId), serviceId: parseInt(serviceId), TimeSlotId: parseInt(TimeSlotId) })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log("Available Slots Data:", data); // Log the fetched data to inspect
-
-                    if (data.availableSlots.length === 0) {
-                        console.error('No available slots found for this worker.');
-                        return;
-                    }
-
-                    // Initialize Flatpickr
-                    flatpickr("#BookingDate", {
-                        enable: data.availableSlots.map(item => item.date),
-                        onChange: function (selectedDates) {
-                            var selectedDate = selectedDates[0].toISOString().split('T')[0];
-                            console.log("Selected Date:", selectedDate); // Log the selected date
-                            loadTimeSlots(selectedDate, data.availableSlots, data.currentBooking);
-                        },
-                        defaultDate: new Date(),
-                        inline: true,
-                        dateFormat: "Y-m-d",
-                        showMonths: 1,
-                        disableMobile: true
-                    });
-
-                    // Check if currentBooking exists and display it
-                    if (data.currentBooking) {
-                        console.log("Current Booking Data:", data.currentBooking); // Log current booking data
-                        document.getElementById("CurrentTimeSlot").style.display = "block"; // Make the section visible
-                        document.getElementById("CurrentTimeSlotDate").innerText = data.currentBooking.date; // Show current booking date
-                        document.getElementById("CurrentTimeSlotValue").innerText = data.currentBooking.timeSlots;
-                      
-                    } else {
-                        console.log("Current Booking is undefined."); // Log if current booking is undefined
-                    }
+                body: JSON.stringify({ 
+                    workerId: parseInt(workerId), 
+                    serviceId: parseInt(serviceId), 
+                    TimeSlotId: parseInt(TimeSlotId) 
                 })
-                .catch(error => console.error('Error fetching available slots:', error));
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Available Slots Data:", data);
+
+                if (data.availableSlots.length === 0) {
+                    console.error('No available slots found for this worker.');
+                    return;
+                }
+
+                // Initialize Flatpickr with the current booking date
+                flatpickrInstance = flatpickr("#BookingDate", {
+                    enable: data.availableSlots.map(item => item.date),
+                    onChange: function (selectedDates) {
+                        var selectedDate = selectedDates[0].toISOString().split('T')[0];
+                        console.log("Selected Date:", selectedDate);
+                        loadTimeSlots(selectedDate, data.availableSlots, data.currentBooking);
+                    },
+                    defaultDate: data.currentBooking ? data.currentBooking.date : new Date(),
+                    inline: true,
+                    dateFormat: "Y-m-d",
+                    showMonths: 1,
+                    disableMobile: true
+                });
+
+                // If there's a current booking, load its time slots immediately
+                if (data.currentBooking) {
+                    console.log("Current Booking Data:", data.currentBooking);
+                    document.getElementById("CurrentTimeSlot").style.display = "block";
+                    document.getElementById("CurrentTimeSlotValue").innerText = data.currentBooking.timeSlots;
+
+                    // Load time slots for the current booking date immediately
+                    loadTimeSlots(data.currentBooking.date, data.availableSlots, data.currentBooking);
+                } else {
+                    // If no current booking, load time slots for the default selected date
+                    const defaultDate = flatpickrInstance.selectedDates[0];
+                    if (defaultDate) {
+                        const formattedDate = defaultDate.toISOString().split('T')[0];
+                        loadTimeSlots(formattedDate, data.availableSlots, null);
+                    }
+                }
+            })
+            .catch(error => console.error('Error fetching available slots:', error));
         });
 
         function loadTimeSlots(selectedDate, availableSlots, currentBooking) {
             var timeSlotContainer = document.getElementById("TimeSlotContainer");
-            timeSlotContainer.innerHTML = '<div class="time-slot" data-value="">Please select a time slot</div>'; // Reset the container
+            timeSlotContainer.innerHTML = ''; // Clear existing slots
 
             // Find the selected date's time slots
             var selectedData = availableSlots.find(d => d.date === selectedDate);
 
             if (!selectedData) {
-                console.log("No time slots available for the selected date:", selectedDate);
+                console.log("No time slots available for selected date:", selectedDate);
                 timeSlotContainer.innerHTML = '<div class="time-slot">No available time slots for this date.</div>';
                 return;
             }
 
             var selectedTimeSlots = selectedData.timeSlots || [];
-            console.log("Time slots for selected date:", selectedTimeSlots); // Log time slots for selected date
+            console.log("Time slots for selected date:", selectedTimeSlots);
 
-            // Sort time slots by their actual time
-            selectedTimeSlots.sort((a, b) => a.timeSlots.localeCompare(b.timeSlots));
+            // Sort time slots chronologically
+            selectedTimeSlots.sort((a, b) => {
+                const timeA = a.timeSlots.split('-')[0].trim();
+                const timeB = b.timeSlots.split('-')[0].trim();
+                return timeA.localeCompare(timeB);
+            });
 
             selectedTimeSlots.forEach(function (slot) {
                 var timeSlotDiv = document.createElement('div');
                 timeSlotDiv.className = 'time-slot';
-                timeSlotDiv.innerText = slot.timeSlots; // Display the time slot
-                timeSlotDiv.dataset.value = slot.timeSlotId; // Set timeSlotId as value
+                timeSlotDiv.innerText = slot.timeSlots;
+                timeSlotDiv.dataset.value = slot.timeSlotId;
+
+                // Auto-select the current booking's time slot
+                if (currentBooking && currentBooking.timeSlotId === slot.timeSlotId) {
+                    timeSlotDiv.classList.add('selected');
+                    document.getElementById("TimeSlotId").value = slot.timeSlotId;
+                }
 
                 timeSlotDiv.addEventListener('click', function () {
-                    document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('selected'));
+                    document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
                     timeSlotDiv.classList.add('selected');
-                    document.getElementById("TimeSlotId").value = timeSlotDiv.dataset.value; // Update hidden input with timeSlotId
+                    document.getElementById("TimeSlotId").value = slot.timeSlotId;
+                    
+                    // Update the current time slot display
+                    document.getElementById("CurrentTimeSlot").style.display = "block";
+                    document.getElementById("CurrentTimeSlotValue").innerText = slot.timeSlots;
                 });
 
                 timeSlotContainer.appendChild(timeSlotDiv);
             });
 
-            // Highlight the current booking time slot without checking the selected date
-            if (currentBooking) {
-                const currentTimeSlot = selectedTimeSlots.find(slot => slot.timeSlotId === currentBooking.timeSlotId);
-                if (currentTimeSlot) {
-                    // Highlight the current booking time slot
-                    const selectedSlotDiv = Array.from(timeSlotContainer.children).find(div => div.dataset.value == currentTimeSlot.timeSlotId);
-                    if (selectedSlotDiv) {
-                        selectedSlotDiv.classList.add('selected'); // Highlight it as selected
-                        document.getElementById("TimeSlotId").value = currentTimeSlot.timeSlotId; // Set the hidden input value
-                    }
-                }
-            }
-
-            // Message for no available time slots
             if (selectedTimeSlots.length === 0) {
-                var noSlotsDiv = document.createElement('div');
-                noSlotsDiv.className = 'time-slot';
-                noSlotsDiv.innerText = "No available time slots for this date.";
-                timeSlotContainer.appendChild(noSlotsDiv);
+                timeSlotContainer.innerHTML = '<div class="time-slot">No available time slots for this date.</div>';
             }
         }
 
-        // Prevent form submission if the checkbox is not checked
+        // Form validation
         document.getElementById("bookingForm").addEventListener("submit", function (event) {
             var checkbox = document.getElementById("agreeToTerms");
             if (!checkbox.checked) {
-                event.preventDefault(); // Prevent submission
-                alert("You must agree to the terms and conditions before submitting the form.");
+                event.preventDefault();
+                alert("Please agree to the terms and conditions before proceeding.");
+                return;
+            }
+
+            var timeSlotId = document.getElementById("TimeSlotId").value;
+            if (!timeSlotId) {
+                event.preventDefault();
+                alert("Please select a time slot.");
+                return;
             }
         });
     </script>
-
-    <!-- Custom Calendar Styling -->
-    <style>
-        /* Time Slot Container Styles */
-        .time-slot-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .time-slot {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s, border-color 0.3s;
-            background-color: #f7f7f7;
-        }
-
-            .time-slot:hover {
-                background-color: #e2e2e2;
-                border-color: #1e90ff;
-            }
-
-            .time-slot.selected {
-                background-color: #1e90ff;
-                color: #fff;
-                border-color: #1e90ff;
-            }
-    </style>
 }

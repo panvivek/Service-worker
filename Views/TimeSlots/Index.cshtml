@@ -1,47 +1,418 @@
 ﻿@model IEnumerable<TimeSlot>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "My Schedule";
+    var groupedTimeSlots = Model
+        .GroupBy(t => t.SelectedDates)
+        .OrderBy(g => DateTime.Parse(g.Key));
+
+    string GetTimePeriod(string timeSlot)
+    {
+        var hour = int.Parse(timeSlot.Split(':')[0].Trim());
+        if (timeSlot.Contains("AM"))
+        {
+            if (hour >= 6 && hour < 12) return "Morning";
+        }
+        else
+        {
+            if (hour == 12 || hour < 5) return "Afternoon";
+            if (hour >= 5 && hour < 9) return "Evening";
+            return "Night";
+        }
+        return "Morning";
+    }
 }
 
-<!--If the menu dropdown doesn't work copy paste the lines below this to the html pages that doesnt work with dropdown-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
 
-<h1>Index</h1>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
+        color: #374151;
+    }
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-           
-            <th>
-                @Html.DisplayNameFor(model => model.IsBooked)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Worker)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
+    .create-container {
+        padding: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+    }
 
-            <td>
-                @Html.DisplayFor(modelItem => item.IsBooked)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Worker.Worker_Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TimeSlotId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TimeSlotId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TimeSlotId">Delete</a>
-            </td>
-        </tr>
+    .create-card {
+        background: white;
+        border-radius: 16px;
+        padding: 2.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-pattern {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 150px;
+        height: 150px;
+        opacity: 0.05;
+        background: repeating-linear-gradient(45deg, #8B5CF6, #8B5CF6 10px, transparent 10px, transparent 20px);
+        border-radius: 0 16px 0 100%;
+    }
+
+    .page-title {
+        font-size: 28px;
+        color: #111827;
+        margin-bottom: 2rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+        .page-title i {
+            font-size: 32px;
+            color: #8B5CF6;
+        }
+
+    .stats-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        background: #F9FAFB;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid #E5E7EB;
+    }
+
+    .stat-card {
+        background: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+        text-align: center;
+        border: 1px solid #E5E7EB;
+        transition: transform 0.2s ease;
+    }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+        }
+
+    .stat-value {
+        font-size: 24px;
+        font-weight: 600;
+        color: #8B5CF6;
+    }
+
+    .stat-label {
+        color: #6B7280;
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .add-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: #8B5CF6;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 2rem;
+        transition: all 0.2s ease;
+    }
+
+        .add-btn:hover {
+            background: #7C3AED;
+            transform: translateY(-1px);
+            color: white;
+        }
+
+    .schedule-tabs {
+        display: flex;
+        gap: 0.75rem;
+        background: #F9FAFB;
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tab-button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        background: white;
+        color: #6B7280;
+        border: 1px solid #E5E7EB;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+    }
+
+        .tab-button:hover {
+            border-color: #8B5CF6;
+            color: #8B5CF6;
+        }
+
+        .tab-button.active {
+            background: #8B5CF6;
+            color: white;
+            border-color: #8B5CF6;
+        }
+
+    .schedule-view {
+        display: none;
+    }
+
+        .schedule-view.active {
+            display: block;
+        }
+
+    .date-title {
+        font-size: 1.25rem;
+        color: #111827;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .date-title i {
+            color: #8B5CF6;
+        }
+
+    .time-period {
+        background: #F9FAFB;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #E5E7EB;
+    }
+
+    .period-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #E5E7EB;
+    }
+
+    .period-icon {
+        color: #8B5CF6;
+        font-size: 1.25rem;
+    }
+
+    .period-title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #111827;
+    }
+
+    .period-count {
+        color: #6B7280;
+        font-size: 0.875rem;
+        margin-left: auto;
+    }
+
+    .time-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+
+    .time-card {
+        background: white;
+        border-radius: 8px;
+        padding: 1rem;
+        border: 1px solid #E5E7EB;
+        transition: all 0.2s ease;
+        position: relative;
+    }
+
+        .time-card:hover {
+            border-color: #8B5CF6;
+            transform: translateY(-1px);
+        }
+
+        .time-card.booked {
+            background: #F5F3FF;
+            border-color: #8B5CF6;
+        }
+
+    .time-text {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #374151;
+        font-weight: 500;
+    }
+
+        .time-text i {
+            color: #8B5CF6;
+        }
+
+    .booked-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: #8B5CF6;
+        color: white;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        margin-top: 0.75rem;
+    }
+
+    .delete-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.5rem 0.75rem;
+        background: #FEF2F2;
+        color: #EF4444;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 0.875rem;
+        margin-top: 0.75rem;
+        transition: all 0.2s ease;
+    }
+
+        .delete-btn:hover {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+</style>
+
+<div class="create-container">
+    <div class="create-card">
+        <div class="card-pattern"></div>
+
+        <h1 class="page-title">
+            <i class="ri-calendar-line"></i>
+            My Schedule
+        </h1>
+
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-value">@Model.Count()</div>
+                <div class="stat-label">Total Time Slots</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">@Model.Count(x => x.IsBooked)</div>
+                <div class="stat-label">Booked Slots</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">@groupedTimeSlots.Count()</div>
+                <div class="stat-label">Days Scheduled</div>
+            </div>
+        </div>
+
+        <a asp-action="Create" asp-route-workerId="@ViewBag.WorkerId" class="add-btn">
+            <i class="ri-add-line"></i>
+            Add More Time Slots
+        </a>
+
+        <div class="schedule-tabs">
+            @foreach (var dateGroup in groupedTimeSlots)
+            {
+                <button class="tab-button" onclick="showDate('@dateGroup.Key')">
+                    @DateTime.Parse(dateGroup.Key).ToString("MMM d")
+                </button>
+            }
+        </div>
+
+        @foreach (var dateGroup in groupedTimeSlots)
+        {
+            <div class="schedule-view" id="date-@dateGroup.Key">
+                <h2 class="date-title">
+                    <i class="ri-calendar-check-line"></i>
+                    @DateTime.Parse(dateGroup.Key).ToString("dddd, MMMM d, yyyy")
+                </h2>
+
+                @{
+                    var periodGroups = dateGroup
+                    .GroupBy(s => GetTimePeriod(s.TimeSlots))
+                    .OrderBy(g => g.Key);
+                }
+
+                @foreach (var periodGroup in periodGroups)
+                {
+                    <div class="time-period">
+                        <div class="period-header">
+                            <i class="@GetPeriodIcon(periodGroup.Key) period-icon"></i>
+                            <span class="period-title">@periodGroup.Key</span>
+                            <span class="period-count">(@periodGroup.Count() slots)</span>
+                        </div>
+
+                        <div class="time-grid">
+                            @foreach (var slot in periodGroup.OrderBy(s => DateTime.Parse(s.TimeSlots.Split('-')[0])))
+                            {
+                                <div class="time-card @(slot.IsBooked ? "booked" : "")">
+                                    <div class="time-text">
+                                        <i class="ri-time-line"></i>
+                                        @slot.TimeSlots
+                                    </div>
+                                    @if (slot.IsBooked)
+                                    {
+                                        <span class="booked-badge">Booked</span>
+                                    }
+                                    else
+                                    {
+                                        <a asp-action="Delete" asp-route-id="@slot.TimeSlotId"
+                                           onclick="return confirm('Are you sure you want to delete this time slot?')"
+                                           class="delete-btn">
+                                            <i class="ri-delete-bin-line"></i>
+                                            Delete
+                                        </a>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@functions {
+    string GetPeriodIcon(string period) => period switch
+    {
+        "Morning" => "ri-sun-line",
+        "Afternoon" => "ri-sun-foggy-line",
+        "Evening" => "ri-moon-foggy-line",
+        "Night" => "ri-moon-line",
+        _ => "ri-time-line"
+    };
 }
-    </tbody>
-</table>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Show first date by default
+        const firstTab = document.querySelector('.tab-button');
+        if (firstTab) {
+            firstTab.classList.add('active');
+            const firstDate = firstTab.getAttribute('onclick').match(/'([^']+)'/)[1];
+            document.getElementById(`date-${firstDate}`).style.display = 'block';
+        }
+    });
+
+    function showDate(date) {
+        // Hide all views
+        document.querySelectorAll('.schedule-view').forEach(view => {
+            view.style.display = 'none';
+        });
+
+        // Show selected view
+        document.getElementById(`date-${date}`).style.display = 'block';
+
+        // Update tab states
+        document.querySelectorAll('.tab-button').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        event.target.classList.add('active');
+    }
+</script>

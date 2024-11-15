@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,19 +14,73 @@ namespace ServiceWorkerWebsite.Controllers
 {
     public class TimeSlotsController : Controller
     {
-       
-        private readonly ApplicationDbContext _context;
 
-        public TimeSlotsController(ApplicationDbContext context)
+        private readonly ApplicationDbContext _context;
+        private readonly ILogger<TimeSlotsController> _logger;
+
+        public TimeSlotsController(ApplicationDbContext context, ILogger<TimeSlotsController> logger)
         {
             _context = context;
+            _logger = logger;
         }
         [Authorize(Roles = "Worker,Admin")]
         // GET: TimeSlots
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.TimeSlot_List.Include(t => t.Worker);
-            return View(await applicationDbContext.ToListAsync());
+            try
+            {
+                // Get the logged-in user's ID
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                _logger.LogInformation($"Current UserId: {userId}");
+
+                if (string.IsNullOrEmpty(userId))
+                {
+                    _logger.LogWarning("No user ID found");
+                    return RedirectToAction("Login", "Account");
+                }
+
+                // Get worker details
+                var worker = await _context.Worker_List
+                    .FirstOrDefaultAsync(w => w.UserId == userId);
+
+                if (worker == null)
+                {
+                    _logger.LogWarning($"No worker found for userId: {userId}");
+                    return RedirectToAction("Create", "Workers");
+                }
+
+                _logger.LogInformation($"Found Worker_Id: {worker.Worker_Id}");
+
+                // Get time slots
+                var timeSlots = await _context.TimeSlot_List
+                    .Where(t => t.Worker_Id == worker.Worker_Id)
+                    .OrderBy(t => t.SelectedDates)
+                    .ThenBy(t => t.TimeSlots)
+                    .ToListAsync();
+
+                _logger.LogInformation($"Found {timeSlots.Count} time slots");
+
+                // Log each time slot for debugging
+                foreach (var slot in timeSlots)
+                {
+                    _logger.LogInformation(
+                        $"TimeSlot: ID={slot.TimeSlotId}, " +
+                        $"Date={slot.SelectedDates}, " +
+                        $"Time={slot.TimeSlots}, " +
+                        $"IsBooked={slot.IsBooked}"
+                    );
+                }
+
+                ViewBag.WorkerId = worker.Worker_Id;
+                ViewBag.UserEmail = User.Identity.Name;
+
+                return View(timeSlots);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in Index: {ex.Message}");
+                throw;
+            }
         }
 
         // GET: TimeSlots/Details/5
@@ -86,7 +141,7 @@ namespace ServiceWorkerWebsite.Controllers
                         {
                             Worker_Id = timeSlot.Worker_Id,
                             SelectedDates = date.ToString("yyyy-MM-dd"), // Store only the current date
-                           // If you want to keep this
+                                                                         // If you want to keep this
                             TimeSlots = slot, // Store the specific time slot
                             IsBooked = false // Default to not booked
                         };
@@ -181,6 +236,23 @@ namespace ServiceWorkerWebsite.Controllers
             return View(timeSlot);
         }
 
+        public async Task<IActionResult> GetBookingDetails(int timeSlotId)
+        {
+            var booking = await _context.Booking
+                .Include(b => b.Worker)
+                    .ThenInclude(w => w.User)
+                .Include(b => b.Service)
+                .Include(b => b.TimeSlot)
+                .FirstOrDefaultAsync(b => b.TimeSlotId == timeSlotId);
+
+            if (booking == null)
+            {
+                return PartialView("_BookingDetails", null);
+            }
+
+            return PartialView("_BookingDetails", booking);
+        }
+
         // POST: TimeSlots/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -195,14 +267,16 @@ namespace ServiceWorkerWebsite.Controllers
             {
                 _context.TimeSlot_List.Remove(timeSlot);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TimeSlotExists(int id)
         {
-          return _context.TimeSlot_List.Any(e => e.TimeSlotId == id);
+            return _context.TimeSlot_List.Any(e => e.TimeSlotId == id);
         }
+
+
     }
 }

@@ -4,231 +4,506 @@
     ViewData["Title"] = "Create Worker Profile";
 }
 
-<div class="form-container">
-    <div class="form-header">
-        <h2 class="form-title">Create Worker Profile</h2>
-        <p class="form-subtitle">Complete your profile to start offering services</p>
-    </div>
-
-    <form asp-action="Create" method="post" enctype="multipart/form-data">
-        @Html.AntiForgeryToken()
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-        <div class="form-group">
-            <label class="form-label">Select Services (Max 5)</label>
-            <select id="selectServices" class="form-control select2" multiple name="Service_Id">
-                @if (ViewBag.Services != null)
-                {
-                    foreach (var service in ViewBag.Services)
-                    {
-                        <option value="@service.Value">@service.Text</option>
-                    }
-                }
-            </select>
-            <span class="text-danger"></span>
-        </div>
-
-        <div class="media-section">
-            <div class="upload-box">
-                <label for="ProfilePicFile" class="upload-label">
-                    <div class="upload-icon">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                    </div>
-                    <p>Upload Photo</p>
-                    <input type="file" 
-                           id="ProfilePicFile" 
-                           name="ProfilePicFile" 
-                           accept="image/*" 
-                           onchange="previewImage(event)" 
-                           style="display: none" />
-                </label>
-            </div>
-
-            <div class="webcam-box">
-                <video id="webcam" autoplay playsinline></video>
-                <button type="button" id="captureButton" class="capture-btn">
-                    Capture Photo
-                </button>
-            </div>
-        </div>
-
-        <div id="imagePreviewContainer" style="display: none;">
-            <img id="imagePreview" class="preview-image" alt="Preview" />
-        </div>
-
-        <input type="hidden" name="CapturedImage" id="capturedImageInput" />
-
-        <div class="form-group">
-            <label asp-for="Price" class="form-label">Hourly Rate ($)</label>
-            <input asp-for="Price" class="form-control" type="number" min="0" step="0.01" />
-            <span asp-validation-for="Price" class="text-danger"></span>
-        </div>
-
-        <button type="submit" class="submit-btn">Create Profile</button>
-    </form>
-</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 <style>
-    .form-container {
-        max-width: 800px;
-        margin: 40px auto;
-        padding: 30px;
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-header {
-        background: linear-gradient(135deg, #8E2DE2, #4A00E0);
-        margin: -30px -30px 30px -30px;
-        padding: 25px 30px;
-        border-radius: 15px 15px 0 0;
-        color: white;
-    }
-
-    .form-title {
-        font-size: 24px;
-        font-weight: bold;
+    body {
         margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
+        color: #374151;
     }
 
-    .form-subtitle {
-        font-size: 14px;
-        opacity: 0.9;
-        margin-top: 5px;
+    .create-container {
+        padding: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
     }
+
+    .create-card {
+        background: white;
+        border-radius: 16px;
+        padding: 2.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-pattern {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 150px;
+        height: 150px;
+        opacity: 0.05;
+        background: repeating-linear-gradient( 45deg, #8B5CF6, #8B5CF6 10px, transparent 10px, transparent 20px );
+        border-radius: 0 16px 0 100%;
+    }
+
+    .page-title {
+        font-size: 28px;
+        color: #111827;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+        .page-title i {
+            font-size: 32px;
+            color: #8B5CF6;
+        }
+
+    .page-subtitle {
+        color: #6B7280;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+    }
+
+    .form-section {
+        background: #F9FAFB;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid #E5E7EB;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .section-title i {
+            color: #8B5CF6;
+            font-size: 1.25rem;
+        }
 
     .form-group {
-        margin-bottom: 25px;
+        margin-bottom: 1.5rem;
     }
 
     .form-label {
         display: block;
-        margin-bottom: 8px;
         font-weight: 500;
-        color: #333;
+        color: #4B5563;
+        margin-bottom: 0.5rem;
     }
 
     .form-control {
         width: 100%;
-        padding: 12px;
-        border: 1px solid #ddd;
+        padding: 0.75rem 1rem;
+        border: 2px solid #E5E7EB;
         border-radius: 8px;
-        font-size: 15px;
-        transition: all 0.3s ease;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+        background-color: white;
     }
 
-    .form-control:focus {
-        border-color: #8E2DE2;
-        box-shadow: 0 0 0 3px rgba(142, 45, 226, 0.1);
-        outline: none;
+        .form-control:focus {
+            border-color: #8B5CF6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+            outline: none;
+        }
+
+    /* Select2 Styling */
+    .select2-container {
+        width: 100% !important;
     }
 
-    .media-section {
+    .select2-container--default .select2-selection--multiple {
+        border: 2px solid #E5E7EB;
+        border-radius: 8px;
+        padding: 4px;
+        min-height: 52px;
+    }
+
+    .select2-container--default.select2-container--focus .select2-selection--multiple {
+        border-color: #8B5CF6;
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    }
+
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        display: inline-flex;
+        align-items: center;
+        background-color: #F3F4F6;
+        border: 1px solid #E5E7EB;
+        border-radius: 6px;
+        padding: 4px 8px;
+        margin: 4px;
+        gap: 6px;
+        position: relative;
+    }
+
+    .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+        position: relative;
+        border: none;
+        padding: 0;
+        margin: 0;
+        background: none;
+        color: #EF4444;
+        font-size: 18px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        order: 2;
+    }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+            background: none;
+            color: #DC2626;
+        }
+
+    .select2-dropdown {
+        border: 2px solid #8B5CF6;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .select2-container--default .select2-results__option--highlighted[aria-selected] {
+        background-color: #8B5CF6;
+        color: white;
+    }
+
+    .service-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+    }
+
+        .service-option i {
+            font-size: 18px;
+            color: #8B5CF6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+        }
+
+    .service-selection {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+        .service-selection i {
+            font-size: 16px;
+            color: #8B5CF6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+        }
+
+    /* Media Section Styling */
+    .media-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        margin-bottom: 25px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .upload-box {
-        border: 2px dashed #8E2DE2;
-        border-radius: 10px;
-        padding: 20px;
+        border: 2px dashed #8B5CF6;
+        border-radius: 12px;
+        padding: 2rem;
         text-align: center;
-        background: #f8f5ff;
+        background: #F5F3FF;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
     }
 
-    .upload-box:hover {
-        background: #f0ebff;
-        border-color: #4A00E0;
-    }
+        .upload-box:hover {
+            background: #EEF2FF;
+            border-color: #6366F1;
+        }
 
     .upload-icon {
-        font-size: 2em;
-        color: #8E2DE2;
-        margin-bottom: 10px;
+        font-size: 2.5rem;
+        color: #8B5CF6;
+        margin-bottom: 1rem;
     }
 
     .webcam-box {
-        border: 1px solid #e1e1e1;
-        border-radius: 10px;
+        border: 2px solid #E5E7EB;
+        border-radius: 12px;
         overflow: hidden;
+        background: white;
     }
 
     #webcam {
         width: 100%;
-        height: 240px;
-        background: #f8f8f8;
+        height: 300px;
         object-fit: cover;
+        background: #F3F4F6;
     }
 
     .capture-btn {
         width: 100%;
-        padding: 12px;
-        background: #8E2DE2;
+        padding: 0.75rem;
+        background: #8B5CF6;
         color: white;
         border: none;
-        border-radius: 0 0 10px 10px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
         cursor: pointer;
-        transition: background 0.3s ease;
+        transition: all 0.2s ease;
     }
 
-    .capture-btn:hover {
-        background: #4A00E0;
+        .capture-btn:hover {
+            background: #7C3AED;
+        }
+
+    .preview-container {
+        text-align: center;
+        margin: 1.5rem 0;
     }
 
     .preview-image {
         width: 150px;
         height: 150px;
-        border-radius: 75px;
+        border-radius: 50%;
         object-fit: cover;
-        border: 4px solid #8E2DE2;
-        margin: 20px auto;
-        display: block;
+        border: 4px solid #8B5CF6;
+        box-shadow: 0 4px 6px rgba(139, 92, 246, 0.1);
     }
 
     .submit-btn {
         width: 100%;
-        padding: 14px;
-        background: linear-gradient(135deg, #8E2DE2, #4A00E0);
+        padding: 1rem;
+        background: #8B5CF6;
         color: white;
         border: none;
         border-radius: 8px;
-        font-size: 16px;
-        font-weight: 500;
+        font-size: 1rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
     }
 
-    .submit-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(142, 45, 226, 0.2);
+        .submit-btn:hover {
+            background: #7C3AED;
+            transform: translateY(-1px);
+        }
+
+    .text-danger {
+        color: #EF4444;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        display: block;
     }
 
-    /* Select2 Customization */
-    .select2-container--default .select2-selection--multiple {
-        border-color: #ddd;
-        border-radius: 8px;
-    }
-
-    .select2-container--default.select2-container--focus .select2-selection--multiple {
-        border-color: #8E2DE2;
-        box-shadow: 0 0 0 3px rgba(142, 45, 226, 0.1);
+    .form-help {
+        color: #6B7280;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        display: block;
     }
 </style>
 
+<div class="create-container">
+    <div class="create-card">
+        <div class="card-pattern"></div>
+
+        <h1 class="page-title">
+            <i class="ri-user-add-line"></i>
+            Create Worker Profile
+        </h1>
+        <p class="page-subtitle">Complete your profile to start offering services</p>
+
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-section">
+                <h2 class="section-title">
+                    <i class="ri-tools-line"></i>
+                    Your Services
+                </h2>
+                <div class="form-group">
+                    <label class="form-label">Select Services (Maximum 5)</label>
+                    <select id="selectServices" class="form-control select2-with-search" multiple name="Service_Id">
+                        @if (ViewBag.Services != null)
+                        {
+                            foreach (var service in ViewBag.Services)
+                            {
+                                <option value="@service.Value">@service.Text</option>
+                            }
+                        }
+                    </select>
+                    <small class="form-help">Type to search services</small>
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="section-title">
+                    <i class="ri-camera-line"></i>
+                    Profile Photo
+                </h2>
+                <div class="media-grid">
+                    <div class="upload-box">
+                        <label for="ProfilePicFile" style="cursor: pointer">
+                            <i class="ri-upload-cloud-line upload-icon"></i>
+                            <p>Upload Photo</p>
+                            <input type="file"
+                                   id="ProfilePicFile"
+                                   name="ProfilePicFile"
+                                   accept="image/*"
+                                   onchange="previewImage(event)"
+                                   style="display: none" />
+                        </label>
+                    </div>
+
+                    <div class="webcam-box">
+                        <video id="webcam" autoplay playsinline></video>
+                        <button type="button" id="captureButton" class="capture-btn">
+                            <i class="ri-camera-line"></i>
+                            Capture Photo
+                        </button>
+                    </div>
+                </div>
+
+                <div id="imagePreviewContainer" class="preview-container" style="display: none;">
+                    <img id="imagePreview" class="preview-image" alt="Preview" />
+                </div>
+
+                <input type="hidden" name="CapturedImage" id="capturedImageInput" />
+            </div>
+
+            <div class="form-section">
+                <h2 class="section-title">
+                    <i class="ri-money-dollar-circle-line"></i>
+                    Pricing
+                </h2>
+                <div class="form-group">
+                    <label asp-for="Price" class="form-label">Hourly Rate ($)</label>
+                    <input asp-for="Price" class="form-control" type="number" min="0" step="0.01" placeholder="Enter your hourly rate" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="ri-save-line"></i>
+                Create Profile
+            </button>
+        </form>
+    </div>
+</div>
 @section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        // Initialize Select2
         $(document).ready(function() {
+            // Service icon mappings
+            const serviceIcons = {
+                'Plumbing': 'ri-drop-line',
+                'Electrician': 'ri-flashlight-line',
+                'Beautician': 'ri-scissors-line',
+                'AC Repair': 'ri-temp-cold-line',
+                'Carpentry': 'ri-hammer-line',
+                'Painting': 'ri-paint-brush-line',
+                'Cleaning Services': 'ri-brush-line',
+                'Pest Control': 'ri-bug-line',
+                'Appliance Repair': 'ri-home-gear-line',
+                'Home Security Services': 'ri-shield-check-line',
+                'Landscaping/Gardening': 'ri-plant-line',
+                'Roofing Services': 'ri-home-line',
+                'Flooring Installation/Repair': 'ri-layout-bottom-line',
+                'Interior Design': 'ri-home-smile-line',
+                'Moving Services': 'ri-truck-line',
+                'Car Washing/Detailing': 'ri-caravan-line',
+                'Computer Repair/IT Services': 'ri-computer-line',
+                'Legal Services': 'ri-scales-3-line',
+                'Financial Services': 'ri-money-dollar-circle-line',
+                'Personal Training/Fitness Services': 'ri-heart-pulse-line',
+                'Childcare/Babysitting': 'ri-parent-line',
+                'Tutoring/Educational Services': 'ri-book-open-line',
+                'Photography/Videography': 'ri-camera-lens-line',
+                'Event Planning/Management': 'ri-calendar-event-line',
+                'Mobile Phone Repair': 'ri-smartphone-line'
+            };
+
+            // Initialize Select2
             $('#selectServices').select2({
                 maximumSelectionLength: 5,
-                placeholder: 'Select up to 5 services',
-                theme: 'classic'
+                placeholder: 'Search and select up to 5 services',
+                allowClear: true,
+                width: '100%',
+                language: {
+                    noResults: function() {
+                        return '<div class="no-results"><i class="ri-search-line"></i> No services found</div>';
+                    },
+                    maximumSelected: function() {
+                        return '<div class="max-selected"><i class="ri-alert-line"></i> You can only select up to 5 services</div>';
+                    }
+                },
+                escapeMarkup: function(markup) {
+                    return markup;
+                },
+                templateResult: formatService,
+                templateSelection: formatServiceSelection,
+                closeOnSelect: false
             });
+
+            // Service formatting functions
+            function formatService(service) {
+                if (!service.id) return service.text;
+                const icon = serviceIcons[service.text] || 'ri-tools-line';
+                return $(
+                    `<div class="service-option">
+                        <i class="${icon}" aria-hidden="true"></i>
+                        <span>${service.text}</span>
+                    </div>`
+                );
+            }
+
+            function formatServiceSelection(service) {
+                if (!service.id) return service.text;
+                const icon = serviceIcons[service.text] || 'ri-tools-line';
+                return $(
+                    `<div class="service-selection">
+                        <i class="${icon}" aria-hidden="true"></i>
+                        <span>${service.text}</span>
+                    </div>`
+                );
+            }
+
+            // Replace default remove icon with custom icon
+            function updateRemoveButtons() {
+                $('.select2-selection__choice__remove').each(function() {
+                    if (!$(this).find('.ri-close-line').length) {
+                        $(this).html('<i class="ri-close-line"></i>');
+                    }
+                });
+            }
+
+            // Update remove buttons when selections change
+            $('#selectServices').on('select2:select select2:unselect', function() {
+                setTimeout(updateRemoveButtons, 0);
+            });
+
+            // Initial update of remove buttons
+            setTimeout(updateRemoveButtons, 100);
         });
 
         // Webcam handling
@@ -239,36 +514,95 @@
 
         async function startWebcam() {
             try {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                const stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        width: { ideal: 1280 },
+                        height: { ideal: 720 },
+                        facingMode: "user"
+                    } 
+                });
                 webcam.srcObject = stream;
             } catch (error) {
                 console.error("Webcam access denied:", error);
+                const webcamBox = document.querySelector('.webcam-box');
+                webcamBox.innerHTML = `
+                    <div style="padding: 2rem; text-align: center; color: #6B7280;">
+                        <i class="ri-camera-off-line" style="font-size: 2rem; color: #EF4444; margin-bottom: 1rem;"></i>
+                        <p>Camera access denied or not available.</p>
+                        <p style="font-size: 0.875rem; margin-top: 0.5rem;">Please use the upload option instead.</p>
+                    </div>
+                `;
             }
         }
 
-        document.getElementById('captureButton').addEventListener('click', function() {
+        // Capture photo from webcam
+        document.getElementById('captureButton')?.addEventListener('click', function() {
             const canvas = document.createElement('canvas');
-            canvas.width = webcam.videoWidth;
-            canvas.height = webcam.videoHeight;
-            canvas.getContext('2d').drawImage(webcam, 0, 0);
-            const imageDataUrl = canvas.toDataURL('image/png');
+            const aspectRatio = webcam.videoWidth / webcam.videoHeight;
+            
+            canvas.width = 1280;
+            canvas.height = canvas.width / aspectRatio;
+            
+            canvas.getContext('2d').drawImage(webcam, 0, 0, canvas.width, canvas.height);
+            const imageDataUrl = canvas.toDataURL('image/jpeg', 0.8);
             
             imagePreview.src = imageDataUrl;
             imagePreviewContainer.style.display = 'block';
             capturedImageInput.value = imageDataUrl;
+
+            imagePreviewContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
 
+        // Handle file upload preview
         function previewImage(event) {
             const file = event.target.files[0];
             if (file) {
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('Please select an image under 5MB');
+                    return;
+                }
+
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     imagePreview.src = e.target.result;
                     imagePreviewContainer.style.display = 'block';
+                    imagePreviewContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 };
                 reader.readAsDataURL(file);
             }
         }
+
+        // Form validation
+        document.querySelector('form')?.addEventListener('submit', function(e) {
+            const services = $('#selectServices').val();
+            const hasImage = document.getElementById('ProfilePicFile').files.length > 0 || 
+                           document.getElementById('capturedImageInput').value;
+            const price = document.querySelector('[name="Price"]').value;
+
+            if (!services || services.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one service');
+                return;
+            }
+
+            if (!hasImage) {
+                e.preventDefault();
+                alert('Please upload or capture a profile photo');
+                return;
+            }
+
+            if (!price || price <= 0) {
+                e.preventDefault();
+                alert('Please enter a valid hourly rate');
+                return;
+            }
+
+            // Add loading state to submit button
+            const submitBtn = e.target.querySelector('.submit-btn');
+            submitBtn.innerHTML = '<i class="ri-loader-4-line"></i> Creating Profile...';
+            submitBtn.style.opacity = '0.7';
+            submitBtn.disabled = true;
+        });
 
         // Start webcam when page loads
         startWebcam();
