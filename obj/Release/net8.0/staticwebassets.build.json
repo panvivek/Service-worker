@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vu/nUYcEaehSBz/DmVBihKv79LIvj08Bn03Z/Z2uTLE=",
+  "Hash": "sr9+1tGysw4ygeRMeK/5EFjVOnmw/0h6l9MWCxWqMp4=",
   "Source": "ServiceWorkerWebsite",
   "BasePath": "_content/ServiceWorkerWebsite",
   "Mode": "Default",
@@ -3758,6 +3758,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\WorkerProfilePic\\33fa50d3-66b6-48b8-a515-c057891e8721.png"
+    },
+    {
+      "Identity": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\362e07ea-5933-454c-abe7-1ea73aa24c8c.png",
+      "SourceId": "ServiceWorkerWebsite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\",
+      "BasePath": "_content/ServiceWorkerWebsite",
+      "RelativePath": "WorkerProfilePic/362e07ea-5933-454c-abe7-1ea73aa24c8c.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\WorkerProfilePic\\362e07ea-5933-454c-abe7-1ea73aa24c8c.png"
     },
     {
       "Identity": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\39e0a356-6d2e-4c1d-85e2-023b6a3edfa3.png",

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\freya\\onedrive - sheridan college\\laptop transfer\\semester 6\\capstone\\service-worker\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\freya\\onedrive - sheridan college\\laptop transfer\\semester 6\\capstone\\service-worker\\controllers\\workerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:controllers\\workerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -44,7 +48,7 @@
         },
         {
           "DockedWidth": 326,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -60,7 +64,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "BookingsController.cs",
+              "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Controllers\\BookingsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BookingsController.cs",
+              "ToolTip": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Controllers\\BookingsController.cs",
+              "RelativeToolTip": "Controllers\\BookingsController.cs",
+              "ViewState": "AQIAABECAAAAAAAAAAAlwB8CAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T03:00:34.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Views\\Workers\\Details.cshtml",
               "RelativeDocumentMoniker": "Views\\Workers\\Details.cshtml",
@@ -72,7 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "WorkerDetailsViewModel.cs",
               "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Models\\WorkerDetailsViewModel.cs",
               "RelativeDocumentMoniker": "Models\\WorkerDetailsViewModel.cs",
@@ -84,7 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "WorkersController.cs",
               "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Controllers\\WorkersController.cs",
               "RelativeDocumentMoniker": "Controllers\\WorkersController.cs",
@@ -97,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "_LoginPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Views\\Shared\\_LoginPartial.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
@@ -109,7 +126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -121,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Views\\Workers\\Create.cshtml",
               "RelativeDocumentMoniker": "Views\\Workers\\Create.cshtml",
