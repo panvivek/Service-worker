@@ -4,8 +4,7 @@ namespace ServiceWorkerWebsite.Models
 {
     public class WorkerEarningsViewModel
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public int WorkerId { get; set; }
         public decimal TotalEarnings { get; set; } // Total earnings of the worker
         public int TotalBookings { get; set; } // Total number of bookings
         public int ServicesCount { get; set; } // Total number of services offered

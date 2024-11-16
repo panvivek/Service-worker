@@ -17,7 +17,8 @@ namespace ServiceWorkerWebsite.Controllers
             _context = context;
         }
 
-        [HttpGet("{workerId}")]
+        //[HttpGet("{workerId}")]
+        [HttpGet]
         public async Task<IActionResult> Index(int workerId)
         {
             // Fetch the worker and related data
@@ -37,28 +38,38 @@ namespace ServiceWorkerWebsite.Controllers
                 .ToListAsync();
 
             // Prepare earnings by service
+            //var serviceEarnings = worker.WorkerServices
+            //    .GroupJoin(bookings,
+            //        ws => ws.Service_Id,
+            //        b => b.Service_Id,
+            //        (ws, serviceBookings) => new ServiceEarningsViewModel
+            //        {
+            //            ServiceName = ws.Service.Name,
+            //            BasePrice = worker.Price,
+            //            TotalBookings = serviceBookings.Count(),
+            //            TotalEarnings = serviceBookings.Count() * worker.Price
+            //        })
+            //    .ToList();
+
             var serviceEarnings = worker.WorkerServices
-                .GroupJoin(bookings,
-                    ws => ws.Service_Id,
-                    b => b.Service_Id,
-                    (ws, serviceBookings) => new ServiceEarningsViewModel
-                    {
-                        ServiceName = ws.Service.Name,
-                        BasePrice = worker.Price,
-                        TotalBookings = serviceBookings.Count(),
-                        TotalEarnings = serviceBookings.Count() * worker.Price
-                    })
+                .Select(ws => new ServiceEarningsViewModel
+                {
+                    ServiceName = ws.Service.Name,
+                    BasePrice = worker.Price,
+                    TotalBookings = bookings.Count(b => b.Service_Id == ws.Service_Id),
+                    TotalEarnings = bookings.Count(b => b.Service_Id == ws.Service_Id) * worker.Price
+                })
                 .ToList();
 
             // Prepare the view model
             var viewModel = new WorkerEarningsViewModel
             {
-                FirstName = worker.User.Firstname,
-                LastName = worker.User.Lastname,
+                WorkerId = workerId,
                 TotalEarnings = serviceEarnings.Sum(s => s.TotalEarnings),
                 TotalBookings = bookings.Count,
                 ServicesCount = worker.WorkerServices.Count,
-                ServiceEarnings = serviceEarnings
+                ServiceEarnings = serviceEarnings,
+                //WorkerName = $"{worker.User.Firstname} {worker.User.Lastname}"
             };
 
             // Return the view with the view model
