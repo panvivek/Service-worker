@@ -359,7 +359,39 @@ public async Task<JsonResult> GetAvailableSlots([FromBody] WorkerRequest request
             return View(booking);
         }
 
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
+            // Get the current logged-in worker's ID
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            // First get the worker record for the logged-in user
+            var worker = await _context.Worker_List
+                .FirstOrDefaultAsync(w => w.UserId == currentUserId);
+
+            if (worker == null)
+            {
+                return NotFound("Worker not found");
+            }
+
+            // Find the booking using the provided id and include all necessary related data
+            var booking = await _context.Booking
+                .Include(b => b.Service)
+                .Include(b => b.TimeSlot)
+                .Include(b => b.User)  // Include the customer details
+                .FirstOrDefaultAsync(m => m.Id == id && m.Worker_Id == worker.Worker_Id);
+
+            if (booking == null)
+            {
+                return NotFound("Booking not found");
+            }
+
+            return View(booking);
+        }
 
 
 

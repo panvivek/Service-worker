@@ -236,22 +236,25 @@ namespace ServiceWorkerWebsite.Controllers
             return View(timeSlot);
         }
 
+        [HttpGet]
         public async Task<IActionResult> GetBookingDetails(int timeSlotId)
         {
             var booking = await _context.Booking
-                .Include(b => b.Worker)
-                    .ThenInclude(w => w.User)
                 .Include(b => b.Service)
                 .Include(b => b.TimeSlot)
-                .FirstOrDefaultAsync(b => b.TimeSlotId == timeSlotId);
+                .Include(b => b.User)
+                .FirstOrDefaultAsync(b => b.TimeSlotId == 118);
 
             if (booking == null)
             {
+                // Return the partial view with null model to show "no booking" message
+                Console.WriteLine("No booking found for timeSlotId: " + timeSlotId);
                 return PartialView("_BookingDetails", null);
             }
 
             return PartialView("_BookingDetails", booking);
         }
+
 
         // POST: TimeSlots/Delete/5
         [HttpPost, ActionName("Delete")]

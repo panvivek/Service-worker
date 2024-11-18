@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\WorkerProfilePic\\2.jpg"
     },
     {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\29917e0c-3af1-4252-b0ab-ead31bb713cf.png",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\29917e0c-3af1-4252-b0ab-ead31bb713cf.png"
+    },
+    {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\3.jpg",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\3.jpg"
     },
@@ -53,12 +57,40 @@
       "PackagePath": "staticwebassets\\WorkerProfilePic\\Dall.jpg"
     },
     {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\Image.jpeg",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\Image.jpeg"
+    },
+    {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\SNLTTATTDN_page-0001 (1).jpg",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\SNLTTATTDN_page-0001 (1).jpg"
     },
     {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\Screenshot 2024-10-28 224437.png",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\Screenshot 2024-10-28 224437.png"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\Untitled design (1).png",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\Untitled design (1).png"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\a6296f04-fdeb-430f-895b-9533636e1308.png",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\a6296f04-fdeb-430f-895b-9533636e1308.png"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\ana.png",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\ana.png"
+    },
+    {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\baff.jpg",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\baff.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\c22a1151-40ec-4c41-8412-dcf663df8b3a.png",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\c22a1151-40ec-4c41-8412-dcf663df8b3a.png"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\c82388bb-7895-4405-b9c1-584279833383.png",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\c82388bb-7895-4405-b9c1-584279833383.png"
     },
     {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\camera_20241114221905.png",
@@ -67,6 +99,18 @@
     {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\ce2e330c-c3c2-42ac-964f-541163926cf1.png",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\ce2e330c-c3c2-42ac-964f-541163926cf1.png"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\d71f9089-cb28-49aa-8a8e-96a87a0ddfbe.png",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\d71f9089-cb28-49aa-8a8e-96a87a0ddfbe.png"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\f99dcf45-e0fb-4475-b666-8d9852588955.png",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\f99dcf45-e0fb-4475-b666-8d9852588955.png"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
     },
     {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\MainPage.style.min.css",
@@ -87,6 +131,10 @@
     {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\auth-styles.css",
       "PackagePath": "staticwebassets\\css\\auth-styles.css"
+    },
+    {
+      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\modern-dark-ui.css",
+      "PackagePath": "staticwebassets\\css\\modern-dark-ui.css"
     },
     {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\site.css",

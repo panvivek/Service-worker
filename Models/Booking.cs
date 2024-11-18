@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ServiceWorkerWebsite.Areas.Identity.Data;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ServiceWorkerWebsite.Models
@@ -30,7 +31,8 @@ namespace ServiceWorkerWebsite.Models
         [ForeignKey(nameof(Worker_Id))]
         public virtual Worker Worker { get; set; }
 
-       
+        public virtual ServiceWorkerWebsiteUser User { get; set; }
+      
 
         // Navigation property for TimeSlot
         public virtual TimeSlot TimeSlot { get; set; }

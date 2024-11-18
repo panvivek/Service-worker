@@ -1,0 +1,187 @@
+﻿@model Booking
+
+@if (Model != null)
+{
+    <div class="p-6">
+        <!-- Customer Information -->
+        <div class="mb-6">
+            <div class="flex items-center mb-4">
+                <i class="ri-user-line text-lg text-purple-600 mr-2"></i>
+                <h3 class="text-lg font-semibold">Customer Information</h3>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="text-gray-600">Name</div>
+                    <div class="font-medium">@Model.User.Firstname @Model.User.Lastname</div>
+
+                    <div class="text-gray-600">Email</div>
+                    <div class="font-medium">@Model.User.Email</div>
+
+                    <div class="text-gray-600">Phone</div>
+                    <div class="font-medium">@Model.User.PhoneNumber</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Information -->
+        <div class="mb-6">
+            <div class="flex items-center mb-4">
+                <i class="ri-calendar-check-line text-lg text-purple-600 mr-2"></i>
+                <h3 class="text-lg font-semibold">Booking Details</h3>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="text-gray-600">Service</div>
+                    <div class="font-medium">@Model.Service.Name</div>
+
+                    <div class="text-gray-600">Date</div>
+                    <div class="font-medium">@Model.TimeSlot.SelectedDates</div>
+
+                    <div class="text-gray-600">Time</div>
+                    <div class="font-medium">@Model.TimeSlot.TimeSlots</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-end gap-3">
+            <button onclick="closeModal()" class="px-4 py-2 text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+                <i class="ri-close-line mr-1"></i>
+                Close
+            </button>
+
+            <a href="@Url.Action("DownloadInvoice", "Bookings", new { id = Model.Id })"
+               class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors inline-flex items-center">
+                <i class="ri-download-line mr-1"></i>
+                Download Invoice
+            </a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="p-8 text-center">
+        <div class="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-gray-100">
+            <i class="ri-information-line text-2xl text-gray-400"></i>
+        </div>
+        <p class="text-gray-500">No booking information available for this time slot.</p>
+    </div>
+}
+
+<style>
+    .grid {
+        display: grid;
+    }
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .gap-4 {
+        gap: 1rem;
+    }
+    .text-gray-600 {
+        color: #4B5563;
+    }
+    .font-medium {
+        font-weight: 500;
+    }
+    .mb-6 {
+        margin-bottom: 1.5rem;
+    }
+    .mb-4 {
+        margin-bottom: 1rem;
+    }
+    .p-4 {
+        padding: 1rem;
+    }
+    .p-6 {
+        padding: 1.5rem;
+    }
+    .p-8 {
+        padding: 2rem;
+    }
+    .rounded-lg {
+        border-radius: 0.5rem;
+    }
+    .bg-gray-50 {
+        background-color: #F9FAFB;
+    }
+    .text-lg {
+        font-size: 1.125rem;
+    }
+    .font-semibold {
+        font-weight: 600;
+    }
+    .flex {
+        display: flex;
+    }
+    .items-center {
+        align-items: center;
+    }
+    .justify-end {
+        justify-content: center;
+    }
+    .mr-2 {
+        margin-right: 0.5rem;
+    }
+    .text-purple-600 {
+        color: #7C3AED;
+    }
+    .gap-3 {
+        gap: 0.75rem;
+    }
+    .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .py-2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+    .text-gray-600 {
+        color: #4B5563;
+    }
+    .bg-gray-100 {
+        background-color: #F3F4F6;
+    }
+    .hover\:bg-gray-200:hover {
+        background-color: #E5E7EB;
+    }
+    .bg-purple-600 {
+        background-color: #7C3AED;
+    }
+    .text-white {
+        color: white;
+    }
+    .hover\:bg-purple-700:hover {
+        background-color: #6D28D9;
+    }
+    .transition-colors {
+        transition-property: background-color, border-color, color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+    }
+    .inline-flex {
+        display: inline-flex;
+    }
+    .mr-1 {
+        margin-right: 0.25rem;
+    }
+    .text-center {
+        text-align: center;
+    }
+    .justify-center {
+        justify-content: center;
+    }
+    .w-12 {
+        width: 3rem;
+    }
+    .h-12 {
+        height: 3rem;
+    }
+    .text-2xl {
+        font-size: 1.5rem;
+    }
+    .text-gray-400 {
+        color: #9CA3AF;
+    }
+</style>

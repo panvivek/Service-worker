@@ -284,6 +284,61 @@
             background: #FEE2E2;
             color: #DC2626;
         }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+        position: relative;
+        background-color: white;
+        margin: 10% auto;
+        padding: 2rem;
+        border-radius: 16px;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.3s ease-out;
+    }
+
+    .modal.show .modal-content {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .modal-close {
+        position: absolute;
+        right: 1.5rem;
+        top: 1.5rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #6B7280;
+        transition: color 0.2s ease;
+        background: none;
+        border: none;
+        padding: 0.25rem;
+        border-radius: 4px;
+    }
+
+        .modal-close:hover {
+            color: #111827;
+            background: #F3F4F6;
+        }
+
+    .booking-details {
+        margin-top: 1rem;
+    }
 </style>
 
 <div class="create-container">
@@ -357,7 +412,9 @@
                                     </div>
                                     @if (slot.IsBooked)
                                     {
-                                        <span class="booked-badge">Booked</span>
+                                        <span class="booked-badge" style="cursor: pointer;" onclick="showBookingDetails(@slot.TimeSlotId)">
+                                            Booked
+                                        </span>
                                     }
                                     else
                                     {
@@ -375,6 +432,24 @@
                 }
             </div>
         }
+    </div>
+</div>
+
+<!-- Booking Details Modal -->
+<div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">
+            <i class="ri-close-line"></i>
+        </button>
+        <h2 class="text-xl font-semibold mb-4">
+            <i class="ri-calendar-check-line mr-2"></i>
+            Booking Details
+        </h2>
+        <div id="bookingDetails">
+            <div class="flex items-center justify-center p-4">
+                <i class="ri-loader-4-line text-2xl text-purple-600 animate-spin"></i>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -415,4 +490,59 @@
         });
         event.target.classList.add('active');
     }
+
+    function showBookingDetails(timeSlotId) {
+        const modal = document.getElementById('bookingModal');
+        const bookingDetails = document.getElementById('bookingDetails');
+
+        // Show modal with animation
+        modal.style.display = 'block';
+        setTimeout(() => modal.classList.add('show'), 10);
+
+        // Show loading state
+        bookingDetails.innerHTML = `
+                <div class="flex items-center justify-center p-4">
+                    <i class="ri-loader-4-line text-2xl text-purple-600 animate-spin"></i>
+                </div>
+            `;
+
+        // Fetch booking details
+        fetch(`/TimeSlots/GetBookingDetails/${timeSlotId}`)
+            .then(response => response.text())
+            .then(html => {
+                bookingDetails.innerHTML = html;
+            })
+            .catch(error => {
+                bookingDetails.innerHTML = `
+                        <div class="p-4 text-center text-red-500">
+                            <i class="ri-error-warning-line text-2xl mb-2"></i>
+                            <p>Error loading booking details.</p>
+                        </div>
+                    `;
+                console.error('Error:', error);
+            });
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('bookingModal');
+        modal.classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300); // Match the transition duration
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function (event) {
+        const modal = document.getElementById('bookingModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+
+    // Close modal on escape key
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
 </script>
