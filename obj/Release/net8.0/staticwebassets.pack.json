@@ -1,62 +1,75 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\ServiceWorkerWebsite.bundle.scp.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\ServiceWorkerWebsite.bundle.scp.css",
       "PackagePath": "staticwebassets\\ServiceWorkerWebsite.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\0.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\0.jpg",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\0.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\1.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\1.jpg",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\1.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\2.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\2.jpg",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\2.jpg"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\29917e0c-3af1-4252-b0ab-ead31bb713cf.png",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\29917e0c-3af1-4252-b0ab-ead31bb713cf.png"
     },
     {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\3.jpg",
+=======
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\29917e0c-3af1-4252-b0ab-ead31bb713cf.png",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\29917e0c-3af1-4252-b0ab-ead31bb713cf.png"
+    },
+    {
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\3.jpg",
+>>>>>>> a662c0a2735cbb392e996aef677df81f44c8026a
       "PackagePath": "staticwebassets\\WorkerProfilePic\\3.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\33fa50d3-66b6-48b8-a515-c057891e8721.png",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\33fa50d3-66b6-48b8-a515-c057891e8721.png",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\33fa50d3-66b6-48b8-a515-c057891e8721.png"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\39e0a356-6d2e-4c1d-85e2-023b6a3edfa3.png",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\362e07ea-5933-454c-abe7-1ea73aa24c8c.png",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\362e07ea-5933-454c-abe7-1ea73aa24c8c.png"
+    },
+    {
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\39e0a356-6d2e-4c1d-85e2-023b6a3edfa3.png",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\39e0a356-6d2e-4c1d-85e2-023b6a3edfa3.png"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\4.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\4.jpg",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\4.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\41f511a9-e3da-4ac8-8a1e-902ef9a9e753.png",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\41f511a9-e3da-4ac8-8a1e-902ef9a9e753.png",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\41f511a9-e3da-4ac8-8a1e-902ef9a9e753.png"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\5.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\5.jpg",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\5.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\787d57d3-dff1-4989-b954-b0ac7e3cd36d.png",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\787d57d3-dff1-4989-b954-b0ac7e3cd36d.png",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\787d57d3-dff1-4989-b954-b0ac7e3cd36d.png"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\CN-Tower.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\CN-Tower.jpg",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\CN-Tower.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\Dall.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\Dall.jpg",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\Dall.jpg"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\Image.jpeg",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\Image.jpeg"
     },
@@ -94,13 +107,25 @@
     },
     {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\camera_20241114221905.png",
+=======
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\SNLTTATTDN_page-0001 (1).jpg",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\SNLTTATTDN_page-0001 (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\baff.jpg",
+      "PackagePath": "staticwebassets\\WorkerProfilePic\\baff.jpg"
+    },
+    {
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\camera_20241114221905.png",
+>>>>>>> a662c0a2735cbb392e996aef677df81f44c8026a
       "PackagePath": "staticwebassets\\WorkerProfilePic\\camera_20241114221905.png"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\ce2e330c-c3c2-42ac-964f-541163926cf1.png",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\WorkerProfilePic\\ce2e330c-c3c2-42ac-964f-541163926cf1.png",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\ce2e330c-c3c2-42ac-964f-541163926cf1.png"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\WorkerProfilePic\\d71f9089-cb28-49aa-8a8e-96a87a0ddfbe.png",
       "PackagePath": "staticwebassets\\WorkerProfilePic\\d71f9089-cb28-49aa-8a8e-96a87a0ddfbe.png"
     },
@@ -114,522 +139,529 @@
     },
     {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\MainPage.style.min.css",
+=======
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\css\\MainPage.style.min.css",
+>>>>>>> a662c0a2735cbb392e996aef677df81f44c8026a
       "PackagePath": "staticwebassets\\css\\MainPage.style.min.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\Services.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\css\\Services.css",
       "PackagePath": "staticwebassets\\css\\Services.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\TRANSGLASS.CSS",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\css\\TRANSGLASS.CSS",
       "PackagePath": "staticwebassets\\css\\TRANSGLASS.CSS"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\Workers.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\css\\Workers.css",
       "PackagePath": "staticwebassets\\css\\Workers.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\auth-styles.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\css\\auth-styles.css",
       "PackagePath": "staticwebassets\\css\\auth-styles.css"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\modern-dark-ui.css",
       "PackagePath": "staticwebassets\\css\\modern-dark-ui.css"
     },
     {
       "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\site.css",
+=======
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\css\\site.css",
+>>>>>>> a662c0a2735cbb392e996aef677df81f44c8026a
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\desktop.ini",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\desktop.ini",
       "PackagePath": "staticwebassets\\desktop.ini"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\Plumbing.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\Plumbing.jpg",
       "PackagePath": "staticwebassets\\images\\Plumbing.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\ac-repair.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\ac-repair.jpg",
       "PackagePath": "staticwebassets\\images\\ac-repair.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\appliance-repair.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\appliance-repair.jpg",
       "PackagePath": "staticwebassets\\images\\appliance-repair.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\beautician.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\beautician.jpg",
       "PackagePath": "staticwebassets\\images\\beautician.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\car-washing.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\car-washing.jpg",
       "PackagePath": "staticwebassets\\images\\car-washing.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\carpentry.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\carpentry.jpg",
       "PackagePath": "staticwebassets\\images\\carpentry.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\childcare.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\childcare.jpg",
       "PackagePath": "staticwebassets\\images\\childcare.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\cleaning.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\cleaning.jpg",
       "PackagePath": "staticwebassets\\images\\cleaning.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\computer-repair.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\computer-repair.jpg",
       "PackagePath": "staticwebassets\\images\\computer-repair.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\electrician.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\electrician.jpg",
       "PackagePath": "staticwebassets\\images\\electrician.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\event-planning.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\event-planning.jpg",
       "PackagePath": "staticwebassets\\images\\event-planning.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\financial-services.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\financial-services.jpg",
       "PackagePath": "staticwebassets\\images\\financial-services.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\flooring.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\flooring.jpg",
       "PackagePath": "staticwebassets\\images\\flooring.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\home-security.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\home-security.jpg",
       "PackagePath": "staticwebassets\\images\\home-security.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\interior-design.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\interior-design.jpg",
       "PackagePath": "staticwebassets\\images\\interior-design.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\landscaping.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\landscaping.jpg",
       "PackagePath": "staticwebassets\\images\\landscaping.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\legal-services.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\legal-services.jpg",
       "PackagePath": "staticwebassets\\images\\legal-services.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\mobile-phone-repair.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\mobile-phone-repair.jpg",
       "PackagePath": "staticwebassets\\images\\mobile-phone-repair.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\moving.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\moving.jpg",
       "PackagePath": "staticwebassets\\images\\moving.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\painting.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\painting.jpg",
       "PackagePath": "staticwebassets\\images\\painting.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\personal-training.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\personal-training.jpg",
       "PackagePath": "staticwebassets\\images\\personal-training.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\pest-control.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\pest-control.jpg",
       "PackagePath": "staticwebassets\\images\\pest-control.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\photography.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\photography.jpg",
       "PackagePath": "staticwebassets\\images\\photography.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\roofing.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\roofing.jpg",
       "PackagePath": "staticwebassets\\images\\roofing.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\images\\tutoring.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\images\\tutoring.jpg",
       "PackagePath": "staticwebassets\\images\\tutoring.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\Logo.png",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\Logo.png",
       "PackagePath": "staticwebassets\\img\\Logo.png"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\Logo_QuickFix_Black.png",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\Logo_QuickFix_Black.png",
       "PackagePath": "staticwebassets\\img\\Logo_QuickFix_Black.png"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\app-profile-mockup.png",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\app-profile-mockup.png",
       "PackagePath": "staticwebassets\\img\\app-profile-mockup.png"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\bg-white.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\bg-white.jpg",
       "PackagePath": "staticwebassets\\img\\bg-white.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\bg.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\bg.jpg",
       "PackagePath": "staticwebassets\\img\\bg.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\blog-1.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\blog-1.jpg",
       "PackagePath": "staticwebassets\\img\\blog-1.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\blog-2.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\blog-2.jpg",
       "PackagePath": "staticwebassets\\img\\blog-2.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\blog-3.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\blog-3.jpg",
       "PackagePath": "staticwebassets\\img\\blog-3.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\blog-4.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\blog-4.jpg",
       "PackagePath": "staticwebassets\\img\\blog-4.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\client.png",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\client.png",
       "PackagePath": "staticwebassets\\img\\client.png"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\favicon-32x32.png",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\favicon-32x32.png",
       "PackagePath": "staticwebassets\\img\\favicon-32x32.png"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\icons\\animat-checkmark.gif",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\icons\\animat-checkmark.gif",
       "PackagePath": "staticwebassets\\img\\icons\\animat-checkmark.gif"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\icons\\animat-customize.gif",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\icons\\animat-customize.gif",
       "PackagePath": "staticwebassets\\img\\icons\\animat-customize.gif"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\icons\\animat-responsive.gif",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\icons\\animat-responsive.gif",
       "PackagePath": "staticwebassets\\img\\icons\\animat-responsive.gif"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\obj_triangle.png",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\obj_triangle.png",
       "PackagePath": "staticwebassets\\img\\obj_triangle.png"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\photo-1.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\photo-1.jpg",
       "PackagePath": "staticwebassets\\img\\photo-1.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\photo-2.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\photo-2.jpg",
       "PackagePath": "staticwebassets\\img\\photo-2.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\photo-4.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\photo-4.jpg",
       "PackagePath": "staticwebassets\\img\\photo-4.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\photo-6.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\photo-6.jpg",
       "PackagePath": "staticwebassets\\img\\photo-6.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\photo-7.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\photo-7.jpg",
       "PackagePath": "staticwebassets\\img\\photo-7.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\photo-9.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\photo-9.jpg",
       "PackagePath": "staticwebassets\\img\\photo-9.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\img\\testi-1.jpg",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\img\\testi-1.jpg",
       "PackagePath": "staticwebassets\\img\\testi-1.jpg"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\js\\MainPage.app.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\js\\MainPage.app.min.js",
       "PackagePath": "staticwebassets\\js\\MainPage.app.min.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\js\\Services.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\js\\Services.js",
       "PackagePath": "staticwebassets\\js\\Services.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\js\\vanilla-tilt.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\js\\vanilla-tilt.js",
       "PackagePath": "staticwebassets\\js\\vanilla-tilt.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\vendor\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\vendor\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\vendor\\bootstrap\\bootstrap.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\vendor\\bootstrap\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\vendor\\bootstrap\\popper.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\vendor\\bootstrap\\popper.min.js",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\popper.min.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\vendor\\countTo\\jquery.countTo.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\vendor\\countTo\\jquery.countTo.js",
       "PackagePath": "staticwebassets\\vendor\\countTo\\jquery.countTo.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\vendor\\isotope\\isotope.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\vendor\\isotope\\isotope.min.js",
       "PackagePath": "staticwebassets\\vendor\\isotope\\isotope.min.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\vendor\\lightcase\\lightcase.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\vendor\\lightcase\\lightcase.css",
       "PackagePath": "staticwebassets\\vendor\\lightcase\\lightcase.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\vendor\\lightcase\\lightcase.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\vendor\\lightcase\\lightcase.js",
       "PackagePath": "staticwebassets\\vendor\\lightcase\\lightcase.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\vendor\\owlcarousel\\owl.carousel.min.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\vendor\\owlcarousel\\owl.carousel.min.css",
       "PackagePath": "staticwebassets\\vendor\\owlcarousel\\owl.carousel.min.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\vendor\\owlcarousel\\owl.carousel.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\vendor\\owlcarousel\\owl.carousel.min.js",
       "PackagePath": "staticwebassets\\vendor\\owlcarousel\\owl.carousel.min.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\vendor\\select2\\select2.min.css",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\vendor\\select2\\select2.min.css",
       "PackagePath": "staticwebassets\\vendor\\select2\\select2.min.css"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\vendor\\select2\\select2.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\vendor\\select2\\select2.min.js",
       "PackagePath": "staticwebassets\\vendor\\select2\\select2.min.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\vendor\\stellar\\jquery.stellar.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\vendor\\stellar\\jquery.stellar.js",
       "PackagePath": "staticwebassets\\vendor\\stellar\\jquery.stellar.js"
     },
     {
-      "Id": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\vendor\\waypoints\\waypoint.min.js",
+      "Id": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\wwwroot\\vendor\\waypoints\\waypoint.min.js",
       "PackagePath": "staticwebassets\\vendor\\waypoints\\waypoint.min.js"
     },
     {

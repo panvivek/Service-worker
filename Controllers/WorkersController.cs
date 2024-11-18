@@ -306,7 +306,11 @@ namespace ServiceWorkerWebsite.Controllers
                 else if (!string.IsNullOrEmpty(CapturedImage))
                 {
 
-                    // Save the captured image from the webcam
+                    if (!Directory.Exists(uploadsFolder))
+                    {
+                        Directory.CreateDirectory(uploadsFolder);
+                    }
+
                     var base64Data = CapturedImage.Split(',')[1];
                     var imageBytes = Convert.FromBase64String(base64Data);
 
@@ -316,6 +320,7 @@ namespace ServiceWorkerWebsite.Controllers
 
                     worker.ProfilePic_Id = $"/WorkerProfilePic/{uniqueFileName}";
                 }
+
                 else
                 {
                     // Handle case where no file is uploaded (Optional)
@@ -360,7 +365,6 @@ namespace ServiceWorkerWebsite.Controllers
             ViewBag.Services = serviceItems;
             return View(worker);
         }
-
 
 
 
