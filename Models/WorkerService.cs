@@ -8,9 +8,6 @@ public class WorkerService
 
     public int Worker_Id { get; set; }
     public Worker Worker { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-
     public int Service_Id { get; set; }
 
 

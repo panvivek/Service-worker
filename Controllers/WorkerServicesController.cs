@@ -166,14 +166,14 @@ namespace ServiceWorkerWebsite.Controllers
             {
                 _context.WorkerServices.Remove(workerService);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool WorkerServiceExists(int id)
         {
-          return _context.WorkerServices.Any(e => e.Worker_Id == id);
+            return _context.WorkerServices.Any(e => e.Worker_Id == id);
         }
     }
 }
