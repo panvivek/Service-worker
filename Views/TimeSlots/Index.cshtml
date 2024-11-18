@@ -412,7 +412,8 @@
                                     </div>
                                     @if (slot.IsBooked)
                                     {
-                                        <span class="booked-badge" style="cursor: pointer;" onclick="showBookingDetails(@slot.TimeSlotId)">
+                                        <span class="booked-badge" style="cursor: pointer;"
+                                              onclick="showBookingDetails(@slot.TimeSlotId)">
                                             Booked
                                         </span>
                                     }
@@ -495,6 +496,8 @@
         const modal = document.getElementById('bookingModal');
         const bookingDetails = document.getElementById('bookingDetails');
 
+        console.log("Opening modal for TimeSlotId:", timeSlotId); // Debug log
+
         // Show modal with animation
         modal.style.display = 'block';
         setTimeout(() => modal.classList.add('show'), 10);
@@ -506,20 +509,27 @@
                 </div>
             `;
 
-        // Fetch booking details
-        fetch(`/TimeSlots/GetBookingDetails/${timeSlotId}`)
-            .then(response => response.text())
+        // Fetch booking details with the correct URL format
+        fetch(`/TimeSlots/GetBookingDetails?timeSlotId=${timeSlotId}`)
+            .then(response => {
+                console.log("Response status:", response.status); // Debug log
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
             .then(html => {
+                console.log("Received HTML response"); // Debug log
                 bookingDetails.innerHTML = html;
             })
             .catch(error => {
+                console.error('Error fetching booking details:', error);
                 bookingDetails.innerHTML = `
                         <div class="p-4 text-center text-red-500">
                             <i class="ri-error-warning-line text-2xl mb-2"></i>
-                            <p>Error loading booking details.</p>
+                            <p>Error loading booking details. Please try again.</p>
                         </div>
                     `;
-                console.error('Error:', error);
             });
     }
 

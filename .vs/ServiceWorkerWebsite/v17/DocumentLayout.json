@@ -1,83 +1,105 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\",
+  "WorkspaceRootPath": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\",
   "Documents": [
-    {
-<<<<<<< HEAD
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\controllers\\timeslotscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:controllers\\timeslotscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\views\\bookings\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\bookings\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
     {
       "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\views\\shared\\_bookingdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\shared\\_bookingdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\views\\timeslots\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\timeslots\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\views\\timeslots\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\timeslots\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\views\\timeslots\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\timeslots\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\models\\timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:models\\timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\controllers\\timeslotscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:controllers\\timeslotscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\views\\bookings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\bookings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\models\\timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:models\\timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\views\\bookings\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\bookings\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\models\\reviews.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:models\\reviews.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\migrations\\20241005230035_update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:migrations\\20241005230035_update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\freya\\onedrive - sheridan college\\laptop transfer\\semester 6\\capstone\\service-worker\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\freya\\onedrive - sheridan college\\laptop transfer\\semester 6\\capstone\\service-worker\\controllers\\workerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:controllers\\workerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\freya\\onedrive - sheridan college\\laptop transfer\\semester 6\\capstone\\service-worker\\views\\workers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\controllers\\useraddresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:controllers\\useraddresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\views\\workers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\workers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\freya\\onedrive - sheridan college\\laptop transfer\\semester 6\\capstone\\service-worker\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\freya\\onedrive - sheridan college\\laptop transfer\\semester 6\\capstone\\service-worker\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\wwwroot\\css\\auth-styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:wwwroot\\css\\auth-styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\areas\\identity\\pages\\account\\register1.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:areas\\identity\\pages\\account\\register1.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\freya\\onedrive - sheridan college\\laptop transfer\\semester 6\\capstone\\service-worker\\views\\workers\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\serviceworkerwebsite.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:serviceworkerwebsite.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\controllers\\workerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:controllers\\workerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\views\\workers\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:views\\workers\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\freya\\onedrive - sheridan college\\laptop transfer\\semester 6\\capstone\\service-worker\\models\\workerdetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|c:\\users\\ompat\\onedrive\\desktop\\college\\semesters\\6th semester\\capstone\\quickfix project\\service-worker\\models\\workerdetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{314341A6-9F72-4B38-A472-98B7834B96D1}|ServiceWorkerWebsite.csproj|solutionrelative:models\\workerdetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
->>>>>>> a662c0a2735cbb392e996aef677df81f44c8026a
     }
   ],
   "DocumentGroupContainers": [
@@ -87,16 +109,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 74,
-<<<<<<< HEAD
-          "SelectedChildIndex": 8,
-=======
           "SelectedChildIndex": -1,
->>>>>>> a662c0a2735cbb392e996aef677df81f44c8026a
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
-<<<<<<< HEAD
             },
             {
               "$type": "Bookmark",
@@ -125,109 +142,126 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 326,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_LoginPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_LoginPartial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-18T02:16:12.421Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Bookings\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Bookings\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Bookings\\Index.cshtml",
-              "RelativeToolTip": "Views\\Bookings\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-14T23:24:04.438Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:663034424:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TimeSlotsController.cs",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Controllers\\TimeSlotsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TimeSlotsController.cs",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Controllers\\TimeSlotsController.cs",
-              "RelativeToolTip": "Controllers\\TimeSlotsController.cs",
-              "ViewState": "AgIAANsAAAAAAAAAAAAUwPUAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T23:18:25.184Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "_BookingDetails.cshtml",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Shared\\_BookingDetails.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_BookingDetails.cshtml",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Shared\\_BookingDetails.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_BookingDetails.cshtml",
-              "ViewState": "AgIAAJkAAAAAAAAAAAAiwLoAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-17T17:08:46.992Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "BookingsController.cs",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Controllers\\BookingsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BookingsController.cs",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Controllers\\BookingsController.cs",
-              "RelativeToolTip": "Controllers\\BookingsController.cs",
-              "ViewState": "AgIAAG4BAAAAAAAAAAAcwIEBAABZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T23:18:16.254Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\TimeSlots\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\TimeSlots\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\TimeSlots\\Index.cshtml",
-              "RelativeToolTip": "Views\\TimeSlots\\Index.cshtml",
-              "ViewState": "AgIAACQBAAAAAAAAAAAiwCMCAAAJAAAAAAAAAA==",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\TimeSlots\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\TimeSlots\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\TimeSlots\\Edit.cshtml",
+              "RelativeToolTip": "Views\\TimeSlots\\Edit.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-14T23:13:03.428Z",
+              "WhenOpened": "2024-11-18T22:16:06.196Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Bookings\\Details.cshtml",
-              "RelativeDocumentMoniker": "Views\\Bookings\\Details.cshtml",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Bookings\\Details.cshtml",
-              "RelativeToolTip": "Views\\Bookings\\Details.cshtml",
-              "ViewState": "AgIAACEAAAAAAAAAAAAiwEIAAAAIAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\TimeSlots\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\TimeSlots\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\TimeSlots\\Index.cshtml",
+              "RelativeToolTip": "Views\\TimeSlots\\Index.cshtml",
+              "ViewState": "AgIAAJABAAAAAAAAAAAYwKIBAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-14T23:24:29.722Z",
+              "WhenOpened": "2024-11-18T22:09:14.204Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
+              "Title": "BookingsController.cs",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Controllers\\BookingsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BookingsController.cs",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Controllers\\BookingsController.cs",
+              "RelativeToolTip": "Controllers\\BookingsController.cs",
+              "ViewState": "AgIAAIEBAAAAAAAAAAAYwJYBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T17:23:16.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_BookingDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Shared\\_BookingDetails.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_BookingDetails.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Shared\\_BookingDetails.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_BookingDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-18T20:02:45.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\TimeSlots\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\TimeSlots\\Create.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\TimeSlots\\Create.cshtml",
+              "RelativeToolTip": "Views\\TimeSlots\\Create.cshtml",
+              "ViewState": "AgIAAPoBAAAAAAAAAAAYwBgCAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-09T18:23:31.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TimeSlotsController.cs",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Controllers\\TimeSlotsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TimeSlotsController.cs",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Controllers\\TimeSlotsController.cs",
+              "RelativeToolTip": "Controllers\\TimeSlotsController.cs",
+              "ViewState": "AgIAACIBAAAAAAAAAAAYwCgBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T20:02:08.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Booking.cs",
               "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Models\\Booking.cs",
               "RelativeDocumentMoniker": "Models\\Booking.cs",
               "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Models\\Booking.cs",
               "RelativeToolTip": "Models\\Booking.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAswCIAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAmwCYAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T23:18:31.224Z",
+              "WhenOpened": "2024-11-18T21:07:59.592Z",
               "EditorCaption": ""
             },
             {
@@ -238,139 +272,82 @@
               "RelativeDocumentMoniker": "Models\\TimeSlot.cs",
               "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Models\\TimeSlot.cs",
               "RelativeToolTip": "Models\\TimeSlot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T16:29:18.121Z",
+              "WhenOpened": "2024-11-18T21:31:08.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Bookings\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Bookings\\Details.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Bookings\\Details.cshtml",
+              "RelativeToolTip": "Views\\Bookings\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-18T19:49:44.704Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Review.cs",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Models\\Review.cs",
-              "RelativeDocumentMoniker": "Models\\Review.cs",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Models\\Review.cs",
-              "RelativeToolTip": "Models\\Review.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAXAAAAAAAAAA==",
+              "Title": "Worker.cs",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Models\\Worker.cs",
+              "RelativeDocumentMoniker": "Models\\Worker.cs",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Models\\Worker.cs",
+              "RelativeToolTip": "Models\\Worker.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAcwCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T16:20:17.658Z",
+              "WhenOpened": "2024-11-18T21:09:12.878Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "Reviews.cs",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Models\\Reviews.cs",
-              "RelativeDocumentMoniker": "Models\\Reviews.cs",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Models\\Reviews.cs",
-              "RelativeToolTip": "Models\\Reviews.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAcAAAARAAAAAAAAAA==",
+              "Title": "UserAddressController.cs",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Controllers\\UserAddressController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserAddressController.cs",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Controllers\\UserAddressController.cs",
+              "RelativeToolTip": "Controllers\\UserAddressController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T02:34:05.814Z",
+              "WhenOpened": "2024-11-18T20:02:07.293Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "20241005230035_update.cs",
-              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Migrations\\20241005230035_update.cs",
-              "RelativeDocumentMoniker": "Migrations\\20241005230035_update.cs",
-              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Migrations\\20241005230035_update.cs",
-              "RelativeToolTip": "Migrations\\20241005230035_update.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T23:26:00.832Z",
-              "EditorCaption": ""
-=======
->>>>>>> a662c0a2735cbb392e996aef677df81f44c8026a
-            }
-          ]
-        },
-        {
-          "DockedWidth": 326,
-          "SelectedChildIndex": 3,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:2:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BookingsController.cs",
-              "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Controllers\\BookingsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BookingsController.cs",
-              "ToolTip": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Controllers\\BookingsController.cs",
-              "RelativeToolTip": "Controllers\\BookingsController.cs",
-              "ViewState": "AQIAABECAAAAAAAAAAAlwB8CAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T03:00:34.676Z",
+              "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "ViewState": "AgIAAMcBAAAAAAAAAAAkwM8BAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-11-18T02:48:02.938Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Views\\Workers\\Details.cshtml",
-              "RelativeDocumentMoniker": "Views\\Workers\\Details.cshtml",
-              "ToolTip": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Views\\Workers\\Details.cshtml",
-              "RelativeToolTip": "Views\\Workers\\Details.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEgAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-29T02:41:07.027Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "WorkerDetailsViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Models\\WorkerDetailsViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\WorkerDetailsViewModel.cs",
-              "ToolTip": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Models\\WorkerDetailsViewModel.cs",
-              "RelativeToolTip": "Models\\WorkerDetailsViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T02:40:42.581Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WorkersController.cs",
-              "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Controllers\\WorkersController.cs",
-              "RelativeDocumentMoniker": "Controllers\\WorkersController.cs",
-              "ToolTip": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Controllers\\WorkersController.cs",
-              "RelativeToolTip": "Controllers\\WorkersController.cs",
-              "ViewState": "AQIAAF8BAAAAAAAAAAAswG4BAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T02:34:36.87Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 17,
               "Title": "_LoginPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Views\\Shared\\_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Shared\\_LoginPartial.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
-              "ToolTip": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Shared\\_LoginPartial.cshtml",
               "RelativeToolTip": "Views\\Shared\\_LoginPartial.cshtml",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-29T03:23:39.767Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 18,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -378,15 +355,136 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 12,
               "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Views\\Workers\\Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Workers\\Create.cshtml",
               "RelativeDocumentMoniker": "Views\\Workers\\Create.cshtml",
-              "ToolTip": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\Views\\Workers\\Create.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Workers\\Create.cshtml",
               "RelativeToolTip": "Views\\Workers\\Create.cshtml",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAIwJwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAPEAAAAAAAAAAAAqwBMBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-14T22:12:43.26Z"
+              "WhenOpened": "2024-11-09T18:14:22.033Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "auth-styles.css",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\auth-styles.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\auth-styles.css",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\auth-styles.css",
+              "RelativeToolTip": "wwwroot\\css\\auth-styles.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-09T17:46:33.439Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-09T17:42:14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Register1.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Areas\\Identity\\Pages\\Account\\Register1.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register1.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Areas\\Identity\\Pages\\Account\\Register1.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register1.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-09T17:41:22.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-09T17:59:07.622Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-09T18:02:41.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-09T17:33:22.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ServiceWorkerWebsite.csproj",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\ServiceWorkerWebsite.csproj",
+              "RelativeDocumentMoniker": "ServiceWorkerWebsite.csproj",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\ServiceWorkerWebsite.csproj",
+              "RelativeToolTip": "ServiceWorkerWebsite.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-11-09T17:18:22.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Workers\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Workers\\Details.cshtml",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Views\\Workers\\Details.cshtml",
+              "RelativeToolTip": "Views\\Workers\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-29T02:41:07.027Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "WorkerDetailsViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Models\\WorkerDetailsViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\WorkerDetailsViewModel.cs",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Models\\WorkerDetailsViewModel.cs",
+              "RelativeToolTip": "Models\\WorkerDetailsViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T02:40:42.581Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "WorkersController.cs",
+              "DocumentMoniker": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Controllers\\WorkersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\WorkersController.cs",
+              "ToolTip": "C:\\Users\\ompat\\OneDrive\\Desktop\\college\\semesters\\6th Semester\\Capstone\\QuickFix Project\\Service-worker\\Controllers\\WorkersController.cs",
+              "RelativeToolTip": "Controllers\\WorkersController.cs",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAewJYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T02:34:36.87Z"
             }
           ]
         },
@@ -394,6 +492,10 @@
           "DockedWidth": 200,
           "SelectedChildIndex": -1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
@@ -405,10 +507,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Bookmark",

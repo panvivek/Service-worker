@@ -1,187 +1,250 @@
-﻿@model Booking
+﻿@model ServiceWorkerWebsite.Models.Booking
 
-@if (Model != null)
-{
-    <div class="p-6">
-        <!-- Customer Information -->
-        <div class="mb-6">
-            <div class="flex items-center mb-4">
-                <i class="ri-user-line text-lg text-purple-600 mr-2"></i>
-                <h3 class="text-lg font-semibold">Customer Information</h3>
-            </div>
-            <div class="bg-gray-50 rounded-lg p-4">
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="text-gray-600">Name</div>
-                    <div class="font-medium">@Model.User.Firstname @Model.User.Lastname</div>
-
-                    <div class="text-gray-600">Email</div>
-                    <div class="font-medium">@Model.User.Email</div>
-
-                    <div class="text-gray-600">Phone</div>
-                    <div class="font-medium">@Model.User.PhoneNumber</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Booking Information -->
-        <div class="mb-6">
-            <div class="flex items-center mb-4">
-                <i class="ri-calendar-check-line text-lg text-purple-600 mr-2"></i>
-                <h3 class="text-lg font-semibold">Booking Details</h3>
-            </div>
-            <div class="bg-gray-50 rounded-lg p-4">
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="text-gray-600">Service</div>
-                    <div class="font-medium">@Model.Service.Name</div>
-
-                    <div class="text-gray-600">Date</div>
-                    <div class="font-medium">@Model.TimeSlot.SelectedDates</div>
-
-                    <div class="text-gray-600">Time</div>
-                    <div class="font-medium">@Model.TimeSlot.TimeSlots</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="flex justify-end gap-3">
-            <button onclick="closeModal()" class="px-4 py-2 text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
-                <i class="ri-close-line mr-1"></i>
-                Close
-            </button>
-
-            <a href="@Url.Action("DownloadInvoice", "Bookings", new { id = Model.Id })"
-               class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors inline-flex items-center">
-                <i class="ri-download-line mr-1"></i>
-                Download Invoice
-            </a>
-        </div>
-    </div>
-}
-else
-{
-    <div class="p-8 text-center">
-        <div class="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-gray-100">
-            <i class="ri-information-line text-2xl text-gray-400"></i>
-        </div>
-        <p class="text-gray-500">No booking information available for this time slot.</p>
-    </div>
-}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
 
 <style>
-    .grid {
-        display: grid;
-    }
-    .grid-cols-2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .gap-4 {
-        gap: 1rem;
-    }
-    .text-gray-600 {
-        color: #4B5563;
-    }
-    .font-medium {
-        font-weight: 500;
-    }
-    .mb-6 {
-        margin-bottom: 1.5rem;
-    }
-    .mb-4 {
-        margin-bottom: 1rem;
-    }
-    .p-4 {
+    #bookingDetailsModal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
         padding: 1rem;
     }
-    .p-6 {
-        padding: 1.5rem;
+
+    .detail-container {
+        width: 100%;
+        max-width: 800px; /* Increased from 600px */
+        margin: auto;
     }
-    .p-8 {
-        padding: 2rem;
+
+    .detail-card {
+        background: white;
+        border-radius: 16px;
+        padding: 2.5rem; /* Increased padding */
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     }
-    .rounded-lg {
-        border-radius: 0.5rem;
+
+    .modal-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #E5E7EB;
     }
-    .bg-gray-50 {
-        background-color: #F9FAFB;
-    }
-    .text-lg {
-        font-size: 1.125rem;
-    }
-    .font-semibold {
+
+    .page-title {
+        font-size: 1.75rem; /* Increased font size */
         font-weight: 600;
-    }
-    .flex {
+        color: #1F2937;
+        margin: 0;
         display: flex;
-    }
-    .items-center {
         align-items: center;
-    }
-    .justify-end {
         justify-content: center;
+        gap: 0.5rem;
     }
-    .mr-2 {
-        margin-right: 0.5rem;
+
+    .booking-reference {
+        font-size: 1rem; /* Increased font size */
+        color: #6B7280;
+        margin-top: 0.5rem;
     }
-    .text-purple-600 {
-        color: #7C3AED;
+
+    .info-section {
+        background: #F9FAFB;
+        border-radius: 12px;
+        padding: 2rem; /* Increased padding */
+        margin-bottom: 2rem;
     }
-    .gap-3 {
+
+    .section-title {
+        display: flex;
+        align-items: center;
         gap: 0.75rem;
+        color: #6366F1;
+        font-size: 1.25rem; /* Increased font size */
+        font-weight: 600;
+        margin-bottom: 1.5rem;
     }
-    .px-4 {
-        padding-left: 1rem;
-        padding-right: 1rem;
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem; /* Increased gap */
     }
-    .py-2 {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
+
+    .info-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
     }
-    .text-gray-600 {
+
+    .info-label {
+        font-size: 1rem;
+        color: #6B7280;
+    }
+
+    .info-value {
+        font-size: 1.125rem; /* Increased font size */
+        color: #1F2937;
+        font-weight: 500;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #E5E7EB;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem; /* Increased padding */
+        border-radius: 8px;
+        font-size: 1rem; /* Increased font size */
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+    }
+
+    .btn-secondary {
+        background: #F3F4F6;
         color: #4B5563;
     }
-    .bg-gray-100 {
-        background-color: #F3F4F6;
-    }
-    .hover\:bg-gray-200:hover {
-        background-color: #E5E7EB;
-    }
-    .bg-purple-600 {
-        background-color: #7C3AED;
-    }
-    .text-white {
+
+        .btn-secondary:hover {
+            background: #E5E7EB;
+        }
+
+    .btn-primary {
+        background: #6366F1;
         color: white;
     }
-    .hover\:bg-purple-700:hover {
-        background-color: #6D28D9;
-    }
-    .transition-colors {
-        transition-property: background-color, border-color, color, fill, stroke;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 150ms;
-    }
-    .inline-flex {
-        display: inline-flex;
-    }
-    .mr-1 {
-        margin-right: 0.25rem;
-    }
-    .text-center {
+
+        .btn-primary:hover {
+            background: #4F46E5;
+        }
+
+    .empty-state {
         text-align: center;
+        padding: 3rem;
     }
-    .justify-center {
-        justify-content: center;
-    }
-    .w-12 {
-        width: 3rem;
-    }
-    .h-12 {
-        height: 3rem;
-    }
-    .text-2xl {
-        font-size: 1.5rem;
-    }
-    .text-gray-400 {
-        color: #9CA3AF;
-    }
+
+        .empty-state i {
+            font-size: 3.5rem;
+            color: #D1D5DB;
+            margin-bottom: 1rem;
+        }
+
+        .empty-state p {
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
 </style>
+
+<div id="bookingDetailsModal">
+    <div class="detail-container">
+        <div class="detail-card">
+            @if (Model != null)
+            {
+                <div class="modal-header">
+                    <div class="page-title">
+                        <i class="ri-calendar-check-line"></i>
+                        Booking Details
+                    </div>
+                    <div class="booking-reference">Booking Reference: #@Model.Id</div>
+                </div>
+
+                <div class="info-section">
+                    <h2 class="section-title">
+                        <i class="ri-user-line"></i>
+                        Customer Information
+                    </h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Name</span>
+                            <span class="info-value">@Model.User.Firstname @Model.User.Lastname</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Email</span>
+                            <span class="info-value">@Model.User.Email</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Phone</span>
+                            <span class="info-value">@Model.User.PhoneNumber</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2 class="section-title">
+                        <i class="ri-calendar-line"></i>
+                        Service Details
+                    </h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Service</span>
+                            <span class="info-value">@Model.Service.Name</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Date</span>
+                            <span class="info-value">@Model.TimeSlot.SelectedDates</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Time</span>
+                            <span class="info-value">@Model.TimeSlot.TimeSlots</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Price</span>
+                            <span class="info-value">$@Model.Worker.Price</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Booking Date</span>
+                            <span class="info-value">@Model.BookingDate.ToShortDateString()</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button onclick="closeModal()" class="btn btn-secondary">
+                        <i class="ri-close-line"></i>
+                        Close
+                    </button>
+                    <a href="@Url.Action("DownloadInvoice", "Bookings", new { id = Model.Id })" class="btn btn-primary">
+                        <i class="ri-download-line"></i>
+                        Download Invoice
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="empty-state">
+                    <i class="ri-information-line"></i>
+                    <p>No booking information available.</p>
+                    <button onclick="closeModal()" class="btn btn-secondary">
+                        <i class="ri-close-line"></i>
+                        Close
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    function closeModal() {
+        const modal = document.getElementById('bookingDetailsModal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>

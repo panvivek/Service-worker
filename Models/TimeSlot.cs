@@ -22,4 +22,5 @@ public class TimeSlot
     public virtual Worker Worker { get; set; }
 
     public bool IsBooked { get; set; } = false;
+
 }
