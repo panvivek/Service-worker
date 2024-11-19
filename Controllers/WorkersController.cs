@@ -149,14 +149,15 @@ namespace ServiceWorkerWebsite.Controllers
 
         // GET: Workers/Details/5
         // GET: Workers/Details/5
-[Route("workers/{workerId}/details/{serviceId}")]
+        // Modify the route to include the optional page parameter
+        [Route("workers/{workerId}/details/{serviceId}")]
+        [Route("workers/{workerId}/details/{serviceId}/page/{page?}")]  // Add this route
         public async Task<IActionResult> Details(int workerId, int serviceId, int page = 1)
         {
-            int pageSize = 5; // Number of reviews per page
+            int pageSize = 5;
 
-            // Fetch the worker along with the reviews for the specific service
+            // First check if worker exists
             var worker = await _context.Worker_List
-                .Include(w => w.Reviews.Where(r => r.Service_Id == serviceId)) // Filter reviews by service
                 .Include(w => w.User)
                 .FirstOrDefaultAsync(w => w.Worker_Id == workerId);
 
@@ -165,10 +166,21 @@ namespace ServiceWorkerWebsite.Controllers
                 return NotFound();
             }
 
-            // Paginate the reviews
-            var totalReviews = worker.Reviews.Count();
-            var reviewsToShow = worker.Reviews
-                .OrderBy(r => r.ReviewDate)
+            // Get total reviews count
+            var totalReviews = await _context.Reviews
+                .Where(r => r.Worker_Id == workerId && r.Service_Id == serviceId)
+                .CountAsync();
+
+            // Calculate total pages
+            var totalPages = Math.Max(1, (int)Math.Ceiling((double)totalReviews / pageSize));
+
+            // Ensure page number is valid
+            page = Math.Max(1, Math.Min(page, totalPages));
+
+            // Get paginated reviews
+            var reviews = await _context.Reviews
+                .Where(r => r.Worker_Id == workerId && r.Service_Id == serviceId)
+                .OrderByDescending(r => r.ReviewDate)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .Select(r => new ReviewViewModel
@@ -178,30 +190,31 @@ namespace ServiceWorkerWebsite.Controllers
                     ReviewDate = r.ReviewDate,
                     CustomerName = string.IsNullOrEmpty(r.CustomerName) ? "Anonymous" : r.CustomerName
                 })
-                .ToList();
+                .ToListAsync();
 
-            // Calculate average rating for the service
-            double averageRating = worker.Reviews.Any() ? worker.Reviews.Average(r => r.RatingValue) : 0;
+            // Calculate average rating
+            double averageRating = await _context.Reviews
+                .Where(r => r.Worker_Id == workerId && r.Service_Id == serviceId)
+                .AverageAsync(r => (double?)r.RatingValue) ?? 0;
 
-            // Pass data to the view
             ViewBag.AverageRating = averageRating;
             ViewBag.TotalReviews = totalReviews;
             ViewBag.PageSize = pageSize;
             ViewBag.CurrentPage = page;
-            ViewBag.TotalPages = (int)Math.Ceiling((double)totalReviews / pageSize);
-            ViewBag.ServiceId = serviceId; // To return back to the correct service
+            ViewBag.TotalPages = totalPages;
+            ViewBag.ServiceId = serviceId;
 
-            var workerDetailsViewModel = new WorkerDetailsViewModel
+            var viewModel = new WorkerDetailsViewModel
             {
                 Worker_Id = worker.Worker_Id,
                 ProfilePicUrl = worker.ProfilePic_Id,
                 Price = worker.Price,
                 FirstName = worker.User.Firstname,
                 LastName = worker.User.Lastname,
-                Reviews = reviewsToShow // Paginated reviews
+                Review = reviews
             };
 
-            return View(workerDetailsViewModel);
+            return View(viewModel);
         }
 
 
