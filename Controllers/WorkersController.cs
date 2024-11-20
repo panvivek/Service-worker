@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,6 +10,7 @@ using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 
 namespace ServiceWorkerWebsite.Controllers
 {
@@ -17,11 +19,13 @@ namespace ServiceWorkerWebsite.Controllers
 
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ServiceWorkerWebsiteUser> _userManager;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public WorkersController(ApplicationDbContext context, UserManager<ServiceWorkerWebsiteUser> userManager)
+        public WorkersController(ApplicationDbContext context, UserManager<ServiceWorkerWebsiteUser> userManager, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _userManager = userManager;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public async Task<IActionResult> Index(int serviceId, string sortOrder)
@@ -149,14 +153,15 @@ namespace ServiceWorkerWebsite.Controllers
 
         // GET: Workers/Details/5
         // GET: Workers/Details/5
-[Route("workers/{workerId}/details/{serviceId}")]
+        // Modify the route to include the optional page parameter
+        [Route("workers/{workerId}/details/{serviceId}")]
+        [Route("workers/{workerId}/details/{serviceId}/page/{page?}")]  // Add this route
         public async Task<IActionResult> Details(int workerId, int serviceId, int page = 1)
         {
-            int pageSize = 5; // Number of reviews per page
+            int pageSize = 5;
 
-            // Fetch the worker along with the reviews for the specific service
+            // First check if worker exists
             var worker = await _context.Worker_List
-                .Include(w => w.Reviews.Where(r => r.Service_Id == serviceId)) // Filter reviews by service
                 .Include(w => w.User)
                 .FirstOrDefaultAsync(w => w.Worker_Id == workerId);
 
@@ -165,10 +170,21 @@ namespace ServiceWorkerWebsite.Controllers
                 return NotFound();
             }
 
-            // Paginate the reviews
-            var totalReviews = worker.Reviews.Count();
-            var reviewsToShow = worker.Reviews
-                .OrderBy(r => r.ReviewDate)
+            // Get total reviews count
+            var totalReviews = await _context.Reviews
+                .Where(r => r.Worker_Id == workerId && r.Service_Id == serviceId)
+                .CountAsync();
+
+            // Calculate total pages
+            var totalPages = Math.Max(1, (int)Math.Ceiling((double)totalReviews / pageSize));
+
+            // Ensure page number is valid
+            page = Math.Max(1, Math.Min(page, totalPages));
+
+            // Get paginated reviews
+            var reviews = await _context.Reviews
+                .Where(r => r.Worker_Id == workerId && r.Service_Id == serviceId)
+                .OrderByDescending(r => r.ReviewDate)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .Select(r => new ReviewViewModel
@@ -178,30 +194,31 @@ namespace ServiceWorkerWebsite.Controllers
                     ReviewDate = r.ReviewDate,
                     CustomerName = string.IsNullOrEmpty(r.CustomerName) ? "Anonymous" : r.CustomerName
                 })
-                .ToList();
+                .ToListAsync();
 
-            // Calculate average rating for the service
-            double averageRating = worker.Reviews.Any() ? worker.Reviews.Average(r => r.RatingValue) : 0;
+            // Calculate average rating
+            double averageRating = await _context.Reviews
+                .Where(r => r.Worker_Id == workerId && r.Service_Id == serviceId)
+                .AverageAsync(r => (double?)r.RatingValue) ?? 0;
 
-            // Pass data to the view
             ViewBag.AverageRating = averageRating;
             ViewBag.TotalReviews = totalReviews;
             ViewBag.PageSize = pageSize;
             ViewBag.CurrentPage = page;
-            ViewBag.TotalPages = (int)Math.Ceiling((double)totalReviews / pageSize);
-            ViewBag.ServiceId = serviceId; // To return back to the correct service
+            ViewBag.TotalPages = totalPages;
+            ViewBag.ServiceId = serviceId;
 
-            var workerDetailsViewModel = new WorkerDetailsViewModel
+            var viewModel = new WorkerDetailsViewModel
             {
                 Worker_Id = worker.Worker_Id,
                 ProfilePicUrl = worker.ProfilePic_Id,
                 Price = worker.Price,
                 FirstName = worker.User.Firstname,
                 LastName = worker.User.Lastname,
-                Reviews = reviewsToShow // Paginated reviews
+                Review = reviews
             };
 
-            return View(workerDetailsViewModel);
+            return View(viewModel);
         }
 
 
@@ -233,7 +250,22 @@ namespace ServiceWorkerWebsite.Controllers
 
             return View(worker);
         }
+        private async Task<string> ConvertImageToBase64(IFormFile file)
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                await file.CopyToAsync(memoryStream);
+                byte[] imageBytes = memoryStream.ToArray();
+                string base64String = Convert.ToBase64String(imageBytes);
+                return $"data:{file.ContentType};base64,{base64String}";
+            }
+        }
 
+        private string ProcessWebcamImage(string capturedImage)
+        {
+            // Webcam image is already in base64 format, just return it
+            return capturedImage;
+        }
 
 
         // POST: Workers/Create
@@ -275,50 +307,13 @@ namespace ServiceWorkerWebsite.Controllers
 
                 if (ProfilePicFile != null && ProfilePicFile.Length > 0)
                 {
-
-
-
-
-
-                    // Ensure the directory exists
-                    if (!Directory.Exists(uploadsFolder))
-                    {
-                        Directory.CreateDirectory(uploadsFolder);
-                        Console.WriteLine($"Created directory: {uploadsFolder}");
-                    }
-
-                    // Generate a unique file name
-
-
-                    var uniqueFileName = $"{ProfilePicFile.FileName}";
-                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                    Console.WriteLine($"Saving file to: {filePath}");
-
-                    // Save the file to the specified path
-                    using (var fileStream = new FileStream(filePath, FileMode.Create))
-                    {
-                        await ProfilePicFile.CopyToAsync(fileStream);
-                    }
-
-                    // Store the relative path in the database
-                    worker.ProfilePic_Id = $"/WorkerProfilePic/{uniqueFileName}";
+                    // Convert uploaded file to base64
+                    worker.ProfilePic_Id = await ConvertImageToBase64(ProfilePicFile);
                 }
                 else if (!string.IsNullOrEmpty(CapturedImage))
                 {
-
-                    if (!Directory.Exists(uploadsFolder))
-                    {
-                        Directory.CreateDirectory(uploadsFolder);
-                    }
-
-                    var base64Data = CapturedImage.Split(',')[1];
-                    var imageBytes = Convert.FromBase64String(base64Data);
-
-                    string uniqueFileName = $"{Guid.NewGuid()}.png";
-                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                    await System.IO.File.WriteAllBytesAsync(filePath, imageBytes);
-
-                    worker.ProfilePic_Id = $"/WorkerProfilePic/{uniqueFileName}";
+                    // Use webcam capture (already in base64)
+                    worker.ProfilePic_Id = CapturedImage;
                 }
 
                 else
@@ -364,6 +359,12 @@ namespace ServiceWorkerWebsite.Controllers
 
             ViewBag.Services = serviceItems;
             return View(worker);
+        }
+        private async Task<string> ConvertDefaultImageToBase64()
+        {
+            string defaultImagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "default-profile.png");
+            byte[] imageBytes = await System.IO.File.ReadAllBytesAsync(defaultImagePath);
+            return $"data:image/png;base64,{Convert.ToBase64String(imageBytes)}";
         }
 
 

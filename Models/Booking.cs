@@ -36,5 +36,6 @@ namespace ServiceWorkerWebsite.Models
 
         // Navigation property for TimeSlot
         public virtual TimeSlot TimeSlot { get; set; }
+       
     }
 }

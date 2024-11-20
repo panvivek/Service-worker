@@ -239,20 +239,61 @@ namespace ServiceWorkerWebsite.Controllers
         [HttpGet]
         public async Task<IActionResult> GetBookingDetails(int timeSlotId)
         {
-            var booking = await _context.Booking
-                .Include(b => b.Service)
-                .Include(b => b.TimeSlot)
-                .Include(b => b.User)
-                .FirstOrDefaultAsync(b => b.TimeSlotId == 118);
-
-            if (booking == null)
+            try
             {
-                // Return the partial view with null model to show "no booking" message
-                Console.WriteLine("No booking found for timeSlotId: " + timeSlotId);
-                return PartialView("_BookingDetails", null);
-            }
+                // Get current logged-in user's ID (worker's user ID)
+                var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (string.IsNullOrEmpty(currentUserId))
+                {
+                    return Unauthorized("User not logged in");
+                }
 
-            return PartialView("_BookingDetails", booking);
+                // First, get the worker record for the current user
+                var worker = await _context.Worker_List
+                    .FirstOrDefaultAsync(w => w.UserId == currentUserId);
+
+                if (worker == null)
+                {
+                    return NotFound("No worker record found for current user");
+                }
+
+                Console.WriteLine($"Worker ID: {worker.Worker_Id}");
+                Console.WriteLine($"Looking for booking with TimeSlotId: {timeSlotId}");
+
+                // Find the booking that matches this worker's ID and timeslot to get the customer's UserID
+                var customerBooking = await _context.Booking
+                    .FirstOrDefaultAsync(b => b.Worker_Id == worker.Worker_Id && b.TimeSlotId == timeSlotId);
+
+                if (customerBooking == null)
+                {
+                    Console.WriteLine($"No booking found for Worker_Id: {worker.Worker_Id} and TimeSlotId: {timeSlotId}");
+                    return NotFound("No booking found for this worker and time slot");
+                }
+
+                Console.WriteLine($"Found booking! Customer ID: {customerBooking.UserId}");
+
+                // Now get the full booking details including all related data
+                var booking = await _context.Booking
+                    .Include(b => b.Service)
+                    .Include(b => b.TimeSlot)
+                    .Include(b => b.User)  // Customer details
+                    .Include(b => b.Worker) // Include Worker
+                        .ThenInclude(w => w.User) // Include Worker's User details
+                    .FirstOrDefaultAsync(b => b.Id == customerBooking.Id);
+
+                if (booking == null)
+                {
+                    Console.WriteLine($"No booking details found for customer ID: {customerBooking.UserId}");
+                    return PartialView("_BookingDetails", null);
+                }
+
+                return PartialView("_BookingDetails", booking);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting booking details: {ex.Message}");
+                return StatusCode(500, "An error occurred while retrieving booking details");
+            }
         }
 
 

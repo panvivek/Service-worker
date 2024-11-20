@@ -1,5 +1,4 @@
-﻿@model ServiceWorkerWebsite.Models.Booking
-
+﻿@model Booking
 @{
     ViewData["Title"] = "Booking Details";
 }
@@ -11,38 +10,71 @@
         </div>
         <div class="card-body">
             <div class="row">
+                <!-- Customer Information -->
                 <div class="col-md-6">
-                    <h4 class="mb-3">Customer Information</h4>
-                    <dl class="row">
-                        <dt class="col-sm-4">Name:</dt>
-                        <dd class="col-sm-8">@Model.User.Firstname @Model.User.Lastname</dd>
-
-                        <dt class="col-sm-4">Email:</dt>
-                        <dd class="col-sm-8">@Model.User.Email</dd>
-
-                        <dt class="col-sm-4">Phone:</dt>
-                        <dd class="col-sm-8">@Model.User.PhoneNumber</dd>
-                    </dl>
+                    <div class="border rounded p-3 h-100">
+                        <h4 class="mb-3 text-primary">
+                            <i class="ri-user-line me-2"></i>Customer Information
+                        </h4>
+                        <dl class="row">
+                            <dt class="col-sm-4">Name:</dt>
+                            <dd class="col-sm-8">@Model.User.Firstname @Model.User.Lastname</dd>
+                            <dt class="col-sm-4">Email:</dt>
+                            <dd class="col-sm-8">@Model.User.Email</dd>
+                            <dt class="col-sm-4">Phone:</dt>
+                            <dd class="col-sm-8">@Model.User.PhoneNumber</dd>
+                        </dl>
+                    </div>
                 </div>
+
+                <!-- Worker Information -->
                 <div class="col-md-6">
-                    <h4 class="mb-3">Booking Information</h4>
-                    <dl class="row">
-                        <dt class="col-sm-4">Service:</dt>
-                        <dd class="col-sm-8">@Model.Service.Name</dd>
+                    <div class="border rounded p-3 h-100">
+                        <h4 class="mb-3 text-primary">
+                            <i class="ri-team-line me-2"></i>Worker Information
+                        </h4>
+                        <dl class="row">
+                            <dt class="col-sm-4">Name:</dt>
+                            <dd class="col-sm-8">@Model.Worker.User.Firstname @Model.Worker.User.Lastname</dd>
+                            <dt class="col-sm-4">Email:</dt>
+                            <dd class="col-sm-8">@Model.Worker.User.Email</dd>
+                            <dt class="col-sm-4">Phone:</dt>
+                            <dd class="col-sm-8">@Model.Worker.User.PhoneNumber</dd>
+                            <dt class="col-sm-4">Price:</dt>
+                            <dd class="col-sm-8">$@Model.Worker.Price</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
 
-                        <dt class="col-sm-4">Date:</dt>
-                        <dd class="col-sm-8">@Model.TimeSlot.SelectedDates</dd>
-
-                        <dt class="col-sm-4">Time:</dt>
-                        <dd class="col-sm-8">@Model.TimeSlot.TimeSlots</dd>
-                    </dl>
+            <!-- Booking Information -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="border rounded p-3">
+                        <h4 class="mb-3 text-primary">
+                            <i class="ri-calendar-check-line me-2"></i>Booking Information
+                        </h4>
+                        <dl class="row">
+                            <dt class="col-sm-2">Service:</dt>
+                            <dd class="col-sm-10">@Model.Service.Name</dd>
+                            <dt class="col-sm-2">Date:</dt>
+                            <dd class="col-sm-10">@Model.TimeSlot.SelectedDates</dd>
+                            <dt class="col-sm-2">Time:</dt>
+                            <dd class="col-sm-10">@Model.TimeSlot.TimeSlots</dd>
+                        </dl>
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="card-footer">
             <div class="btn-group">
-                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
-                <a asp-action="DownloadInvoice" asp-route-id="@Model.Id" class="btn btn-info">Download Invoice</a>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="ri-arrow-left-line me-1"></i>Back to List
+                </a>
+                <a asp-action="DownloadInvoice" asp-route-id="@Model.Id" class="btn btn-info">
+                    <i class="ri-download-line me-1"></i>Download Invoice
+                </a>
             </div>
         </div>
     </div>
@@ -51,17 +83,49 @@
 <style>
     .card {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border: none;
     }
 
     .card-header {
+        background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
         border-bottom: 0;
+    }
+
+    .border {
+        border-color: #E5E7EB !important;
     }
 
     dt {
         font-weight: 600;
+        color: #4B5563;
     }
 
     dd {
         margin-bottom: 0.5rem;
+        color: #111827;
+    }
+
+    .text-primary {
+        color: #8B5CF6 !important;
+    }
+
+    .btn-info {
+        background-color: #8B5CF6;
+        border-color: #8B5CF6;
+        color: white;
+    }
+
+        .btn-info:hover {
+            background-color: #7C3AED;
+            border-color: #7C3AED;
+            color: white;
+        }
+
+    .me-1 {
+        margin-right: 0.25rem;
+    }
+
+    .me-2 {
+        margin-right: 0.5rem;
     }
 </style>

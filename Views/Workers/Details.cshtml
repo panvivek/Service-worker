@@ -17,7 +17,7 @@
         background: rgba(255, 255, 255, 0.95);
         border-radius: 20px;
         margin: 2rem auto;
-        padding: 2rem;
+        padding: 2rem; 
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         max-width: 1200px;
     }
@@ -122,9 +122,9 @@
 
     <div class="reviews-section">
         <h3 class="mb-4"><i class="ri-chat-3-line"></i> Reviews</h3>
-        @if (Model.Reviewss != null && Model.Reviewss.Count > 0)
+        @if (Model.Review != null && Model.Review.Count > 0)
         {
-            foreach (var review in Model.Reviewss)
+            foreach (var review in Model.Review)
             {
                 <div class="review-card animate__animated animate__fadeIn">
                     <div class="d-flex justify-content-between align-items-start">
@@ -155,18 +155,62 @@
 
     <nav aria-label="Review navigation">
         <ul class="pagination">
+            <!-- First Page -->
             <li class="page-item @(ViewBag.CurrentPage <= 1 ? "disabled" : "")">
-                <a class="page-link" asp-action="Details" asp-route-workerId="@Model.Worker_Id" asp-route-serviceId="@ViewBag.ServiceId" asp-route-page="@(ViewBag.CurrentPage - 1)">
-                    <i class="ri-arrow-left-line"></i> Previous
+                <a class="page-link"
+                   href="@Url.Action("Details", "Workers", new { workerId = Model.Worker_Id, serviceId = ViewBag.ServiceId, page = 1 })">
+                    First
                 </a>
             </li>
+
+            <!-- Previous -->
+            <li class="page-item @(ViewBag.CurrentPage <= 1 ? "disabled" : "")">
+                <a class="page-link"
+                   href="@Url.Action("Details", "Workers", new { workerId = Model.Worker_Id, serviceId = ViewBag.ServiceId, page = ViewBag.CurrentPage - 1 })">
+                    Previous
+                </a>
+            </li>
+
+            <!-- Page Numbers -->
+            @{
+                int startPage = Math.Max(1, ViewBag.CurrentPage - 2);
+                int endPage = Math.Min(ViewBag.TotalPages, startPage + 4);
+                startPage = Math.Max(1, endPage - 4);
+            }
+
+            @for (int i = startPage; i <= endPage; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link"
+                       href="@Url.Action("Details", "Workers", new { workerId = Model.Worker_Id, serviceId = ViewBag.ServiceId, page = i })">
+                        @i
+                    </a>
+                </li>
+            }
+
+            <!-- Next -->
             <li class="page-item @(ViewBag.CurrentPage >= ViewBag.TotalPages ? "disabled" : "")">
-                <a class="page-link" asp-action="Details" asp-route-workerId="@Model.Worker_Id" asp-route-serviceId="@ViewBag.ServiceId" asp-route-page="@(ViewBag.CurrentPage + 1)">
-                    Next <i class="ri-arrow-right-line"></i>
+                <a class="page-link"
+                   href="@Url.Action("Details", "Workers", new { workerId = Model.Worker_Id, serviceId = ViewBag.ServiceId, page = ViewBag.CurrentPage + 1 })">
+                    Next
+                </a>
+            </li>
+
+            <!-- Last Page -->
+            <li class="page-item @(ViewBag.CurrentPage >= ViewBag.TotalPages ? "disabled" : "")">
+                <a class="page-link"
+                   href="@Url.Action("Details", "Workers", new { workerId = Model.Worker_Id, serviceId = ViewBag.ServiceId, page = ViewBag.TotalPages })">
+                    Last
                 </a>
             </li>
         </ul>
     </nav>
+
+    <!-- Add this section to show pagination info -->
+    <div class="text-center text-muted mt-2">
+        Showing page @ViewBag.CurrentPage of @ViewBag.TotalPages
+        (@ViewBag.TotalReviews total reviews)
+    </div>
 
     <div class="text-center">
         <a asp-controller="Workers" asp-action="Index" asp-route-serviceId="@ViewBag.ServiceId" class="btn-back">
