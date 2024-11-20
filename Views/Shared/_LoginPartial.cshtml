@@ -19,6 +19,7 @@
     <ul class="dropdown-menu dropdown-menu-end">
         @if (SignInManager.IsSignedIn(User))
         {
+
             @if (User.IsInRole("Worker"))
             {
                 <li>
@@ -26,10 +27,17 @@
                         <i class="fas fa-user-circle"></i> Dashboard
                     </a>
                 </li>
+                
                 <li>
                     <a class="dropdown-item" asp-controller="TimeSlots" asp-action="Index">
                         <i class="fas fa-calendar"></i> Bookings
                     </a>
+                </li>
+            }
+            @if (User.IsInRole("Worker"))
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-controller="Business" asp-action="Earnings">Business Earnings</a>
                 </li>
             }
             else

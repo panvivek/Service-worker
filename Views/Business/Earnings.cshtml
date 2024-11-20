@@ -1,0 +1,153 @@
+﻿@using ServiceWorkerWebsite.Models
+@model BusinessEarningsViewModel
+@{
+    ViewData["Title"] = "Business Earnings";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Business Dashboard</h1>
+
+    <!-- Summary Cards Row -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Total Earnings</h5>
+                    <h2 class="card-text">$@Model.TotalEarnings.ToString("N2")</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Active Services</h5>
+                    <h2 class="card-text">@Model.Services.Count</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Total Bookings</h5>
+                    <h2 class="card-text">@Model.Bookings.Count</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Unique Customers</h5>
+                    <h2 class="card-text">@Model.UniqueCustomers</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Earnings Table -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h3>Earnings by Service</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Total Bookings</th>
+                        <th>Total Earnings</th>
+                        <th>Average per Booking</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var service in Model.ServiceEarnings)
+                    {
+                        <tr>
+                            <td>@service.ServiceName</td>
+                            <td>@service.TotalBookings</td>
+                            <td>$@service.TotalEarnings.ToString("N2")</td>
+                            <td>$@((service.TotalEarnings / service.TotalBookings).ToString("N2"))</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Monthly Earnings Table -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h3>Monthly Earnings</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Number of Bookings</th>
+                        <th>Total Earnings</th>
+                        <th>Average per Booking</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var month in Model.MonthlyEarnings)
+                    {
+                        <tr>
+                            <td>@month.Month.ToString("MMMM yyyy")</td>
+                            <td>@month.NumberOfBookings</td>
+                            <td>$@month.TotalEarnings.ToString("N2")</td>
+                            <td>$@((month.TotalEarnings / month.NumberOfBookings).ToString("N2"))</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Recent Bookings Table -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Recent Bookings</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Service</th>
+                        <th>Customer</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var booking in Model.Bookings.Take(10))
+                    {
+                        <tr>
+                            <td>@booking.BookingDate.ToShortDateString()</td>
+                            <td>@booking.Service.Name</td>
+                            <td>@booking.User.Firstname</td>
+                            <td>$@Model.Worker.Price.ToString("N2")</td>
+                            <td>
+                                @if (booking.TimeSlot?.IsBooked == true)
+                                {
+                                    <span class="badge bg-success">Completed</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning">Pending</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Add any JavaScript for interactive charts here if needed
+    </script>
+}

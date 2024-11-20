@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,6 +10,7 @@ using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 
 namespace ServiceWorkerWebsite.Controllers
 {
@@ -17,11 +19,13 @@ namespace ServiceWorkerWebsite.Controllers
 
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ServiceWorkerWebsiteUser> _userManager;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public WorkersController(ApplicationDbContext context, UserManager<ServiceWorkerWebsiteUser> userManager)
+        public WorkersController(ApplicationDbContext context, UserManager<ServiceWorkerWebsiteUser> userManager, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _userManager = userManager;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public async Task<IActionResult> Index(int serviceId, string sortOrder)
@@ -246,7 +250,22 @@ namespace ServiceWorkerWebsite.Controllers
 
             return View(worker);
         }
+        private async Task<string> ConvertImageToBase64(IFormFile file)
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                await file.CopyToAsync(memoryStream);
+                byte[] imageBytes = memoryStream.ToArray();
+                string base64String = Convert.ToBase64String(imageBytes);
+                return $"data:{file.ContentType};base64,{base64String}";
+            }
+        }
 
+        private string ProcessWebcamImage(string capturedImage)
+        {
+            // Webcam image is already in base64 format, just return it
+            return capturedImage;
+        }
 
 
         // POST: Workers/Create
@@ -288,50 +307,13 @@ namespace ServiceWorkerWebsite.Controllers
 
                 if (ProfilePicFile != null && ProfilePicFile.Length > 0)
                 {
-
-
-
-
-
-                    // Ensure the directory exists
-                    if (!Directory.Exists(uploadsFolder))
-                    {
-                        Directory.CreateDirectory(uploadsFolder);
-                        Console.WriteLine($"Created directory: {uploadsFolder}");
-                    }
-
-                    // Generate a unique file name
-
-
-                    var uniqueFileName = $"{ProfilePicFile.FileName}";
-                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                    Console.WriteLine($"Saving file to: {filePath}");
-
-                    // Save the file to the specified path
-                    using (var fileStream = new FileStream(filePath, FileMode.Create))
-                    {
-                        await ProfilePicFile.CopyToAsync(fileStream);
-                    }
-
-                    // Store the relative path in the database
-                    worker.ProfilePic_Id = $"/WorkerProfilePic/{uniqueFileName}";
+                    // Convert uploaded file to base64
+                    worker.ProfilePic_Id = await ConvertImageToBase64(ProfilePicFile);
                 }
                 else if (!string.IsNullOrEmpty(CapturedImage))
                 {
-
-                    if (!Directory.Exists(uploadsFolder))
-                    {
-                        Directory.CreateDirectory(uploadsFolder);
-                    }
-
-                    var base64Data = CapturedImage.Split(',')[1];
-                    var imageBytes = Convert.FromBase64String(base64Data);
-
-                    string uniqueFileName = $"{Guid.NewGuid()}.png";
-                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                    await System.IO.File.WriteAllBytesAsync(filePath, imageBytes);
-
-                    worker.ProfilePic_Id = $"/WorkerProfilePic/{uniqueFileName}";
+                    // Use webcam capture (already in base64)
+                    worker.ProfilePic_Id = CapturedImage;
                 }
 
                 else
@@ -377,6 +359,12 @@ namespace ServiceWorkerWebsite.Controllers
 
             ViewBag.Services = serviceItems;
             return View(worker);
+        }
+        private async Task<string> ConvertDefaultImageToBase64()
+        {
+            string defaultImagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "default-profile.png");
+            byte[] imageBytes = await System.IO.File.ReadAllBytesAsync(defaultImagePath);
+            return $"data:image/png;base64,{Convert.ToBase64String(imageBytes)}";
         }
 
 

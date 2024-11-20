@@ -12,6 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddSingleton<IWebHostEnvironment>(builder.Environment);
+
 // PayPal client configuration
 builder.Services.AddSingleton(x =>
     new PaypalClient(
