@@ -24,15 +24,17 @@
             if (times.Length != 2) return false;
 
             var endTimeStr = times[1].Trim();
-            if (DateTime.TryParse($"{DateTime.Now.ToString("MM/dd/yyyy")} {endTimeStr}", out DateTime endDateTime))
+            if (DateTime.TryParse($"{bookingDate.ToString("MM/dd/yyyy")} {endTimeStr}", out DateTime endDateTime))
             {
+                Console.WriteLine($"Booking Date: {bookingDate}, Time Slot: {timeSlotStr}, End Date Time: {endDateTime}");
                 return DateTime.Now > endDateTime;
             }
 
             return false;
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine($"Error in IsBookingPast function: {ex.Message}");
             return false;
         }
     }
