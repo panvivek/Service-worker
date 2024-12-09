@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3vBYgk3JNPK/0B9fD9GyesZyfprJff93eT3ka0Y7ZTaFw/fpAog1rx8I9xy1daRZZUkDMwaYZQr+p49NiZMkEw==",
+  "dgSpecHash": "A86b5zBFjLduCRoXxljSMe6aCu0Y9WbHtv7k1gAyzLd33k10dUr+Q53y7qkzMuLd8QwYiq9wLRj0cByNmdB6yQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Semester 6\\Capstone\\Service-worker\\ServiceWorkerWebsite.csproj",
+  "projectFilePath": "C:\\Users\\freya\\OneDrive - Sheridan College\\Laptop Transfer\\Permanent Full time job search\\Project cloning\\QuickFix\\ServiceWorkerWebsite.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\freya\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\freya\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
